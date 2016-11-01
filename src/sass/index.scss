@@ -1,0 +1,15 @@
+@import 'common.scss';
+
+div.swiper-container{
+  height:100%;
+  border:1px solid #f00;
+  div.item1{
+    background-color: red;
+  }
+  div.item2{
+    background-color: aqua;
+  }
+  div.item3{
+    background-color: antiquewhite;
+  }
+}
