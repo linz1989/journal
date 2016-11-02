@@ -41,5 +41,19 @@ exports.Global = {
             frame.src = ''
             doc.body.appendChild(frame)
         }
+    },
+    resizeWin: function () {
+        var _this = this
+        var win = window
+        var doc = document
+        var htmlEl = doc.documentElement
+        if (!_this.baseWidth) {
+            _this.baseWidth = doc.body.clientWidth || 320
+        }
+        _this.winWidth = htmlEl.clientWidth || win.innerWidth || doc.body.clientWidth
+        _this.winHeight = htmlEl.clientHeight || win.innerHeight
+        _this.winWidth = _this.winWidth > 720 ? 720 : (_this.winWidth < 320 ? 320 : _this.winWidth)
+        _this.winScale = _this.winWidth / _this.baseWidth
+        htmlEl.style.fontSize = _this.winScale * 16 + 'px'
     }
 }

@@ -2,12 +2,28 @@
     @import './styles/index.css';
 </style>
 <template>
-    <router-view></router-view>
-    <!--<swiper :options='swiperOption'>
-        <swiper-slide v-for='item in list' :class="'item'+item">
-            <div></div>
+    <swiper :options='swiperOption'>
+        <swiper-slide class="index-slide">
+            <div class="center-circle">
+                <div class="line-top"></div>
+                <div class="line-bottom"></div>
+                <div class="circle small"></div>
+                <div class="circle mid"></div>
+                <div class="circle big"></div>
+            </div>
+            <div class="text"><div>这是活动标题，活动标题一</div></div>
         </swiper-slide>
-    </swiper>-->
+        <swiper-slide class="tech-slide common-slide">
+            <div class="wrap">
+                <div class="page-title"></div>
+                <div class="tech-info">
+                    <div class="tech-header"></div>
+                    <div class="chat-btn"></div>
+                </div>
+            </div>
+            <div class="like-btn">很赞</div>
+        </swiper-slide>
+    </swiper>
 </template>
 <script>
     import { swiper, swiperSlide } from 'vue-awesome-swiper'
@@ -32,32 +48,14 @@
             }
         },
         created: function () {
-            var _this = this
-
-            // 依据窗口的宽度调整
             window.addEventListener('resize', function () {
-                _this.initWindowWidth()
+                Global.resizeWin()
             })
-            _this.initWindowWidth()
+            Global.resizeWin()
         },
         mounted: function () {
 
         },
-        methods: {
-            initWindowWidth: function () {
-                var global = this.global
-                var win = window
-                var doc = document
-                var htmlEl = doc.documentElement
-                if (!global.baseWidth) {
-                    global.baseWidth = doc.body.clientWidth || 320
-                }
-                global.winWidth = htmlEl.clientWidth || win.innerWidth || doc.body.clientWidth
-                global.winHeight = htmlEl.clientHeight || win.innerHeight
-                global.winWidth = global.winWidth > 720 ? 720 : (global.winWidth < 320 ? 320 : global.winWidth)
-                global.winScale = global.winWidth / global.baseWidth
-                htmlEl.style.fontSize = global.winScale * 16 + 'px'
-            }
-        }
+        methods: { }
     }
 </script>
