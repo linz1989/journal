@@ -2,6 +2,11 @@
  * 全局的数据
  * */
 exports.Global = {
+    pageHeader: null,
+    swiperArr: [],
+    aniEles: [], // 每个swipe下的ani元素
+    app: null, // 对app组件中this的引用
+    swiper: null, // 对swiper的引用
     data: {
         baseWidth: null,                           // 页面加载时窗口初始宽度，用于计算页面 scale
         winWidth: null,                             // 页面内容容器的当前宽度--固定20rem
@@ -20,6 +25,9 @@ exports.Global = {
 
         userAgent.isWX = /micromessenger/.test(ua)
         userAgent.isiPhone = /iPhone/i.test(ua)
+
+        _this.pageHeader = document.querySelector('#page-header')
+        console.dir(_this.pageHeader)
     },
     // 设置页面标题
     setDocumentTitle: function (title) {
