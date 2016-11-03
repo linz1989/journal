@@ -74,8 +74,10 @@
             <div class="wrap">
                 <div class="page-title"></div>
                 <div class="info-wrap">
-                    <video class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="100%" height="100%">
-                         <source src="images/exp.mp4" type='video/mp4'/>
+                    <video class="video-js vjs-default-skin" controls preload="auto" width="100%" height="100%" data-setup="{}">
+                        <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+                        <source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
+                        <source src="http://vjs.zencdn.net/v/oceans.ogv" type="video/ogg">
                     </video>
                 </div>
             </div>
@@ -140,8 +142,6 @@
 <script>
     import { swiper, swiperSlide } from 'vue-awesome-swiper'
     import { Global } from './libs/global'
-
-    require('video.js/dist/video-js.min.css');
 
     module.exports = {
         components: {
