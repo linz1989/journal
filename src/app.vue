@@ -24,7 +24,7 @@
                     <div class="service-list"><div class="item-btn left">足浴项目</div><div class="item-btn left">中医推拿</div><div class="item-btn left">美容理疗</div></div>
                 </div>
             </div>
-            <div class="bottom-btn like-btn">很赞</div>
+            <div class="bottom-btn like-btn ani">很赞</div>
         </swiper-slide>
         <swiper-slide class="service-item-slide common-slide">
             <div class="wrap">
@@ -42,7 +42,7 @@
                     <div>最好的服务都在我这里啦最好的服务都在我这里啦</div>
                 </div>
             </div>
-            <div class="bottom-btn like-btn">很赞</div>
+            <div class="bottom-btn like-btn ani">很赞</div>
         </swiper-slide>
         <swiper-slide class="tech-list-slide common-slide">
             <div class="wrap">
@@ -69,31 +69,30 @@
                     <div class="item-btn right">足浴项目</div>
                 </div>
             </div>
-            <div class="bottom-btn like-btn">很赞</div>
+            <div class="bottom-btn like-btn ani">很赞</div>
         </swiper-slide>
         <swiper-slide class="common-slide tech-pics-slide">
             <div class="wrap">
                 <div class="page-title ani"></div>
-                <swiper :options="picSwiperOption" class="pics-swiper">
-                    <swiper-slide class="s1"></swiper-slide>
-                    <swiper-slide class="s2"></swiper-slide>
-                    <swiper-slide class="s3"></swiper-slide>
+                <swiper :options="techPicOption" class="pics-swiper">
+                    <swiper-slide v-for="item in techPics" :class="'s'+item"></swiper-slide>
+                    <div class="swiper-pagination" slot="pagination"></div>
                 </swiper>
             </div>
-            <div class="bottom-btn like-btn">很赞</div>
+            <div class="bottom-btn like-btn ani">很赞</div>
         </swiper-slide>
         <swiper-slide class="common-slide video-slide">
             <div class="wrap">
                 <div class="page-title ani"></div>
                 <div class="info-wrap opacity-ani ani">
-                    <video class="video-js vjs-default-skin" controls preload="auto" width="100%" height="100%" data-setup="{}">
+                    <video class="video-js vjs-default-skin" controls preload="meta" width="100%" height="100%" data-setup="{}">
                         <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
                         <source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
                         <source src="http://vjs.zencdn.net/v/oceans.ogv" type="video/ogg">
                     </video>
                 </div>
             </div>
-            <div class="bottom-btn like-btn">很赞</div>
+            <div class="bottom-btn like-btn ani">很赞</div>
         </swiper-slide>
         <swiper-slide class="act-slide common-slide service-item">
             <div class="wrap">
@@ -104,10 +103,10 @@
                     <div><strong>155</strong><span>元</span>（或<b>1000</b>积分）</div>
                     <div>原价：300元</div>
                     <div>距结束：<b>11</b>时<b>05</b>分<b>21</b>秒<span>剩余22份</span></div>
-                    <div class="shadow-btn grab-btn"></div>
+                    <div class="shadow-btn grab-btn ani"></div>
                 </div>
             </div>
-            <div class="bottom-btn like-btn">很赞</div>
+            <div class="bottom-btn like-btn ani">很赞</div>
         </swiper-slide>
         <swiper-slide class="act-slide common-slide one-yuan">
             <div class="wrap">
@@ -115,12 +114,12 @@
                 <div class="info-wrap opacity-ani ani">
                     <div></div>
                     <div><b>泰式按摩</b>(第二期)</div>
-                    <div><div style="width:60%"></div></div>
+                    <div><div class="ani" id="one-yuan-count"></div></div>
                     <div>已抢：<span>247/500</span></div>
-                    <div class="shadow-btn grab-btn"></div>
+                    <div class="shadow-btn grab-btn ani"></div>
                 </div>
             </div>
-            <div class="bottom-btn like-btn">很赞</div>
+            <div class="bottom-btn like-btn ani">很赞</div>
         </swiper-slide>
         <swiper-slide class="act-slide common-slide coupon">
             <div class="wrap">
@@ -131,9 +130,10 @@
                         <div><b>￥</b><strong>500</strong>满500元可用</div>
                         <div>有效时间：客人购买后60天有效</div>
                     </div>
-                    <div class="shadow-btn grab-btn"></div>
+                    <div class="shadow-btn grab-btn ani"></div>
                 </div>
             </div>
+            <div class="bottom-btn like-btn ani">很赞</div>
         </swiper-slide>
         <swiper-slide class="health-slide common-slide">
             <div class="wrap">
@@ -145,8 +145,8 @@
                     <p>本活动需要支付，最低元起，每支付块钱获得需要支付。</p>
                 </div>
             </div>
-            <div class="bottom-btn like-btn">很赞</div>
-            <div class="bottom-btn share-btn">分享</div>
+            <div class="bottom-btn like-btn ani">很赞</div>
+            <div class="bottom-btn share-btn ani">分享</div>
             <div class="over-tip">—更多精彩去网上会所看看—</div>
         </swiper-slide>
     </swiper>
@@ -162,11 +162,11 @@
         },
         data: function () {
             return {
-                global: Global.data,
-                list: [1, 2, 3],
+                techPics: [1, 2, 3],
                 swiperOption: {
                     direction: 'vertical',
                     observeParents: true,
+                    mousewheelControl: true,
                     onInit: function (swiper) {
                         var global = Global
                         if (global.app) {
@@ -186,12 +186,14 @@
                         console.log('swiper change end...' + swiper.activeIndex + '---' + swiper.previousIndex)
                         var global = Global
                         var activeIndex = swiper.activeIndex
-                        var previousIndex = swiper.previousIndex
+                        // var previousIndex = swiper.previousIndex
                         var pageHeaderCls = global.pageHeader.classList
+                        var slideArrowCls = global.slideArrow.classList
                         var swiperArr = global.swiperArr
                         var aniEles = global.aniEles
-                        var currSwiper = swiperArr[activeIndex]
-                        var previousAniEles // 前一个页面的ani元素
+                        var currSwiper
+                        var k = 0
+                        // var previousAniEles // 前一个页面的ani元素
 
                         if (activeIndex === 0) {
                             pageHeaderCls.remove('common')
@@ -203,16 +205,14 @@
                             swiperArr = document.querySelectorAll('div.journal-page>div.swiper-wrapper>div.swiper-slide')
                         }
 
-                        if (!currSwiper) {
-                            currSwiper = swiperArr[activeIndex]
-                        }
+                        currSwiper = swiperArr[activeIndex]
                         if (!aniEles[activeIndex]) {
                             aniEles[activeIndex] = currSwiper.querySelectorAll('.ani')
                         }
                         var currPageAniEles = aniEles[activeIndex] // 当前页面的ani元素
 
                         // console.dir(currPageAniEles)
-                        if (swiperArr[previousIndex]) {
+                        /* if (swiperArr[previousIndex]) {
                             if (!aniEles[previousIndex]) {
                                 aniEles[previousIndex] = swiperArr[previousIndex].querySelectorAll('.ani')
                             }
@@ -224,23 +224,35 @@
                             previousAniEles.forEach(function (el) {
                                 el.classList.remove('act')
                             })
+                        } */
+
+                        if (currPageAniEles && currPageAniEles.length > 0 && !currPageAniEles[0].classList.contains('act')) {
+                            for (k = 0; k < currPageAniEles.length; k++) {
+                                currPageAniEles[k].classList.add('act')
+                            }
+                            if (currSwiper.classList.contains('one-yuan')) {
+                                console.log('one-yuan-count width')
+                                document.querySelector('#one-yuan-count').style.width = '60%'
+                            }
                         }
 
-                        if (currPageAniEles && currPageAniEles.length > 0) {
-                            currPageAniEles.forEach(function (el) {
-                                el.classList.add('act')
-                            })
+                        if (swiper.isEnd) {
+                            slideArrowCls.remove('act')
+                        } else {
+                            slideArrowCls.add('act')
                         }
                     }
                 },
-                picSwiperOption: {
-                    effect: 'cube',
-                    grabCursor: true,
-                    cube: {
-                        shadow: true,
-                        slideShadows: true,
-                        shadowOffset: 20,
-                        shadowScale: 0.94
+                techPicOption: {
+                    pagination: '.swiper-pagination',
+                    loop: true,
+                    autoplayDisableOnInteraction: false,
+                    observeParents: true,
+                    onInit: function (techSwiper) {
+                        setTimeout(function () {
+                            techSwiper.reLoop()
+                            techSwiper.slideNext(null, 0)
+                        }, 500)
                     }
                 }
             }
@@ -250,7 +262,6 @@
                 Global.resizeWin()
             })
             Global.resizeWin()
-            console.log('created....')
         },
         mounted: function () {
             var _this = this
@@ -259,14 +270,28 @@
             })
         },
         methods: {
-            init: function () {
-                console.log('app init first page')
-                Global.swiperArr = document.querySelectorAll('div.journal-page>div.swiper-wrapper>div.swiper-slide')
-                var aniEles = Global.swiperArr[0].querySelectorAll('.ani')
-                Global.aniEles[0] = aniEles
-                aniEles.forEach(function (el) {
-                    el.classList.add('act')
-                })
+            init: function () { // init index page
+                var global = Global
+                global.swiperArr = document.querySelectorAll('div.journal-page>div.swiper-wrapper>div.swiper-slide')
+                var aniEles = global.swiperArr[0].querySelectorAll('.ani')
+                global.aniEles[0] = aniEles
+                for (var k = 0; k < aniEles.length; k++) {
+                    aniEles[k].classList.add('act')
+                }
+                global.pageHeader.classList.add('act')
+                setTimeout(function () {
+                    global.slideArrow.classList.add('act')
+                }, 3000)
+
+                // 调整贵宾福利 抢项目页面 info-wrap与page-title的间距
+                var winHeightRem = global.winHeight / (16 * global.winScale)
+                if (winHeightRem > 28.889) {
+                    var marginRem = winHeightRem - 28.889
+                    if (marginRem > 0.9) {
+                        marginRem = 0.9
+                    }
+                    document.querySelector('div.common-slide.service-item>div.wrap>div.info-wrap').style.marginTop = marginRem + 'rem'
+                }
             }
         }
     }

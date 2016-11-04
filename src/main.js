@@ -7,6 +7,8 @@ Global.init()
 Vue.use(VueResource)
 Vue.http.options.emulateJSON = true
 
+window['_g'] = Global
+
 // 设置vue-resource的inteceptor
 Vue.http.interceptors.push(function (request, next) {
     // 设置全局的请求参

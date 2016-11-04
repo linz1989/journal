@@ -4,7 +4,6 @@
   0%, 30% {
     opacity: 0;
     -webkit-transform: translate(0, 6px);
-    display: none;
   }
   60% {
     opacity: 1;
@@ -13,7 +12,6 @@
   100% {
     opacity: 0;
     -webkit-transform: translate(0, -6px);
-    display: none;
   }
 }
 
@@ -21,7 +19,6 @@
   0%, 30% {
     opacity: 0;
     -moz-transform: translate(0, 6px);
-    display: none;
   }
   60% {
     opacity: 1;
@@ -30,7 +27,6 @@
   100% {
     opacity: 0;
     -moz-transform: translate(0, -6px);
-    display: none;
   }
 }
 
@@ -38,7 +34,6 @@
   0%, 30% {
     opacity: 0;
     transform: translate(0, 6px);
-    display: none;
   }
   60% {
     opacity: 1;
@@ -47,7 +42,6 @@
   100% {
     opacity: 0;
     transform: translate(0, -6px);
-    display: none;
   }
 }
 
@@ -58,13 +52,15 @@ div.journal-page{
 
 #page-header{
   position: fixed;
-  top:0.333rem;
-  left:0;
-  right:0;
+  top:-6rem;
+  left:50%;
+  width:20rem;
   height:3.3889rem;
   padding-left:0.667rem;
-  z-index:1000;
-  @include transition(height 0.3s);
+  margin-left:-10rem;
+  z-index:100;
+  opacity: 0;
+  transition: height 0.3s, opacity 0.3s 3s, top 0.3s 3s ease-out;
   div.logo{
     width:3.389rem;
     height:3.389rem;
@@ -131,7 +127,7 @@ div.journal-page{
     div.logo{
       width:1.528rem;
       height:1.528rem;
-      border:1px solid #504169;
+      //border:1px solid #504169;
     }
     div.info{
       width:14.528rem;
@@ -146,9 +142,14 @@ div.journal-page{
       display: block;
     }
   }
+  &.act{
+    opacity: 1;
+    top:0.333rem;
+  }
 }
 
-div.slide-arrow{
+#slide-arrow{
+  display: none;
   position: fixed;
   width:1.25rem;
   height:0.972rem;
@@ -159,6 +160,9 @@ div.slide-arrow{
   @include img("../images/20.png",1.25rem 0.972rem);
   -webkit-animation: down-up-ani 1.5s infinite ease-in-out;
   animation: down-up-ani 1.5s infinite ease-in-out;
+  &.act{
+    display: block;
+  }
 }
 
 div.index-slide{
@@ -176,7 +180,7 @@ div.index-slide{
     @include img("../images/02.png",10.666rem 10.666rem);
     transform: rotate(720deg) scale(0,0);
     transform-origin: 50% 50%;
-    transition: transform 0.4s;
+    transition: transform 0.6s ease-out;
     &.act{
       transform: rotate(0deg) scale(1,1);
       &:after{
@@ -195,7 +199,7 @@ div.index-slide{
       transform-origin: 50% 50%;
       transform: scale(0.82759,0.82759);
       opacity: 0;
-      transition: transform 0.3s 0.4s, opacity 0s 0.4s;
+      transition: transform 0.4s 0.6s, opacity 0.3s 0.6s;
     }
     div{
       position: absolute;
@@ -207,9 +211,7 @@ div.index-slide{
       left:8rem;
       opacity: 0;
       @include img('../images/04.png',4.5rem 2.972rem);
-      transition: left 0.3s 0.7s, top 0.3s 0.7s, opacity 0.1s 0.7s;
       &.act{
-        opacity: 1;
         top:-3.3rem;
         left:3rem;
       }
@@ -221,17 +223,21 @@ div.index-slide{
       left:-3.8rem;
       opacity: 0;
       @include img("../images/05.png",3.167rem 2.056rem);
-      transition: left 0.3s 0.7s, top 0.3s 0.7s, opacity 0.1s 0.7s;
       &.act{
         top:11rem;
         left:1.2rem;
+      }
+    }
+    div.line-top,div.line-bottom{
+      transition: left 0.3s 1s, top 0.3s 1s, opacity 0.2s 1s;
+      &.act{
         opacity: 1;
       }
     }
     div.circle{
       border-radius: 50%;
       opacity: 0;
-      transition: opacity .5s 1s,top .5s 1s;
+      transition: opacity .3s 3s,top .9s 3s ease-out;
       &.act{
         opacity: 0.5;
       }
@@ -277,11 +283,11 @@ div.index-slide{
     margin-top:-5.194rem;
     text-align: center;
     opacity: 0;
-    transform: scale(0,1);
+    transform: scale(0,0) rotate(370deg);
     transform-origin: 50% 50%;
-    transition: opacity 0.1s 1s, transform 0.6s 1s;
+    transition: opacity 0.1s 1.5s, transform 0.6s 1.5s ease-out;
     &.act{
-      transform: scale(1,1);
+      transform: scale(1,1) rotate(0deg);
       opacity: 1;
     }
     &:before{
@@ -303,8 +309,10 @@ div.index-slide{
       font-weight: bold;
       border-radius: 1.2rem;
       transform: rotate(0deg);
-      transition: transform 0.3s 1.6s;
+      opacity: 0;
+      transition: transform 0.6s 2.1s ease-out, opacity 0.4s 2.1s;
       &.act{
+        opacity: 1;
         transform: rotate(-10deg);
       }
     }
@@ -332,9 +340,11 @@ div.common-slide{
     margin-right:auto;
     &.opacity-ani{
       opacity: 0;
-      transition: opacity 0.4s 1s;
+      transform: translateY(-3rem);
+      transition: opacity 0.4s 1s, transform 0.5s 1s ease-out;
       &.act{
         opacity: 1;
+        transform: translateY(0);
       }
     }
   }
@@ -370,13 +380,19 @@ div.common-slide{
     position: absolute;
     width:8.944rem;
     height:1.861rem;
-    bottom:2.5rem;
+    bottom:-1rem;
     left:50%;
     padding-left:5.278rem;
     margin-left:-4.472rem;
     line-height: 1.861rem;
     color:#fff;
     @include imgBgFix(8.944rem 1.861rem);
+    opacity: 0;
+    transition: opacity 0.3s 2s, bottom 0.4s 2s ease-out;
+    &.act{
+      opacity: 1;
+      bottom:2.5rem;
+    }
   }
   div.like-btn{
     background-image: url("../images/08.png");
@@ -450,7 +466,7 @@ div.new-tech-slide{
     width:7.5rem;
     height:7.5rem;
     margin:-2.611rem auto 0;
-    transform-style: preserve-3d;
+    //transform-style: preserve-3d;
     transform-origin: center center;
     >div{
       width:100%;
@@ -459,9 +475,9 @@ div.new-tech-slide{
       border-radius: 50%;
       @include imgBgFix(7.5rem 7.5rem);
       background-image: url("../images/logo.png");
-      transform: rotateY(360deg);
+      transform: rotateY(540deg);
       opacity: 0;
-      transition: transform 1.5s 1.4s ease, opacity 0.1s 1.4s;
+      transition: transform 1.5s 1.4s ease-in-out, opacity 0.6s 1.4s;
     }
     &.act{
       >div{
@@ -517,7 +533,7 @@ div.service-item-slide{
     padding:0.861rem 0.306rem 0;
     color:#fff;
     opacity: 0;
-    transition: opacity 0.5s 1s, transform 0.6s 1s;
+    transition: opacity 0.5s 1s, transform 0.6s 1s ease-out;
     &.act{
       opacity: 1;
       transform: translateX(0) !important;
@@ -531,6 +547,7 @@ div.service-item-slide{
       margin-top:-2.972rem;
       border:0.111rem solid #fff;
       @include imgBgFix(5.944rem 5.944rem);
+      background-image: url("../images/logo.png");
     }
     >div{
       &:nth-of-type(2){
@@ -580,13 +597,13 @@ div.tech-list-slide{
     opacity: 0;
     transform: translateX(5rem);
     &.t1{
-      transition: opacity 0.4s 1s, transform 0.6s 1s;
+      transition: opacity 0.4s 1s, transform 0.6s 1s ease-out;
     }
     &.t2{
-      transition: opacity 0.4s 1.2s, transform 0.6s 1.2s;
+      transition: opacity 0.4s 1.3s, transform 0.6s 1.3s ease-out;
     }
     &.t3{
-      transition: opacity 0.4s 1.4s, transform 0.6s 1.4s;
+      transition: opacity 0.4s 1.6s, transform 0.6s 1.6s ease-out;
     }
     &.act{
       opacity: 1;
@@ -603,6 +620,8 @@ div.tech-list-slide{
         margin-top:-2.083rem;
         border-radius: 50%;
         border:0.111rem solid #c857b0;
+        @include imgBgFix(4.166rem 4.166rem);
+        background-image: url("../images/logo.png");
       }
       &:nth-of-type(2){
         font-size:0.889rem;
@@ -643,7 +662,7 @@ div.tech-pics-slide{
     width:13.528rem;
     margin:0.8rem auto 0;
     div.swiper-slide{
-      border-radius: 0.25rem;
+      //border-radius: 0.25rem;
       @include imgBgFix(13.528rem 17.444rem)
     }
     div.s1{
@@ -654,6 +673,12 @@ div.tech-pics-slide{
     }
     div.s3{
       background-image: url("../images/exp3.png");
+    }
+  }
+
+  div.swiper-pagination{
+    .swiper-pagination-bullet-active{
+      background-color: #1a0532;
     }
   }
 }
@@ -688,11 +713,18 @@ div.act-slide{
   div.grab-btn{
     width:9.056rem;
     height:2.278rem;
+    opacity: 0;
+    transform: translateY(4rem);
+    transition: opacity 0.3s 1.6s, transform 0.4s 1.6s ease-out;
     &:after{
       content : "马上抢";
       width:9.056rem;
       font-size:1.306rem;
       line-height: 2.278rem;
+    }
+    &.act{
+      opacity: 1;
+      transform: translateY(0);
     }
   }
   &.service-item,&.one-yuan{
@@ -708,6 +740,8 @@ div.act-slide{
           height:6.333rem;
           border:0.111rem solid #c857b0;
           border-radius: 0.2rem;
+          @include imgBgFix(6.333rem 6.333rem);
+          background-image: url("../images/logo.png");
         }
       }
     }
@@ -754,6 +788,7 @@ div.act-slide{
   }
   &.one-yuan{
     div.info-wrap{
+      margin-top:0.9rem;
       >div{
         &:nth-of-type(2){
           margin:0.972rem auto;
@@ -771,7 +806,7 @@ div.act-slide{
             height:100%;
             border-radius: 0.5rem;
             background-color: #ffc450;
-            @include transition(width 0.3s);
+            transition: width 0.5s 1.6s ease-out;
           }
         }
         &:nth-of-type(4){
@@ -791,7 +826,8 @@ div.act-slide{
   }
   &.coupon{
     div.info-wrap{
-      padding:1.944rem 0 1.389rem;
+      margin-top:0.9rem;
+      padding:1.2rem 0;
       div{
         margin-left:auto;
         margin-right:auto;
@@ -854,12 +890,13 @@ div.health-slide{
   }
   div.info-wrap{
     margin-top:0.5rem;
-    padding:0.667rem 0.833rem;
+    padding:0.2rem 0.833rem 0.667rem;
     max-height: 18.5rem;
     overflow-y: auto;
     color:#fff;
     h3{
       display: inline-block;
+      margin-top:0.33rem;
       border-bottom:1px solid #fff;
       margin-bottom:0.3rem;
       font-weight: bold;
