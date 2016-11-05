@@ -1,0 +1,53 @@
+<!--技师管理-所有技师-导出二维码-->
+<section id="techExportQrCodePage" class="ms-controller" ms-controller="techExportQrCodeCtrl">
+    <script type="text/javascript" src="club-admin/compressed/js/page/techExportQrCode.js"></script>
+    <div class="formGroup">
+        <div class="title">选择二维码样式：</div>
+        <ul class="codeImg clearfix">
+            <li><div ms-class="active:currCodeStyle==1" ms-click="doChangeCodeStyle(1)"><img src="club-admin/img/tech/1.jpg"/></div></li>
+            <li><div ms-class="active:currCodeStyle==2" ms-click="doChangeCodeStyle(2)"><img src="club-admin/img/tech/2.jpg"/></div></li>
+            <li><div ms-class="active:currCodeStyle==3" ms-click="doChangeCodeStyle(3)"><img src="club-admin/img/tech/3.jpg"/></div></li>
+            <li><div ms-class="active:currCodeStyle==4" ms-click="doChangeCodeStyle(4)"><img src="club-admin/img/tech/4.jpg"/></div></li>
+            <li><div ms-class="active:currCodeStyle==5" ms-click="doChangeCodeStyle(5)"><img src="club-admin/img/tech/5.png"/></div></li>
+        </ul>
+    </div>
+    <div class="canvasImg">
+        <canvas id="c1" width="641" height="1008"></canvas>
+        <canvas id="c2" width="641" height="1008"></canvas>
+        <canvas id="c3" width="641" height="1008"></canvas>
+        <div id="tempQrCode"></div>
+    </div>
+    <div class="dataTable dataList" id="dataListTable">
+        <table>
+            <thead>
+            <tr>
+                <th colspan="7" class="header">
+                    技师列表
+                    <div class="search">
+                        <input type="text" id="search-text" placeholder="输入技师昵称或编号" maxlength="50"/>
+                        <a class="toolButton" ms-click="doClickSearchBtn()">搜索</a>
+                    </div>
+                    <a class="export toolButton" ms-click="doClickExportBtn()">导出</a>
+                </th>
+            </tr>
+            <tr>
+                <th style="width:18%" class="selectAll"><i ms-click="doClickSelectAll()" ms-class="active:isSelectedAll"></i>全选</th>
+                <th style="width:26%">技师编号</th>
+                <th style="width:26%">技师名称</th>
+                <th style="width:26%">技师手机号码</th>
+            </tr>
+            </thead>
+            <tbody ms-if="dataList.length == 0" class="noData">
+            <tr><td colspan="7">未能查询到数据！</td></tr>
+            </tbody>
+            <tbody ms-if="dataList.length != 0">
+            <tr ms-repeat="dataList">
+                <td><i ms-class="active:el.selected" ms-click="deSelectTech($index)"></i></td>
+                <td>{{el.serialNo}}</td>
+                <td>{{el.name}}</td>
+                <td>{{el.phoneNum}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
