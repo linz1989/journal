@@ -87,6 +87,7 @@ require(["css!../../compressed/css/page/"+$$.rootVm.page+".css?"+$$.rootVm.currT
         drawFirstCode(w,h);
         drawSecondCode(w,h);
         drawThirdCode(w,h);
+        drawFourthCode(w,h);
     }
 
     function drawFirstCode(w,h){ ////绘制样式一
@@ -235,7 +236,7 @@ require(["css!../../compressed/css/page/"+$$.rootVm.page+".css?"+$$.rootVm.currT
             }
 
             /////会所名称
-            c3.fillStyle = "#6a6a6a";
+            /*c3.fillStyle = "#6a6a6a";
             c3.font = "normal 25px 微软雅黑";
             c3.textAlign = "center";
             c3.textBaseline = "middle";
@@ -255,7 +256,45 @@ require(["css!../../compressed/css/page/"+$$.rootVm.page+".css?"+$$.rootVm.currT
             });
 
             var tempCode = $('#tempQrCode>canvas')[0];
-            c3.drawImage(tempCode,0,0,390,390,(w-324)/2,300,324,324);
+            c3.drawImage(tempCode,0,0,390,390,(w-324)/2,300,324,324);*/
+        }
+    }
+
+    function drawFourthCode(w,h){
+        var c4 = $("#c4")[0].getContext("2d");
+        var img1 = new Image();
+        img1.src = "club-admin/img/tech/4-1.jpg";
+        img1.onload = function() {
+            c4.drawImage(img1, 0, 0);
+
+            var img2 = new Image();
+            img2.src = "club-admin/img/tech/4-2.png";
+            img2.onload = function(){
+                c4.drawImage(img2,(w-407)/2,118);
+            }
+
+            /////会所名称
+            c4.fillStyle = "#fdefe4";
+            c4.font = "normal 25px 微软雅黑";
+            c4.textAlign = "center";
+            c4.textBaseline = "middle";
+            c4.fillText("小摩豆健康养生会所", w / 2, h - 148);
+
+            ////绘制工号
+            c4.fillStyle = "#9e272b";
+            c4.font = "normal 48px 微软雅黑";
+            c4.fillText("006号",w/2,h-275);
+
+            ////绘制二维码
+            $('#tempQrCode').qrcode({
+                width:390,
+                height:390,
+                text:"http://2321321321/abcde",
+                roundBlank:false
+            });
+
+            var tempCode = $('#tempQrCode>canvas')[0];
+            c4.drawImage(tempCode,(w-390)/2,280,390,390);
         }
     }
 });
