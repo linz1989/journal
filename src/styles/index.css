@@ -1446,20 +1446,16 @@ div.index-slide {
     div.index-slide div.center-circle.act {
       -webkit-transform: rotate(0deg) scale(1, 1);
               transform: rotate(0deg) scale(1, 1); }
-      div.index-slide div.center-circle.act:after {
+      div.index-slide div.center-circle.act > canvas:nth-of-type(1) {
         opacity: 1;
         -webkit-transform: scale(1, 1);
                 transform: scale(1, 1); }
-    div.index-slide div.center-circle:after {
-      content: "";
+    div.index-slide div.center-circle > canvas:nth-of-type(1) {
       position: absolute;
       width: 12.888rem;
       height: 12.888rem;
       top: -1.111rem;
       left: -1.111rem;
-      background-size: 12.888rem 12.888rem;
-      background-image: url("../images/03.png");
-      background-repeat: no-repeat;
       -webkit-transform-origin: 50% 50%;
               transform-origin: 50% 50%;
       -webkit-transform: scale(0.82759, 0.82759);
@@ -1469,36 +1465,30 @@ div.index-slide {
       transition: opacity 0.3s 0.6s, -webkit-transform 0.4s 0.6s;
       transition: transform 0.4s 0.6s, opacity 0.3s 0.6s;
       transition: transform 0.4s 0.6s, opacity 0.3s 0.6s, -webkit-transform 0.4s 0.6s; }
-    div.index-slide div.center-circle div {
+    div.index-slide div.center-circle div, div.index-slide div.center-circle canvas {
       position: absolute; }
-    div.index-slide div.center-circle div.line-top {
+    div.index-slide div.center-circle canvas.line-top {
       width: 4.5rem;
       height: 2.972rem;
       top: -8.3rem;
       left: 8rem;
-      opacity: 0;
-      background-size: 4.5rem 2.972rem;
-      background-image: url("../images/04.png");
-      background-repeat: no-repeat; }
-      div.index-slide div.center-circle div.line-top.act {
+      opacity: 0; }
+      div.index-slide div.center-circle canvas.line-top.act {
         top: -3.3rem;
         left: 3rem; }
-    div.index-slide div.center-circle div.line-bottom {
+    div.index-slide div.center-circle canvas.line-bottom {
       width: 3.167rem;
       height: 2.056rem;
       top: 15rem;
       left: -3.8rem;
-      opacity: 0;
-      background-size: 3.167rem 2.056rem;
-      background-image: url("../images/05.png");
-      background-repeat: no-repeat; }
-      div.index-slide div.center-circle div.line-bottom.act {
-        top: 11rem;
+      opacity: 0; }
+      div.index-slide div.center-circle canvas.line-bottom.act {
+        top: 11.15rem;
         left: 1.2rem; }
-    div.index-slide div.center-circle div.line-top, div.index-slide div.center-circle div.line-bottom {
+    div.index-slide div.center-circle canvas.line-top, div.index-slide div.center-circle canvas.line-bottom {
       -webkit-transition: left 0.3s 1s, top 0.3s 1s, opacity 0.2s 1s;
       transition: left 0.3s 1s, top 0.3s 1s, opacity 0.2s 1s; }
-      div.index-slide div.center-circle div.line-top.act, div.index-slide div.center-circle div.line-bottom.act {
+      div.index-slide div.center-circle canvas.line-top.act, div.index-slide div.center-circle canvas.line-bottom.act {
         opacity: 1; }
     div.index-slide div.center-circle div.circle {
       border-radius: 50%;

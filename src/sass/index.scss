@@ -183,52 +183,48 @@ div.index-slide{
     transition: transform 0.6s ease-out;
     &.act{
       transform: rotate(0deg) scale(1,1);
-      &:after{
+      >canvas:nth-of-type(1){
         opacity: 1;
         transform: scale(1,1)
       }
     }
-    &:after{
-      content : "";
+    >canvas:nth-of-type(1){
       position: absolute;
       width:12.888rem;
       height:12.888rem;
       top:-1.111rem;
       left:-1.111rem;
-      @include img("../images/03.png",12.888rem 12.888rem);
       transform-origin: 50% 50%;
       transform: scale(0.82759,0.82759);
       opacity: 0;
       transition: transform 0.4s 0.6s, opacity 0.3s 0.6s;
     }
-    div{
+    div,canvas{
       position: absolute;
     }
-    div.line-top{
+    canvas.line-top{
       width:4.5rem;
       height:2.972rem;
       top:-8.3rem;
       left:8rem;
       opacity: 0;
-      @include img('../images/04.png',4.5rem 2.972rem);
       &.act{
         top:-3.3rem;
         left:3rem;
       }
     }
-    div.line-bottom{
+    canvas.line-bottom{
       width:3.167rem;
       height:2.056rem;
       top:15rem;
       left:-3.8rem;
       opacity: 0;
-      @include img("../images/05.png",3.167rem 2.056rem);
       &.act{
-        top:11rem;
+        top:11.15rem;
         left:1.2rem;
       }
     }
-    div.line-top,div.line-bottom{
+    canvas.line-top,canvas.line-bottom{
       transition: left 0.3s 1s, top 0.3s 1s, opacity 0.2s 1s;
       &.act{
         opacity: 1;

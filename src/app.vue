@@ -5,8 +5,9 @@
     <swiper :options='swiperOption' class="journal-page">
         <swiper-slide class="index-slide">
             <div class="center-circle ani">
-                <div class="line-top ani"></div>
-                <div class="line-bottom ani"></div>
+                <canvas ref="bigCircle" width="464" height="464"></canvas>
+                <canvas ref="lineTop" class="line-top ani" width="162" height="107"></canvas>
+                <canvas ref="lineBottom" class="line-bottom ani" width="114" height="74"></canvas>
                 <div class="circle small ani"></div>
                 <div class="circle mid ani"></div>
                 <div class="circle big ani"></div>
@@ -267,6 +268,59 @@
             var _this = this
             _this.$nextTick(function () {
                 Global.app = _this
+
+                // 绘制canvas bigCircle
+                var bigCircleCtx = _this.$refs.bigCircle.getContext('2d')
+                var unitDeg = Math.PI / 180
+                var centerX = 232
+                var centerY = 232
+                var radius = 224
+                bigCircleCtx.strokeStyle = '#00f1cf'
+                bigCircleCtx.lineCap = 'round'
+                bigCircleCtx.lineWidth = 6
+                bigCircleCtx.arc(centerX, centerY, radius, 138 * unitDeg, 278 * unitDeg)
+
+                bigCircleCtx.moveTo(centerX + Math.cos(286 * unitDeg) * radius, centerY + Math.sin(286 * unitDeg) * radius)
+                bigCircleCtx.arc(centerX, centerY, radius, 286 * unitDeg, 290 * unitDeg)
+
+                bigCircleCtx.moveTo(centerX + Math.cos(293 * unitDeg) * radius, centerY + Math.sin(293 * unitDeg) * radius)
+                bigCircleCtx.arc(centerX, centerY, radius, 293 * unitDeg, 120 * unitDeg)
+
+                bigCircleCtx.moveTo(centerX + Math.cos(126 * unitDeg) * radius, centerY + Math.sin(126 * unitDeg) * radius)
+                bigCircleCtx.arc(centerX, centerY, radius, 126 * unitDeg, 134 * unitDeg)
+
+                bigCircleCtx.stroke()
+
+                // 绘制canvas lineTop
+                var lineTopCtx = _this.$refs.lineTop.getContext('2d')
+                lineTopCtx.strokeStyle = '#00f1cf'
+                lineTopCtx.lineCap = 'round'
+                lineTopCtx.lineWidth = 6
+
+                lineTopCtx.moveTo(9, 66)
+                lineTopCtx.lineTo(62, 20)
+                lineTopCtx.moveTo(6, 100)
+                lineTopCtx.lineTo(57, 54)
+                lineTopCtx.moveTo(68, 45)
+                lineTopCtx.lineTo(74, 40)
+
+                lineTopCtx.moveTo(68, 81)
+                lineTopCtx.lineTo(153, 5)
+                lineTopCtx.stroke()
+
+                // 绘制canvas lineBottom
+                var lineBottomCtx = _this.$refs.lineBottom.getContext('2d')
+                lineBottomCtx.strokeStyle = '#00f1cf'
+                lineBottomCtx.lineCap = 'round'
+                lineBottomCtx.lineWidth = 6
+
+                lineBottomCtx.moveTo(4, 67)
+                lineBottomCtx.lineTo(75, 4)
+                lineBottomCtx.moveTo(52, 68)
+                lineBottomCtx.lineTo(56, 64)
+                lineBottomCtx.moveTo(62, 56)
+                lineBottomCtx.lineTo(108, 13)
+                lineBottomCtx.stroke()
             })
         },
         methods: {

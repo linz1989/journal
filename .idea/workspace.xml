@@ -2,16 +2,55 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7723a4c4-511e-4374-9032-f610ab1696e7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test2.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.eslintrc.js" afterPath="$PROJECT_DIR$/.eslintrc.js" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvas/tech/1-1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvas/tech/1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvas/tech/2-1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvas/tech/2-2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvas/tech/2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvas/tech/3-1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvas/tech/3-2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvas/tech/3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvas/tech/4-1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvas/tech/4-2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvas/tech/4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvas/tech/5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvas/techExportQrCode.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvas/techExportQrCode.tpl.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvas/心型效果/效果.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvas/心型效果/胸牌.pdf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvas/心型效果/胸牌.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvas/胸牌.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvasTest/FileSaver.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvasTest/gulpfile.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvasTest/index.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvasTest/index.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvasTest/index.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvasTest/jquery-1.12.4.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvasTest/jquery.qrcode.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvasTest/jszip.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvasTest/tech/1-1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvasTest/tech/1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvasTest/tech/2-1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvasTest/tech/2-2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvasTest/tech/2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvasTest/tech/3-1 - 副本.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvasTest/tech/3-1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvasTest/tech/3-2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvasTest/tech/3.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvasTest/tech/4-1.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvasTest/tech/4-2.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvasTest/tech/4.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvasTest/tech/5-1.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/canvasTest/tech/5.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/images/03.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/images/04.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/images/05.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/test2.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app.vue" afterPath="$PROJECT_DIR$/src/app.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libs/global.js" afterPath="$PROJECT_DIR$/src/libs/global.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.js" afterPath="$PROJECT_DIR$/src/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sass/index.scss" afterPath="$PROJECT_DIR$/src/sass/index.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/index.css" afterPath="$PROJECT_DIR$/src/styles/index.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.html" afterPath="$PROJECT_DIR$/test.html" />
     </list>
     <ignored path="journal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,7 +72,40 @@
     <favorites_list name="journal" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="app.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="9" column="64" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
+              <folding>
+                <element signature="n#swiper-slide#1;n#swiper#0;n#template#0;n#!!top" expanded="false" />
+                <element signature="n#swiper-slide#2;n#swiper#0;n#template#0;n#!!top" expanded="false" />
+                <element signature="n#swiper-slide#3;n#swiper#0;n#template#0;n#!!top" expanded="false" />
+                <element signature="n#swiper-slide#4;n#swiper#0;n#template#0;n#!!top" expanded="false" />
+                <element signature="n#swiper-slide#5;n#swiper#0;n#template#0;n#!!top" expanded="false" />
+                <element signature="n#swiper-slide#6;n#swiper#0;n#template#0;n#!!top" expanded="false" />
+                <element signature="n#swiper-slide#7;n#swiper#0;n#template#0;n#!!top" expanded="false" />
+                <element signature="n#swiper-slide#8;n#swiper#0;n#template#0;n#!!top" expanded="false" />
+                <element signature="n#swiper-slide#9;n#swiper#0;n#template#0;n#!!top" expanded="false" />
+                <element signature="e#7698#11557#0" expanded="false" />
+                <element signature="e#11590#12055#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.scss" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/sass/index.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="383">
+              <caret line="246" column="12" selection-start-line="246" selection-start-column="12" selection-end-line="246" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -64,9 +136,9 @@
         <option value="$PROJECT_DIR$/src/main.js" />
         <option value="$PROJECT_DIR$/src/libs/global.js" />
         <option value="$PROJECT_DIR$/test.html" />
+        <option value="$PROJECT_DIR$/test2.html" />
         <option value="$PROJECT_DIR$/src/app.vue" />
         <option value="$PROJECT_DIR$/src/sass/index.scss" />
-        <option value="$PROJECT_DIR$/test2.html" />
       </list>
     </option>
   </component>
@@ -117,7 +189,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -136,9 +208,41 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="journal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="journal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="journal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="journal" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sass" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -254,11 +358,12 @@
       <workItem from="1478139962487" duration="29338000" />
       <workItem from="1478219747445" duration="27302000" />
       <workItem from="1478254844967" duration="18000" />
+      <workItem from="1478505461416" duration="9279000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59321000" />
+    <option name="totallyTimeSpent" value="68600000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -274,23 +379,23 @@
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15400843" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1371308" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.38713196" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32061067" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -475,13 +580,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="400">
-          <caret line="16" column="26" selection-start-line="16" selection-start-column="26" selection-end-line="16" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="526">
@@ -503,17 +601,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sass/index.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1200">
-          <caret line="681" column="5" selection-start-line="681" selection-start-column="5" selection-end-line="681" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app.vue">
+    <entry file="file://$PROJECT_DIR$/test.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="266" column="28" selection-start-line="266" selection-start-column="28" selection-end-line="266" selection-end-column="28" />
+          <caret line="33" column="5" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -521,6 +613,34 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
           <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="9" column="64" selection-start-line="9" selection-start-column="64" selection-end-line="9" selection-end-column="64" />
+          <folding>
+            <element signature="n#swiper-slide#1;n#swiper#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#swiper-slide#2;n#swiper#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#swiper-slide#3;n#swiper#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#swiper-slide#4;n#swiper#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#swiper-slide#5;n#swiper#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#swiper-slide#6;n#swiper#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#swiper-slide#7;n#swiper#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#swiper-slide#8;n#swiper#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#swiper-slide#9;n#swiper#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="e#7698#11557#0" expanded="false" />
+            <element signature="e#11590#12055#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sass/index.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="246" column="12" selection-start-line="246" selection-start-column="12" selection-end-line="246" selection-end-column="12" />
           <folding />
         </state>
       </provider>
