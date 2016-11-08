@@ -23,9 +23,6 @@ exports.Global = {
 
         userAgent.isWX = /micromessenger/.test(ua)
         userAgent.isiPhone = /iPhone/i.test(ua)
-
-        _this.pageHeader = document.querySelector('#page-header')
-        _this.slideArrow = document.querySelector('#slide-arrow')
         // console.dir(_this.pageHeader)
     },
     // 设置页面标题

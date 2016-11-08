@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="swiper.min.css" rel="stylesheet"/>
+    <script type="text/javascript" src="swiper.min.js"></script>
+    <style>
+        .blue-slide{
+            background-color: blue;
+        }
+        .red-slide{
+            background-color: red;
+        }
+        .orange-slide{
+            background-color: orange;
+        }
+    </style>
+    <script type="text/javascript">
+        window.onload = function(){
+            var mySwiper = new Swiper('#swiper-container1',{
+                effect : 'coverflow',
+                slidesPerView: 3,
+                centeredSlides: true,
+                coverflow: {
+                    rotate: 30,
+                    stretch: 10,
+                    depth: 60,
+                    modifier: 2,
+                    slideShadows : true
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+<div class="swiper-container" id="swiper-container1" style="height:300px;width:500px;">
+    <div class="swiper-wrapper">
+        <div class="swiper-slide blue-slide">slider1</div>
+        <div class="swiper-slide red-slide">slider2</div>
+        <div class="swiper-slide orange-slide">slider3</div>
+        <div class="swiper-slide blue-slide">slider4</div>
+        <div class="swiper-slide red-slide">slider5</div>
+        <div class="swiper-slide orange-slide">slider6</div>
+        <div class="swiper-slide blue-slide">slider7</div>
+        <div class="swiper-slide red-slide">slider8</div>
+        <div class="swiper-slide orange-slide">slider9</div>
+    </div>
+</div>
+</body>
+</html>

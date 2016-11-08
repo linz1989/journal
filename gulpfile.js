@@ -116,7 +116,7 @@ gulp.task('pub-dist',function(){
 });
 
 gulp.task('pub-img',function(){
-    exists( 'src/images', 'E:/workspace/spa-manager/WebRoot/spa/images', copy );
+    exists( 'src/images', 'dist/images', copy );
 });
 
 gulp.task('pub-index', function () {
