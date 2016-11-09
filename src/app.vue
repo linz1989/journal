@@ -54,10 +54,12 @@
                     <div class="page-title ani"></div>
                     <div class="info-wrap tech-info opacity-ani ani">
                         <div class="tech-header ani"><div></div></div>
-                        <div class="shadow-btn chat-btn"></div>
-                        <div class="tech-name">黄晶晶&nbsp;[&nbsp;6号&nbsp;]</div>
-                        <div class="tip">最好的服务都在我这里啦！</div>
-                        <div class="service-list"><div class="item-btn left">足浴项目</div><div class="item-btn left">中医推拿</div><div class="item-btn left">美容理疗</div></div>
+                        <div class="shadow-btn chat-btn ani"></div>
+                        <div class="name-wrap ani">
+                            <div class="tech-name">黄晶晶&nbsp;[&nbsp;6号&nbsp;]</div>
+                            <div class="tip">最好的服务都在我这里啦！</div>
+                            <div class="service-list"><div class="item-btn left">足浴项目</div><div class="item-btn left">中医推拿</div><div class="item-btn left">美容理疗</div></div>
+                        </div>
                     </div>
                 </div>
                 <div class="bottom-btn like-btn ani">很赞</div>
@@ -66,16 +68,20 @@
                 <div class="wrap">
                     <div class="page-title ani"></div>
                     <div class="info-wrap service left ani">
-                        <div class="service-img"></div>
-                        <div>面部SPA</div>
-                        <div><strong>98元</strong>/60分钟</div>
-                        <div>最好的服务都在我这里啦最好的服务都在我这里啦</div>
+                        <div class="service-img ani"></div>
+                        <div class="text-wrap ani">
+                            <div>面部SPA</div>
+                            <div><strong>98元</strong>/60分钟</div>
+                            <div>最好的服务都在我这里啦最好的服务都在我这里啦</div>
+                        </div>
                     </div>
                     <div class="info-wrap service right ani">
-                        <div class="service-img"></div>
-                        <div>面部SPA2</div>
-                        <div><strong>98元</strong>/60分钟</div>
-                        <div>最好的服务都在我这里啦最好的服务都在我这里啦</div>
+                        <div class="service-img ani"></div>
+                        <div class="text-wrap ani">
+                            <div>面部SPA2</div>
+                            <div><strong>98元</strong>/60分钟</div>
+                            <div>最好的服务都在我这里啦最好的服务都在我这里啦</div>
+                        </div>
                     </div>
                 </div>
                 <div class="bottom-btn like-btn ani">很赞</div>
@@ -84,25 +90,25 @@
                 <div class="wrap">
                     <div class="page-title ani"></div>
                     <div class="info-wrap tech t1 ani">
-                        <div></div>
+                        <div class="ani"></div>
                         <div>张得好[66号]</div>
                         <div>擅长最专业的泰式按摩</div>
                         <div>客人印象:<span>#美白</span><span>#美白</span><span>#美白</span></div>
-                        <div class="item-btn right">足浴项目</div>
+                        <div class="item-btn right ani">足浴项目</div>
                     </div>
                     <div class="info-wrap tech t2 ani">
-                        <div></div>
+                        <div class="ani"></div>
                         <div>张得好[66号]</div>
                         <div>擅长最专业的泰式按摩</div>
                         <div>客人印象:<span>#美白</span><span>#美白</span><span>#美白</span></div>
-                        <div class="item-btn right">足浴项目</div>
+                        <div class="item-btn right ani">足浴项目</div>
                     </div>
                     <div class="info-wrap tech t3 ani">
-                        <div></div>
+                        <div class="ani"></div>
                         <div>张得好[66号]</div>
                         <div>擅长最专业的泰式按摩</div>
                         <div>客人印象:<span>#美白</span><span>#美白</span><span>#美白</span></div>
-                        <div class="item-btn right">足浴项目</div>
+                        <div class="item-btn right ani">足浴项目</div>
                     </div>
                 </div>
                 <div class="bottom-btn like-btn ani">很赞</div>
@@ -110,7 +116,7 @@
             <swiper-slide class="common-slide tech-pics-slide">
                 <div class="wrap">
                     <div class="page-title ani"></div>
-                    <swiper :options="picSwiperOption" class="pic-wrap">
+                    <swiper :options="picSwiperOption" class="pic-wrap scale-ani ani">
                         <swiper-slide v-for="item in techPics"><div :class="'pic-item-'+item"></div></swiper-slide>
                     </swiper>
                 </div>
@@ -119,7 +125,7 @@
             <swiper-slide class="common-slide video-slide">
                 <div class="wrap">
                     <div class="page-title ani"></div>
-                    <div class="info-wrap opacity-ani ani">
+                    <div class="info-wrap scale-ani ani">
                         <video class="video-js vjs-default-skin" controls preload="meta" width="100%" height="100%" data-setup="{}">
                             <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
                             <source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
@@ -133,11 +139,13 @@
                 <div class="wrap">
                     <div class="page-title ani"></div>
                     <div class="info-wrap opacity-ani ani">
-                        <div></div>
-                        <div>花样泰式按摩</div>
-                        <div><strong>155</strong><span>元</span>（或<b>1000</b>积分）</div>
-                        <div>原价：300元</div>
-                        <div>距结束：<b>11</b>时<b>05</b>分<b>21</b>秒<span>剩余22份</span></div>
+                        <div class="ani"></div>
+                        <div class="text-wrap ani">
+                            <div>花样泰式按摩</div>
+                            <div><strong>155</strong><span>元</span>（或<b>1000</b>积分）</div>
+                            <div>原价：300元</div>
+                            <div>距结束：<b>11</b>时<b>05</b>分<b>21</b>秒<span>剩余22份</span></div>
+                        </div>
                         <div class="shadow-btn grab-btn ani"></div>
                     </div>
                 </div>
@@ -147,10 +155,12 @@
                 <div class="wrap">
                     <div class="page-title ani"></div>
                     <div class="info-wrap opacity-ani ani">
-                        <div></div>
-                        <div><b>泰式按摩</b>(第二期)</div>
-                        <div><div class="ani" id="one-yuan-count"></div></div>
-                        <div>已抢：<span>247/500</span></div>
+                        <div class="ani"></div>
+                        <div class="text-wrap ani">
+                            <div><b>泰式按摩</b>(第二期)</div>
+                            <div><div class="ani" id="one-yuan-count"></div></div>
+                            <div>已抢：<span>247/500</span></div>
+                        </div>
                         <div class="shadow-btn grab-btn ani"></div>
                     </div>
                 </div>
@@ -159,8 +169,8 @@
             <swiper-slide class="act-slide common-slide coupon">
                 <div class="wrap">
                     <div class="page-title ani"></div>
-                    <div class="info-wrap opacity-ani ani">
-                        <div class="coupon">
+                    <div class="info-wrap scale-ani ani">
+                        <div class="coupon ani">
                             <div>泰式按摩券<span>现金券</span></div>
                             <div><b>￥</b><strong>500</strong>满500元可用</div>
                             <div>有效时间：客人购买后60天有效</div>
@@ -173,7 +183,7 @@
             <swiper-slide class="health-slide common-slide">
                 <div class="wrap">
                     <div class="page-title ani"></div>
-                    <div class="info-wrap opacity-ani ani">
+                    <div class="info-wrap ani">
                         <h3>标题一</h3>
                         <p>本活动需要支付，最低元起，每支付块钱获得需要支付。</p>
                         <h3>标题二</h3>
@@ -204,7 +214,7 @@
                 swiperOption: {
                     direction: 'vertical',
                     observeParents: true,
-                    mousewheelControl: true,
+                    // mousewheelControl: true,
                     onInit: function (swiper) {
                         var global = Global
                         if (global.app && !global.app.loading) {
@@ -232,14 +242,14 @@
                         var currSwiper
                         var k = 0
                         var previousAniEles // 前一个页面的ani元素
-                        var thisEl = global.app.$el
+                        var thisEl = document.body
 
                         if (activeIndex === 0) {
                             pageHeaderCls.remove('common')
-                            thisEl.style.backgroundImage = 'url(./images/01.png)'
+                            thisEl.style.backgroundPositionY = '0%'
                         } else {
                             pageHeaderCls.add('common')
-                            thisEl.style.backgroundImage = 'url(./images/07.png)'
+                            thisEl.style.backgroundPositionY = '100%'
                         }
 
                         if (swiperArr.length === 0) {
@@ -293,7 +303,7 @@
                     loop: true,
                     coverflow: {
                         rotate: 30,
-                        stretch: 10,
+                        stretch: 15,
                         depth: 60,
                         modifier: 2,
                         slideShadows: true
@@ -318,29 +328,19 @@
             var global = Global
             _this.$nextTick(function () {
                 var preDataLoadCount = 0
-                var img1 = new Image()
-                img1.onload = function () {
+                var bgImg = new Image()
+                bgImg.onload = function () {
                     preDataLoadCount++
                     if (preDataLoadCount === 2) {
                         console.log(preDataLoadCount)
                         _this.loading = false
                     }
                 }
-                img1.src = './images/01.png'
-
-                var img2 = new Image()
-                img2.onload = function () {
-                    preDataLoadCount++
-                    if (preDataLoadCount === 2) {
-                        console.log(preDataLoadCount)
-                        _this.loading = false
-                    }
-                }
-                img2.src = './images/07.png'
+                bgImg.src = './images/01.jpg'
 
                 setTimeout(function () {
                     _this.loading = false
-                }, 1000)
+                }, 2000)
 
                 global.app = _this
                 global.pageHeader = _this.$refs.pageHeader
@@ -350,7 +350,7 @@
         },
         methods: {
             init: function () { // init index page
-                this.$el.style.backgroundImage = 'url(./images/01.png)'
+                document.body.style.backgroundImage = 'url(./images/01.jpg)'
                 var global = Global
                 global.swiperArr = document.querySelectorAll('div.page-content>div.swiper-wrapper>div.swiper-slide')
                 var aniEles = global.swiperArr[0].querySelectorAll('.ani')
@@ -361,7 +361,8 @@
                 global.pageHeader.classList.add('act')
                 setTimeout(function () {
                     global.slideArrow.classList.add('act')
-                }, 3000)
+                    document.querySelector('#bg').classList.add('act')
+                }, 4500)
 
                 // 调整贵宾福利 抢项目页面 info-wrap与page-title的间距
                 var winHeightRem = global.winHeight / (16 * global.winScale)
