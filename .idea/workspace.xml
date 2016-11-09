@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7723a4c4-511e-4374-9032-f610ab1696e7" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/images/exp1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/images/exp2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/images/exp3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/swiper.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/swiper.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/images/09.png" afterPath="$PROJECT_DIR$/src/images/09.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/images/18.png" afterPath="$PROJECT_DIR$/src/images/18.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app.vue" afterPath="$PROJECT_DIR$/src/app.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sass/index.scss" afterPath="$PROJECT_DIR$/src/sass/index.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sass/reset.scss" afterPath="$PROJECT_DIR$/src/sass/reset.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/common.css" afterPath="$PROJECT_DIR$/src/styles/common.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/index.css" afterPath="$PROJECT_DIR$/src/styles/index.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/reset.css" afterPath="$PROJECT_DIR$/src/styles/reset.css" />
-    </list>
+    <list default="true" id="7723a4c4-511e-4374-9032-f610ab1696e7" name="Default" comment="" />
     <ignored path="journal.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -406,12 +389,12 @@
       <workItem from="1478505461416" duration="13676000" />
       <workItem from="1478566334478" duration="904000" />
       <workItem from="1478567696769" duration="33839000" />
-      <workItem from="1478652509437" duration="29005000" />
+      <workItem from="1478652509437" duration="29592000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="136745000" />
+    <option name="totallyTimeSpent" value="137332000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
