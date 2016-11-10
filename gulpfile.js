@@ -107,23 +107,23 @@ var exists = function( src, dst, callback ){
 
 //清理
 gulp.task('clean-pub', function () {
-    return gulp.src(['E:/workspace/spa-manager/WebRoot/spa/*'], {read: false})
+    return gulp.src(['E:/workspace/spa-manager/WebRoot/journal/*'], {read: false})
         .pipe(clean());
 });
 
 gulp.task('pub-dist',function(){
-    exists( 'dist', 'E:/workspace/spa-manager/WebRoot/spa/dist', copy );
+    exists( 'dist', 'E:/workspace/spa-manager/WebRoot/journal/', copy );
 });
 
 gulp.task('pub-img',function(){
-    exists( 'src/images', 'dist/images', copy );
+    exists( 'src/images', 'E:/workspace/spa-manager/WebRoot/journal/images', copy );
 });
 
-gulp.task('pub-index', function () {
-    fs.writeFileSync('E:/workspace/spa-manager/WebRoot/spa/index.html', fs.readFileSync('index_prod.html'));
+gulp.task('pub-img-1',function(){
+    exists( 'src/images', 'dist/images', copy );
 });
 
 ////上线执行 gulp build
 gulp.task('pub', function (callback) {
-    runSequence('clean-pub','pub-dist','pub-img','pub-index',callback);
+    runSequence('clean-pub','pub-dist','pub-img',callback);
 });

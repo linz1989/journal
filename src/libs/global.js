@@ -2,6 +2,9 @@
  * 全局的数据
  * */
 exports.Global = {
+    journalId: '', // 电子期刊ID
+    pageParams: {},
+    tip: null,
     pageHeader: null,
     slideArrow: null,
     swiperArr: [],
@@ -21,9 +24,28 @@ exports.Global = {
         var _this = this
         var userAgent = _this.userAgent
 
+        window.addEventListener('resize', function () {
+            _this.resizeWin()
+        })
+        _this.resizeWin()
+
         userAgent.isWX = /micromessenger/.test(ua)
         userAgent.isiPhone = /iPhone/i.test(ua)
         // console.dir(_this.pageHeader)
+        _this.tip = document.querySelector('#app-tip')
+
+        var url = location.href.split('?')
+        if (url[1]) {
+            var tempArr = url[1].split('&')
+            var paramArr
+            for (var k = 0; k < tempArr.length; k++) {
+                paramArr = tempArr[k].split('=')
+                if (paramArr.length === 2) {
+                    _this.pageParams[paramArr[0]] = paramArr[1]
+                }
+            }
+        }
+        _this.journalId = _this.pageParams['journalId']
     },
     // 设置页面标题
     setDocumentTitle: function (title) {
@@ -59,5 +81,21 @@ exports.Global = {
         _this.winWidth = _this.winWidth > 600 ? 600 : (_this.winWidth < 320 ? 320 : _this.winWidth)
         _this.winScale = _this.winWidth / _this.baseWidth
         htmlEl.style.fontSize = _this.winScale * 16 + 'px'
+        htmlEl.style.backgroundColor = '#f0f0f0'
+    },
+    tipShow: function (content, time) {
+        var _tip = this.tip
+        if (!_tip) {
+            _tip = this.tip = document.querySelector('#app-tip')
+        }
+        _tip.children[0].innerHTML = content
+        _tip.classList.add('active')
+        setTimeout(function () {
+            _tip.classList.remove('active')
+        }, (time || 3000))
+    },
+    localStorage: function (key, value) {
+        if (value) localStorage.setItem(key, value)
+        else return localStorage.getItem(key)
     }
 }

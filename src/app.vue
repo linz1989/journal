@@ -3,7 +3,7 @@
 </style>
 <template>
     <div @transitionend="doHandlerTransitionEnd($event)" class="journal-page">
-        <div v-show="loading" class="spinner">
+        <div v-show="loading && !loadError" class="spinner">
             <div class="spinner-container container1">
                 <div class="circle1"></div>
                 <div class="circle2"></div>
@@ -51,7 +51,7 @@
             </swiper-slide>
             <swiper-slide class="new-tech-slide common-slide">
                 <div class="wrap">
-                    <div class="page-title ani"></div>
+                    <div class="page-title ani"><page-title title="闪亮新人"></page-title></div>
                     <div class="info-wrap tech-info opacity-ani ani">
                         <div class="tech-header ani"><div></div></div>
                         <div class="shadow-btn chat-btn ani"></div>
@@ -62,11 +62,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="bottom-btn like-btn ani">很赞</div>
+                <worm-button category="like"></worm-button>
             </swiper-slide>
             <swiper-slide class="service-item-slide common-slide">
                 <div class="wrap">
-                    <div class="page-title ani"></div>
+                    <div class="page-title ani"><page-title title="最新项目"></page-title></div>
                     <div class="info-wrap service left ani">
                         <div class="service-img ani"></div>
                         <div class="text-wrap ani">
@@ -84,11 +84,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="bottom-btn like-btn ani">很赞</div>
+                <worm-button category="like"></worm-button>
             </swiper-slide>
             <swiper-slide class="tech-list-slide common-slide">
                 <div class="wrap">
-                    <div class="page-title ani"></div>
+                    <div class="page-title ani"><page-title title="服务之星"></page-title></div>
                     <div class="info-wrap tech t1 ani">
                         <div class="ani"></div>
                         <div>张得好[66号]</div>
@@ -111,20 +111,20 @@
                         <div class="item-btn right ani">足浴项目</div>
                     </div>
                 </div>
-                <div class="bottom-btn like-btn ani">很赞</div>
+                <worm-button category="like"></worm-button>
             </swiper-slide>
             <swiper-slide class="common-slide tech-pics-slide">
                 <div class="wrap">
-                    <div class="page-title ani"></div>
+                    <div class="page-title ani"><page-title title="女神日常"></page-title></div>
                     <swiper :options="picSwiperOption" class="pic-wrap scale-ani ani">
                         <swiper-slide v-for="item in techPics"><div :class="'pic-item-'+item"></div></swiper-slide>
                     </swiper>
                 </div>
-                <div class="bottom-btn like-btn ani">很赞</div>
+                <worm-button category="like"></worm-button>
             </swiper-slide>
             <swiper-slide class="common-slide video-slide">
                 <div class="wrap">
-                    <div class="page-title ani"></div>
+                    <div class="page-title ani"><page-title title="我们的美女主播"></page-title></div>
                     <div class="info-wrap scale-ani ani">
                         <video class="video-js vjs-default-skin" controls preload="meta" width="100%" height="100%" data-setup="{}">
                             <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
@@ -133,11 +133,11 @@
                         </video>
                     </div>
                 </div>
-                <div class="bottom-btn like-btn ani">很赞</div>
+                <worm-button category="like"></worm-button>
             </swiper-slide>
             <swiper-slide class="act-slide common-slide service-item">
                 <div class="wrap">
-                    <div class="page-title ani"></div>
+                    <div class="page-title ani"><page-title title="贵宾福利"></page-title></div>
                     <div class="info-wrap opacity-ani ani">
                         <div class="ani"></div>
                         <div class="text-wrap ani">
@@ -149,11 +149,11 @@
                         <div class="shadow-btn grab-btn ani"></div>
                     </div>
                 </div>
-                <div class="bottom-btn like-btn ani">很赞</div>
+                <worm-button category="like"></worm-button>
             </swiper-slide>
             <swiper-slide class="act-slide common-slide one-yuan">
                 <div class="wrap">
-                    <div class="page-title ani"></div>
+                    <div class="page-title ani"><page-title title="贵宾福利"></page-title></div>
                     <div class="info-wrap opacity-ani ani">
                         <div class="ani"></div>
                         <div class="text-wrap ani">
@@ -164,11 +164,11 @@
                         <div class="shadow-btn grab-btn ani"></div>
                     </div>
                 </div>
-                <div class="bottom-btn like-btn ani">很赞</div>
+                <worm-button category="like"></worm-button>
             </swiper-slide>
             <swiper-slide class="act-slide common-slide coupon">
                 <div class="wrap">
-                    <div class="page-title ani"></div>
+                    <div class="page-title ani"><page-title title="贵宾福利"></page-title></div>
                     <div class="info-wrap scale-ani ani">
                         <div class="coupon ani">
                             <div>泰式按摩券<span>现金券</span></div>
@@ -178,11 +178,11 @@
                         <div class="shadow-btn grab-btn ani"></div>
                     </div>
                 </div>
-                <div class="bottom-btn like-btn ani">很赞</div>
+                <worm-button category="like"></worm-button>
             </swiper-slide>
             <swiper-slide class="health-slide common-slide">
                 <div class="wrap">
-                    <div class="page-title ani"></div>
+                    <div class="page-title ani"><page-title title="养身频道"></page-title></div>
                     <div class="info-wrap ani">
                         <h3>标题一</h3>
                         <p>本活动需要支付，最低元起，每支付块钱获得需要支付。</p>
@@ -190,27 +190,37 @@
                         <p>本活动需要支付，最低元起，每支付块钱获得需要支付。</p>
                     </div>
                 </div>
-                <div class="bottom-btn like-btn ani">很赞</div>
-                <div class="bottom-btn share-btn ani">分享</div>
+                <worm-button category="like"></worm-button>
+                <worm-button category="share"></worm-button>
                 <div class="over-tip">—更多精彩去网上会所看看—</div>
             </swiper-slide>
         </swiper>
         <div v-show="!loading" class="slide-arrow" ref="slideArrow"></div>
+        <share :share-url="shareUrl"></share>
+        <div v-show="loadError" class="page-error">404<br/><span>页面已无法访问！</span></div>
     </div>
 </template>
 <script>
     import { swiper, swiperSlide } from 'vue-awesome-swiper'
     import { Global } from './libs/global'
+    import PageTitle from './components/pageTitle'
+    import WormButton from './components/wormButton'
+    import Share from './components/share'
 
     module.exports = {
         components: {
             'swiper': swiper,
-            'swiper-slide': swiperSlide
+            'swiper-slide': swiperSlide,
+            'page-title': PageTitle,
+            'worm-button': WormButton,
+            'share': Share
         },
         data: function () {
             return {
+                shareUrl: 'http://wwww',
                 techPics: [1, 2, 3, 4],
                 loading: true,
+                loadError: false,
                 swiperOption: {
                     direction: 'vertical',
                     observeParents: true,
@@ -317,16 +327,14 @@
                 }
             }
         },
-        created: function () {
-            window.addEventListener('resize', function () {
-                Global.resizeWin()
-            })
-            Global.resizeWin()
-        },
         mounted: function () {
             var _this = this
             var global = Global
             _this.$nextTick(function () {
+                if (!global.journalId) {
+                    _this.loadError = true
+                    return
+                }
                 var preDataLoadCount = 0
                 var bgImg = new Image()
                 bgImg.onload = function () {
@@ -346,6 +354,9 @@
                 global.pageHeader = _this.$refs.pageHeader
                 global.slideArrow = _this.$refs.slideArrow
                 _this.drawCanvas()
+
+                // 浏览数+1
+                // _this.$http.get('../api/v2/user/journal/view/count', {params: { journalId: global.journalId }})
             })
         },
         methods: {

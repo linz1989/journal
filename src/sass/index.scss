@@ -1,4 +1,5 @@
 @import 'common.scss';
+@import "share.scss";
 
 @-webkit-keyframes down-up-ani{
   0%, 30% {
@@ -458,21 +459,29 @@ div.common-slide{
     position: relative;
     height:3.694rem;
     padding-top:1.8rem;
-    @include img("../images/09.png",18.888rem 3.694rem);
+    @include img("../images/09.png",9.444rem 3.694rem);
     background-position: center center;
     text-align: center;
     opacity: 0;
     transform: translate(0,-5rem);
     transition: opacity 0.4s, transform 0.4s;
+    >canvas{
+      width:18.889rem;
+      height:1.778rem;
+      opacity: 0;
+      transform: scaleX(0);
+      transform-origin: 50% 50%;
+      transition: opacity 0.4s 0.8s, transform 0.4s 0.8s;
+    }
     &.act{
       opacity: 1;
       transform: translate(0,0);
-      &:after{
-        opacity: 1;
-        transform: translate(0,0);
-      }
       &:before{
-        transform: scale(1,1);
+        transform: scaleY(1);
+      }
+      >canvas{
+        opacity: 1;
+        transform: scaleX(1);
       }
     }
     &:before{
@@ -482,22 +491,10 @@ div.common-slide{
       height:3.694rem;
       left:20%;
       top:0;
-      transform: scale(1,0);
+      transform: scaleY(0);
       transform-origin: 50% 100%;
       @include img("../images/03.png",11.972rem 3.694rem);
       transition: transform 0.4s 0.9s;
-    }
-    &:after{
-      content : "";
-      position: absolute;
-      width:5.556rem;
-      height:1.778rem;
-      left:50%;
-      margin-left:-2.778rem;
-      @include imgBgFix(5.556rem 1.778rem);
-      opacity: 0;
-      transform: translate(0,-5rem);
-      transition: opacity 0.4s 0.4s, transform 0.4s 0.4s;
     }
   }
   div.bottom-btn{
@@ -518,7 +515,7 @@ div.common-slide{
       bottom:2.2rem;
     }
   }
-  div.like-btn{
+  div.like-btn,div.liked-btn{
     background-image: url("../images/08.png");
   }
   div.item-btn{
@@ -577,11 +574,6 @@ div.common-slide{
 }
 
 div.new-tech-slide{
-  div.page-title{
-    &:after{
-      background-image: url("../images/10.png");
-    }
-  }
   div.tech-info{
     height:14.7rem;
     margin-top:3.5rem;
@@ -661,11 +653,6 @@ div.new-tech-slide{
 }
 
 div.service-item-slide{
-  div.page-title{
-    &:after{
-      background-image: url("../images/11.png");
-    }
-  }
   div.service{
     position: relative;
     height:8.389rem;
@@ -741,11 +728,6 @@ div.service-item-slide{
 }
 
 div.tech-list-slide{
-  div.page-title{
-    &:after{
-      background-image: url("../images/12.png");
-    }
-  }
   div.tech{
     position: relative;
     height:5.472rem;
@@ -845,11 +827,6 @@ div.tech-list-slide{
 }
 
 div.tech-pics-slide{
-  div.page-title{
-    &:after{
-      background-image: url("../images/17.png");
-    }
-  }
   div.pic-wrap{
     height:17.5rem;
     width:27rem;
@@ -876,14 +853,6 @@ div.tech-pics-slide{
 }
 
 div.video-slide{
-  div.page-title{
-    background-image: url("../images/18.png");
-    &:after{
-      width:9.861rem;
-      margin-left: -4.9305rem;
-      @include img("../images/19.png",9.861rem 1.778rem)
-    }
-  }
   div.info-wrap{
     height:15.139rem;
     width:19.056rem;
@@ -898,11 +867,6 @@ div.video-slide{
 }
 
 div.act-slide{
-  div.page-title{
-    &:after{
-      background-image: url("../images/15.png");
-    }
-  }
   div.grab-btn{
     width:9.056rem;
     height:2.278rem;
@@ -1105,11 +1069,6 @@ div.act-slide{
 }
 
 div.health-slide{
-  div.page-title{
-    &:after{
-      background-image: url("../images/13.png");
-    }
-  }
   div.info-wrap{
     margin-top:0.5rem;
     padding:0.2rem 0.833rem 0.667rem;
@@ -1168,4 +1127,19 @@ div.health-slide{
 
 .endAni{
   transition-delay:0s !important;
+}
+
+div.page-error{
+  position: absolute;
+  text-align: center;
+  color:#fff;
+  font-size:2rem;
+  line-height: 2.2rem;
+  font-weight: bold;
+  top:40%;
+  left:0;
+  width:100%;
+  >span{
+    font-size:0.887rem
+  }
 }
