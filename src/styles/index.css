@@ -1449,8 +1449,8 @@ div.pop-modal {
   top: 0;
   right: 0;
   bottom: 0;
-  background: rgba(100, 100, 100, 0.7);
-  z-index: 3;
+  background: rgba(36, 3, 63, 0.5);
+  z-index: 101;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
   -webkit-transform-origin: 50% 100%;
@@ -1485,14 +1485,16 @@ div.share-pop > div.top {
 
 div.share-pop > div.center {
   width: 94%;
-  background-color: #fff;
-  color: #4d4d4d;
+  background-color: #c857b0;
+  color: #fff;
   font-size: 0.889rem;
   text-align: center;
   left: 3%;
-  margin-top: -4.175rem; }
+  margin-top: -4.6rem;
+  border-radius: 0.3rem; }
   div.share-pop > div.center > div:nth-of-type(1) {
-    background-color: #CCC;
+    background-color: #ccc;
+    border-radius: 0.2rem;
     margin: 0.611rem 0.611rem 0.4rem 0.611rem;
     padding: 0.278rem;
     word-wrap: break-word;
@@ -1500,10 +1502,11 @@ div.share-pop > div.center {
     -webkit-user-select: element;
     box-sizing: content-box; }
   div.share-pop > div.center > div:nth-of-type(2) {
-    border-bottom: 1px solid #d9d9d9; }
+    border-bottom: 1px solid #d9d9d9;
+    line-height: 2rem; }
   div.share-pop > div.center > div:nth-of-type(3) {
-    height: 2.222rem;
-    line-height: 2.222rem; }
+    height: 2.5rem;
+    line-height: 2.5rem; }
 
 @-webkit-keyframes down-up-ani {
   0%, 30% {
@@ -2450,12 +2453,9 @@ div.act-slide.coupon div.info-wrap {
     margin-left: auto;
     margin-right: auto; }
   div.act-slide.coupon div.info-wrap div.coupon {
+    position: relative;
     width: 18.444rem;
     height: 10.833rem;
-    padding-top: 1.667rem;
-    background-size: 18.444rem 10.833rem;
-    background-image: url("../images/16.png");
-    background-repeat: no-repeat;
     opacity: 0;
     -webkit-transform: scaleY(0);
             transform: scaleY(0);
@@ -2469,36 +2469,44 @@ div.act-slide.coupon div.info-wrap {
       opacity: 1;
       -webkit-transform: scaleY(1);
               transform: scaleY(1); }
+    div.act-slide.coupon div.info-wrap div.coupon > canvas, div.act-slide.coupon div.info-wrap div.coupon > div {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 18.444rem;
+      height: 10.833rem; }
     div.act-slide.coupon div.info-wrap div.coupon > div {
-      width: 15.833rem;
-      margin: 0 auto; }
-      div.act-slide.coupon div.info-wrap div.coupon > div:nth-of-type(1) {
-        color: #fff;
-        font-size: 1.5rem; }
-        div.act-slide.coupon div.info-wrap div.coupon > div:nth-of-type(1) > span {
-          font-size: 0.944rem;
-          float: right; }
-      div.act-slide.coupon div.info-wrap div.coupon > div:nth-of-type(2) {
-        margin-top: 2rem;
-        font-size: 0.889rem; }
-        div.act-slide.coupon div.info-wrap div.coupon > div:nth-of-type(2) > b, div.act-slide.coupon div.info-wrap div.coupon > div:nth-of-type(2) > strong {
-          color: #fff; }
-        div.act-slide.coupon div.info-wrap div.coupon > div:nth-of-type(2) > b {
-          font-size: 1.667rem; }
-        div.act-slide.coupon div.info-wrap div.coupon > div:nth-of-type(2) > strong {
-          font-weight: normal;
-          margin-right: 0.833rem;
-          font-size: 3.056rem; }
-      div.act-slide.coupon div.info-wrap div.coupon > div:nth-of-type(3) {
-        height: 2rem;
-        line-height: 2rem;
-        margin-top: 0.5rem;
-        font-size: 0.889rem;
-        color: #b41da2;
-        padding-left: 0.667rem;
-        text-align: left;
-        background: -webkit-linear-gradient(#fff 50%, #f2f1f1 50%, #f2f1f1);
-        background: linear-gradient(#fff 50%, #f2f1f1 50%, #f2f1f1); }
+      padding-top: 1.667rem; }
+      div.act-slide.coupon div.info-wrap div.coupon > div > div {
+        width: 15.833rem;
+        margin: 0 auto; }
+        div.act-slide.coupon div.info-wrap div.coupon > div > div:nth-of-type(1) {
+          color: #fff;
+          font-size: 1.5rem; }
+          div.act-slide.coupon div.info-wrap div.coupon > div > div:nth-of-type(1) > span {
+            font-size: 0.944rem;
+            float: right; }
+        div.act-slide.coupon div.info-wrap div.coupon > div > div:nth-of-type(2) {
+          margin-top: 2rem;
+          font-size: 0.889rem; }
+          div.act-slide.coupon div.info-wrap div.coupon > div > div:nth-of-type(2) > b, div.act-slide.coupon div.info-wrap div.coupon > div > div:nth-of-type(2) > strong {
+            color: #fff; }
+          div.act-slide.coupon div.info-wrap div.coupon > div > div:nth-of-type(2) > b {
+            font-size: 1.667rem; }
+          div.act-slide.coupon div.info-wrap div.coupon > div > div:nth-of-type(2) > strong {
+            font-weight: normal;
+            margin-right: 0.833rem;
+            font-size: 3.056rem; }
+        div.act-slide.coupon div.info-wrap div.coupon > div > div:nth-of-type(3) {
+          height: 2rem;
+          line-height: 2rem;
+          margin-top: 0.5rem;
+          font-size: 0.889rem;
+          color: #b41da2;
+          padding-left: 0.667rem;
+          text-align: left;
+          background: -webkit-linear-gradient(#fff 50%, #f2f1f1 50%, #f2f1f1);
+          background: linear-gradient(#fff 50%, #f2f1f1 50%, #f2f1f1); }
   div.act-slide.coupon div.info-wrap div.grab-btn {
     margin-top: 1.667rem; }
 

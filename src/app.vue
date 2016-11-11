@@ -171,9 +171,12 @@
                     <div class="page-title ani"><page-title title="贵宾福利"></page-title></div>
                     <div class="info-wrap scale-ani ani">
                         <div class="coupon ani">
-                            <div>泰式按摩券<span>现金券</span></div>
-                            <div><b>￥</b><strong>500</strong>满500元可用</div>
-                            <div>有效时间：客人购买后60天有效</div>
+                            <coupon-bg></coupon-bg>
+                            <div>
+                                <div>泰式按摩券<span>现金券</span></div>
+                                <div><b>￥</b><strong>500</strong>满500元可用</div>
+                                <div>有效时间：客人购买后60天有效</div>
+                            </div>
                         </div>
                         <div class="shadow-btn grab-btn ani"></div>
                     </div>
@@ -206,6 +209,7 @@
     import PageTitle from './components/pageTitle'
     import WormButton from './components/wormButton'
     import Share from './components/share'
+    import CouponBg from './components/couponBg'
 
     module.exports = {
         components: {
@@ -213,7 +217,8 @@
             'swiper-slide': swiperSlide,
             'page-title': PageTitle,
             'worm-button': WormButton,
-            'share': Share
+            'share': Share,
+            'coupon-bg': CouponBg
         },
         data: function () {
             return {

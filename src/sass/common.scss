@@ -102,7 +102,7 @@ div#app-tip{
 
 div.pop-modal{
   @include mask();
-  z-index:3;
+  z-index:101;
   @include transition(all 0.5s);
   @include tOrigin(50% 100%);
   @include scale(1,0);
