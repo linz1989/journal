@@ -23,183 +23,183 @@
                 <div class="circle4"></div>
             </div>
         </div>
-        <header v-show="!loading" class="page-header" ref="pageHeader">
-            <div class="logo"></div>
-            <div class="info">
-                <div class="title">皇朝休闲会所</div>
-                <div class="static">
-                    <div class="view">2201</div>
-                    <div class="like">4545</div>
+        <template v-show="!loading && !loadError">
+            <header class="page-header" ref="pageHeader">
+                <div class="logo"></div>
+                <div class="info">
+                    <div class="title">皇朝休闲会所</div>
+                    <div class="static">
+                        <div class="view">2201</div>
+                        <div class="like">4545</div>
+                    </div>
                 </div>
-            </div>
-            <div class="right-arrow"></div>
-        </header>
-        <swiper v-show="!loading" :options='swiperOption' class="page-content">
-            <swiper-slide class="index-slide">
-                <div class="center-circle ani">
-                    <canvas ref="bigCircle" width="464" height="464"></canvas>
-                    <canvas ref="lineTop" class="line-top ani" width="162" height="107"></canvas>
-                    <canvas ref="lineBottom" class="line-bottom ani" width="114" height="74"></canvas>
-                    <div class="circle small ani"></div>
-                    <div class="circle mid ani"></div>
-                    <div class="circle big ani"></div>
-                </div>
-                <div class="text">
-                    <canvas ref="titleText" class="ani" width="586" height="200"></canvas>
-                    <div class="ani">这是活动标题，活动标题一</div>
-                </div>
-            </swiper-slide>
-            <swiper-slide class="new-tech-slide common-slide">
-                <div class="wrap">
-                    <div class="page-title ani"><page-title title="闪亮新人"></page-title></div>
-                    <div class="info-wrap tech-info opacity-ani ani">
-                        <div class="tech-header ani"><div></div></div>
-                        <div class="shadow-btn chat-btn ani"></div>
-                        <div class="name-wrap ani">
-                            <div class="tech-name">黄晶晶&nbsp;[&nbsp;6号&nbsp;]</div>
-                            <div class="tip">最好的服务都在我这里啦！</div>
-                            <div class="service-list"><div class="item-btn left">足浴项目</div><div class="item-btn left">中医推拿</div><div class="item-btn left">美容理疗</div></div>
+                <div class="right-arrow"></div>
+            </header>
+            <swiper :options='swiperOption' class="page-content">
+                <swiper-slide class="index-slide">
+                    <div class="center-circle ani">
+                        <canvas ref="bigCircle" width="464" height="464"></canvas>
+                        <canvas ref="lineTop" class="line-top ani" width="162" height="107"></canvas>
+                        <canvas ref="lineBottom" class="line-bottom ani" width="114" height="74"></canvas>
+                        <div class="circle small ani"></div>
+                        <div class="circle mid ani"></div>
+                        <div class="circle big ani"></div>
+                    </div>
+                    <div class="text">
+                        <canvas ref="titleText" class="ani" width="586" height="200"></canvas>
+                        <div class="ani">这是活动标题，活动标题一</div>
+                    </div>
+                </swiper-slide>
+                <swiper-slide class="new-tech-slide common-slide">
+                    <div class="wrap">
+                        <div class="page-title ani"><page-title title="闪亮新人"></page-title></div>
+                        <div class="info-wrap tech-info opacity-ani ani">
+                            <div class="tech-header ani"><div></div></div>
+                            <div class="shadow-btn chat-btn ani"></div>
+                            <div class="name-wrap ani">
+                                <div class="tech-name">黄晶晶&nbsp;[&nbsp;6号&nbsp;]</div>
+                                <div class="tip">最好的服务都在我这里啦！</div>
+                                <div class="service-list"><div class="item-btn left">足浴项目</div><div class="item-btn left">中医推拿</div><div class="item-btn left">美容理疗</div></div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <worm-button category="like"></worm-button>
-            </swiper-slide>
-            <swiper-slide class="service-item-slide common-slide">
-                <div class="wrap">
-                    <div class="page-title ani"><page-title title="最新项目"></page-title></div>
-                    <div class="info-wrap service left ani">
-                        <div class="service-img ani"></div>
-                        <div class="text-wrap ani">
-                            <div>面部SPA</div>
-                            <div><strong>98元</strong>/60分钟</div>
-                            <div>最好的服务都在我这里啦最好的服务都在我这里啦</div>
+                    <worm-button category="like"></worm-button>
+                </swiper-slide>
+                <swiper-slide class="service-item-slide common-slide">
+                    <div class="wrap">
+                        <div class="page-title ani"><page-title title="最新项目"></page-title></div>
+                        <div class="info-wrap service left ani">
+                            <div class="service-img ani"></div>
+                            <div class="text-wrap ani">
+                                <div>面部SPA</div>
+                                <div><strong>98元</strong>/60分钟</div>
+                                <div>最好的服务都在我这里啦最好的服务都在我这里啦</div>
+                            </div>
+                        </div>
+                        <div class="info-wrap service right ani">
+                            <div class="service-img ani"></div>
+                            <div class="text-wrap ani">
+                                <div>面部SPA2</div>
+                                <div><strong>98元</strong>/60分钟</div>
+                                <div>最好的服务都在我这里啦最好的服务都在我这里啦</div>
+                            </div>
                         </div>
                     </div>
-                    <div class="info-wrap service right ani">
-                        <div class="service-img ani"></div>
-                        <div class="text-wrap ani">
-                            <div>面部SPA2</div>
-                            <div><strong>98元</strong>/60分钟</div>
-                            <div>最好的服务都在我这里啦最好的服务都在我这里啦</div>
+                    <worm-button category="like"></worm-button>
+                </swiper-slide>
+                <swiper-slide class="tech-list-slide common-slide">
+                    <div class="wrap">
+                        <div class="page-title ani"><page-title title="服务之星"></page-title></div>
+                        <div class="info-wrap tech t1 ani">
+                            <div class="ani"></div>
+                            <div>张得好[66号]</div>
+                            <div>擅长最专业的泰式按摩</div>
+                            <div>客人印象:<span>#美白</span><span>#美白</span><span>#美白</span></div>
+                            <div class="item-btn right ani">足浴项目</div>
+                        </div>
+                        <div class="info-wrap tech t2 ani">
+                            <div class="ani"></div>
+                            <div>张得好[66号]</div>
+                            <div>擅长最专业的泰式按摩</div>
+                            <div>客人印象:<span>#美白</span><span>#美白</span><span>#美白</span></div>
+                            <div class="item-btn right ani">足浴项目</div>
+                        </div>
+                        <div class="info-wrap tech t3 ani">
+                            <div class="ani"></div>
+                            <div>张得好[66号]</div>
+                            <div>擅长最专业的泰式按摩</div>
+                            <div>客人印象:<span>#美白</span><span>#美白</span><span>#美白</span></div>
+                            <div class="item-btn right ani">足浴项目</div>
                         </div>
                     </div>
-                </div>
-                <worm-button category="like"></worm-button>
-            </swiper-slide>
-            <swiper-slide class="tech-list-slide common-slide">
-                <div class="wrap">
-                    <div class="page-title ani"><page-title title="服务之星"></page-title></div>
-                    <div class="info-wrap tech t1 ani">
-                        <div class="ani"></div>
-                        <div>张得好[66号]</div>
-                        <div>擅长最专业的泰式按摩</div>
-                        <div>客人印象:<span>#美白</span><span>#美白</span><span>#美白</span></div>
-                        <div class="item-btn right ani">足浴项目</div>
+                    <worm-button category="like"></worm-button>
+                </swiper-slide>
+                <swiper-slide class="common-slide tech-pics-slide">
+                    <div class="wrap">
+                        <div class="page-title ani"><page-title title="女神日常"></page-title></div>
+                        <swiper :options="picSwiperOption" class="pic-wrap scale-ani ani">
+                            <swiper-slide v-for="item in techPics"><div :class="'pic-item-'+item"></div></swiper-slide>
+                        </swiper>
                     </div>
-                    <div class="info-wrap tech t2 ani">
-                        <div class="ani"></div>
-                        <div>张得好[66号]</div>
-                        <div>擅长最专业的泰式按摩</div>
-                        <div>客人印象:<span>#美白</span><span>#美白</span><span>#美白</span></div>
-                        <div class="item-btn right ani">足浴项目</div>
-                    </div>
-                    <div class="info-wrap tech t3 ani">
-                        <div class="ani"></div>
-                        <div>张得好[66号]</div>
-                        <div>擅长最专业的泰式按摩</div>
-                        <div>客人印象:<span>#美白</span><span>#美白</span><span>#美白</span></div>
-                        <div class="item-btn right ani">足浴项目</div>
-                    </div>
-                </div>
-                <worm-button category="like"></worm-button>
-            </swiper-slide>
-            <swiper-slide class="common-slide tech-pics-slide">
-                <div class="wrap">
-                    <div class="page-title ani"><page-title title="女神日常"></page-title></div>
-                    <swiper :options="picSwiperOption" class="pic-wrap scale-ani ani">
-                        <swiper-slide v-for="item in techPics"><div :class="'pic-item-'+item"></div></swiper-slide>
-                    </swiper>
-                </div>
-                <worm-button category="like"></worm-button>
-            </swiper-slide>
-            <swiper-slide class="common-slide video-slide">
-                <div class="wrap">
-                    <div class="page-title ani"><page-title title="我们的美女主播"></page-title></div>
-                    <div class="info-wrap scale-ani ani">
-                        <video class="video-js vjs-default-skin" controls preload="meta" width="100%" height="100%" data-setup="{}">
-                            <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
-                            <source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
-                            <source src="http://vjs.zencdn.net/v/oceans.ogv" type="video/ogg">
-                        </video>
-                    </div>
-                </div>
-                <worm-button category="like"></worm-button>
-            </swiper-slide>
-            <swiper-slide class="act-slide common-slide service-item">
-                <div class="wrap">
-                    <div class="page-title ani"><page-title title="贵宾福利"></page-title></div>
-                    <div class="info-wrap opacity-ani ani">
-                        <div class="ani"></div>
-                        <div class="text-wrap ani">
-                            <div>花样泰式按摩</div>
-                            <div><strong>155</strong><span>元</span>（或<b>1000</b>积分）</div>
-                            <div>原价：300元</div>
-                            <div>距结束：<b>11</b>时<b>05</b>分<b>21</b>秒<span>剩余22份</span></div>
+                    <worm-button category="like"></worm-button>
+                </swiper-slide>
+                <swiper-slide class="common-slide video-slide">
+                    <div class="wrap">
+                        <div class="page-title ani"><page-title title="我们的美女主播"></page-title></div>
+                        <div class="info-wrap scale-ani ani">
+                            <video class="video-js vjs-default-skin" controls preload="meta" width="100%" height="100%" data-setup="{}">
+                                <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
+                                <source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
+                                <source src="http://vjs.zencdn.net/v/oceans.ogv" type="video/ogg">
+                            </video>
                         </div>
-                        <div class="shadow-btn grab-btn ani"></div>
                     </div>
-                </div>
-                <worm-button category="like"></worm-button>
-            </swiper-slide>
-            <swiper-slide class="act-slide common-slide one-yuan">
-                <div class="wrap">
-                    <div class="page-title ani"><page-title title="贵宾福利"></page-title></div>
-                    <div class="info-wrap opacity-ani ani">
-                        <div class="ani"></div>
-                        <div class="text-wrap ani">
-                            <div><b>泰式按摩</b>(第二期)</div>
-                            <div><div class="ani" id="one-yuan-count"></div></div>
-                            <div>已抢：<span>247/500</span></div>
+                    <worm-button category="like"></worm-button>
+                </swiper-slide>
+                <swiper-slide class="act-slide common-slide service-item">
+                    <div class="wrap">
+                        <div class="page-title ani"><page-title title="贵宾福利"></page-title></div>
+                        <div class="info-wrap opacity-ani ani">
+                            <div class="ani"></div>
+                            <div class="text-wrap ani">
+                                <div>花样泰式按摩</div>
+                                <div><strong>155</strong><span>元</span>（或<b>1000</b>积分）</div>
+                                <div>原价：300元</div>
+                                <div>距结束：<b>11</b>时<b>05</b>分<b>21</b>秒<span>剩余22份</span></div>
+                            </div>
+                            <div class="shadow-btn grab-btn ani"></div>
                         </div>
-                        <div class="shadow-btn grab-btn ani"></div>
                     </div>
-                </div>
-                <worm-button category="like"></worm-button>
-            </swiper-slide>
-            <swiper-slide class="act-slide common-slide coupon">
-                <div class="wrap">
-                    <div class="page-title ani"><page-title title="贵宾福利"></page-title></div>
-                    <div class="info-wrap scale-ani ani">
-                        <div class="coupon ani">
-                            <coupon-bg></coupon-bg>
-                            <div>
+                    <worm-button category="like"></worm-button>
+                </swiper-slide>
+                <swiper-slide class="act-slide common-slide one-yuan">
+                    <div class="wrap">
+                        <div class="page-title ani"><page-title title="贵宾福利"></page-title></div>
+                        <div class="info-wrap opacity-ani ani">
+                            <div class="ani"></div>
+                            <div class="text-wrap ani">
+                                <div><b>泰式按摩</b>(第二期)</div>
+                                <div><div class="ani" id="one-yuan-count"></div></div>
+                                <div>已抢：<span>247/500</span></div>
+                            </div>
+                            <div class="shadow-btn grab-btn ani"></div>
+                        </div>
+                    </div>
+                    <worm-button category="like"></worm-button>
+                </swiper-slide>
+                <swiper-slide class="act-slide common-slide coupon">
+                    <div class="wrap">
+                        <div class="page-title ani"><page-title title="贵宾福利"></page-title></div>
+                        <div class="info-wrap scale-ani ani">
+                            <div class="coupon ani">
+                                <coupon-bg></coupon-bg>
                                 <div>泰式按摩券<span>现金券</span></div>
                                 <div><b>￥</b><strong>500</strong>满500元可用</div>
                                 <div>有效时间：客人购买后60天有效</div>
                             </div>
+                            <div class="shadow-btn grab-btn ani"></div>
                         </div>
-                        <div class="shadow-btn grab-btn ani"></div>
                     </div>
-                </div>
-                <worm-button category="like"></worm-button>
-            </swiper-slide>
-            <swiper-slide class="health-slide common-slide">
-                <div class="wrap">
-                    <div class="page-title ani"><page-title title="养身频道"></page-title></div>
-                    <div class="info-wrap ani">
-                        <h3>标题一</h3>
-                        <p>本活动需要支付，最低元起，每支付块钱获得需要支付。</p>
-                        <h3>标题二</h3>
-                        <p>本活动需要支付，最低元起，每支付块钱获得需要支付。</p>
+                    <worm-button category="like"></worm-button>
+                </swiper-slide>
+                <swiper-slide class="health-slide common-slide">
+                    <div class="wrap">
+                        <div class="page-title ani"><page-title title="养身频道"></page-title></div>
+                        <div class="info-wrap ani">
+                            <h3>标题一</h3>
+                            <p>本活动需要支付，最低元起，每支付块钱获得需要支付。</p>
+                            <h3>标题二</h3>
+                            <p>本活动需要支付，最低元起，每支付块钱获得需要支付。</p>
+                        </div>
                     </div>
-                </div>
-                <worm-button category="like"></worm-button>
-                <worm-button category="share"></worm-button>
-                <div class="over-tip">—更多精彩去网上会所看看—</div>
-            </swiper-slide>
-        </swiper>
-        <div v-show="!loading" class="slide-arrow" ref="slideArrow"></div>
-        <share :share-url="shareUrl"></share>
+                    <worm-button category="like"></worm-button>
+                    <worm-button category="share"></worm-button>
+                    <div class="over-tip">—更多精彩去网上会所看看—</div>
+                </swiper-slide>
+            </swiper>
+            <div class="slide-arrow" ref="slideArrow"></div>
+            <share :share-url="shareUrl"></share>
+        </template>
         <div v-show="loadError" class="page-error">404<br/><span>页面已无法访问！</span></div>
     </div>
 </template>

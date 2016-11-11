@@ -2456,6 +2456,7 @@ div.act-slide.coupon div.info-wrap {
     position: relative;
     width: 18.444rem;
     height: 10.833rem;
+    padding-top: 1.667rem;
     opacity: 0;
     -webkit-transform: scaleY(0);
             transform: scaleY(0);
@@ -2469,44 +2470,43 @@ div.act-slide.coupon div.info-wrap {
       opacity: 1;
       -webkit-transform: scaleY(1);
               transform: scaleY(1); }
-    div.act-slide.coupon div.info-wrap div.coupon > canvas, div.act-slide.coupon div.info-wrap div.coupon > div {
+    div.act-slide.coupon div.info-wrap div.coupon > canvas {
       position: absolute;
       top: 0;
       left: 0;
       width: 18.444rem;
-      height: 10.833rem; }
+      height: 10.833rem;
+      z-index: -1; }
     div.act-slide.coupon div.info-wrap div.coupon > div {
-      padding-top: 1.667rem; }
-      div.act-slide.coupon div.info-wrap div.coupon > div > div {
-        width: 15.833rem;
-        margin: 0 auto; }
-        div.act-slide.coupon div.info-wrap div.coupon > div > div:nth-of-type(1) {
-          color: #fff;
-          font-size: 1.5rem; }
-          div.act-slide.coupon div.info-wrap div.coupon > div > div:nth-of-type(1) > span {
-            font-size: 0.944rem;
-            float: right; }
-        div.act-slide.coupon div.info-wrap div.coupon > div > div:nth-of-type(2) {
-          margin-top: 2rem;
-          font-size: 0.889rem; }
-          div.act-slide.coupon div.info-wrap div.coupon > div > div:nth-of-type(2) > b, div.act-slide.coupon div.info-wrap div.coupon > div > div:nth-of-type(2) > strong {
-            color: #fff; }
-          div.act-slide.coupon div.info-wrap div.coupon > div > div:nth-of-type(2) > b {
-            font-size: 1.667rem; }
-          div.act-slide.coupon div.info-wrap div.coupon > div > div:nth-of-type(2) > strong {
-            font-weight: normal;
-            margin-right: 0.833rem;
-            font-size: 3.056rem; }
-        div.act-slide.coupon div.info-wrap div.coupon > div > div:nth-of-type(3) {
-          height: 2rem;
-          line-height: 2rem;
-          margin-top: 0.5rem;
-          font-size: 0.889rem;
-          color: #b41da2;
-          padding-left: 0.667rem;
-          text-align: left;
-          background: -webkit-linear-gradient(#fff 50%, #f2f1f1 50%, #f2f1f1);
-          background: linear-gradient(#fff 50%, #f2f1f1 50%, #f2f1f1); }
+      width: 15.833rem;
+      margin: 0 auto; }
+      div.act-slide.coupon div.info-wrap div.coupon > div:nth-of-type(1) {
+        color: #fff;
+        font-size: 1.5rem; }
+        div.act-slide.coupon div.info-wrap div.coupon > div:nth-of-type(1) > span {
+          font-size: 0.944rem;
+          float: right; }
+      div.act-slide.coupon div.info-wrap div.coupon > div:nth-of-type(2) {
+        margin-top: 2rem;
+        font-size: 0.889rem; }
+        div.act-slide.coupon div.info-wrap div.coupon > div:nth-of-type(2) > b, div.act-slide.coupon div.info-wrap div.coupon > div:nth-of-type(2) > strong {
+          color: #fff; }
+        div.act-slide.coupon div.info-wrap div.coupon > div:nth-of-type(2) > b {
+          font-size: 1.667rem; }
+        div.act-slide.coupon div.info-wrap div.coupon > div:nth-of-type(2) > strong {
+          font-weight: normal;
+          margin-right: 0.833rem;
+          font-size: 3.056rem; }
+      div.act-slide.coupon div.info-wrap div.coupon > div:nth-of-type(3) {
+        height: 2rem;
+        line-height: 2rem;
+        margin-top: 0.5rem;
+        font-size: 0.889rem;
+        color: #b41da2;
+        padding-left: 0.667rem;
+        text-align: left;
+        background: -webkit-linear-gradient(#fff 50%, #f2f1f1 50%, #f2f1f1);
+        background: linear-gradient(#fff 50%, #f2f1f1 50%, #f2f1f1); }
   div.act-slide.coupon div.info-wrap div.grab-btn {
     margin-top: 1.667rem; }
 

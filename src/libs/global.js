@@ -1,6 +1,9 @@
 /**
  * 全局的数据
  * */
+var wx = require('weixin-js-sdk')
+console.log('require js sdk')
+console.dir(wx)
 exports.Global = {
     journalId: '', // 电子期刊ID
     pageParams: {},
@@ -45,7 +48,7 @@ exports.Global = {
                 }
             }
         }
-        _this.journalId = _this.pageParams['journalId']
+        _this.journalId = _this.pageParams['id']
     },
     // 设置页面标题
     setDocumentTitle: function (title) {

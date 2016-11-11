@@ -19,8 +19,8 @@
                 var pi = Math.PI
 
                 var gradient = ctx.createLinearGradient(0, 0, 0, allHeight)
-                gradient.addColorStop(0, '#520145')
-                gradient.addColorStop(1, '#dd68d2')
+                gradient.addColorStop(0, '#9e0084')
+                gradient.addColorStop(1, '#cd4fbf')
 
                 ctx.strokeStyle = '#f00'
                 ctx.fillStyle = gradient
@@ -50,20 +50,29 @@
 
                 left = 19
                 right = allWidth - left
-                top = 22
+                top = 19
+                radius = 10
                 ctx.beginPath()
-                ctx.strokeStyle = 'rgba(0,0,0,0.6)'
-                ctx.lineWidth = 28
+                ctx.strokeStyle = 'rgba(0,0,0,0.7)'
+                ctx.lineWidth = 16
                 ctx.lineCap = 'round'
 
                 ctx.shadowOffsetX = 4
-                ctx.shadowOffsetY = 8
-                ctx.shadowBlur = 14
-                ctx.shadowColor = 'rgba(0,0,0,0.4)'
+                ctx.shadowOffsetY = 12
+                ctx.shadowBlur = 18
+                ctx.shadowColor = 'rgba(0,0,0,0.6)'
+
+                ctx.moveTo(left + 2 * radius - 2, top)
+                ctx.lineTo(right - 2 * radius + 2, top)
+                ctx.stroke()
 
                 ctx.moveTo(left, top)
-                ctx.lineTo(right, top)
-                ctx.stroke()
+                ctx.fillStyle = 'rgba(0,0,0,0.7)'
+                ctx.arc(left + 5, top, radius + 2, 0, 2 * pi)
+
+                ctx.moveTo(right, top)
+                ctx.arc(right - 5, top, radius + 2, 0, 2 * pi)
+                ctx.fill()
             })
         }
     }
