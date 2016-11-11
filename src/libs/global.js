@@ -1,9 +1,11 @@
 /**
  * 全局的数据
  * */
+import Vue from 'vue'
+
 var wx = require('weixin-js-sdk')
-console.log('require js sdk')
 console.dir(wx)
+
 exports.Global = {
     journalId: '', // 电子期刊ID
     pageParams: {},
@@ -100,5 +102,70 @@ exports.Global = {
     localStorage: function (key, value) {
         if (value) localStorage.setItem(key, value)
         else return localStorage.getItem(key)
+    },
+    shareConfig: function (option) {
+        var win = window
+        var _this = this
+        if (!wx) return
+        option = option || {}
+        if (wx['signReady']) {
+            if (option.title) {
+                wx.hideMenuItems({menuList: ['menuItem:copyUrl']})
+                wx.showAllNonBaseMenuItem()
+                wx.onMenuShareAppMessage(option) // 分享给朋友
+                wx.onMenuShareTimeline(option) // 分享到朋友圈
+                wx.onMenuShareQQ(option) // 分享到QQ
+                wx.onMenuShareWeibo(option) // 分享到腾讯微博
+                wx.onMenuShareQZone(option) // 分享到QQ空间
+            } else {
+                wx.hideAllNonBaseMenuItem() // 屏蔽分享菜单
+            }
+        } else {
+            win['requestSignCount'] = 2
+            _this.weiXinCfgSignature(option)
+        }
+    },
+
+    weiXinCfgSignature: function (option) {
+        var loc = location
+        var signUrl = loc.origin + loc.pathname + loc.search
+        var win = window
+        var _this = this
+
+        Vue.http.get('../api/v1/wx/sign', {
+            params: {
+                url: encodeURIComponent(signUrl),
+                sessionType: '9358'
+            }
+        }).then(function (res) {
+            res = res.body
+            wx.config({
+                debug: false,
+                appId: res.appId,
+                timestamp: res.timestamp,
+                nonceStr: res.nonceStr,
+                signature: res.signature,
+                jsApiList: ['onMenuShareAppMessage', 'onMenuShareTimeline', 'onMenuShareQQ', 'onMenuShareWeibo', 'onMenuShareQZone', 'hideAllNonBaseMenuItem', 'showAllNonBaseMenuItem', 'hideMenuItems']
+            })
+
+            if (!win['wxError']) {
+                win['wxError'] = true
+                wx.error(function () { // 微信分享配置失败
+                    wx['signReady'] = false
+                    win['requestSignCount']--
+                    if (win['requestSignCount'] !== 0) {
+                        _this.weiXinCfgSignature()
+                    }
+                })
+            }
+
+            if (!win['wxReady']) {
+                win['wxReady'] = true
+                wx.ready(function () {
+                    wx['signReady'] = true
+                    _this.shareConfig(option)
+                })
+            }
+        })
     }
 }
