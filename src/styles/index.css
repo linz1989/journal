@@ -1615,7 +1615,6 @@ div.page-content {
     float: left;
     background-size: 3.389rem 3.389rem;
     background-repeat: no-repeat;
-    background-image: url("../images/logo.png");
     -webkit-transition: all 0.3s;
     transition: all 0.3s; }
   .page-header div.info {
@@ -2037,7 +2036,6 @@ div.new-tech-slide div.tech-header {
     border-radius: 50%;
     background-size: 7.5rem 7.5rem;
     background-repeat: no-repeat;
-    background-image: url("../images/logo.png");
     -webkit-transform: rotateY(540deg);
             transform: rotateY(540deg);
     opacity: 0;
@@ -2128,7 +2126,6 @@ div.service-item-slide div.service {
     border: 0.111rem solid #fff;
     background-size: 5.944rem 5.944rem;
     background-repeat: no-repeat;
-    background-image: url("../images/logo.png");
     opacity: 0;
     -webkit-transition: opacity 0.4s 1.6s, -webkit-transform 0.4s 1.6s ease-out;
     transition: opacity 0.4s 1.6s, -webkit-transform 0.4s 1.6s ease-out;

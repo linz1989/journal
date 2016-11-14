@@ -1,0 +1,112 @@
+{
+  "respData": {
+    "clubName": "刘哥会所",
+    "clubId": "601679316694081536",
+    "clubImgUrl": "./images/logo.png",
+    "viewCount": 100,
+    "likeCount": 330,
+    "shareCount": 0,
+    "title": "天宫大庆",
+    "subTitle": "西部大开发30周年大庆",
+    "items": [
+      {
+        "itemKey": "01",
+        "title": "闪亮新人",
+        "details": [
+          {
+            "techId": "601571897351606272",
+            "clubId": null,
+            "techName": "铺子海贼王",
+            "techNo": "108",
+            "serviceItems": [],
+            "avatarUrl": "./images/logo.png"
+          },
+          {
+            "techId": "601571897351606272",
+            "clubId": null,
+            "techName": "9909",
+            "techNo": "108",
+            "serviceItems": [],
+            "avatarUrl": "./images/logo.png"
+          }
+        ]
+      },
+      {
+        "itemKey": "02",
+        "title": "最新项目",
+        "details": [
+          {
+            "id": "628852797382598656",
+            "name": "猫推拿",
+            "image": "145605",
+            "price": "",
+            "duration": "",
+            "durationUnit": "分钟",
+            "description": "<p>\r\n\t猫推拿猫推拿猫推拿猫推拿猫推拿猫推拿猫推拿猫推拿猫推拿猫推拿猫推拿猫推拿\r\n</p>",
+            "imageUrl": null
+          }
+        ]
+      },
+      {
+        "itemKey": "03",
+        "title": "女神风采",
+        "details": null
+      },
+      {
+        "itemKey": "04",
+        "title": "服务之星",
+        "details": "Y"
+      },
+      {
+        "itemKey": "06",
+        "title": "优惠活动",
+        "details": [
+          {
+            "startTime": "",
+            "startDate": 1478102400000,
+            "actId": "794117541571096576",
+            "actPrice": "48",
+            "actImageUrl": "",
+            "actAmount": 18,
+            "endDate": 1480435200000,
+            "endTime": "",
+            "remainCount": 10,
+            "actName": "按手",
+            "actCredit": 0,
+            "actType": "timeLimit"
+          },
+          {
+            "actId": "747733920899952640",
+            "actPrice": 200,
+            "actImageUrl": null,
+            "actPaidAmount": 1,
+            "actName": "dd2",
+            "actType": "oneYuan"
+          },
+          {
+            "actValue": 20,
+            "actId": "761087924807671808",
+            "couponType": "现金券",
+            "couponPeriod": "领取后当天生效，至长期有效！",
+            "consumeMoneyDescription": "满100元可用",
+            "actName": "20元现金券",
+            "actType": "coupon"
+          }
+        ]
+      },
+      {
+        "itemKey": "05",
+        "title": "优秀视频",
+        "details": "www.xiaomodo.com"
+      },
+      {
+        "itemKey": "07",
+        "title": "养生文章",
+        "details": "黑夜给了我黑色的眼睛，我却拿他来对世界翻白眼"
+      }
+    ]
+  },
+  "statusCode": 200,
+  "pageCount": 0,
+  "msg": "Success"
+}

@@ -4,30 +4,30 @@
             <div class="page-title ani"><page-title :title="slideObj.title"></page-title></div>
             <template v-if="slideObj.category=='new-tech'"><!-- 闪亮新人 -->
                 <div class="info-wrap tech-info opacity-ani ani">
-                    <div class="tech-header ani"><div></div></div>
-                    <div class="shadow-btn chat-btn ani"></div>
+                    <div class="tech-header ani"><div v-if="slideObj.avatarUrl" :style="{ 'background-image' : 'url('+slideObj.avatarUrl+')' }"></div></div>
+                    <div class="shadow-btn chat-btn ani" @click="doClickChatBtn()"></div>
                     <div class="name-wrap ani">
-                        <div class="tech-name">黄晶晶&nbsp;[&nbsp;6号&nbsp;]</div>
+                        <div class="tech-name">{{ slideObj.techName }}&nbsp;<span v-show="slideObj.techNo">[{{ slideObj.techNo }}号]</span></div>
                         <div class="tip">最好的服务都在我这里啦！</div>
-                        <div class="service-list"><div class="item-btn left">足浴项目</div><div class="item-btn left">中医推拿</div><div class="item-btn left">美容理疗</div></div>
+                        <div class="service-list"><div v-for="service in slideObj.serviceItems" class="item-btn left">{{ service }}</div></div>
                     </div>
                 </div>
             </template>
             <template v-if="slideObj.category=='service-item'"><!-- 最新项目 -->
-                <div class="info-wrap service left ani">
-                    <div class="service-img ani"></div>
+                <div class="info-wrap service left ani" v-if="slideObj.leftService">
+                    <div class="service-img ani" :style="{ 'background-image' : 'url('+slideObj.leftService.imageUrl+')' }"></div>
                     <div class="text-wrap ani">
-                        <div>面部SPA</div>
-                        <div><strong>98元</strong>/60分钟</div>
-                        <div>最好的服务都在我这里啦最好的服务都在我这里啦</div>
+                        <div>{{ slideObj.leftService.name }}</div>
+                        <div><strong>{{ slideObj.leftService.price }}元</strong>/{{ slideObj.leftService.unit }}{{ slideObj.leftService.durationUnit }}</div>
+                        <div>{{ slideObj.leftService.description }}</div>
                     </div>
                 </div>
-                <div class="info-wrap service right ani">
-                    <div class="service-img ani"></div>
+                <div class="info-wrap service right ani" v-if="slideObj.rightService">
+                    <div class="service-img ani" :style="{ 'background-image' : 'url('+slideObj.rightService.imageUrl+')' }"></div>
                     <div class="text-wrap ani">
-                        <div>面部SPA2</div>
-                        <div><strong>98元</strong>/60分钟</div>
-                        <div>最好的服务都在我这里啦最好的服务都在我这里啦</div>
+                        <div>{{ slideObj.rightService.name }}</div>
+                        <div><strong>{{ slideObj.rightService.price }}元</strong>/{{ slideObj.rightService.unit }}{{ slideObj.rightService.durationUnit }}</div>
+                        <div>{{ slideObj.rightService.description }}</div>
                     </div>
                 </div>
             </template>
@@ -170,6 +170,14 @@
             isOver: {
                 type: Boolean,
                 default: false
+            }
+        },
+        methods: {
+            doClickChatBtn: function () { // 点击点我聊聊按钮
+                var loc = location
+                var slideObj = this.slideObj
+                loc.href = loc.host + loc.pathname + 'spa2/?club=' + slideObj.clubId + '#chat&techId=' + slideObj.techId
+                loc.reload(true)
             }
         }
     }

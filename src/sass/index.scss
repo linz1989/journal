@@ -177,7 +177,6 @@ div.page-content{
     border-radius: 50%;
     float: left;
     @include imgBgFix(3.389rem 3.389rem);
-    background-image: url('../images/logo.png');
     @include transition(all 0.3s);
   }
   div.info{
@@ -590,7 +589,7 @@ div.new-tech-slide{
       border:3px solid #c857b0;
       border-radius: 50%;
       @include imgBgFix(7.5rem 7.5rem);
-      background-image: url("../images/logo.png");
+      // background-image: url("../images/logo.png");
       transform: rotateY(540deg);
       opacity: 0;
       transition: transform 1.5s 1.4s ease-in-out, opacity 0.6s 1.4s;
@@ -674,7 +673,7 @@ div.service-item-slide{
       margin-top:-2.972rem;
       border:0.111rem solid #fff;
       @include imgBgFix(5.944rem 5.944rem);
-      background-image: url("../images/logo.png");
+      // background-image: url("../images/logo.png");
       opacity: 0;
       transition: opacity 0.4s 1.6s, transform 0.4s 1.6s ease-out;
       &.act{

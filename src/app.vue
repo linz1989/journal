@@ -24,13 +24,13 @@
             </div>
         </div>
         <template v-show="!loading && !loadError">
-            <header class="page-header" ref="pageHeader">
-                <div class="logo"></div>
+            <header class="page-header" ref="pageHeader" @click="doGoToClub()">
+                <div v-if="clubImgUrl" class="logo" :style="{ 'background-image' : 'url('+clubImgUrl+')' }"></div>
                 <div class="info">
-                    <div class="title">皇朝休闲会所</div>
+                    <div class="title">{{ clubName }}</div>
                     <div class="static">
-                        <div class="view">2201</div>
-                        <div class="like">4545</div>
+                        <div class="view">{{ viewCount }}</div>
+                        <div class="like">{{ likeCount }}</div>
                     </div>
                 </div>
                 <div class="right-arrow"></div>
@@ -47,7 +47,7 @@
                     </div>
                     <div class="text">
                         <canvas ref="titleText" class="ani" width="586" height="200"></canvas>
-                        <div class="ani">这是活动标题，活动标题一</div>
+                        <div class="ani" v-show="subTitle">{{ subTitle }}</div>
                     </div>
                 </swiper-slide>
                 <slide v-for="(item,index) in slideData" :slide-obj="item" :is-over="index==slideData.length-1"></slide>
@@ -73,8 +73,17 @@
         },
         data: function () {
             return {
+                dataUrl: './data.json',
+                clubName: '', // 会所名
+                clubId: '', // 会所ID
+                clubImgUrl: '', // 会所logo
+                viewCount: '', // 浏览量
+                likeCount: '', // 点赞量
+                title: '', // 主标题
+                subTitle: '', // 子标题
                 shareUrl: 'http://wwww',
-                slideData: [
+                slideData: [],
+                /* slideData: [
                     { category: 'new-tech', type: '', title: '闪亮新人' },
                     { category: 'service-item', type: '', title: '最新项目' },
                     { category: 'tech-list', type: '', title: '服务之星' },
@@ -84,13 +93,13 @@
                     { category: 'act', type: 'one-yuan', title: '贵宾福利' },
                     { category: 'act', type: 'coupon', title: '贵宾福利' },
                     { category: 'health', type: '', title: '养身频道' }
-                ],
+                ], */
                 loading: true,
                 loadError: false,
                 swiperOption: {
                     direction: 'vertical',
                     observeParents: true,
-                    // mousewheelControl: true,
+                    mousewheelControl: true,
                     onInit: function (swiper) {
                         var global = Global
                         if (global.app && !global.app.loading) {
@@ -195,14 +204,72 @@
                 }
                 bgImg.src = './images/01.jpg'
 
-                setTimeout(function () {
-                    _this.loading = false
-                }, 2000)
+                // 请求数据
+                _this.$http.get(_this.dataUrl, {params: {id: global.journalId}}).then(function (res) {
+                    res = res.body
+                    if (res.statusCode == 200) {
+                        res = res.respData
+                        _this.clubName = res.clubName
+                        _this.clubId = res.clubId
+                        _this.viewCount = res.viewCount
+                        _this.likeCount = res.likeCount
+                        _this.title = res.title || '限时优惠大抢购'
+                        _this.subTitle = res.subTitle
+                        _this.clubImgUrl = res.clubImgUrl
 
-                global.app = _this
-                global.pageHeader = _this.$refs.pageHeader
-                global.slideArrow = _this.$refs.slideArrow
-                _this.drawCanvas()
+                        // 处理slide 数组
+                        var items = res.items
+                        var itemData
+                        var subItemData
+                        var slideData = []
+                        var itemObj
+                        var k
+                        for (var i = 0; i < items.length; i++) {
+                            itemData = items[i]
+                            if (itemData.itemKey == '01') { // 闪亮新人页面
+                                for (k = 0; k < itemData.details.length; k++) {
+                                    subItemData = itemData.details[k]
+                                    itemObj = {}
+                                    itemObj.category = 'new-tech'
+                                    itemObj.title = itemData.title
+                                    itemObj.techId = subItemData.techId
+                                    itemObj.techName = subItemData.techName
+                                    itemObj.techNo = subItemData.techNo
+                                    itemObj.clubId = _this.clubId
+                                    itemObj.avatarUrl = subItemData.avatarUrl
+                                    itemObj.serviceItems = subItemData.serviceItems
+                                    slideData.push(itemObj)
+                                }
+                            } else if (itemData.itemKey == '02') { // 最新项目页面
+                                for (k = 0; k < itemData.details.length; k++) {
+                                    subItemData = itemData.details[k]
+                                    itemObj = {}
+                                    itemObj.category = 'service-item'
+                                    itemObj.title = itemData.title
+                                    itemObj.leftService = subItemData
+                                    k++
+                                    if (k < itemData.details.length) { // 一个页面最多显示2个项目，如果多于两个，则另起一页显示
+                                        itemObj.rightService = itemData.details[k]
+                                    }
+                                    slideData.push(itemObj)
+                                }
+                            }
+                        }
+
+                        _this.slideData = slideData
+                        global.pageHeader = _this.$refs.pageHeader
+                        global.slideArrow = _this.$refs.slideArrow
+                        _this.drawCanvas()
+                        global.app = _this
+
+                        preDataLoadCount++
+                        if (preDataLoadCount == 2) {
+                            _this.loading = false
+                        }
+                    } else {
+                        _this.loadError = false
+                    }
+                })
 
                 // 浏览数+1
                 // _this.$http.get('../api/v2/user/journal/view/count', {params: { journalId: global.journalId }})
@@ -232,7 +299,10 @@
                     if (marginRem > 0.9) {
                         marginRem = 0.9
                     }
-                    document.querySelector('div.common-slide.service-item>div.wrap>div.info-wrap').style.marginTop = marginRem + 'rem'
+                    var actSlide = document.querySelector('div.common-slide.service-item>div.wrap>div.info-wrap')
+                    if (actSlide) {
+                        actSlide.style.marginTop = marginRem + 'rem'
+                    }
                 }
 
                 // 分享配置
@@ -303,7 +373,7 @@
                 lineBottomCtx.stroke()
 
                 var titleTextCtx = _this.$refs.titleText.getContext('2d')
-                var textStr = '限时优惠大抢购'
+                var textStr = _this.title
 
                 titleTextCtx.fillStyle = '#ffe90a'
                 titleTextCtx.textAlign = 'center'
@@ -323,6 +393,11 @@
                     // console.log('remove ani...')
                     targetCls.remove('endAni')
                 }
+            },
+            doGoToClub: function () {
+                var loc = location
+                loc.href = loc.host + loc.pathname + 'spa2/?club=' + this.clubId
+                loc.reload(true)
             }
         }
     }
