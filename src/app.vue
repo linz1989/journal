@@ -55,7 +55,7 @@
             <div class="slide-arrow" ref="slideArrow"></div>
             <share :share-url="shareUrl"></share>
         </template>
-        <div v-show="loadError" class="page-error">404<br/><span>页面已无法访问！</span></div>
+        <div v-show="loadError" class="page-error">404<br/><span>页面无法访问！</span></div>
     </div>
 </template>
 <script>
@@ -148,9 +148,12 @@
                         // console.dir(previousAniEles)
 
                         if (previousAniEles && previousAniEles.length > 0) {
+                            // console.log('previousAniEles.length：' + previousAniEles.length)
+                            var oldAniElCls
                             for (k = 0; k < previousAniEles.length; k++) {
-                                previousAniEles[k].classList.add('endAni')
-                                previousAniEles[k].classList.remove('act')
+                                oldAniElCls = previousAniEles[k].classList
+                                oldAniElCls.add('endAni')
+                                oldAniElCls.remove('act')
                             }
                         }
 
@@ -317,6 +320,7 @@
                 var target = event.target
                 var targetCls = target.classList
                 if (targetCls.contains('endAni')) {
+                    // console.log('remove ani...')
                     targetCls.remove('endAni')
                 }
             }

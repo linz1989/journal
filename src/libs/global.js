@@ -83,7 +83,7 @@ exports.Global = {
         }
         _this.winWidth = htmlEl.clientWidth || win.innerWidth || doc.body.clientWidth
         _this.winHeight = htmlEl.clientHeight || win.innerHeight
-        _this.winWidth = _this.winWidth > 600 ? 600 : (_this.winWidth < 320 ? 320 : _this.winWidth)
+        _this.winWidth = _this.winWidth > 540 ? 540 : (_this.winWidth < 320 ? 320 : _this.winWidth)
         _this.winScale = _this.winWidth / _this.baseWidth
         htmlEl.style.fontSize = _this.winScale * 16 + 'px'
         htmlEl.style.backgroundColor = '#f0f0f0'

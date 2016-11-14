@@ -2541,6 +2541,8 @@ div.health-slide div.over-tip {
             transform: scaleY(1); }
 
 .endAni {
+  -webkit-transition-duration: 0.01s !important;
+          transition-duration: 0.01s !important;
   -webkit-transition-delay: 0s !important;
           transition-delay: 0s !important; }
 

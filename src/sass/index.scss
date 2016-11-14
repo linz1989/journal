@@ -1134,6 +1134,7 @@ div.health-slide{
 }
 
 .endAni{
+  transition-duration: 0.01s !important; // 如果设置0s，transitionend事件不会触发
   transition-delay:0s !important;
 }
 
