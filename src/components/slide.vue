@@ -15,104 +15,83 @@
             </template>
             <template v-if="slideObj.category=='service-item'"><!-- 最新项目 -->
                 <div class="info-wrap service left ani" v-if="slideObj.leftService">
-                    <div class="service-img ani" :style="{ 'background-image' : 'url('+slideObj.leftService.imageUrl+')' }"></div>
+                    <div class="service-img default-img-bg ani" :style="slideObj.leftService.styleObj"></div>
                     <div class="text-wrap ani">
                         <div>{{ slideObj.leftService.name }}</div>
-                        <div><strong>{{ slideObj.leftService.price }}元</strong>/{{ slideObj.leftService.unit }}{{ slideObj.leftService.durationUnit }}</div>
+                        <div><strong>{{ slideObj.leftService.price }}元</strong>/{{ slideObj.leftService.duration }}{{ slideObj.leftService.durationUnit }}</div>
                         <div>{{ slideObj.leftService.description }}</div>
                     </div>
                 </div>
                 <div class="info-wrap service right ani" v-if="slideObj.rightService">
-                    <div class="service-img ani" :style="{ 'background-image' : 'url('+slideObj.rightService.imageUrl+')' }"></div>
+                    <div class="service-img default-img-bg ani" :style="slideObj.rightService.styleObj"></div>
                     <div class="text-wrap ani">
                         <div>{{ slideObj.rightService.name }}</div>
-                        <div><strong>{{ slideObj.rightService.price }}元</strong>/{{ slideObj.rightService.unit }}{{ slideObj.rightService.durationUnit }}</div>
+                        <div><strong>{{ slideObj.rightService.price }}元</strong>/{{ slideObj.rightService.duration }}{{ slideObj.rightService.durationUnit }}</div>
                         <div>{{ slideObj.rightService.description }}</div>
                     </div>
                 </div>
             </template>
             <template v-if="slideObj.category=='tech-list'"><!-- 服务之星 -->
-                <div class="info-wrap tech t1 ani">
-                    <div class="ani"></div>
-                    <div>张得好[66号]</div>
-                    <div>擅长最专业的泰式按摩</div>
-                    <div>客人印象:<span>#美白</span><span>#美白</span><span>#美白</span></div>
-                    <div class="item-btn right ani">足浴项目</div>
-                </div>
-                <div class="info-wrap tech t2 ani">
-                    <div class="ani"></div>
-                    <div>张得好[66号]</div>
-                    <div>擅长最专业的泰式按摩</div>
-                    <div>客人印象:<span>#美白</span><span>#美白</span><span>#美白</span></div>
-                    <div class="item-btn right ani">足浴项目</div>
-                </div>
-                <div class="info-wrap tech t3 ani">
-                    <div class="ani"></div>
-                    <div>张得好[66号]</div>
+                <div class="info-wrap tech ani" v-for="(tech,index) in slideObj.techs" :class="'t'+index">
+                    <div class="default-img-bg ani" :style="tech.imgStyle"></div>
+                    <div>{{ tech.name }}<span v-show="tech.serialNo">[{{ tech.serialNo }}号]</span></div>
                     <div>擅长最专业的泰式按摩</div>
                     <div>客人印象:<span>#美白</span><span>#美白</span><span>#美白</span></div>
                     <div class="item-btn right ani">足浴项目</div>
                 </div>
             </template>
             <template v-if="slideObj.category=='tech-pics'"><!-- 视频 -->
-                <swiper :options="picSwiperOption" class="pic-wrap scale-ani ani">
-                    <swiper-slide v-for="item in techPics"><div :class="'pic-item-'+item"></div></swiper-slide>
+                <swiper :options="picSwiperOption" class="pic-wrap scale-ani ani" v-if="slideObj.pics.length>0">
+                    <swiper-slide v-for="pic in slideObj.pics"><div class="swiper-zoom-container"><img :src="pic"/></div></swiper-slide>
                 </swiper>
             </template>
             <template v-if="slideObj.category=='video'"><!-- 视频 -->
                 <div class="info-wrap scale-ani ani">
                     <video class="video-js vjs-default-skin" controls preload="meta" width="100%" height="100%" data-setup="{}">
-                        <source src="http://vjs.zencdn.net/v/oceans.mp4" type="video/mp4">
-                        <source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
-                        <source src="http://vjs.zencdn.net/v/oceans.ogv" type="video/ogg">
+                        <source :src="slideObj.video" type="video/mp4"/>
                     </video>
                 </div>
             </template>
-            <template v-if="slideObj.category=='act' && slideObj.type=='service-item'"><!-- 活动 -抢项目-->
+            <template v-if="slideObj.category=='act' && slideObj.type=='timeLimit'"><!-- 活动 -抢项目-->
                 <div class="info-wrap opacity-ani ani">
-                    <div class="ani"></div>
+                    <div class="default-img-bg ani" :style="slideObj.imgStyle"></div>
                     <div class="text-wrap ani">
-                        <div>花样泰式按摩</div>
-                        <div><strong>155</strong><span>元</span>（或<b>1000</b>积分）</div>
-                        <div>原价：300元</div>
-                        <div>距结束：<b>11</b>时<b>05</b>分<b>21</b>秒<span>剩余22份</span></div>
+                        <div>{{ slideObj.data.actName }}</div>
+                        <div><strong>{{ slideObj.data.actAmount }}</strong><span>元</span><span v-show="slideObj.data.actCredit">（或<b>{{ slideObj.data.actCredit }}</b>积分）</span></div>
+                        <div>原价：{{ slideObj.data.actPrice }}元</div>
+                        <counter :remain-count="slideObj.data.remainCount" :start="slideObj.data.startDate" :end="slideObj.data.endDate"></counter>
                     </div>
-                    <div class="shadow-btn grab-btn ani"></div>
+                    <div class="shadow-btn grab-btn ani" @click="doClickBtnOfTimeLimitAct()"></div>
                 </div>
             </template>
-            <template v-if="slideObj.category=='act' && slideObj.type=='one-yuan'"><!-- 活动 -一元抢-->
+            <template v-if="slideObj.category=='act' && slideObj.type=='oneYuan'"><!-- 活动 -一元抢-->
                 <div class="info-wrap opacity-ani ani">
-                    <div class="ani"></div>
+                    <div class="default-img-bg ani" :style="slideObj.imgStyle"></div>
                     <div class="text-wrap ani">
-                        <div><b>泰式按摩</b>(第二期)</div>
-                        <div><div class="ani" id="one-yuan-count"></div></div>
-                        <div>已抢：<span>247/500</span></div>
+                        <div><b>{{ slideObj.data.actName }}</b></div>
+                        <div><div class="ani" id="one-yuan-count" :progress="slideObj.data.actPaidAmount/slideObj.data.actPrice*100"></div></div>
+                        <div>已抢：<span>{{ slideObj.data.actPaidAmount }}/{{ slideObj.data.actPrice }}</span></div>
                     </div>
-                    <div class="shadow-btn grab-btn ani"></div>
+                    <div class="shadow-btn grab-btn ani" @click="doClickBtnOfOneYuanAct()"></div>
                 </div>
             </template>
             <template v-if="slideObj.category=='act' && slideObj.type=='coupon'"><!-- 活动 -优惠券-->
                 <div class="info-wrap scale-ani ani">
                     <div class="coupon ani">
                         <coupon-bg></coupon-bg>
-                        <div>泰式按摩券<span>现金券</span></div>
-                        <div><b>￥</b><strong>500</strong>满500元可用</div>
-                        <div>有效时间：客人购买后60天有效</div>
+                        <div>{{ slideObj.data.actName }}<span>{{ slideObj.data.couponType }}</span></div>
+                        <div><b>￥</b><strong>{{ slideObj.data.actValue }}</strong>{{ slideObj.data.consumeMoneyDescription }}</div>
+                        <div>有效时间：{{ slideObj.data.couponPeriod }}</div>
                     </div>
-                    <div class="shadow-btn grab-btn ani"></div>
+                    <div class="shadow-btn grab-btn ani" @click="doClickBtnOfCouponAct()"></div>
                 </div>
             </template>
             <template v-if="slideObj.category=='health'"><!-- 养身频道-->
-                <div class="info-wrap ani">
-                    <h3>标题一</h3>
-                    <p>本活动需要支付，最低元起，每支付块钱获得需要支付。</p>
-                    <h3>标题二</h3>
-                    <p>本活动需要支付，最低元起，每支付块钱获得需要支付。</p>
-                </div>
+                <div class="info-wrap ani" v-html="slideObj.content"></div>
             </template>
         </div>
-        <worm-button category="like"></worm-button>
-        <worm-button category="share" v-if="slideObj.category=='health'"></worm-button>
+        <worm-button :category="global.likeStatus" :class="{ 'over': isOver }"></worm-button>
+        <worm-button category="share" v-if="isOver"></worm-button>
         <div v-if="isOver" class="over-tip">—更多精彩去网上会所看看—</div>
     </swiper-slide>
 </template>
@@ -122,6 +101,8 @@
     import PageTitle from './pageTitle'
     import WormButton from './wormButton'
     import CouponBg from './couponBg'
+    import Counter from './counter'
+    import { Global } from '../libs/global'
 
     module.exports = {
         components: {
@@ -129,17 +110,20 @@
             'swiper-slide': swiperSlide,
             'page-title': PageTitle,
             'worm-button': WormButton,
-            'coupon-bg': CouponBg
+            'coupon-bg': CouponBg,
+            'counter': Counter
         },
         data: function () {
             return {
-                techPics: [1, 2, 3, 4],
+                global: Global,
+                clubUrl: '',
                 picSwiperOption: {
                     effect: 'coverflow',
                     slidesPerView: 2,
                     centeredSlides: true,
                     observeParents: true,
                     loop: true,
+                    zoom: true,
                     coverflow: {
                         rotate: 30,
                         stretch: 15,
@@ -172,12 +156,29 @@
                 default: false
             }
         },
+        mounted: function () {
+            var slideObj = this.slideObj
+            if (slideObj.clubId) {
+                this.clubUrl = location.host + location.pathname + 'spa2/?club=' + slideObj.clubId
+                console.log('clubUrl：' + this.clubUrl)
+            }
+        },
         methods: {
             doClickChatBtn: function () { // 点击点我聊聊按钮
-                var loc = location
-                var slideObj = this.slideObj
-                loc.href = loc.host + loc.pathname + 'spa2/?club=' + slideObj.clubId + '#chat&techId=' + slideObj.techId
-                loc.reload(true)
+                location.href = this.clubUrl + '#chat&techId=' + this.slideObj.techId
+                location.reload(true)
+            },
+            doClickBtnOfTimeLimitAct: function () { // 点击立即抢购按钮，限时抢活动
+                location.href = this.clubUrl + '#robProjectDetail&robProjectId=' + this.slideObj.data.actId
+                location.reload(true)
+            },
+            doClickBtnOfOneYuanAct: function () { // 跳转到一元抢页面
+                location.href = this.clubUrl + '#plumflowers&id=' + this.slideObj.data.actId + '&chanel=link'
+                location.reload(true)
+            },
+            doClickBtnOfCouponAct: function () { // 跳转到会所活动页面
+                location.href = this.clubUrl + '#promotions'
+                location.reload(true)
             }
         }
     }

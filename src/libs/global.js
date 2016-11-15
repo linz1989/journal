@@ -8,6 +8,9 @@ console.dir(wx)
 
 exports.Global = {
     journalId: '', // 电子期刊ID
+    likeStatus: 'like',
+    viewCount: '', // 浏览量
+    likeCount: '', // 点赞量
     pageParams: {},
     tip: null,
     pageHeader: null,
@@ -51,6 +54,10 @@ exports.Global = {
             }
         }
         _this.journalId = _this.pageParams['id']
+
+        if (_this.localStorage('spa-journal-' + _this.journalId)) {
+            _this.likeStatus = 'liked'
+        }
     },
     // 设置页面标题
     setDocumentTitle: function (title) {

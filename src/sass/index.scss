@@ -570,6 +570,24 @@ div.common-slide{
       color:#fff;
     }
   }
+
+  div.like-btn.over,div.liked-btn.over{
+    left:25%;
+  }
+  div.share-btn{
+    left:75%;
+    background-image: url("../images/14.png");
+  }
+
+  div.over-tip{
+    position: absolute;
+    left:0;
+    bottom:0.1rem;
+    width:100%;
+    color:#fff;
+    text-align: center;
+    font-size:0.833rem;
+  }
 }
 
 div.new-tech-slide{
@@ -581,7 +599,6 @@ div.new-tech-slide{
     width:7.5rem;
     height:7.5rem;
     margin:-2.611rem auto 0;
-    //transform-style: preserve-3d;
     transform-origin: center center;
     >div{
       width:100%;
@@ -589,7 +606,6 @@ div.new-tech-slide{
       border:3px solid #c857b0;
       border-radius: 50%;
       @include imgBgFix(7.5rem 7.5rem);
-      // background-image: url("../images/logo.png");
       transform: rotateY(540deg);
       opacity: 0;
       transition: transform 1.5s 1.4s ease-in-out, opacity 0.6s 1.4s;
@@ -673,7 +689,6 @@ div.service-item-slide{
       margin-top:-2.972rem;
       border:0.111rem solid #fff;
       @include imgBgFix(5.944rem 5.944rem);
-      // background-image: url("../images/logo.png");
       opacity: 0;
       transition: opacity 0.4s 1.6s, transform 0.4s 1.6s ease-out;
       &.act{
@@ -704,6 +719,7 @@ div.service-item-slide{
         &:nth-of-type(3){
           color:#e4e2e5;
           font-size:0.889rem;
+          @include slh(2);
         }
       }
     }
@@ -734,7 +750,7 @@ div.tech-list-slide{
     padding: 0.778rem 0.556rem 0 5.056rem;
     opacity: 0;
     transform: translateX(5rem);
-    &.t1{
+    &.t0{
       transition: opacity 0.6s 1s, transform 0.6s 1s ease-out;
       >div{
         &:nth-of-type(1){
@@ -745,7 +761,7 @@ div.tech-list-slide{
         }
       }
     }
-    &.t2{
+    &.t1{
       transition: opacity 0.6s 1.3s, transform 0.6s 1.3s ease-out;
       >div{
         &:nth-of-type(1){
@@ -756,7 +772,7 @@ div.tech-list-slide{
         }
       }
     }
-    &.t3{
+    &.t2{
       transition: opacity 0.6s 1.6s, transform 0.6s 1.6s ease-out;
       >div{
         &:nth-of-type(1){
@@ -783,7 +799,7 @@ div.tech-list-slide{
         border-radius: 50%;
         border:0.111rem solid #c857b0;
         @include imgBgFix(4.166rem 4.166rem);
-        background-image: url("../images/logo.png");
+        //background-image: url("../images/logo.png");
         opacity: 0;
         transform: scale(0,0);
         transform-origin: 0 100%;
@@ -831,21 +847,9 @@ div.tech-pics-slide{
     width:27rem;
     margin:1.1rem -3.5rem 0;
     div.swiper-slide{
-      >div{
+      img,div{
         width:100%;
         height:100%;
-        &.pic-item-1{
-          background-color: #79602b;
-        }
-        &.pic-item-2{
-          background-color: #00efd5;
-        }
-        &.pic-item-3{
-          background-color: #9e44e2;
-        }
-        &.pic-item-4{
-          background-color: #bfc7d3;
-        }
       }
     }
   }
@@ -883,7 +887,7 @@ div.act-slide{
       transform: rotate(0deg);
     }
   }
-  &.service-item,&.one-yuan{
+  &.timeLimit,&.oneYuan{
     div.info-wrap{
       padding:0.861rem 0;
       text-align: center;
@@ -897,7 +901,7 @@ div.act-slide{
           border:0.111rem solid #c857b0;
           border-radius: 0.2rem;
           @include imgBgFix(6.333rem 6.333rem);
-          background-image: url("../images/logo.png");
+          //background-image: url("../images/logo.png");
           opacity: 0;
           transform: rotate(-180deg);
           transition: opacity 0.4s 1.7s, transform 0.4s 1.7s ease-out;
@@ -918,7 +922,7 @@ div.act-slide{
       }
     }
   }
-  &.service-item{
+  &.timeLimit{
     div.info-wrap{
       padding-bottom:0.2rem;
       div.text-wrap{
@@ -929,13 +933,13 @@ div.act-slide{
           }
           &:nth-of-type(2){
             font-size:0.944rem;
-            >strong,>span{
+            >strong,>span:nth-of-type(1){
               color:#fb5549;
             }
-            >strong{
+            strong{
               font-size:1.5rem;
             }
-            >b{
+            b{
               color:#ff9a0c;
               font-size:1.278rem;
               font-weight: normal;
@@ -960,7 +964,7 @@ div.act-slide{
       }
     }
   }
-  &.one-yuan{
+  &.oneYuan{
     div.info-wrap{
       margin-top:0.9rem;
       div.text-wrap{
@@ -1064,6 +1068,7 @@ div.act-slide{
             color: #b41da2;
             padding-left: 0.667rem;
             text-align: left;
+            @include sl();
             background: linear-gradient(#fff 50%, #f2f1f1 50%, #f2f1f1);
           }
         }
@@ -1085,39 +1090,12 @@ div.health-slide{
     opacity: 0;
     transform: rotate(90deg);
     transition: opacity 0.4s 1.3s, transform 0.5s 1.3s ease-out;
+    line-height: 1.3rem;
+    font-size:0.833rem;
     &.act{
       opacity: 1;
       transform: rotate(0deg);
     }
-    h3{
-      display: inline-block;
-      margin-top:0.33rem;
-      border-bottom:1px solid #fff;
-      margin-bottom:0.3rem;
-      font-weight: bold;
-    }
-    p{
-      line-height: 1.3rem;
-      font-size:0.833rem;
-    }
-  }
-
-  div.like-btn{
-    left:25%;
-  }
-  div.share-btn{
-    left:75%;
-    background-image: url("../images/14.png");
-  }
-
-  div.over-tip{
-    position: absolute;
-    left:0;
-    bottom:0.1rem;
-    width:100%;
-    color:#fff;
-    text-align: center;
-    font-size:0.833rem;
   }
 }
 
@@ -1150,4 +1128,8 @@ div.page-error{
   >span{
     font-size:0.887rem
   }
+}
+
+.default-img-bg{
+  background: #9e44e2 repeating-linear-gradient(45deg, rgba(0,0,0,0.2), rgba(0,0,0,0.2) 5px, #666 5px, #666 7px, rgba(0,0,0,0.2) 7px, rgba(0,0,0,0.2) 12px);
 }

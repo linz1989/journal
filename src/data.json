@@ -39,8 +39,8 @@
             "id": "628852797382598656",
             "name": "猫推拿",
             "image": "145605",
-            "price": "",
-            "duration": "",
+            "price": "70",
+            "duration": "90",
             "durationUnit": "分钟",
             "description": "<p>\r\n\t猫推拿猫推拿猫推拿猫推拿猫推拿猫推拿猫推拿猫推拿猫推拿猫推拿猫推拿猫推拿\r\n</p>",
             "imageUrl": null
@@ -50,7 +50,7 @@
       {
         "itemKey": "03",
         "title": "女神风采",
-        "details": null
+        "details": ["./images/1.png", "./images/2.png","./images/3.png","./images/4.png","./images/5.png" ]
       },
       {
         "itemKey": "04",

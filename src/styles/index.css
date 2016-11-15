@@ -2018,6 +2018,19 @@ div.common-slide {
       background: -webkit-linear-gradient(#ce35ba, #9e44e2);
       background: linear-gradient(#ce35ba, #9e44e2);
       color: #fff; }
+  div.common-slide div.like-btn.over, div.common-slide div.liked-btn.over {
+    left: 25%; }
+  div.common-slide div.share-btn {
+    left: 75%;
+    background-image: url("../images/14.png"); }
+  div.common-slide div.over-tip {
+    position: absolute;
+    left: 0;
+    bottom: 0.1rem;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    font-size: 0.833rem; }
 
 div.new-tech-slide div.tech-info {
   height: 14.7rem;
@@ -2157,7 +2170,13 @@ div.service-item-slide div.service {
         font-weight: normal; }
     div.service-item-slide div.service div.text-wrap > div:nth-of-type(3) {
       color: #e4e2e5;
-      font-size: 0.889rem; }
+      font-size: 0.889rem;
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: block-axis;
+      word-break: break-all; }
   div.service-item-slide div.service.left {
     -webkit-transform: translateX(6rem);
             transform: translateX(6rem);
@@ -2183,43 +2202,43 @@ div.tech-list-slide div.tech {
   opacity: 0;
   -webkit-transform: translateX(5rem);
           transform: translateX(5rem); }
-  div.tech-list-slide div.tech.t1 {
+  div.tech-list-slide div.tech.t0 {
     -webkit-transition: opacity 0.6s 1s, -webkit-transform 0.6s 1s ease-out;
     transition: opacity 0.6s 1s, -webkit-transform 0.6s 1s ease-out;
     transition: opacity 0.6s 1s, transform 0.6s 1s ease-out;
     transition: opacity 0.6s 1s, transform 0.6s 1s ease-out, -webkit-transform 0.6s 1s ease-out; }
-    div.tech-list-slide div.tech.t1 > div:nth-of-type(1) {
+    div.tech-list-slide div.tech.t0 > div:nth-of-type(1) {
       -webkit-transition: opacity 0.4s 1.6s, -webkit-transform 0.6s 1.6s ease-out;
       transition: opacity 0.4s 1.6s, -webkit-transform 0.6s 1.6s ease-out;
       transition: opacity 0.4s 1.6s, transform 0.6s 1.6s ease-out;
       transition: opacity 0.4s 1.6s, transform 0.6s 1.6s ease-out, -webkit-transform 0.6s 1.6s ease-out; }
-    div.tech-list-slide div.tech.t1 > div.item-btn {
+    div.tech-list-slide div.tech.t0 > div.item-btn {
       -webkit-transition: opacity 0.3s 2.2s, right 0.4s 2.2s ease-out;
       transition: opacity 0.3s 2.2s, right 0.4s 2.2s ease-out; }
-  div.tech-list-slide div.tech.t2 {
+  div.tech-list-slide div.tech.t1 {
     -webkit-transition: opacity 0.6s 1.3s, -webkit-transform 0.6s 1.3s ease-out;
     transition: opacity 0.6s 1.3s, -webkit-transform 0.6s 1.3s ease-out;
     transition: opacity 0.6s 1.3s, transform 0.6s 1.3s ease-out;
     transition: opacity 0.6s 1.3s, transform 0.6s 1.3s ease-out, -webkit-transform 0.6s 1.3s ease-out; }
-    div.tech-list-slide div.tech.t2 > div:nth-of-type(1) {
+    div.tech-list-slide div.tech.t1 > div:nth-of-type(1) {
       -webkit-transition: opacity 0.4s 1.9s, -webkit-transform 0.6s 1.9s ease-out;
       transition: opacity 0.4s 1.9s, -webkit-transform 0.6s 1.9s ease-out;
       transition: opacity 0.4s 1.9s, transform 0.6s 1.9s ease-out;
       transition: opacity 0.4s 1.9s, transform 0.6s 1.9s ease-out, -webkit-transform 0.6s 1.9s ease-out; }
-    div.tech-list-slide div.tech.t2 > div.item-btn {
+    div.tech-list-slide div.tech.t1 > div.item-btn {
       -webkit-transition: opacity 0.3s 2.5s, right 0.4s 2.5s ease-out;
       transition: opacity 0.3s 2.5s, right 0.4s 2.5s ease-out; }
-  div.tech-list-slide div.tech.t3 {
+  div.tech-list-slide div.tech.t2 {
     -webkit-transition: opacity 0.6s 1.6s, -webkit-transform 0.6s 1.6s ease-out;
     transition: opacity 0.6s 1.6s, -webkit-transform 0.6s 1.6s ease-out;
     transition: opacity 0.6s 1.6s, transform 0.6s 1.6s ease-out;
     transition: opacity 0.6s 1.6s, transform 0.6s 1.6s ease-out, -webkit-transform 0.6s 1.6s ease-out; }
-    div.tech-list-slide div.tech.t3 > div:nth-of-type(1) {
+    div.tech-list-slide div.tech.t2 > div:nth-of-type(1) {
       -webkit-transition: opacity 0.4s 2.2s, -webkit-transform 0.6s 2.2s ease-out;
       transition: opacity 0.4s 2.2s, -webkit-transform 0.6s 2.2s ease-out;
       transition: opacity 0.4s 2.2s, transform 0.6s 2.2s ease-out;
       transition: opacity 0.4s 2.2s, transform 0.6s 2.2s ease-out, -webkit-transform 0.6s 2.2s ease-out; }
-    div.tech-list-slide div.tech.t3 > div.item-btn {
+    div.tech-list-slide div.tech.t2 > div.item-btn {
       -webkit-transition: opacity 0.3s 2.8s, right 0.4s 2.8s ease-out;
       transition: opacity 0.3s 2.8s, right 0.4s 2.8s ease-out; }
   div.tech-list-slide div.tech.act {
@@ -2239,7 +2258,6 @@ div.tech-list-slide div.tech {
       border: 0.111rem solid #c857b0;
       background-size: 4.166rem 4.166rem;
       background-repeat: no-repeat;
-      background-image: url("../images/logo.png");
       opacity: 0;
       -webkit-transform: scale(0, 0);
               transform: scale(0, 0);
@@ -2279,17 +2297,9 @@ div.tech-pics-slide div.pic-wrap {
   height: 17.5rem;
   width: 27rem;
   margin: 1.1rem -3.5rem 0; }
-  div.tech-pics-slide div.pic-wrap div.swiper-slide > div {
+  div.tech-pics-slide div.pic-wrap div.swiper-slide img, div.tech-pics-slide div.pic-wrap div.swiper-slide div {
     width: 100%;
     height: 100%; }
-    div.tech-pics-slide div.pic-wrap div.swiper-slide > div.pic-item-1 {
-      background-color: #79602b; }
-    div.tech-pics-slide div.pic-wrap div.swiper-slide > div.pic-item-2 {
-      background-color: #00efd5; }
-    div.tech-pics-slide div.pic-wrap div.swiper-slide > div.pic-item-3 {
-      background-color: #9e44e2; }
-    div.tech-pics-slide div.pic-wrap div.swiper-slide > div.pic-item-4 {
-      background-color: #bfc7d3; }
 
 div.video-slide div.info-wrap {
   height: 15.139rem;
@@ -2322,21 +2332,20 @@ div.act-slide div.grab-btn {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg); }
 
-div.act-slide.service-item div.info-wrap, div.act-slide.one-yuan div.info-wrap {
+div.act-slide.timeLimit div.info-wrap, div.act-slide.oneYuan div.info-wrap {
   padding: 0.861rem 0;
   text-align: center;
   color: #fff; }
-  div.act-slide.service-item div.info-wrap > div, div.act-slide.one-yuan div.info-wrap > div {
+  div.act-slide.timeLimit div.info-wrap > div, div.act-slide.oneYuan div.info-wrap > div {
     margin-left: auto;
     margin-right: auto; }
-    div.act-slide.service-item div.info-wrap > div:nth-of-type(1), div.act-slide.one-yuan div.info-wrap > div:nth-of-type(1) {
+    div.act-slide.timeLimit div.info-wrap > div:nth-of-type(1), div.act-slide.oneYuan div.info-wrap > div:nth-of-type(1) {
       width: 6.333rem;
       height: 6.333rem;
       border: 0.111rem solid #c857b0;
       border-radius: 0.2rem;
       background-size: 6.333rem 6.333rem;
       background-repeat: no-repeat;
-      background-image: url("../images/logo.png");
       opacity: 0;
       -webkit-transform: rotate(-180deg);
               transform: rotate(-180deg);
@@ -2344,11 +2353,11 @@ div.act-slide.service-item div.info-wrap, div.act-slide.one-yuan div.info-wrap {
       transition: opacity 0.4s 1.7s, -webkit-transform 0.4s 1.7s ease-out;
       transition: opacity 0.4s 1.7s, transform 0.4s 1.7s ease-out;
       transition: opacity 0.4s 1.7s, transform 0.4s 1.7s ease-out, -webkit-transform 0.4s 1.7s ease-out; }
-      div.act-slide.service-item div.info-wrap > div:nth-of-type(1).act, div.act-slide.one-yuan div.info-wrap > div:nth-of-type(1).act {
+      div.act-slide.timeLimit div.info-wrap > div:nth-of-type(1).act, div.act-slide.oneYuan div.info-wrap > div:nth-of-type(1).act {
         opacity: 1;
         -webkit-transform: rotate(0deg);
                 transform: rotate(0deg); }
-  div.act-slide.service-item div.info-wrap div.text-wrap, div.act-slide.one-yuan div.info-wrap div.text-wrap {
+  div.act-slide.timeLimit div.info-wrap div.text-wrap, div.act-slide.oneYuan div.info-wrap div.text-wrap {
     opacity: 0;
     -webkit-transform: skewX(-30deg);
             transform: skewX(-30deg);
@@ -2356,63 +2365,63 @@ div.act-slide.service-item div.info-wrap, div.act-slide.one-yuan div.info-wrap {
     transition: opacity 0.4s 2.1s, -webkit-transform 0.5s 2.1s ease-out;
     transition: opacity 0.4s 2.1s, transform 0.5s 2.1s ease-out;
     transition: opacity 0.4s 2.1s, transform 0.5s 2.1s ease-out, -webkit-transform 0.5s 2.1s ease-out; }
-    div.act-slide.service-item div.info-wrap div.text-wrap.act, div.act-slide.one-yuan div.info-wrap div.text-wrap.act {
+    div.act-slide.timeLimit div.info-wrap div.text-wrap.act, div.act-slide.oneYuan div.info-wrap div.text-wrap.act {
       opacity: 1;
       -webkit-transform: skewX(0deg);
               transform: skewX(0deg); }
 
-div.act-slide.service-item div.info-wrap {
+div.act-slide.timeLimit div.info-wrap {
   padding-bottom: 0.2rem; }
-  div.act-slide.service-item div.info-wrap div.text-wrap > div:nth-of-type(1) {
+  div.act-slide.timeLimit div.info-wrap div.text-wrap > div:nth-of-type(1) {
     margin: 0.8rem auto 0.65rem;
     font-size: 1.111rem; }
-  div.act-slide.service-item div.info-wrap div.text-wrap > div:nth-of-type(2) {
+  div.act-slide.timeLimit div.info-wrap div.text-wrap > div:nth-of-type(2) {
     font-size: 0.944rem; }
-    div.act-slide.service-item div.info-wrap div.text-wrap > div:nth-of-type(2) > strong, div.act-slide.service-item div.info-wrap div.text-wrap > div:nth-of-type(2) > span {
+    div.act-slide.timeLimit div.info-wrap div.text-wrap > div:nth-of-type(2) > strong, div.act-slide.timeLimit div.info-wrap div.text-wrap > div:nth-of-type(2) > span:nth-of-type(1) {
       color: #fb5549; }
-    div.act-slide.service-item div.info-wrap div.text-wrap > div:nth-of-type(2) > strong {
+    div.act-slide.timeLimit div.info-wrap div.text-wrap > div:nth-of-type(2) strong {
       font-size: 1.5rem; }
-    div.act-slide.service-item div.info-wrap div.text-wrap > div:nth-of-type(2) > b {
+    div.act-slide.timeLimit div.info-wrap div.text-wrap > div:nth-of-type(2) b {
       color: #ff9a0c;
       font-size: 1.278rem;
       font-weight: normal; }
-  div.act-slide.service-item div.info-wrap div.text-wrap > div:nth-of-type(3) {
+  div.act-slide.timeLimit div.info-wrap div.text-wrap > div:nth-of-type(3) {
     font-size: 0.833rem;
     text-decoration: line-through; }
-  div.act-slide.service-item div.info-wrap div.text-wrap > div:nth-of-type(4) {
+  div.act-slide.timeLimit div.info-wrap div.text-wrap > div:nth-of-type(4) {
     font-size: 0.778rem; }
-    div.act-slide.service-item div.info-wrap div.text-wrap > div:nth-of-type(4) > b {
+    div.act-slide.timeLimit div.info-wrap div.text-wrap > div:nth-of-type(4) > b {
       color: #f66;
       margin: 0 0.2rem; }
-    div.act-slide.service-item div.info-wrap div.text-wrap > div:nth-of-type(4) > span {
+    div.act-slide.timeLimit div.info-wrap div.text-wrap > div:nth-of-type(4) > span {
       color: #ccc;
       margin-left: 1.083rem; }
 
-div.act-slide.one-yuan div.info-wrap {
+div.act-slide.oneYuan div.info-wrap {
   margin-top: 0.9rem; }
-  div.act-slide.one-yuan div.info-wrap div.text-wrap > div:nth-of-type(1) {
+  div.act-slide.oneYuan div.info-wrap div.text-wrap > div:nth-of-type(1) {
     margin: 0.972rem auto;
     font-size: 0.889rem; }
-    div.act-slide.one-yuan div.info-wrap div.text-wrap > div:nth-of-type(1) > b {
+    div.act-slide.oneYuan div.info-wrap div.text-wrap > div:nth-of-type(1) > b {
       font-size: 1.111rem; }
-  div.act-slide.one-yuan div.info-wrap div.text-wrap > div:nth-of-type(2) {
+  div.act-slide.oneYuan div.info-wrap div.text-wrap > div:nth-of-type(2) {
     width: 12.306rem;
     height: 0.333rem;
     border-radius: 0.5rem;
     background-color: #f2f0f0;
     margin: 0 auto; }
-    div.act-slide.one-yuan div.info-wrap div.text-wrap > div:nth-of-type(2) > div {
+    div.act-slide.oneYuan div.info-wrap div.text-wrap > div:nth-of-type(2) > div {
       height: 100%;
       border-radius: 0.5rem;
       background-color: #ffc450;
       -webkit-transition: width 1s 10s ease-out;
       transition: width 1s 10s ease-out; }
-  div.act-slide.one-yuan div.info-wrap div.text-wrap > div:nth-of-type(3) {
+  div.act-slide.oneYuan div.info-wrap div.text-wrap > div:nth-of-type(3) {
     margin-top: 0.5rem;
     font-size: 0.833rem; }
-    div.act-slide.one-yuan div.info-wrap div.text-wrap > div:nth-of-type(3) > span {
+    div.act-slide.oneYuan div.info-wrap div.text-wrap > div:nth-of-type(3) > span {
       color: #ffc551; }
-  div.act-slide.one-yuan div.info-wrap div.grab-btn:after {
+  div.act-slide.oneYuan div.info-wrap div.grab-btn:after {
     content: "一元抢"; }
 
 div.act-slide.coupon div.info-wrap {
@@ -2474,6 +2483,9 @@ div.act-slide.coupon div.info-wrap {
         color: #b41da2;
         padding-left: 0.667rem;
         text-align: left;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
         background: -webkit-linear-gradient(#fff 50%, #f2f1f1 50%, #f2f1f1);
         background: linear-gradient(#fff 50%, #f2f1f1 50%, #f2f1f1); }
   div.act-slide.coupon div.info-wrap div.grab-btn {
@@ -2491,36 +2503,13 @@ div.health-slide div.info-wrap {
   -webkit-transition: opacity 0.4s 1.3s, -webkit-transform 0.5s 1.3s ease-out;
   transition: opacity 0.4s 1.3s, -webkit-transform 0.5s 1.3s ease-out;
   transition: opacity 0.4s 1.3s, transform 0.5s 1.3s ease-out;
-  transition: opacity 0.4s 1.3s, transform 0.5s 1.3s ease-out, -webkit-transform 0.5s 1.3s ease-out; }
+  transition: opacity 0.4s 1.3s, transform 0.5s 1.3s ease-out, -webkit-transform 0.5s 1.3s ease-out;
+  line-height: 1.3rem;
+  font-size: 0.833rem; }
   div.health-slide div.info-wrap.act {
     opacity: 1;
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg); }
-  div.health-slide div.info-wrap h3 {
-    display: inline-block;
-    margin-top: 0.33rem;
-    border-bottom: 1px solid #fff;
-    margin-bottom: 0.3rem;
-    font-weight: bold; }
-  div.health-slide div.info-wrap p {
-    line-height: 1.3rem;
-    font-size: 0.833rem; }
-
-div.health-slide div.like-btn {
-  left: 25%; }
-
-div.health-slide div.share-btn {
-  left: 75%;
-  background-image: url("../images/14.png"); }
-
-div.health-slide div.over-tip {
-  position: absolute;
-  left: 0;
-  bottom: 0.1rem;
-  width: 100%;
-  color: #fff;
-  text-align: center;
-  font-size: 0.833rem; }
 
 .scale-ani {
   opacity: 0;
@@ -2555,3 +2544,7 @@ div.page-error {
   width: 100%; }
   div.page-error > span {
     font-size: 0.887rem; }
+
+.default-img-bg {
+  background: #9e44e2 -webkit-repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 5px, #666 5px, #666 7px, rgba(0, 0, 0, 0.2) 7px, rgba(0, 0, 0, 0.2) 12px);
+  background: #9e44e2 repeating-linear-gradient(45deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 5px, #666 5px, #666 7px, rgba(0, 0, 0, 0.2) 7px, rgba(0, 0, 0, 0.2) 12px); }

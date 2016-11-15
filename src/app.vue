@@ -29,8 +29,8 @@
                 <div class="info">
                     <div class="title">{{ clubName }}</div>
                     <div class="static">
-                        <div class="view">{{ viewCount }}</div>
-                        <div class="like">{{ likeCount }}</div>
+                        <div class="view">{{ global.viewCount }}</div>
+                        <div class="like">{{ global.likeCount }}</div>
                     </div>
                 </div>
                 <div class="right-arrow"></div>
@@ -73,27 +73,16 @@
         },
         data: function () {
             return {
+                global: Global,
                 dataUrl: './data.json',
                 clubName: '', // 会所名
                 clubId: '', // 会所ID
                 clubImgUrl: '', // 会所logo
-                viewCount: '', // 浏览量
-                likeCount: '', // 点赞量
                 title: '', // 主标题
                 subTitle: '', // 子标题
-                shareUrl: 'http://wwww',
+                serviceStarIndex: -1, // 服务之星的slide在slideData中的索引
+                shareUrl: location.href,
                 slideData: [],
-                /* slideData: [
-                    { category: 'new-tech', type: '', title: '闪亮新人' },
-                    { category: 'service-item', type: '', title: '最新项目' },
-                    { category: 'tech-list', type: '', title: '服务之星' },
-                    { category: 'tech-pics', type: '', title: '女神日常' },
-                    { category: 'video', type: '', title: '我们的美女主播' },
-                    { category: 'act', type: 'service-item', title: '贵宾福利' },
-                    { category: 'act', type: 'one-yuan', title: '贵宾福利' },
-                    { category: 'act', type: 'coupon', title: '贵宾福利' },
-                    { category: 'health', type: '', title: '养身频道' }
-                ], */
                 loading: true,
                 loadError: false,
                 swiperOption: {
@@ -211,8 +200,8 @@
                         res = res.respData
                         _this.clubName = res.clubName
                         _this.clubId = res.clubId
-                        _this.viewCount = res.viewCount
-                        _this.likeCount = res.likeCount
+                        _this.global.viewCount = res.viewCount + 1
+                        _this.global.likeCount = res.likeCount
                         _this.title = res.title || '限时优惠大抢购'
                         _this.subTitle = res.subTitle
                         _this.clubImgUrl = res.clubImgUrl
@@ -247,12 +236,70 @@
                                     itemObj.category = 'service-item'
                                     itemObj.title = itemData.title
                                     itemObj.leftService = subItemData
+                                    itemObj.leftService.styleObj = {}
+                                    if (subItemData.imageUrl) {
+                                        itemObj.leftService.styleObj['background-image'] = 'url(' + subItemData.imageUrl + ')'
+                                    }
+                                    if (subItemData.description) {
+                                        itemObj.leftService.description = subItemData.description.replace(/<(.*)>/g, '').replace(/\s+/g, '')
+                                    }
                                     k++
                                     if (k < itemData.details.length) { // 一个页面最多显示2个项目，如果多于两个，则另起一页显示
-                                        itemObj.rightService = itemData.details[k]
+                                        subItemData = itemData.details[k]
+                                        itemObj.rightService = subItemData
+                                        itemObj.rightService.styleObj = {}
+                                        if (subItemData.imageUrl) {
+                                            itemObj.rightService.styleObj['background-image'] = 'url(' + subItemData.imageUrl + ')'
+                                        }
+                                        if (subItemData.description) {
+                                            itemObj.rightService.description = subItemData.description.replace(/<(.*)>/g, '').replace(/\s+/g, '')
+                                        }
                                     }
                                     slideData.push(itemObj)
                                 }
+                            } else if (itemData.itemKey == '03') { // 女神风采
+                                itemObj = {
+                                    category: 'tech-pics',
+                                    title: itemData.title,
+                                    pics: []
+                                }
+                                for (k = 0; k < itemData.details.length; k++) {
+                                    itemObj.pics.push(itemData.details[k])
+                                }
+                                slideData.push(itemObj)
+                            } else if (itemData.itemKey == '04') { // 服务之星
+                                _this.serviceStarIndex = slideData.length
+                                slideData.push({
+                                    category: 'tech-list',
+                                    title: itemData.title,
+                                    techs: []
+                                })
+                            } else if (itemData.itemKey == '06') { // 优惠活动
+                                for (k = 0; k < itemData.details.length; k++) {
+                                    subItemData = itemData.details[k]
+                                    itemObj = {}
+                                    itemObj.category = 'act'
+                                    itemObj.title = itemData.title
+                                    itemObj.type = subItemData.actType
+                                    itemObj.data = subItemData
+                                    itemObj.clubId = _this.clubId
+                                    if (itemObj.type == 'timeLimit' || itemObj.type == 'oneYuan') {
+                                        itemObj.imgStyle = subItemData.actImageUrl ? { 'background-image': 'url(' + subItemData.actImageUrl + ')' } : {}
+                                    }
+                                    slideData.push(itemObj)
+                                }
+                            } else if (itemData.itemKey == '04') { // 视频
+                                slideData.push({
+                                    category: 'video',
+                                    title: itemData.title,
+                                    video: itemData.details
+                                })
+                            } else if (itemData.itemKey == '07') { // 文章
+                                slideData.push({
+                                    category: 'health',
+                                    title: itemData.title,
+                                    content: itemData.details
+                                })
                             }
                         }
 
@@ -272,7 +319,7 @@
                 })
 
                 // 浏览数+1
-                // _this.$http.get('../api/v2/user/journal/view/count', {params: { journalId: global.journalId }})
+                _this.$http.get('../api/v2/user/journal/view/count', {params: { journalId: global.journalId }})
             })
         },
         methods: {
@@ -292,6 +339,25 @@
                     document.querySelector('#bg').classList.add('act')
                 }, 4500)
 
+                // 获取服务之星数据
+                if (_this.serviceStarIndex > 0) {
+                    _this.$http.get('../api/v2/manager/datastatistics/tech_rank_index').then(function (res) {
+                        res = res.body
+                        if (res.statusCode == 200) {
+                            res = res.respData
+                            var serviceStarSlideData = _this.slideData[_this.serviceStarIndex]
+                            var techs = []
+                            var itemObj
+                            for (var item in res) {
+                                itemObj = res[item]
+                                itemObj.imgStyle = itemObj.avatarUrl ? { 'background-image': 'url(' + itemObj.avatarUrl + ')' } : {}
+                                techs.push(itemObj)
+                            }
+                            serviceStarSlideData.techs = techs
+                        }
+                    })
+                }
+
                 // 调整贵宾福利 抢项目页面 info-wrap与page-title的间距
                 var winHeightRem = global.winHeight / (16 * global.winScale)
                 if (winHeightRem > 28.889) {
@@ -307,13 +373,13 @@
 
                 // 分享配置
                 global.shareConfig({
-                    title: '',
-                    desc: '',
-                    link: '',
-                    imgUrl: '',
+                    title: _this.title,
+                    desc: _this.subTitle,
+                    link: location.href,
+                    imgUrl: _this.clubImgUrl,
                     success: function () {
                         // 分享+1
-                        _this.$http.get('api/v2/user/journal/share/count', {params: { journalId: global.journalId }})
+                        _this.$http.get('../api/v2/user/journal/share/count', {params: { journalId: global.journalId }})
                     }
                 })
             },
@@ -390,7 +456,6 @@
                 var target = event.target
                 var targetCls = target.classList
                 if (targetCls.contains('endAni')) {
-                    // console.log('remove ani...')
                     targetCls.remove('endAni')
                 }
             },
