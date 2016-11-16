@@ -50,12 +50,61 @@
       {
         "itemKey": "03",
         "title": "女神风采",
-        "details": ["./images/1.png", "./images/2.png","./images/3.png","./images/4.png","./images/5.png" ]
+        "details": [
+          "./images/1.png",
+          "./images/2.png",
+          "./images/3.png",
+          "./images/4.png",
+          "./images/5.png"
+        ]
       },
       {
         "itemKey": "04",
         "title": "服务之星",
-        "details": "Y"
+        "details": [
+          {
+            "techId": "638659751856574464",
+            "clubId": null,
+            "techName": "6666666666",
+            "techNo": "66666",
+            "serviceItems": [],
+            "description": null,
+            "impressions": [
+              "美白",
+              "有胸怀",
+              "善解人意"
+            ],
+            "avatarUrl": null
+          },
+          {
+            "techId": "602023060890980352177279",
+            "clubId": null,
+            "techName": "啊希啊",
+            "techNo": "98989",
+            "serviceItems": [],
+            "description": "",
+            "impressions": [
+              "丰满",
+              "手法娴熟",
+              "态度好"
+            ],
+            "avatarUrl": ""
+          },
+          {
+            "techId": "756025569832865792",
+            "clubId": null,
+            "techName": "小摩豆技师",
+            "techNo": null,
+            "serviceItems": [],
+            "description": null,
+            "impressions": [
+              "美白",
+              "有胸怀",
+              "善解人意"
+            ],
+            "avatarUrl": null
+          }
+        ]
       },
       {
         "itemKey": "06",

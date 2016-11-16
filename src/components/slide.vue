@@ -34,10 +34,10 @@
             <template v-if="slideObj.category=='tech-list'"><!-- 服务之星 -->
                 <div class="info-wrap tech ani" v-for="(tech,index) in slideObj.techs" :class="'t'+index">
                     <div class="default-img-bg ani" :style="tech.imgStyle"></div>
-                    <div>{{ tech.name }}<span v-show="tech.serialNo">[{{ tech.serialNo }}号]</span></div>
-                    <div>擅长最专业的泰式按摩</div>
-                    <div>客人印象:<span>#美白</span><span>#美白</span><span>#美白</span></div>
-                    <div class="item-btn right ani">足浴项目</div>
+                    <div>{{ tech.techName }}<span v-show="tech.techNo">[{{ tech.techNo }}号]</span></div>
+                    <div>{{ tech.description || '这个技师很懒，未写介绍...'}}</div>
+                    <div>客人印象:<span v-for="imp in tech.impressions">#{{ imp }}</span></div>
+                    <div class="item-btn right ani" v-if="tech.serviceItems.length>0">{{ tech.serviceItems[0] }}</div>
                 </div>
             </template>
             <template v-if="slideObj.category=='tech-pics'"><!-- 视频 -->
@@ -59,7 +59,7 @@
                         <div>{{ slideObj.data.actName }}</div>
                         <div><strong>{{ slideObj.data.actAmount }}</strong><span>元</span><span v-show="slideObj.data.actCredit">（或<b>{{ slideObj.data.actCredit }}</b>积分）</span></div>
                         <div>原价：{{ slideObj.data.actPrice }}元</div>
-                        <counter :remain-count="slideObj.data.remainCount" :start="slideObj.data.startDate" :end="slideObj.data.endDate"></counter>
+                        <counter :remain-count="slideObj.data.remainCount" :start="slideObj.data.startDate" :end="slideObj.data.endDate" v-show="timeLimitActStatus != 'over'" @status-change="doTimeLimitActStatusChange"></counter>
                     </div>
                     <div class="shadow-btn grab-btn ani" @click="doClickBtnOfTimeLimitAct()"></div>
                 </div>
@@ -117,6 +117,7 @@
             return {
                 global: Global,
                 clubUrl: '',
+                timeLimitActStatus: 'over',
                 picSwiperOption: {
                     effect: 'coverflow',
                     slidesPerView: 2,
@@ -124,6 +125,7 @@
                     observeParents: true,
                     loop: true,
                     zoom: true,
+                    zoomMax: 2,
                     coverflow: {
                         rotate: 30,
                         stretch: 15,
@@ -159,26 +161,26 @@
         mounted: function () {
             var slideObj = this.slideObj
             if (slideObj.clubId) {
-                this.clubUrl = location.host + location.pathname + 'spa2/?club=' + slideObj.clubId
+                this.clubUrl = 'http://' + location.host + (/spa-manager/.test(location.pathname) ? '/spa-manager' : '') + '/spa2/?club=' + slideObj.clubId
                 console.log('clubUrl：' + this.clubUrl)
             }
         },
         methods: {
             doClickChatBtn: function () { // 点击点我聊聊按钮
                 location.href = this.clubUrl + '#chat&techId=' + this.slideObj.techId
-                location.reload(true)
             },
             doClickBtnOfTimeLimitAct: function () { // 点击立即抢购按钮，限时抢活动
                 location.href = this.clubUrl + '#robProjectDetail&robProjectId=' + this.slideObj.data.actId
-                location.reload(true)
             },
             doClickBtnOfOneYuanAct: function () { // 跳转到一元抢页面
                 location.href = this.clubUrl + '#plumflowers&id=' + this.slideObj.data.actId + '&chanel=link'
-                location.reload(true)
             },
             doClickBtnOfCouponAct: function () { // 跳转到会所活动页面
                 location.href = this.clubUrl + '#promotions'
-                location.reload(true)
+            },
+            doTimeLimitActStatusChange: function (status) { // 限时抢活动状态的变化
+                console.log('限时抢活动状态的变化....' + status)
+                this.timeLimitActStatus = status
             }
         }
     }

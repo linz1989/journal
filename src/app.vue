@@ -29,8 +29,8 @@
                 <div class="info">
                     <div class="title">{{ clubName }}</div>
                     <div class="static">
-                        <div class="view">{{ global.viewCount }}</div>
-                        <div class="like">{{ global.likeCount }}</div>
+                        <div class="view">{{ viewCount }}</div>
+                        <div class="like">{{ likeCount }}</div>
                     </div>
                 </div>
                 <div class="right-arrow"></div>
@@ -73,14 +73,15 @@
         },
         data: function () {
             return {
-                global: Global,
-                dataUrl: './data.json',
+                // dataUrl: './data.json',
+                dataUrl: '../api/v2/user/journal/detail',
                 clubName: '', // 会所名
                 clubId: '', // 会所ID
                 clubImgUrl: '', // 会所logo
                 title: '', // 主标题
                 subTitle: '', // 子标题
-                serviceStarIndex: -1, // 服务之星的slide在slideData中的索引
+                viewCount: '', // 浏览量
+                likeCount: '', // 点赞量
                 shareUrl: location.href,
                 slideData: [],
                 loading: true,
@@ -88,7 +89,7 @@
                 swiperOption: {
                     direction: 'vertical',
                     observeParents: true,
-                    mousewheelControl: true,
+                    // mousewheelControl: true,
                     onInit: function (swiper) {
                         var global = Global
                         if (global.app && !global.app.loading) {
@@ -117,7 +118,8 @@
                         var k = 0
                         var previousAniEles // 前一个页面的ani元素
                         var thisEl = document.body
-
+                        global.currSlideIndex = activeIndex
+                        global.sessionStorage('journal-slide-index-' + global.journalId, activeIndex)
                         if (activeIndex === 0) {
                             pageHeaderCls.remove('common')
                             thisEl.style.backgroundPositionY = '0%'
@@ -159,9 +161,10 @@
                             for (k = 0; k < currPageAniEles.length; k++) {
                                 currPageAniEles[k].classList.add('act')
                             }
-                            if (currSwiper.classList.contains('one-yuan')) {
+                            if (currSwiper.classList.contains('oneYuan')) {
                                 console.log('one-yuan-count width')
-                                document.querySelector('#one-yuan-count').style.width = '60%'
+                                var pro = document.querySelector('#one-yuan-count')
+                                pro.style.width = pro.getAttribute('progress') + '%'
                             }
                         }
 
@@ -194,137 +197,39 @@
                 bgImg.src = './images/01.jpg'
 
                 // 请求数据
-                _this.$http.get(_this.dataUrl, {params: {id: global.journalId}}).then(function (res) {
-                    res = res.body
-                    if (res.statusCode == 200) {
-                        res = res.respData
-                        _this.clubName = res.clubName
-                        _this.clubId = res.clubId
-                        _this.global.viewCount = res.viewCount + 1
-                        _this.global.likeCount = res.likeCount
-                        _this.title = res.title || '限时优惠大抢购'
-                        _this.subTitle = res.subTitle
-                        _this.clubImgUrl = res.clubImgUrl
-
-                        // 处理slide 数组
-                        var items = res.items
-                        var itemData
-                        var subItemData
-                        var slideData = []
-                        var itemObj
-                        var k
-                        for (var i = 0; i < items.length; i++) {
-                            itemData = items[i]
-                            if (itemData.itemKey == '01') { // 闪亮新人页面
-                                for (k = 0; k < itemData.details.length; k++) {
-                                    subItemData = itemData.details[k]
-                                    itemObj = {}
-                                    itemObj.category = 'new-tech'
-                                    itemObj.title = itemData.title
-                                    itemObj.techId = subItemData.techId
-                                    itemObj.techName = subItemData.techName
-                                    itemObj.techNo = subItemData.techNo
-                                    itemObj.clubId = _this.clubId
-                                    itemObj.avatarUrl = subItemData.avatarUrl
-                                    itemObj.serviceItems = subItemData.serviceItems
-                                    slideData.push(itemObj)
-                                }
-                            } else if (itemData.itemKey == '02') { // 最新项目页面
-                                for (k = 0; k < itemData.details.length; k++) {
-                                    subItemData = itemData.details[k]
-                                    itemObj = {}
-                                    itemObj.category = 'service-item'
-                                    itemObj.title = itemData.title
-                                    itemObj.leftService = subItemData
-                                    itemObj.leftService.styleObj = {}
-                                    if (subItemData.imageUrl) {
-                                        itemObj.leftService.styleObj['background-image'] = 'url(' + subItemData.imageUrl + ')'
-                                    }
-                                    if (subItemData.description) {
-                                        itemObj.leftService.description = subItemData.description.replace(/<(.*)>/g, '').replace(/\s+/g, '')
-                                    }
-                                    k++
-                                    if (k < itemData.details.length) { // 一个页面最多显示2个项目，如果多于两个，则另起一页显示
-                                        subItemData = itemData.details[k]
-                                        itemObj.rightService = subItemData
-                                        itemObj.rightService.styleObj = {}
-                                        if (subItemData.imageUrl) {
-                                            itemObj.rightService.styleObj['background-image'] = 'url(' + subItemData.imageUrl + ')'
-                                        }
-                                        if (subItemData.description) {
-                                            itemObj.rightService.description = subItemData.description.replace(/<(.*)>/g, '').replace(/\s+/g, '')
-                                        }
-                                    }
-                                    slideData.push(itemObj)
-                                }
-                            } else if (itemData.itemKey == '03') { // 女神风采
-                                itemObj = {
-                                    category: 'tech-pics',
-                                    title: itemData.title,
-                                    pics: []
-                                }
-                                for (k = 0; k < itemData.details.length; k++) {
-                                    itemObj.pics.push(itemData.details[k])
-                                }
-                                slideData.push(itemObj)
-                            } else if (itemData.itemKey == '04') { // 服务之星
-                                _this.serviceStarIndex = slideData.length
-                                slideData.push({
-                                    category: 'tech-list',
-                                    title: itemData.title,
-                                    techs: []
-                                })
-                            } else if (itemData.itemKey == '06') { // 优惠活动
-                                for (k = 0; k < itemData.details.length; k++) {
-                                    subItemData = itemData.details[k]
-                                    itemObj = {}
-                                    itemObj.category = 'act'
-                                    itemObj.title = itemData.title
-                                    itemObj.type = subItemData.actType
-                                    itemObj.data = subItemData
-                                    itemObj.clubId = _this.clubId
-                                    if (itemObj.type == 'timeLimit' || itemObj.type == 'oneYuan') {
-                                        itemObj.imgStyle = subItemData.actImageUrl ? { 'background-image': 'url(' + subItemData.actImageUrl + ')' } : {}
-                                    }
-                                    slideData.push(itemObj)
-                                }
-                            } else if (itemData.itemKey == '04') { // 视频
-                                slideData.push({
-                                    category: 'video',
-                                    title: itemData.title,
-                                    video: itemData.details
-                                })
-                            } else if (itemData.itemKey == '07') { // 文章
-                                slideData.push({
-                                    category: 'health',
-                                    title: itemData.title,
-                                    content: itemData.details
-                                })
-                            }
-                        }
-
-                        _this.slideData = slideData
-                        global.pageHeader = _this.$refs.pageHeader
-                        global.slideArrow = _this.$refs.slideArrow
-                        _this.drawCanvas()
-                        global.app = _this
-
-                        preDataLoadCount++
-                        if (preDataLoadCount == 2) {
-                            _this.loading = false
-                        }
-                    } else {
-                        _this.loadError = false
+                var localData = global.sessionStorage('journal-data-' + global.journalId)
+                if (localData) { // 从sessionStorage获取数据
+                    _this.doHandlerData(JSON.parse(localData))
+                    preDataLoadCount++
+                    if (preDataLoadCount == 2) {
+                        _this.loading = false
                     }
-                })
+                } else {
+                    _this.$http.get(_this.dataUrl, {params: {id: global.journalId, preview: global.preview ? 1 : 0}}).then(function (res) {
+                        res = res.body
+                        if (res.statusCode == 200) {
+                            res = res.respData
+                            // global.sessionStorage('journal-data-' + global.journalId, JSON.stringify(res)) // ========是否增加session storage
+                            _this.doHandlerData(res)
+                            preDataLoadCount++
+                            if (preDataLoadCount == 2) {
+                                _this.loading = false
+                            }
+                        } else {
+                            _this.loadError = true
+                        }
+                    }, function () {
+                        _this.loadError = true
+                    })
 
-                // 浏览数+1
-                _this.$http.get('../api/v2/user/journal/view/count', {params: { journalId: global.journalId }})
+                    // 浏览数+1
+                    _this.$http.get('../api/v2/user/journal/view/count', {params: { journalId: global.journalId }})
+                }
             })
         },
         methods: {
             init: function () { // init index page
-                document.body.style.backgroundImage = 'url(./images/01.jpg)'
+                document.body.style.backgroundImage = 'url(./images/01.jpg)' // 设置背景
                 var global = Global
                 var _this = this
                 global.swiperArr = document.querySelectorAll('div.page-content>div.swiper-wrapper>div.swiper-slide')
@@ -339,25 +244,6 @@
                     document.querySelector('#bg').classList.add('act')
                 }, 4500)
 
-                // 获取服务之星数据
-                if (_this.serviceStarIndex > 0) {
-                    _this.$http.get('../api/v2/manager/datastatistics/tech_rank_index').then(function (res) {
-                        res = res.body
-                        if (res.statusCode == 200) {
-                            res = res.respData
-                            var serviceStarSlideData = _this.slideData[_this.serviceStarIndex]
-                            var techs = []
-                            var itemObj
-                            for (var item in res) {
-                                itemObj = res[item]
-                                itemObj.imgStyle = itemObj.avatarUrl ? { 'background-image': 'url(' + itemObj.avatarUrl + ')' } : {}
-                                techs.push(itemObj)
-                            }
-                            serviceStarSlideData.techs = techs
-                        }
-                    })
-                }
-
                 // 调整贵宾福利 抢项目页面 info-wrap与page-title的间距
                 var winHeightRem = global.winHeight / (16 * global.winScale)
                 if (winHeightRem > 28.889) {
@@ -365,7 +251,7 @@
                     if (marginRem > 0.9) {
                         marginRem = 0.9
                     }
-                    var actSlide = document.querySelector('div.common-slide.service-item>div.wrap>div.info-wrap')
+                    var actSlide = document.querySelector('div.common-slide.timeLimit>div.wrap>div.info-wrap')
                     if (actSlide) {
                         actSlide.style.marginTop = marginRem + 'rem'
                     }
@@ -382,6 +268,129 @@
                         _this.$http.get('../api/v2/user/journal/share/count', {params: { journalId: global.journalId }})
                     }
                 })
+
+                // console.log('goto slide index:' + global.currSlideIndex)
+                // global.swiper.slideTo(global.currSlideIndex, 0)
+            },
+            doHandlerData: function (res) {
+                var _this = this
+                var global = Global
+
+                _this.clubName = res.clubName
+                _this.clubId = res.clubId
+                _this.viewCount = res.viewCount + 1
+                _this.likeCount = res.likeCount
+                _this.title = res.title || '限时优惠大抢购'
+                _this.subTitle = res.subTitle
+                _this.clubImgUrl = res.clubImgUrl
+
+                // 处理slide 数组
+                var items = res.items
+                var itemData
+                var subItemData
+                var slideData = []
+                var itemObj
+                var k
+                for (var i = 0; i < items.length; i++) {
+                    itemData = items[i]
+                    if (itemData.itemKey == '01') { // 闪亮新人页面
+                        for (k = 0; k < itemData.details.length; k++) {
+                            subItemData = itemData.details[k]
+                            itemObj = {}
+                            itemObj.category = 'new-tech'
+                            itemObj.title = itemData.title
+                            itemObj.techId = subItemData.techId
+                            itemObj.techName = subItemData.techName
+                            itemObj.techNo = subItemData.techNo
+                            itemObj.clubId = _this.clubId
+                            itemObj.avatarUrl = subItemData.avatarUrl
+                            itemObj.serviceItems = subItemData.serviceItems
+                            slideData.push(itemObj)
+                        }
+                    } else if (itemData.itemKey == '02') { // 最新项目页面
+                        for (k = 0; k < itemData.details.length; k++) {
+                            subItemData = itemData.details[k]
+                            itemObj = {}
+                            itemObj.category = 'service-item'
+                            itemObj.title = itemData.title
+                            itemObj.leftService = subItemData
+                            itemObj.leftService.styleObj = {}
+                            if (subItemData.imageUrl) {
+                                itemObj.leftService.styleObj['background-image'] = 'url(' + subItemData.imageUrl + ')'
+                            }
+                            if (subItemData.description) {
+                                itemObj.leftService.description = subItemData.description.replace(/<(.*)>/g, '').replace(/\s+/g, '')
+                            }
+                            k++
+                            if (k < itemData.details.length) { // 一个页面最多显示2个项目，如果多于两个，则另起一页显示
+                                subItemData = itemData.details[k]
+                                itemObj.rightService = subItemData
+                                itemObj.rightService.styleObj = {}
+                                if (subItemData.imageUrl) {
+                                    itemObj.rightService.styleObj['background-image'] = 'url(' + subItemData.imageUrl + ')'
+                                }
+                                if (subItemData.description) {
+                                    itemObj.rightService.description = subItemData.description.replace(/<(.*)>/g, '').replace(/\s+/g, '')
+                                }
+                            }
+                            slideData.push(itemObj)
+                        }
+                    } else if (itemData.itemKey == '03') { // 女神风采
+                        itemObj = {
+                            category: 'tech-pics',
+                            title: itemData.title,
+                            pics: []
+                        }
+                        for (k = 0; k < itemData.details.length; k++) {
+                            itemObj.pics.push(itemData.details[k])
+                        }
+                        slideData.push(itemObj)
+                    } else if (itemData.itemKey == '04') { // 服务之星
+                        itemObj = {
+                            category: 'tech-list',
+                            title: itemData.title,
+                            techs: []
+                        }
+                        for (k = 0; k < itemData.details.length; k++) {
+                            subItemData = itemData.details[k]
+                            subItemData.imgStyle = subItemData.avatarUrl ? {'background-image': 'url(' + subItemData.avatarUrl + ')'} : {}
+                            itemObj.techs.push(subItemData)
+                        }
+                        slideData.push(itemObj)
+                    } else if (itemData.itemKey == '06') { // 优惠活动
+                        for (k = 0; k < itemData.details.length; k++) {
+                            subItemData = itemData.details[k]
+                            itemObj = {}
+                            itemObj.category = 'act'
+                            itemObj.title = itemData.title
+                            itemObj.type = subItemData.actType
+                            itemObj.data = subItemData
+                            itemObj.clubId = _this.clubId
+                            if (itemObj.type == 'timeLimit' || itemObj.type == 'oneYuan') {
+                                itemObj.imgStyle = subItemData.actImageUrl ? { 'background-image': 'url(' + subItemData.actImageUrl + ')' } : {}
+                            }
+                            slideData.push(itemObj)
+                        }
+                    } else if (itemData.itemKey == '05') { // 视频
+                        slideData.push({
+                            category: 'video',
+                            title: itemData.title,
+                            video: itemData.details
+                        })
+                    } else if (itemData.itemKey == '07') { // 文章
+                        slideData.push({
+                            category: 'health',
+                            title: itemData.title,
+                            content: itemData.details
+                        })
+                    }
+                }
+
+                _this.slideData = slideData
+                global.pageHeader = _this.$refs.pageHeader
+                global.slideArrow = _this.$refs.slideArrow
+                _this.drawCanvas()
+                global.app = _this
             },
             drawCanvas: function () {
                 var _this = this
@@ -461,8 +470,7 @@
             },
             doGoToClub: function () {
                 var loc = location
-                loc.href = loc.host + loc.pathname + 'spa2/?club=' + this.clubId
-                loc.reload(true)
+                loc.href = 'http://' + loc.host + (/spa-manager/.test(loc.pathname) ? '/spa-manager' : '') + '/spa2/?club=' + this.clubId
             }
         }
     }

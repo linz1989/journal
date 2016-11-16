@@ -125,5 +125,5 @@ gulp.task('pub-img-1',function(){
 
 ////上线执行 gulp build
 gulp.task('pub', function (callback) {
-    runSequence('clean-pub','pub-dist','pub-img',callback);
+    runSequence('pub-dist','pub-img',callback);
 });

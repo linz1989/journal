@@ -8,9 +8,8 @@ console.dir(wx)
 
 exports.Global = {
     journalId: '', // 电子期刊ID
+    preview: false, // 是否预览
     likeStatus: 'like',
-    viewCount: '', // 浏览量
-    likeCount: '', // 点赞量
     pageParams: {},
     tip: null,
     pageHeader: null,
@@ -19,6 +18,7 @@ exports.Global = {
     aniEles: [], // 每个swipe下的ani元素
     app: null, // 对app组件中this的引用
     swiper: null, // 对swiper的引用
+    currSlideIndex: 0, // 当前滑动到的silde的index
     baseWidth: null,                           // 页面加载时窗口初始宽度，用于计算页面 scale
     winWidth: null,                             // 页面内容容器的当前宽度--固定20rem
     winHeight: null,                            // 页面的高度
@@ -54,9 +54,14 @@ exports.Global = {
             }
         }
         _this.journalId = _this.pageParams['id']
+        _this.preview = _this.pageParams['preview'] == 'true'
 
         if (_this.localStorage('spa-journal-' + _this.journalId)) {
             _this.likeStatus = 'liked'
+        }
+        var currIndex = _this.sessionStorage('journal-slide-index-' + _this.journalId)
+        if (currIndex) {
+            _this.currSlideIndex = parseInt(currIndex)
         }
     },
     // 设置页面标题
@@ -109,6 +114,10 @@ exports.Global = {
     localStorage: function (key, value) {
         if (value) localStorage.setItem(key, value)
         else return localStorage.getItem(key)
+    },
+    sessionStorage: function (key, value) {
+        if (value) sessionStorage.setItem(key, value)
+        else return sessionStorage.getItem(key)
     },
     shareConfig: function (option) {
         var win = window
