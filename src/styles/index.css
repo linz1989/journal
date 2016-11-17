@@ -1603,7 +1603,7 @@ div.page-content {
   height: 3.3889rem;
   padding-left: 0.667rem;
   margin-left: -10rem;
-  z-index: 100;
+  z-index: 1;
   opacity: 0;
   -webkit-transition: height 0.3s 0.2s, opacity 0.3s 4.5s, top 0.3s 4.5s ease-out;
   transition: height 0.3s 0.2s, opacity 0.3s 4.5s, top 0.3s 4.5s ease-out; }
@@ -1693,7 +1693,7 @@ div.page-content {
   left: 50%;
   bottom: 0.5rem;
   margin-left: -0.625rem;
-  z-index: 1000;
+  z-index: 1;
   background-size: 1.25rem 0.972rem;
   background-image: url("../images/20.png");
   background-repeat: no-repeat;
@@ -2294,12 +2294,16 @@ div.tech-list-slide div.tech {
         right: 0.139rem; }
 
 div.tech-pics-slide div.pic-wrap {
-  height: 17.5rem;
+  height: 100%;
   width: 27rem;
-  margin: 1.1rem -3.5rem 0; }
-  div.tech-pics-slide div.pic-wrap div.swiper-slide img, div.tech-pics-slide div.pic-wrap div.swiper-slide div {
+  margin: 0 -3.5rem; }
+  div.tech-pics-slide div.pic-wrap div.swiper-slide div {
     width: 100%;
     height: 100%; }
+  div.tech-pics-slide div.pic-wrap div.swiper-slide img {
+    margin-top: 2rem;
+    width: 13.527rem;
+    height: 17.487rem; }
 
 div.video-slide div.info-wrap {
   height: 15.139rem;
@@ -2527,8 +2531,8 @@ div.health-slide div.info-wrap {
             transform: scaleY(1); }
 
 .endAni {
-  -webkit-transition-duration: 0.01s !important;
-          transition-duration: 0.01s !important;
+  -webkit-transition-duration: 0.05s !important;
+          transition-duration: 0.05s !important;
   -webkit-transition-delay: 0s !important;
           transition-delay: 0s !important; }
 

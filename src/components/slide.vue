@@ -40,11 +40,6 @@
                     <div class="item-btn right ani" v-if="tech.serviceItems.length>0">{{ tech.serviceItems[0] }}</div>
                 </div>
             </template>
-            <template v-if="slideObj.category=='tech-pics'"><!-- 视频 -->
-                <swiper :options="picSwiperOption" class="pic-wrap scale-ani ani" v-if="slideObj.pics.length>0">
-                    <swiper-slide v-for="pic in slideObj.pics"><div class="swiper-zoom-container"><img :src="pic"/></div></swiper-slide>
-                </swiper>
-            </template>
             <template v-if="slideObj.category=='video'"><!-- 视频 -->
                 <div class="info-wrap scale-ani ani">
                     <video class="video-js vjs-default-skin" controls preload="meta" width="100%" height="100%" data-setup="{}">
@@ -93,6 +88,11 @@
         <worm-button :category="global.likeStatus" :class="{ 'over': isOver }"></worm-button>
         <worm-button category="share" v-if="isOver"></worm-button>
         <div v-if="isOver" class="over-tip">—更多精彩去网上会所看看—</div>
+        <template v-if="slideObj.category=='tech-pics'"><!-- 技师相册 -->
+            <swiper :options="picSwiperOption" class="pic-wrap scale-ani ani" v-if="slideObj.pics.length>0">
+                <swiper-slide v-for="pic in slideObj.pics"><div class="swiper-zoom-container"><img :src="pic"/></div></swiper-slide>
+            </swiper>
+        </template>
     </swiper-slide>
 </template>
 
@@ -131,7 +131,7 @@
                         stretch: 15,
                         depth: 60,
                         modifier: 2,
-                        slideShadows: true
+                        slideShadows: false
                     },
                     onInit: function (swiper) {
                         setTimeout(function () {

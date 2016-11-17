@@ -167,7 +167,7 @@ div.page-content{
   height:3.3889rem;
   padding-left:0.667rem;
   margin-left:-10rem;
-  z-index:100;
+  z-index:1;
   opacity: 0;
   transition: height 0.3s 0.2s, opacity 0.3s 4.5s, top 0.3s 4.5s ease-out;
   div.logo{
@@ -264,7 +264,7 @@ div.page-content{
   left:50%;
   bottom:0.5rem;
   margin-left:-0.625rem;
-  z-index:1000;
+  z-index:1;
   @include img("../images/20.png",1.25rem 0.972rem);
   -webkit-animation: down-up-ani 1.5s infinite ease-in-out;
   animation: down-up-ani 1.5s infinite ease-in-out;
@@ -843,13 +843,18 @@ div.tech-list-slide{
 
 div.tech-pics-slide{
   div.pic-wrap{
-    height:17.5rem;
+    height:100%;
     width:27rem;
-    margin:1.1rem -3.5rem 0;
+    margin:0 -3.5rem;
     div.swiper-slide{
-      img,div{
+      div{
         width:100%;
         height:100%;
+      }
+      img{
+        margin-top:2rem;
+        width:13.527rem;
+        height:17.487rem;
       }
     }
   }
@@ -1111,7 +1116,7 @@ div.health-slide{
 }
 
 .endAni{
-  transition-duration: 0.01s !important; // 如果设置0s，transitionend事件不会触发
+  transition-duration: 0.05s !important; // 如果设置0s，transitionend事件不会触发
   transition-delay:0s !important;
 }
 

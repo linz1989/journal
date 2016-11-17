@@ -105,22 +105,19 @@
                             }, 100)
                         }
                     },
-                    onSlideChangeEnd: function (swiper) {
-                        console.log('swiper change end...' + swiper.activeIndex + '---' + swiper.previousIndex)
+                    onSlideChangeStart: function (swiper) {
+                        // console.log('swiper change start...' + swiper.activeIndex + '---' + swiper.previousIndex)
                         var global = Global
                         var activeIndex = swiper.activeIndex
                         var previousIndex = swiper.previousIndex
+                        var thisEl = document.body
                         var pageHeaderCls = global.pageHeader.classList
-                        var slideArrowCls = global.slideArrow.classList
                         var swiperArr = global.swiperArr
                         var aniEles = global.aniEles
-                        var currSwiper
-                        var k = 0
                         var previousAniEles // 前一个页面的ani元素
-                        var thisEl = document.body
-                        global.currSlideIndex = activeIndex
-                        global.sessionStorage('journal-slide-index-' + global.journalId, activeIndex)
-                        if (activeIndex === 0) {
+                        var k = 0
+
+                        if (activeIndex == 0) {
                             pageHeaderCls.remove('common')
                             thisEl.style.backgroundPositionY = '0%'
                         } else {
@@ -128,24 +125,15 @@
                             thisEl.style.backgroundPositionY = '100%'
                         }
 
-                        if (swiperArr.length === 0) {
+                        if (swiperArr.length == 0) {
                             swiperArr = document.querySelectorAll('div.page-content>div.swiper-wrapper>div.swiper-slide')
                         }
 
-                        currSwiper = swiperArr[activeIndex]
-                        if (!aniEles[activeIndex]) {
-                            aniEles[activeIndex] = currSwiper.querySelectorAll('.ani')
-                        }
-                        var currPageAniEles = aniEles[activeIndex] // 当前页面的ani元素
-
                         // console.dir(currPageAniEles)
-                        if (swiperArr[previousIndex]) {
-                            if (!aniEles[previousIndex]) {
-                                aniEles[previousIndex] = swiperArr[previousIndex].querySelectorAll('.ani')
-                            }
-                            previousAniEles = aniEles[previousIndex]
+                        if (!aniEles[previousIndex]) {
+                            aniEles[previousIndex] = swiperArr[previousIndex].querySelectorAll('.ani')
                         }
-                        // console.dir(previousAniEles)
+                        previousAniEles = aniEles[previousIndex]
 
                         if (previousAniEles && previousAniEles.length > 0) {
                             // console.log('previousAniEles.length：' + previousAniEles.length)
@@ -156,6 +144,28 @@
                                 oldAniElCls.remove('act')
                             }
                         }
+                    },
+                    onSlideChangeEnd: function (swiper) {
+                        // console.log('swiper change end...' + swiper.activeIndex + '---' + swiper.previousIndex)
+                        var global = Global
+                        var activeIndex = swiper.activeIndex
+                        var previousIndex = swiper.previousIndex
+                        var slideArrowCls = global.slideArrow.classList
+                        var swiperArr = global.swiperArr
+                        var aniEles = global.aniEles
+                        var previousAniEles // 前一个页面的ani元素
+                        var currSwiper
+                        var k = 0
+
+                        if (swiperArr.length === 0) {
+                            swiperArr = document.querySelectorAll('div.page-content>div.swiper-wrapper>div.swiper-slide')
+                        }
+
+                        currSwiper = swiperArr[activeIndex]
+                        if (!aniEles[activeIndex]) {
+                            aniEles[activeIndex] = currSwiper.querySelectorAll('.ani')
+                        }
+                        var currPageAniEles = aniEles[activeIndex] // 当前页面的ani元素
 
                         if (currPageAniEles && currPageAniEles.length > 0 && !currPageAniEles[0].classList.contains('act')) {
                             for (k = 0; k < currPageAniEles.length; k++) {
@@ -168,11 +178,24 @@
                             }
                         }
 
+                        // 确保前面slide的动画元素的endAni被删除
+                        setTimeout(function () {
+                            previousAniEles = aniEles[previousIndex]
+                            if (previousAniEles && previousAniEles.length > 0) {
+                                for (k = 0; k < previousAniEles.length; k++) {
+                                    previousAniEles[k].classList.remove('endAni')
+                                }
+                            }
+                        }, 50)
+
                         if (swiper.isEnd) { // 是否是最后一个slide
                             slideArrowCls.remove('act')
                         } else {
                             slideArrowCls.add('act')
                         }
+
+                        global.currSlideIndex = activeIndex
+                        global.sessionStorage('journal-slide-index-' + global.journalId, activeIndex)
                     }
                 }
             }
@@ -189,7 +212,7 @@
                 var bgImg = new Image()
                 bgImg.onload = function () {
                     preDataLoadCount++
-                    if (preDataLoadCount === 2) {
+                    if (preDataLoadCount == 2) {
                         console.log(preDataLoadCount)
                         _this.loading = false
                     }
@@ -229,10 +252,11 @@
         },
         methods: {
             init: function () { // init index page
-                document.body.style.backgroundImage = 'url(./images/01.jpg)' // 设置背景
+                var doc = document
                 var global = Global
                 var _this = this
-                global.swiperArr = document.querySelectorAll('div.page-content>div.swiper-wrapper>div.swiper-slide')
+                doc.body.style.backgroundImage = 'url(./images/01.jpg)' // 设置背景
+                global.swiperArr = doc.querySelectorAll('div.page-content>div.swiper-wrapper>div.swiper-slide')
                 var aniEles = global.swiperArr[0].querySelectorAll('.ani')
                 global.aniEles[0] = aniEles
                 for (var k = 0; k < aniEles.length; k++) {
@@ -241,7 +265,7 @@
                 global.pageHeader.classList.add('act')
                 setTimeout(function () {
                     global.slideArrow.classList.add('act')
-                    document.querySelector('#bg').classList.add('act')
+                    doc.querySelector('#bg').classList.add('act')
                 }, 4500)
 
                 // 调整贵宾福利 抢项目页面 info-wrap与page-title的间距
@@ -251,7 +275,7 @@
                     if (marginRem > 0.9) {
                         marginRem = 0.9
                     }
-                    var actSlide = document.querySelector('div.common-slide.timeLimit>div.wrap>div.info-wrap')
+                    var actSlide = doc.querySelector('div.common-slide.timeLimit>div.wrap>div.info-wrap')
                     if (actSlide) {
                         actSlide.style.marginTop = marginRem + 'rem'
                     }
