@@ -15,7 +15,7 @@ exports.Global = {
     pageHeader: null,
     slideArrow: null,
     swiperArr: [],
-    aniEles: [], // 每个swipe下的ani元素
+    aniEles: [], // 每个00swipe下的ani元素
     app: null, // 对app组件中this的引用
     swiper: null, // 对swiper的引用
     currSlideIndex: 0, // 当前滑动到的silde的index

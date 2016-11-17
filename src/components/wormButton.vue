@@ -32,7 +32,7 @@
                     global.likeStatus = 'liked'
                     var likeCounter = document.querySelector('header.page-header div.like')
                     likeCounter.innerHTML = parseInt(likeCounter.innerHTML) + 1
-                    _this.$http.get('../api/v2/user/journal/share/count', {params: { journalId: global.journalId }})
+                    _this.$http.get('../api/v2/user/journal/like/count', {params: { journalId: global.journalId }})
                 } else {
                     eventHub.$emit('change-share-pop', true)
                 }

@@ -205,7 +205,7 @@
                         _this.loading = false
                     }
                 } else {
-                    _this.$http.get(_this.dataUrl, {params: {id: global.journalId, preview: global.preview ? 1 : 0}}).then(function (res) {
+                    _this.$http.get(_this.dataUrl, {params: {journalId: global.journalId, preview: global.preview ? 1 : 0}}).then(function (res) {
                         res = res.body
                         if (res.statusCode == 200) {
                             res = res.respData
@@ -346,17 +346,29 @@
                         }
                         slideData.push(itemObj)
                     } else if (itemData.itemKey == '04') { // 服务之星
-                        itemObj = {
-                            category: 'tech-list',
-                            title: itemData.title,
-                            techs: []
-                        }
                         for (k = 0; k < itemData.details.length; k++) {
+                            itemObj = {
+                                category: 'tech-list',
+                                title: itemData.title,
+                                techs: []
+                            }
                             subItemData = itemData.details[k]
                             subItemData.imgStyle = subItemData.avatarUrl ? {'background-image': 'url(' + subItemData.avatarUrl + ')'} : {}
                             itemObj.techs.push(subItemData)
+                            k++
+                            if (k < itemData.details.length) {
+                                subItemData = itemData.details[k]
+                                subItemData.imgStyle = subItemData.avatarUrl ? {'background-image': 'url(' + subItemData.avatarUrl + ')'} : {}
+                                itemObj.techs.push(subItemData)
+                                k++
+                                if (k < itemData.details.length) {
+                                    subItemData = itemData.details[k]
+                                    subItemData.imgStyle = subItemData.avatarUrl ? {'background-image': 'url(' + subItemData.avatarUrl + ')'} : {}
+                                    itemObj.techs.push(subItemData)
+                                }
+                            }
+                            slideData.push(itemObj)
                         }
-                        slideData.push(itemObj)
                     } else if (itemData.itemKey == '06') { // 优惠活动
                         for (k = 0; k < itemData.details.length; k++) {
                             subItemData = itemData.details[k]
