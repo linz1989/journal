@@ -12,6 +12,7 @@ exports.Global = {
     likeStatus: 'like',
     pageParams: {},
     tip: null,
+    indexPageHeader: null,
     pageHeader: null,
     slideArrow: null,
     swiperArr: [],

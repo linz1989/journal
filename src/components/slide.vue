@@ -42,9 +42,7 @@
             </template>
             <template v-if="slideObj.category=='video'"><!-- 视频 -->
                 <div class="info-wrap scale-ani ani">
-                    <video class="video-js vjs-default-skin" controls preload="meta" width="100%" height="100%" data-setup="{}">
-                        <source :src="slideObj.video" type="video/mp4"/>
-                    </video>
+                    <div id="tx-video"></div>
                 </div>
             </template>
             <template v-if="slideObj.category=='act' && slideObj.type=='timeLimit'"><!-- 活动 -抢项目-->
@@ -159,10 +157,25 @@
             }
         },
         mounted: function () {
-            var slideObj = this.slideObj
+            var that = this
+            var slideObj = that.slideObj
+            var global = Global
             if (slideObj.clubId) {
                 this.clubUrl = 'http://' + location.host + (/spa-manager/.test(location.pathname) ? '/spa-manager' : '') + '/spa2/?club=' + slideObj.clubId
                 console.log('clubUrl：' + this.clubUrl)
+            }
+            if (slideObj.category == 'video') {
+                that.$nextTick(function () {
+                    var video = new tvp.VideoInfo()
+                    video.setVid(slideObj.videoId) // 视频vid
+                    var player = new tvp.Player(18.556 * global.winScale * 16, 14 * global.winScale * 16) // 视频高宽
+                    player.setCurVideo(video)
+                    player.addParam('autoplay', '0') // 是否自动播放，1为自动播放，0为不自动播放
+                    player.addParam('wmode', 'opaque')
+                    // player.addParam('pic',"http://ossweb-img.qq.com/images/roco/act/a20120925movie/video_pic.jpg");//默认图片地址
+                    player.addParam('flashskin', 'http://imgcache.qq.com/minivideo_v1/vd/res/skins/TencentPlayerMiniSkin.swf') // 是否调用精简皮肤，不使用则删掉此行代码
+                    player.write('tx-video')
+                })
             }
         },
         methods: {

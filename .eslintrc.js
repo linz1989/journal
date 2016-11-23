@@ -5,7 +5,8 @@ module.exports = {
     sourceType: 'module'
   },
   globals: {
-    'JSON': true
+    'JSON': true,
+    'tvp': true
   },
   env: {
     'browser': true,

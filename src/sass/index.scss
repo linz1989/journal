@@ -95,7 +95,7 @@ body{
   position: relative;
   background: #1a0532 no-repeat;
   background-size: 20rem 200%;
-  transition: background-position 0.5s ease-in-out;
+  //transition: background-position-y 0.5s;
   background-position-y: 0;
   background-position-x: center;
 }
@@ -115,6 +115,7 @@ div#bg{
     transform-origin: 50% 50%;
     @include img("../images/star.png",1.556rem 1.556rem);
     -webkit-animation: star-ani 3s infinite ease-in-out;
+    -moz-animation: star-ani 3s infinite ease-in-out;
     animation: star-ani 3s infinite ease-in-out;
     &:nth-of-type(1){
       top:6rem;
@@ -161,7 +162,6 @@ div.page-content{
 
 .page-header{
   position: fixed;
-  top:-6rem;
   left:50%;
   width:20rem;
   height:3.3889rem;
@@ -169,7 +169,8 @@ div.page-content{
   margin-left:-10rem;
   z-index:1;
   opacity: 0;
-  transition: height 0.3s 0.2s, opacity 0.3s 4.5s, top 0.3s 4.5s ease-out;
+  top:0.333rem;
+  transition: opacity 0.5s 0.5s;
   div.logo{
     width:3.389rem;
     height:3.389rem;
@@ -177,7 +178,6 @@ div.page-content{
     border-radius: 50%;
     float: left;
     @include imgBgFix(3.389rem 3.389rem);
-    @include transition(all 0.3s);
   }
   div.info{
     width:12.667rem;
@@ -214,7 +214,6 @@ div.page-content{
     position: absolute;
     right:0;
     top:0;
-    display: none;
     &:after{
       content: "";
       position: absolute;
@@ -235,24 +234,16 @@ div.page-content{
     div.logo{
       width:1.528rem;
       height:1.528rem;
-      //border:1px solid #504169;
     }
     div.info{
       width:14.528rem;
       div.title{
         line-height: 1.528rem;
       }
-      div.static{
-        display: none;
-      }
-    }
-    div.right-arrow{
-      display: block;
     }
   }
   &.act{
     opacity: 1;
-    top:0.333rem;
   }
 }
 
@@ -312,25 +303,25 @@ div.index-slide{
     canvas.line-top{
       width:4.5rem;
       height:2.972rem;
-      top:-10.3rem;
-      left:10rem;
+      top:-3.3rem;
+      left:3rem;
       opacity: 0;
-      transition: left 0.4s 1.1s, top 0.4s 1.1s, opacity 0.3s 1.1s;
+      transform: translate(200%,-200%);
+      transition: transform 0.4s 1.1s, opacity 0.3s 1.1s;
       &.act{
-        top:-3.3rem;
-        left:3rem;
+        transform: translate(0,0);
       }
     }
     canvas.line-bottom{
       width:3.167rem;
       height:2.056rem;
-      top:17rem;
-      left:-5.8rem;
+      top:11.15rem;
+      left:1.2rem;
       opacity: 0;
-      transition: left 0.4s 1.4s, top 0.4s 1.4s, opacity 0.3s 1.4s;
+      transform: translate(-200%,200%);
+      transition: transform 0.4s 1.4s, opacity 0.3s 1.4s;
       &.act{
-        top:11.15rem;
-        left:1.2rem;
+        transform: translate(0,0);
       }
     }
     canvas.line-top,canvas.line-bottom{
@@ -341,45 +332,36 @@ div.index-slide{
     div.circle{
       border-radius: 50%;
       opacity: 0;
-      transform: scale(0,0);
+      transform: translateY(400%);
       transform-origin: 50% 50%;
       &.act{
         opacity: 0.5;
-        transform: scale(1,1)
+        transform: translateY(0)
       }
     }
     div.small{
-      top:21rem;
+      top:13rem;
       left:4rem;
       width:1.75rem;
       height:1.75rem;
       background-color: #998045;
-      transition: opacity .3s 3.2s,top .9s 3.2s ease-out, transform 0.4s 3.2s ease-out;
-      &.act{
-        top:13rem;
-      }
+      transition: opacity .6s 3.2s, transform 0.6s 3.2s ease-out;
     }
     div.mid{
-      top:15.8rem;
+      top:7.8rem;
       left:-4rem;
       width:2.472rem;
       height:2.472rem;
       background-color: #79602b;
-      transition: opacity .3s 3.5s,top .9s 3.5s ease-out,transform 0.4s 3.5s ease-out;
-      &.act{
-        top:7.8rem;
-      }
+      transition: opacity .6s 3.9s,transform 0.6s 3.9s ease-out;
     }
     div.big{
-      top:15rem;
+      top:7rem;
       right:-4rem;
       width:3.444rem;
       height:3.444rem;
       background-color: #652596;
-      transition: opacity .3s 4s,top .9s 4s ease-out,transform 0.4s 4s ease-out;
-      &.act{
-        top:7rem;
-      }
+      transition: opacity .6s 4.6s,transform 0.6s 4.6s ease-out;
     }
   }
 
@@ -435,7 +417,6 @@ div.common-slide{
     left:0;
     top:50%;
     margin-top:-12.5rem;
-    //border:1px solid #ff0000;
   }
   div.info-wrap{
     width:18.611rem;
@@ -500,7 +481,7 @@ div.common-slide{
     position: absolute;
     width:8.944rem;
     height:1.861rem;
-    bottom:-1rem;
+    bottom:2.2rem;
     left:50%;
     padding-left:5.278rem;
     margin-left:-4.472rem;
@@ -508,10 +489,12 @@ div.common-slide{
     color:#fff;
     @include imgBgFix(8.944rem 1.861rem);
     opacity: 0;
-    transition: opacity 0.3s 2s, bottom 0.4s 2s ease-out;
+    transform: translateY(100%);
+    transition: opacity 0.3s 2s, transform 0.4s 2s ease-out;
+    z-index:2;
     &.act{
       opacity: 1;
-      bottom:2.2rem;
+      transform: translateY(0);
     }
   }
   div.like-btn,div.liked-btn{
@@ -757,7 +740,7 @@ div.tech-list-slide{
           transition: opacity 0.4s 1.6s, transform 0.6s 1.6s ease-out;
         }
         &.item-btn{
-          transition: opacity 0.3s 2.2s, right 0.4s 2.2s ease-out;
+          transition: opacity 0.3s 2.2s, transform 0.4s 2.2s ease-out;
         }
       }
     }
@@ -768,7 +751,7 @@ div.tech-list-slide{
           transition: opacity 0.4s 1.9s, transform 0.6s 1.9s ease-out;
         }
         &.item-btn{
-          transition: opacity 0.3s 2.5s, right 0.4s 2.5s ease-out;
+          transition: opacity 0.3s 2.5s, transform 0.4s 2.5s ease-out;
         }
       }
     }
@@ -779,7 +762,7 @@ div.tech-list-slide{
           transition: opacity 0.4s 2.2s, transform 0.6s 2.2s ease-out;
         }
         &.item-btn{
-          transition: opacity 0.3s 2.8s, right 0.4s 2.8s ease-out;
+          transition: opacity 0.3s 2.8s, transform 0.4s 2.8s ease-out;
         }
       }
     }
@@ -799,7 +782,6 @@ div.tech-list-slide{
         border-radius: 50%;
         border:0.111rem solid #c857b0;
         @include imgBgFix(4.166rem 4.166rem);
-        //background-image: url("../images/logo.png");
         opacity: 0;
         transform: scale(0,0);
         transform-origin: 0 100%;
@@ -830,11 +812,12 @@ div.tech-list-slide{
         position: absolute;
         top:0.361rem;
         opacity: 0;
-        right:-3rem;
+        right:0.139rem;
         line-height: 1.222rem;
+        transform: translateX(150%);
         &.act{
           opacity: 1;
-          right:0.139rem;
+          transform: translateX(0);
         }
       }
     }
@@ -865,12 +848,13 @@ div.video-slide{
     height:15.139rem;
     width:19.056rem;
     margin:2.222rem auto 0;
-  }
-  .video-js{
-    width:18.556rem;
-    height:14rem;
-    margin:0.527rem auto;
-    border:1px solid #594363;
+    >div{
+      width:18.556rem;
+      height:14rem;
+      margin:0.527rem auto;
+      border:1px solid #594363;
+      background: #000;
+    }
   }
 }
 
@@ -906,7 +890,6 @@ div.act-slide{
           border:0.111rem solid #c857b0;
           border-radius: 0.2rem;
           @include imgBgFix(6.333rem 6.333rem);
-          //background-image: url("../images/logo.png");
           opacity: 0;
           transform: rotate(-180deg);
           transition: opacity 0.4s 1.7s, transform 0.4s 1.7s ease-out;

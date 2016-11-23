@@ -24,7 +24,7 @@
             </div>
         </div>
         <template v-show="!loading && !loadError">
-            <header class="page-header" ref="pageHeader" @click="doGoToClub()">
+            <header class="page-header" ref="indexPageHeader" @click="doGoToClub()">
                 <div v-if="clubImgUrl" class="logo" :style="{ 'background-image' : 'url('+clubImgUrl+')' }"></div>
                 <div class="info">
                     <div class="title">{{ clubName }}</div>
@@ -32,6 +32,12 @@
                         <div class="view">{{ viewCount }}</div>
                         <div class="like">{{ likeCount }}</div>
                     </div>
+                </div>
+            </header>
+            <header class="page-header common" ref="pageHeader" @click="doGoToClub()">
+                <div v-if="clubImgUrl" class="logo" :style="{ 'background-image' : 'url('+clubImgUrl+')' }"></div>
+                <div class="info">
+                    <div class="title">{{ clubName }}</div>
                 </div>
                 <div class="right-arrow"></div>
             </header>
@@ -112,16 +118,19 @@
                         var previousIndex = swiper.previousIndex
                         var thisEl = document.body
                         var pageHeaderCls = global.pageHeader.classList
+                        var indexPageHeaderCls = global.indexPageHeader.classList
                         var swiperArr = global.swiperArr
                         var aniEles = global.aniEles
                         var previousAniEles // 前一个页面的ani元素
                         var k = 0
 
                         if (activeIndex == 0) {
-                            pageHeaderCls.remove('common')
+                            pageHeaderCls.remove('act')
+                            indexPageHeaderCls.add('act')
                             thisEl.style.backgroundPositionY = '0%'
                         } else {
-                            pageHeaderCls.add('common')
+                            pageHeaderCls.add('act')
+                            indexPageHeaderCls.remove('act')
                             thisEl.style.backgroundPositionY = '100%'
                         }
 
@@ -262,9 +271,11 @@
                 for (var k = 0; k < aniEles.length; k++) {
                     aniEles[k].classList.add('act')
                 }
-                global.pageHeader.classList.add('act')
+                global.indexPageHeader.classList.add('act')
                 setTimeout(function () {
-                    global.slideArrow.classList.add('act')
+                    if (global.swiperArr.length > 1) {
+                        global.slideArrow.classList.add('act')
+                    }
                     doc.querySelector('#bg').classList.add('act')
                 }, 4500)
 
@@ -411,7 +422,7 @@
                         slideData.push({
                             category: 'video',
                             title: itemData.title,
-                            video: itemData.details
+                            videoId: itemData.details
                         })
                     } else if (itemData.itemKey == '07') { // 文章
                         slideData.push({
@@ -423,6 +434,7 @@
                 }
 
                 _this.slideData = slideData
+                global.indexPageHeader = _this.$refs.indexPageHeader
                 global.pageHeader = _this.$refs.pageHeader
                 global.slideArrow = _this.$refs.slideArrow
                 _this.drawCanvas()
