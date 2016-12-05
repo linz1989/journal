@@ -2,7 +2,7 @@
     <div>
         <label>{{ tipText[status] }}</label>
         <template v-if="status !='over' ">
-            <b>{{ times[0] }}</b>天<b>{{ times[1] }}</b>时<b>{{ times[2] }}</b>分<b>{{ times[3] }}</b>秒<span>剩余{{ remainCount }}份</span>
+            <b>{{ times[0] }}</b>天<b>{{ times[1] }}</b>时<b>{{ times[2] }}</b>分<b>{{ times[3] }}</b>秒<span v-show="remainCount > 0">剩余{{ remainCount }}份</span>
         </template>
         <label v-else>活动已结束，欢迎下次抢购！</label>
     </div>

@@ -61,7 +61,13 @@
             <div class="slide-arrow" ref="slideArrow"></div>
             <share :share-url="shareUrl"></share>
         </template>
-        <div v-show="loadError" class="page-error">404<br/><span>页面无法访问！</span></div>
+        <div v-if="loadError && errorId" class="page-error">404<br/><span>您访问的页面不存在！</span></div>
+        <div v-if="loadError && !errorId" class="page-redirect">
+            <div :class="{club: !newJournalId}">
+                <div></div>
+                <div @click="doRedirect()">{{ newJournalId ? '查看最新' : '去看看' }}</div>
+            </div>
+        </div>
     </div>
 </template>
 <script>
@@ -92,6 +98,8 @@
                 slideData: [],
                 loading: true,
                 loadError: false,
+                errorId: false,
+                newJournalId: '', // 最新的期刊ID
                 swiperOption: {
                     direction: 'vertical',
                     observeParents: true,
@@ -181,7 +189,7 @@
                                 currPageAniEles[k].classList.add('act')
                             }
                             if (currSwiper.classList.contains('oneYuan')) {
-                                console.log('one-yuan-count width')
+                                // console.log('one-yuan-count width')
                                 var pro = document.querySelector('#one-yuan-count')
                                 pro.style.width = pro.getAttribute('progress') + '%'
                             }
@@ -217,23 +225,32 @@
                     _this.loadError = true
                     return
                 }
-                var preDataLoadCount = 0
+                var bgImgLoadStatus = false
+                var dataLoadStatus = false
+
                 var bgImg = new Image()
                 bgImg.onload = function () {
-                    preDataLoadCount++
-                    if (preDataLoadCount == 2) {
-                        console.log(preDataLoadCount)
+                    bgImgLoadStatus = true
+                    if (dataLoadStatus) {
                         _this.loading = false
                     }
                 }
                 bgImg.src = './images/01.jpg'
 
+                // bgImg onload事件不触发时
+                setTimeout(function () {
+                    bgImgLoadStatus = true
+                    if (dataLoadStatus) {
+                        _this.loading = false
+                    }
+                }, 1500)
+
                 // 请求数据
                 var localData = global.sessionStorage('journal-data-' + global.journalId)
                 if (localData) { // 从sessionStorage获取数据
                     _this.doHandlerData(JSON.parse(localData))
-                    preDataLoadCount++
-                    if (preDataLoadCount == 2) {
+                    dataLoadStatus = true
+                    if (bgImgLoadStatus) {
                         _this.loading = false
                     }
                 } else {
@@ -241,17 +258,26 @@
                         res = res.body
                         if (res.statusCode == 200) {
                             res = res.respData
-                            // global.sessionStorage('journal-data-' + global.journalId, JSON.stringify(res)) // ========是否增加session storage
-                            _this.doHandlerData(res)
-                            preDataLoadCount++
-                            if (preDataLoadCount == 2) {
-                                _this.loading = false
+                            if (res.title) {
+                                // global.sessionStorage('journal-data-' + global.journalId, JSON.stringify(res)) // ========是否增加session storage
+                                _this.doHandlerData(res)
+                                dataLoadStatus = true
+
+                                if (bgImgLoadStatus) {
+                                    _this.loading = false
+                                }
+                            } else {
+                                _this.loadError = true
+                                _this.newJournalId = res.journalId
+                                _this.clubId = res.clubId
                             }
                         } else {
                             _this.loadError = true
+                            _this.errorId = true
                         }
                     }, function () {
                         _this.loadError = true
+                        _this.errorId = true
                     })
 
                     // 浏览数+1
@@ -279,19 +305,6 @@
                     doc.querySelector('#bg').classList.add('act')
                 }, 4500)
 
-                // 调整贵宾福利 抢项目页面 info-wrap与page-title的间距
-                var winHeightRem = global.winHeight / (16 * global.winScale)
-                if (winHeightRem > 28.889) {
-                    var marginRem = winHeightRem - 28.889
-                    if (marginRem > 0.9) {
-                        marginRem = 0.9
-                    }
-                    var actSlide = doc.querySelector('div.common-slide.timeLimit>div.wrap>div.info-wrap')
-                    if (actSlide) {
-                        actSlide.style.marginTop = marginRem + 'rem'
-                    }
-                }
-
                 // 分享配置
                 global.shareConfig({
                     title: _this.title,
@@ -315,7 +328,7 @@
                 _this.clubId = res.clubId
                 _this.viewCount = res.viewCount + 1
                 _this.likeCount = res.likeCount
-                _this.title = res.title || '限时优惠大抢购'
+                _this.title = res.title
                 _this.subTitle = res.subTitle
                 _this.clubImgUrl = res.clubImgUrl
 
@@ -326,6 +339,7 @@
                 var slideData = []
                 var itemObj
                 var k
+
                 for (var i = 0; i < items.length; i++) {
                     itemData = items[i]
                     if (itemData.itemKey == '01') { // 闪亮新人页面
@@ -338,8 +352,11 @@
                             itemObj.techName = subItemData.techName
                             itemObj.techNo = subItemData.techNo
                             itemObj.clubId = _this.clubId
-                            itemObj.avatarUrl = subItemData.avatarUrl
+                            itemObj.avatarUrl = subItemData.avatarUrl || _this.clubImgUrl
                             itemObj.serviceItems = subItemData.serviceItems
+                            if (itemObj.serviceItems && itemObj.serviceItems.length > 4) {
+                                itemObj.serviceItems = itemObj.serviceItems.slice(0, 4)
+                            }
                             slideData.push(itemObj)
                         }
                     } else if (itemData.itemKey == '02') { // 最新项目页面
@@ -388,17 +405,17 @@
                                 techs: []
                             }
                             subItemData = itemData.details[k]
-                            subItemData.imgStyle = subItemData.avatarUrl ? {'background-image': 'url(' + subItemData.avatarUrl + ')'} : {}
+                            subItemData.imgStyle = (subItemData.avatarUrl || _this.clubImgUrl) ? {'background-image': 'url(' + (subItemData.avatarUrl || _this.clubImgUrl) + ')'} : {}
                             itemObj.techs.push(subItemData)
                             k++
                             if (k < itemData.details.length) {
                                 subItemData = itemData.details[k]
-                                subItemData.imgStyle = subItemData.avatarUrl ? {'background-image': 'url(' + subItemData.avatarUrl + ')'} : {}
+                                subItemData.imgStyle = (subItemData.avatarUrl || _this.clubImgUrl) ? {'background-image': 'url(' + (subItemData.avatarUrl || _this.clubImgUrl) + ')'} : {}
                                 itemObj.techs.push(subItemData)
                                 k++
                                 if (k < itemData.details.length) {
                                     subItemData = itemData.details[k]
-                                    subItemData.imgStyle = subItemData.avatarUrl ? {'background-image': 'url(' + subItemData.avatarUrl + ')'} : {}
+                                    subItemData.imgStyle = (subItemData.avatarUrl || _this.clubImgUrl) ? {'background-image': 'url(' + (subItemData.avatarUrl || _this.clubImgUrl) + ')'} : {}
                                     itemObj.techs.push(subItemData)
                                 }
                             }
@@ -414,7 +431,7 @@
                             itemObj.data = subItemData
                             itemObj.clubId = _this.clubId
                             if (itemObj.type == 'timeLimit' || itemObj.type == 'oneYuan') {
-                                itemObj.imgStyle = subItemData.actImageUrl ? { 'background-image': 'url(' + subItemData.actImageUrl + ')' } : {}
+                                itemObj.imgStyle = subItemData.actImgUrl ? { 'background-image': 'url(' + subItemData.actImgUrl + ')' } : {}
                             }
                             slideData.push(itemObj)
                         }
@@ -422,7 +439,7 @@
                         slideData.push({
                             category: 'video',
                             title: itemData.title,
-                            videoId: itemData.details
+                            video: itemData.details
                         })
                     } else if (itemData.itemKey == '07') { // 文章
                         slideData.push({
@@ -438,6 +455,7 @@
                 global.pageHeader = _this.$refs.pageHeader
                 global.slideArrow = _this.$refs.slideArrow
                 _this.drawCanvas()
+                Global.setDocumentTitle(_this.title, _this.clubImgUrl)
                 global.app = _this
             },
             drawCanvas: function () {
@@ -518,7 +536,16 @@
             },
             doGoToClub: function () {
                 var loc = location
-                loc.href = 'http://' + loc.host + (/spa-manager/.test(loc.pathname) ? '/spa-manager' : '') + '/spa2/?club=' + this.clubId
+                loc.href = loc.origin + (/spa-manager/.test(loc.pathname) ? '/spa-manager' : '') + '/spa2/?club=' + this.clubId
+            },
+            doRedirect: function () {
+                var that = this
+                var loc = location
+                if (that.newJournalId) {
+                    loc.href = loc.origin + '/spa-manager/journal?id=' + that.newJournalId
+                } else {
+                    loc.href = loc.origin + '/spa-manager/spa2/?club=' + that.clubId
+                }
             }
         }
     }

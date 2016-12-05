@@ -4,7 +4,7 @@
 import Vue from 'vue'
 
 var wx = require('weixin-js-sdk')
-console.dir(wx)
+// console.dir(wx)
 
 exports.Global = {
     journalId: '', // 电子期刊ID
@@ -63,27 +63,6 @@ exports.Global = {
         var currIndex = _this.sessionStorage('journal-slide-index-' + _this.journalId)
         if (currIndex) {
             _this.currSlideIndex = parseInt(currIndex)
-        }
-    },
-    // 设置页面标题
-    setDocumentTitle: function (title) {
-        var _this = this
-        var doc = document
-        var frame = null
-        var ua = _this.userAgent
-
-        document.title = title
-        if (ua.isWX || ua.isiPhone) {
-            frame = doc.createElement('iframe')
-            frame.style.display = 'none'
-            frame.onload = function () {
-                frame.onload = null
-                setTimeout(function () {
-                    doc.body.removeChild(frame)
-                }, 0)
-            }
-            frame.src = ''
-            doc.body.appendChild(frame)
         }
     },
     resizeWin: function () {
@@ -184,5 +163,26 @@ exports.Global = {
                 })
             }
         })
+    },
+
+    // 设置页面标题
+    setDocumentTitle: function (title, logoUrl) {
+        document.title = title
+        var that = this
+        var doc = document
+        var frame = null
+        var ua = that.userAgent
+        if (ua.isWX || ua.isiPhone) {
+            frame = doc.createElement('iframe')
+            frame.style.display = 'none'
+            frame.onload = function () {
+                frame.onload = null
+                setTimeout(function () {
+                    doc.body.removeChild(frame)
+                }, 0)
+            }
+            frame.src = logoUrl
+            doc.body.appendChild(frame)
+        }
     }
 }

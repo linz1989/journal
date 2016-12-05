@@ -1,61 +1,81 @@
 {
   "respData": {
-    "clubName": "刘哥会所",
-    "clubId": "601679316694081536",
-    "clubImgUrl": "./images/logo.png",
-    "viewCount": 100,
-    "likeCount": 330,
-    "shareCount": 0,
-    "title": "天宫大庆",
-    "subTitle": "西部大开发30周年大庆",
+    "clubName": "小摩豆健康养生演示会所",
+    "clubId": "787904475124736000",
+    "clubImgUrl": "http://sdcm164.stonebean.com:8489/s/group00/M00/05/56/oYYBAFgEc5GALVz4AAAUyg_sGYA228.jpg?st=tHxvoRjxqaS5ikEZ6dCxFA&e=1480242301",
+    "viewCount": 110,
+    "likeCount": 14,
+    "shareCount": 7,
+    "title": "小摩豆会所酬宾",
+    "subTitle": "美女如云.福利多多.快来抢",
     "items": [
       {
         "itemKey": "01",
         "title": "闪亮新人",
         "details": [
           {
-            "techId": "601571897351606272",
             "clubId": null,
-            "techName": "铺子海贼王",
-            "techNo": "108",
-            "serviceItems": [],
-            "avatarUrl": "./images/logo.png"
-          },
+            "techId": "603139538277109760",
+            "techName": "波波",
+            "techNo": "007",
+            "serviceItems": [
+              "梦幻太空SPA",
+              "法式SPA",
+              "至尊双妃SPA",
+              "至尊双妃SPA2"
+            ],
+            "avatarUrl": "http://sdcm163.stonebean.com:8489/s/group00/M00/05/4B/ooYBAFe4HNSARIp9AAAVvwx1gF4156.jpg?st=YPbfqy2HHzhChnA95qLGaw&e=1480259280"
+          }
+        ]
+      },
+      {
+        "itemKey": "01",
+        "title": "红牌技师",
+        "details": [
           {
-            "techId": "601571897351606272",
             "clubId": null,
-            "techName": "9909",
-            "techNo": "108",
-            "serviceItems": [],
-            "avatarUrl": "./images/logo.png"
+            "techId": "787919761806725120",
+            "techName": "李小花",
+            "techNo": "008",
+            "serviceItems": [
+              "中式按摩",
+              "经典按摩",
+              "香薰按摩",
+              "泰式按摩"
+            ],
+            "avatarUrl": "http://sdcm163.stonebean.com:8489/s/group00/M00/06/34/oIYBAFgEf1qAcJ6nAAAa_Zee_ZI222.jpg?st=7Ww1_eHIlXaUN4FIzYqI3Q&e=1480305786"
           }
         ]
       },
       {
         "itemKey": "02",
-        "title": "最新项目",
+        "title": "金牌项目",
         "details": [
           {
-            "id": "628852797382598656",
-            "name": "猫推拿",
-            "image": "145605",
-            "price": "70",
-            "duration": "90",
+            "id": "787908850635251712",
+            "name": "梦幻太空SPA",
+            "image": "244267",
+            "price": "988",
+            "duration": "120",
             "durationUnit": "分钟",
-            "description": "<p>\r\n\t猫推拿猫推拿猫推拿猫推拿猫推拿猫推拿猫推拿猫推拿猫推拿猫推拿猫推拿猫推拿\r\n</p>",
-            "imageUrl": null
+            "description": "结合沐浴、按摩、涂抹保养品和香熏来促进新陈代谢，满足人体视觉、味觉、触觉、嗅觉和思考达到一种身心畅快的享受。专业美疗师、水、光线、芳香精油、音乐等多个元素，组合成舒缓减压方式，帮助你达到身、心、灵的健美效果。",
+            "imageUrl": "http://sdcm164.stonebean.com:8489/s/group00/M00/06/2C/ooYBAFgEdOuAEo5sAABDb9BgFpA109.jpg?st=gOqqED54lbUO8bNYuzXKPQ&e=1480305786"
           }
         ]
       },
       {
         "itemKey": "03",
-        "title": "女神风采",
+        "title": "明星技师相册",
         "details": [
-          "./images/1.png",
-          "./images/2.png",
-          "./images/3.png",
-          "./images/4.png",
-          "./images/5.png"
+          "http://sdcm164.stonebean.com:8489/s/group00/M00/05/76/oYYBAFg4I22AbZBJAAQN4WuwFE4225.jpg?st=VfUlVAuYYJ1KfOpssQEcVw&e=1480248702",
+          "http://sdcm162.stonebean.com:8489/s/group00/M00/06/56/oIYBAFg4I2-AJj2DAAeBsRRjjXI617.jpg?st=vx4RCssazSQIgGyBGQq7vA&e=1480248702",
+          "http://sdcm163.stonebean.com:8489/s/group00/M00/06/56/oIYBAFg4I2qARSz-AAEnLY9LbPQ797.jpg?st=gISiiZGGew96rjzXitaJtg&e=1480248702",
+          "http://sdcm164.stonebean.com:8489/s/group00/M00/05/76/oYYBAFg4I26AV0hfAAR1yv5qwYo539.jpg?st=vR-g1KCiCSx1aIJtkZ5b2A&e=1480248702",
+          "http://sdcm162.stonebean.com:8489/s/group00/M00/06/56/oIYBAFg4I2yAYAhOAAPCDzt0Yf0211.jpg?st=mrLtuMloz4Z0khwBTl1uKA&e=1480248702",
+          "http://sdcm163.stonebean.com:8489/s/group00/M00/06/4D/ooYBAFg4I2qAMOYgAAEbpDQJjuQ621.jpg?st=4ycfDGtvj-Vj_5Y3YHzD1Q&e=1480248702",
+          "http://sdcm164.stonebean.com:8489/s/group00/M00/06/4D/ooYBAFg4I2uAFhB1AAMC3ADGRPI220.jpg?st=C89mtLw8HZ5Zvh6vwQc8iw&e=1480248702",
+          "http://sdcm162.stonebean.com:8489/s/group00/M00/05/76/oYYBAFg4I2uAeiXMAAL0FT2L-X8557.jpg?st=sOSKltbSELpgb1wHDDmJgQ&e=1480248702",
+          "http://sdcm164.stonebean.com:8489/s/group00/M00/05/76/oYYBAFg4I2qAKOIQAAEFtOvCDz8564.jpg?st=olcCxFKh8fsOZnOrpv_rHw&e=1480248702"
         ]
       },
       {
@@ -63,46 +83,68 @@
         "title": "服务之星",
         "details": [
           {
-            "techId": "638659751856574464",
             "clubId": null,
-            "techName": "6666666666",
-            "techNo": "66666",
-            "serviceItems": [],
-            "description": null,
-            "impressions": [
-              "美白",
-              "有胸怀",
-              "善解人意"
+            "techId": "664288000716312576",
+            "techName": "黄万能",
+            "techNo": "888",
+            "serviceItems": [
+              "中式按摩",
+              "经典按摩",
+              "香薰按摩",
+              "泰式按摩",
+              "梦幻太空SPA",
+              "古法养生",
+              "法式SPA",
+              "至尊双妃SPA",
+              "中医按头",
+              "老姜油拔罐",
+              "刮痧",
+              "中医理疗",
+              "至尊沐足",
+              "足浴",
+              "泡脚",
+              "中药足底"
             ],
-            "avatarUrl": null
+            "description": "都是狼何必装羊！电力百足！不电卷也值得你拥有！",
+            "impressions": [
+              "善解人意",
+              "壮硕",
+              "手法娴熟"
+            ],
+            "avatarUrl": "http://sdcm163.stonebean.com:8489/s/group00/M00/05/45/ooYBAFe4G5OAYZIZAAEnHdI_LuM441.png?st=pM4TPeFLEaGkX5_QIidMkA&e=1480242028"
           },
           {
-            "techId": "602023060890980352177279",
             "clubId": null,
-            "techName": "啊希啊",
-            "techNo": "98989",
+            "techId": "768283516164116480",
+            "techName": "华",
+            "techNo": "95",
             "serviceItems": [],
-            "description": "",
+            "description": "也信美人终作土",
+            "impressions": [
+              "有胸怀",
+              "美白",
+              "丰满"
+            ],
+            "avatarUrl": "http://sdcm163.stonebean.com:8489/s/group00/M00/06/39/ooYBAFgZXZyAcOKlAAEhxVf-eww526.png?st=UkjkUwNXLu37q8Vm-SSqdA&e=1480247618"
+          },
+          {
+            "clubId": null,
+            "techId": "787919761806725120",
+            "techName": "李小花",
+            "techNo": "008",
+            "serviceItems": [
+              "中式按摩",
+              "经典按摩",
+              "香薰按摩",
+              "泰式按摩"
+            ],
+            "description": "声音甜、手法好、力道足……",
             "impressions": [
               "丰满",
-              "手法娴熟",
-              "态度好"
-            ],
-            "avatarUrl": ""
-          },
-          {
-            "techId": "756025569832865792",
-            "clubId": null,
-            "techName": "小摩豆技师",
-            "techNo": null,
-            "serviceItems": [],
-            "description": null,
-            "impressions": [
               "美白",
-              "有胸怀",
-              "善解人意"
+              "力道足"
             ],
-            "avatarUrl": null
+            "avatarUrl": "http://sdcm163.stonebean.com:8489/s/group00/M00/06/34/oIYBAFgEf1qAcJ6nAAAa_Zee_ZI222.jpg?st=7Ww1_eHIlXaUN4FIzYqI3Q&e=1480305786"
           }
         ]
       },
@@ -111,51 +153,19 @@
         "title": "优惠活动",
         "details": [
           {
-            "startTime": "",
-            "startDate": 1478102400000,
-            "actId": "794117541571096576",
-            "actPrice": "48",
-            "actImageUrl": "",
-            "actAmount": 18,
-            "endDate": 1480435200000,
-            "endTime": "",
-            "remainCount": 10,
-            "actName": "按手",
-            "actCredit": 0,
-            "actType": "timeLimit"
-          },
-          {
-            "actId": "747733920899952640",
-            "actPrice": 200,
-            "actImageUrl": null,
-            "actPaidAmount": 1,
-            "actName": "dd2",
-            "actType": "oneYuan"
-          },
-          {
-            "actValue": 20,
-            "actId": "761087924807671808",
+            "actValue": 10,
+            "actId": "788269495650099200",
             "couponType": "现金券",
             "couponPeriod": "领取后当天生效，至长期有效！",
-            "consumeMoneyDescription": "满100元可用",
-            "actName": "20元现金券",
+            "consumeMoneyDescription": "满199元可用",
+            "actName": "10现金券",
             "actType": "coupon"
           }
         ]
-      },
-      {
-        "itemKey": "05",
-        "title": "优秀视频",
-        "details": "www.xiaomodo.com"
-      },
-      {
-        "itemKey": "07",
-        "title": "养生文章",
-        "details": "黑夜给了我黑色的眼睛，我却拿他来对世界翻白眼"
       }
     ]
   },
   "statusCode": 200,
   "pageCount": 0,
-  "msg": "Success"
+  "msg": "查询成功"
 }

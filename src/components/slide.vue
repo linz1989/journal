@@ -1,9 +1,9 @@
 <template>
     <swiper-slide class="common-slide" :class="slideCls">
-        <div class="wrap">
-            <div class="page-title ani"><page-title :title="slideObj.title"></page-title></div>
+        <div class="wrap" :style="{ height : wrapHeight+'rem', 'margin-top' : -(wrapHeight/2+1.5)+'rem' }">
+            <div class="page-title ani" :style="{ 'margin-bottom' : pageTitleMarginBottom+'rem' }"><page-title :title="slideObj.title"></page-title></div>
             <template v-if="slideObj.category=='new-tech'"><!-- 闪亮新人 -->
-                <div class="info-wrap tech-info opacity-ani ani">
+                <div class="info-wrap tech-info opacity-ani ani" :style="{'margin-top' : (4+marginRem*0.3)+'rem'}">
                     <div class="tech-header ani"><div v-if="slideObj.avatarUrl" :style="{ 'background-image' : 'url('+slideObj.avatarUrl+')' }"></div></div>
                     <div class="shadow-btn chat-btn ani" @click="doClickChatBtn()"></div>
                     <div class="name-wrap ani">
@@ -14,7 +14,7 @@
                 </div>
             </template>
             <template v-if="slideObj.category=='service-item'"><!-- 最新项目 -->
-                <div class="info-wrap service left ani" v-if="slideObj.leftService">
+                <div class="info-wrap service left ani" v-if="slideObj.leftService" :class="{ single: !slideObj.rightService }">
                     <div class="service-img default-img-bg ani" :style="slideObj.leftService.styleObj"></div>
                     <div class="text-wrap ani">
                         <div>{{ slideObj.leftService.name }}</div>
@@ -42,11 +42,15 @@
             </template>
             <template v-if="slideObj.category=='video'"><!-- 视频 -->
                 <div class="info-wrap scale-ani ani">
-                    <div id="tx-video"></div>
+                    <video class="video-js vjs-default-skin" controls preload="auto" width="100%" height="100%">
+                        <source :src="slideObj.video" type="video/mp4">
+                        <!--<source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
+                        <source src="http://vjs.zencdn.net/v/oceans.ogv" type="video/ogg">-->
+                    </video>
                 </div>
             </template>
             <template v-if="slideObj.category=='act' && slideObj.type=='timeLimit'"><!-- 活动 -抢项目-->
-                <div class="info-wrap opacity-ani ani">
+                <div class="info-wrap opacity-ani ani" :style="{ 'margin-top' : (pageTitleMarginBottom>0.9 ? 0.9 : pageTitleMarginBottom) +'rem' }">
                     <div class="default-img-bg ani" :style="slideObj.imgStyle"></div>
                     <div class="text-wrap ani">
                         <div>{{ slideObj.data.actName }}</div>
@@ -116,6 +120,9 @@
                 global: Global,
                 clubUrl: '',
                 timeLimitActStatus: 'over',
+                wrapHeight: 22,
+                marginRem: 0,
+                pageTitleMarginBottom: 0,
                 picSwiperOption: {
                     effect: 'coverflow',
                     slidesPerView: 2,
@@ -134,7 +141,10 @@
                     onInit: function (swiper) {
                         setTimeout(function () {
                             swiper.reLoop()
-                            swiper.slideNext(null, 0)
+                            swiper.slideNext(null, 1)
+                            setTimeout(function () {
+                                swiper.slidePrev(null, 1)
+                            }, 500)
                         }, 500)
                     }
                 }
@@ -162,21 +172,29 @@
             var global = Global
             if (slideObj.clubId) {
                 this.clubUrl = 'http://' + location.host + (/spa-manager/.test(location.pathname) ? '/spa-manager' : '') + '/spa2/?club=' + slideObj.clubId
-                console.log('clubUrl：' + this.clubUrl)
             }
-            if (slideObj.category == 'video') {
-                that.$nextTick(function () {
-                    var video = new tvp.VideoInfo()
-                    video.setVid(slideObj.videoId) // 视频vid
-                    var player = new tvp.Player(18.556 * global.winScale * 16, 14 * global.winScale * 16) // 视频高宽
-                    player.setCurVideo(video)
-                    player.addParam('autoplay', '0') // 是否自动播放，1为自动播放，0为不自动播放
-                    player.addParam('wmode', 'opaque')
-                    // player.addParam('pic',"http://ossweb-img.qq.com/images/roco/act/a20120925movie/video_pic.jpg");//默认图片地址
-                    player.addParam('flashskin', 'http://imgcache.qq.com/minivideo_v1/vd/res/skins/TencentPlayerMiniSkin.swf') // 是否调用精简皮肤，不使用则删掉此行代码
-                    player.write('tx-video')
-                })
-            }
+
+            that.$nextTick(function () {
+                // 调整贵宾福利 抢项目页面 info-wrap与page-title的间距
+                var winHeightRem = global.winHeight / (16 * global.winScale)
+                // console.log('winHeightRem：' + winHeightRem)
+                if (winHeightRem > 28.889) {
+                    var marginRem = winHeightRem - 28.889
+                    if (marginRem > 1.5) {
+                        marginRem = 1.5
+                    }
+                    that.marginRem = marginRem
+                    that.wrapHeight = that.wrapHeight + marginRem
+                    if (slideObj.category == 'tech-list' || (slideObj.category == 'act' && (slideObj.type == 'coupon' || slideObj.type == 'timeLimit'))) {
+                        that.pageTitleMarginBottom = marginRem * 0.7
+                    }
+
+                    /* var actSlide = doc.querySelector('div.common-slide.timeLimit>div.wrap>div.info-wrap')
+                    if (actSlide) {
+                        actSlide.style.marginTop = marginRem + 'rem'
+                    } */
+                }
+            })
         },
         methods: {
             doClickChatBtn: function () { // 点击点我聊聊按钮
@@ -192,7 +210,7 @@
                 location.href = this.clubUrl + '#promotions'
             },
             doTimeLimitActStatusChange: function (status) { // 限时抢活动状态的变化
-                console.log('限时抢活动状态的变化....' + status)
+                // console.log('限时抢活动状态的变化....' + status)
                 this.timeLimitActStatus = status
             }
         }
