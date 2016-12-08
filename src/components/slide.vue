@@ -1,16 +1,14 @@
 <template>
     <swiper-slide class="common-slide" :class="slideCls">
         <div class="wrap" :style="{ height : wrapHeight+'rem', 'margin-top' : -(wrapHeight/2+1.5)+'rem' }">
-            <div class="page-title ani" :style="{ 'margin-bottom' : pageTitleMarginBottom+'rem' }"><page-title :title="slideObj.title"></page-title></div>
+            <div v-if="!isOver" class="page-title ani" :style="{ 'margin-bottom' : pageTitleMarginBottom+'rem' }"><page-title :title="slideObj.title"></page-title></div>
+            <div v-else class="page-end-title">更多精彩去网上会所看看吧</div>
             <template v-if="slideObj.category=='new-tech'"><!-- 闪亮新人 -->
-                <div class="info-wrap tech-info opacity-ani ani" :style="{'margin-top' : (4+marginRem*0.3)+'rem'}">
-                    <div class="tech-header ani"><div v-if="slideObj.avatarUrl" :style="{ 'background-image' : 'url('+slideObj.avatarUrl+')' }"></div></div>
-                    <div class="shadow-btn chat-btn ani" @click="doClickChatBtn()"></div>
-                    <div class="name-wrap ani">
-                        <div class="tech-name">{{ slideObj.techName }}&nbsp;<span v-show="slideObj.techNo">[{{ slideObj.techNo }}号]</span></div>
-                        <div class="tip">最好的服务都在我这里啦！</div>
-                        <div class="service-list"><div v-for="service in slideObj.serviceItems" class="item-btn left">{{ service }}</div></div>
-                    </div>
+                <div class="info-wrap tech-info opacity-ani ani" :style="{'margin-top' : 1+marginRem*0.3+'rem'}" :class="{'no-item' : slideObj.serviceItems.length==0 }">
+                    <div class="tech-header ani" v-if="slideObj.avatarUrl" :style="{ 'background-image' : 'url('+slideObj.avatarUrl+')' }" @click="doClickChatBtn(slideObj.techId)"></div>
+                    <div class="tech-name ani">{{ slideObj.techName }}&nbsp;<span v-show="slideObj.techNo">[{{ slideObj.techNo }}号]</span></div>
+                    <div class="tech-desc ani">{{ slideObj.description || '最好的服务都在我这里啦！'}}</div>
+                    <div class="service-list ani"><div v-for="service in slideObj.serviceItems">{{ service }}</div></div>
                 </div>
             </template>
             <template v-if="slideObj.category=='service-item'"><!-- 最新项目 -->
@@ -33,7 +31,7 @@
             </template>
             <template v-if="slideObj.category=='tech-list'"><!-- 服务之星 -->
                 <div class="info-wrap tech ani" v-for="(tech,index) in slideObj.techs" :class="'t'+index">
-                    <div class="default-img-bg ani" :style="tech.imgStyle"></div>
+                    <div class="default-img-bg ani" :style="tech.imgStyle" @click="doClickChatBtn(tech.techId)"></div>
                     <div>{{ tech.techName }}<span v-show="tech.techNo">[{{ tech.techNo }}号]</span></div>
                     <div>{{ tech.description || '这个技师很懒，未写介绍...'}}</div>
                     <div>客人印象:<span v-for="imp in tech.impressions">#{{ imp }}</span></div>
@@ -41,11 +39,9 @@
                 </div>
             </template>
             <template v-if="slideObj.category=='video'"><!-- 视频 -->
-                <div class="info-wrap scale-ani ani">
-                    <video class="video-js vjs-default-skin" controls preload="auto" width="100%" height="100%">
-                        <source :src="slideObj.video" type="video/mp4">
-                        <!--<source src="http://vjs.zencdn.net/v/oceans.webm" type="video/webm">
-                        <source src="http://vjs.zencdn.net/v/oceans.ogv" type="video/ogg">-->
+                <div class="info-wrap scale-ani scale-ani-all ani">
+                    <video ref="techVideo" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="auto" width="100%" height="100%" :poster="slideObj.poster" data-setup="{}">
+                        <source :src="slideObj.video" type="video/mp4" />
                     </video>
                 </div>
             </template>
@@ -61,12 +57,12 @@
                     <div class="shadow-btn grab-btn ani" @click="doClickBtnOfTimeLimitAct()"></div>
                 </div>
             </template>
-            <template v-if="slideObj.category=='act' && slideObj.type=='oneYuan'"><!-- 活动 -一元抢-->
+            <template v-if="slideObj.category=='act' && (slideObj.type=='oneYuan' || slideObj.type=='plumFlower')"><!-- 活动 -一元抢-->
                 <div class="info-wrap opacity-ani ani">
                     <div class="default-img-bg ani" :style="slideObj.imgStyle"></div>
                     <div class="text-wrap ani">
                         <div><b>{{ slideObj.data.actName }}</b></div>
-                        <div><div class="ani" id="one-yuan-count" :progress="slideObj.data.actPaidAmount/slideObj.data.actPrice*100"></div></div>
+                        <div><div class="ani one-yuan-count" :progress="slideObj.data.actPaidAmount/slideObj.data.actPrice*100"></div></div>
                         <div>已抢：<span>{{ slideObj.data.actPaidAmount }}/{{ slideObj.data.actPrice }}</span></div>
                     </div>
                     <div class="shadow-btn grab-btn ani" @click="doClickBtnOfOneYuanAct()"></div>
@@ -86,10 +82,18 @@
             <template v-if="slideObj.category=='health'"><!-- 养身频道-->
                 <div class="info-wrap ani" v-html="slideObj.content"></div>
             </template>
+            <template v-if="slideObj.category=='end'">
+                <div class="qr-code">
+                    <canvas ref="qrCodeBorder" width="375" height="396"></canvas>
+                    <div><img :src="qrCodeImgUrl"/></div>
+                </div>
+                <div class="attention-tip">
+
+                </div>
+            </template>
         </div>
-        <worm-button :category="global.likeStatus" :class="{ 'over': isOver }"></worm-button>
+        <worm-button :category="isOver ? 'club' : global.likeStatus" :class="{ 'over': isOver }" :club-id="slideObj.clubId"></worm-button>
         <worm-button category="share" v-if="isOver"></worm-button>
-        <div v-if="isOver" class="over-tip">—更多精彩去网上会所看看—</div>
         <template v-if="slideObj.category=='tech-pics'"><!-- 技师相册 -->
             <swiper :options="picSwiperOption" class="pic-wrap scale-ani ani" v-if="slideObj.pics.length>0">
                 <swiper-slide v-for="pic in slideObj.pics"><div class="swiper-zoom-container"><img :src="pic"/></div></swiper-slide>
@@ -105,6 +109,7 @@
     import CouponBg from './couponBg'
     import Counter from './counter'
     import { Global } from '../libs/global'
+    import videojs from 'video.js'
 
     module.exports = {
         components: {
@@ -123,6 +128,8 @@
                 wrapHeight: 22,
                 marginRem: 0,
                 pageTitleMarginBottom: 0,
+                qrCodeImgUrl: '', // 关注公众号二维码图片地址
+                getCodeImgMaxCount: 2,
                 picSwiperOption: {
                     effect: 'coverflow',
                     slidesPerView: 2,
@@ -194,17 +201,34 @@
                         actSlide.style.marginTop = marginRem + 'rem'
                     } */
                 }
+
+                if (slideObj.category == 'video') {
+                    var techVideoEle = that.$refs.techVideo
+                    var player = videojs(techVideoEle)
+                    player.on('play', function () {
+                        // console.log('开始/恢复播放')
+                    })
+                } else if (slideObj.category == 'end') {
+                    that.drawBgOfEndSlide()
+                    that.getClubQrCodeImg()
+                }
             })
         },
         methods: {
-            doClickChatBtn: function () { // 点击点我聊聊按钮
-                location.href = this.clubUrl + '#chat&techId=' + this.slideObj.techId
+            doClickChatBtn: function (techId) { // 点击点我聊聊按钮
+                location.href = this.clubUrl + '#chat&techId=' + techId
             },
             doClickBtnOfTimeLimitAct: function () { // 点击立即抢购按钮，限时抢活动
                 location.href = this.clubUrl + '#robProjectDetail&robProjectId=' + this.slideObj.data.actId
             },
             doClickBtnOfOneYuanAct: function () { // 跳转到一元抢页面
-                location.href = this.clubUrl + '#plumflowers&id=' + this.slideObj.data.actId + '&chanel=link'
+                var that = this
+                var slideObj = that.slideObj
+                if (slideObj.type == 'oneYuan') {
+                    location.href = that.clubUrl + '#oneYuanDetail&oneYuanId=' + slideObj.data.actId
+                } else {
+                    location.href = that.clubUrl + '#plumflowers&id=' + slideObj.data.actId + '&chanel=link'
+                }
             },
             doClickBtnOfCouponAct: function () { // 跳转到会所活动页面
                 location.href = this.clubUrl + '#promotions'
@@ -212,6 +236,56 @@
             doTimeLimitActStatusChange: function (status) { // 限时抢活动状态的变化
                 // console.log('限时抢活动状态的变化....' + status)
                 this.timeLimitActStatus = status
+            },
+            drawBgOfEndSlide: function () {
+                var that = this
+                var ctx = that.$refs.qrCodeBorder.getContext('2d')
+
+                // 绘制二维码边框
+                ctx.strokeStyle = '#00f5dd'
+                ctx.lineWidth = 6
+                ctx.lineCap = 'round'
+                var allWidth = 375
+                var allHeight = 396
+                var top = 3
+                var left = 3
+                var bottom = allHeight - top
+                var right = allWidth - left
+                var borderRadius = 30
+                ctx.moveTo(left + borderRadius, top)
+                ctx.lineTo(right - borderRadius, top)
+                ctx.arcTo(right, top, allWidth - left, top + borderRadius, borderRadius)
+                ctx.lineTo(right, top + borderRadius + 20)
+                ctx.moveTo(right, top + borderRadius + 40)
+                ctx.lineTo(right, top + borderRadius + 70)
+                ctx.moveTo(right, top + borderRadius + 90)
+                ctx.lineTo(right, bottom - borderRadius)
+                ctx.arcTo(right, bottom, right - borderRadius, bottom, borderRadius)
+                ctx.lineTo(left + borderRadius, bottom)
+                ctx.arcTo(left, bottom, left, bottom - borderRadius, borderRadius)
+                ctx.lineTo(left, bottom - borderRadius - 20)
+                ctx.moveTo(left, bottom - borderRadius - 40)
+                ctx.lineTo(left, bottom - borderRadius - 70)
+                ctx.moveTo(left, bottom - borderRadius - 90)
+                ctx.lineTo(left, top + borderRadius)
+                ctx.arcTo(left, top, left + borderRadius, top, borderRadius)
+                ctx.stroke()
+            },
+            getClubQrCodeImg: function () {
+                var that = this
+                that.getCodeImgMaxCount--
+                that.$http.get('../api/v1/wx/club/param_qrcode', {params: {clubId: that.slideObj.clubId}}).then(function (res) {
+                    res = res.body
+                    if (res.statusCode == 200) {
+                        if (res.respData == 'N') {
+                            if (that.getCodeImgMaxCount != 0) {
+                                that.getClubQrCodeImg()
+                            }
+                        } else {
+                            that.qrCodeImgUrl = res.respData
+                        }
+                    }
+                })
             }
         }
     }

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+         #t{
+             width:338px;
+             height:96px;
+             border:1px solid #ff0000;
+         }
+    </style>
+    <script type="text/javascript">
+        function init() {
+            var ctx = document.querySelector('#t').getContext('2d')
+            ctx.strokeStyle = '#00f5dd'
+            ctx.lineWidth = 6
+            ctx.lineCap = 'round'
+        }
+    </script>
+</head>
+<body onload="init()">
+    <canvas id="t" width="338" height="92"></canvas>
+</body>
+</html>

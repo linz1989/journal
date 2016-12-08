@@ -6,7 +6,8 @@ module.exports = {
   },
   globals: {
     'JSON': true,
-    'tvp': true
+    'tvp': true,
+    'videojs': true
   },
   env: {
     'browser': true,

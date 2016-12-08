@@ -188,9 +188,9 @@
                             for (k = 0; k < currPageAniEles.length; k++) {
                                 currPageAniEles[k].classList.add('act')
                             }
-                            if (currSwiper.classList.contains('oneYuan')) {
+                            if (currSwiper.classList.contains('oneYuan') || currSwiper.classList.contains('plumFlower')) {
                                 // console.log('one-yuan-count width')
-                                var pro = document.querySelector('#one-yuan-count')
+                                var pro = currSwiper.querySelector('div.one-yuan-count')
                                 pro.style.width = pro.getAttribute('progress') + '%'
                             }
                         }
@@ -340,6 +340,15 @@
                 var itemObj
                 var k
 
+                /* items.push({ // 视频测试
+                    itemKey: '05',
+                    title: '我的视频',
+                    details: {
+                        playUrl: 'http://vdev.xiaomodo.com/journal/601939365819588608_c3f5c837bd0f91da527464badc8a6c30.mp4',
+                        coverUrl: 'http://vjs.zencdn.net/v/oceans.png'
+                    }
+                }) */
+
                 for (var i = 0; i < items.length; i++) {
                     itemData = items[i]
                     if (itemData.itemKey == '01') { // 闪亮新人页面
@@ -401,6 +410,7 @@
                         for (k = 0; k < itemData.details.length; k++) {
                             itemObj = {
                                 category: 'tech-list',
+                                clubId: _this.clubId,
                                 title: itemData.title,
                                 techs: []
                             }
@@ -430,7 +440,7 @@
                             itemObj.type = subItemData.actType
                             itemObj.data = subItemData
                             itemObj.clubId = _this.clubId
-                            if (itemObj.type == 'timeLimit' || itemObj.type == 'oneYuan') {
+                            if (itemObj.type == 'timeLimit' || itemObj.type == 'oneYuan' || itemObj.type == 'plumFlower') {
                                 itemObj.imgStyle = subItemData.actImgUrl ? { 'background-image': 'url(' + subItemData.actImgUrl + ')' } : {}
                             }
                             slideData.push(itemObj)
@@ -439,16 +449,20 @@
                         slideData.push({
                             category: 'video',
                             title: itemData.title,
-                            video: itemData.details
+                            video: itemData.details.playUrl,
+                            poster: itemData.details.coverUrl || ''
                         })
                     } else if (itemData.itemKey == '07') { // 文章
                         slideData.push({
                             category: 'health',
                             title: itemData.title,
-                            content: itemData.details
+                            content: itemData.details.content
                         })
                     }
                 }
+
+                // 增加最后一页
+                slideData.push({category: 'end', clubId: _this.clubId})
 
                 _this.slideData = slideData
                 global.indexPageHeader = _this.$refs.indexPageHeader
