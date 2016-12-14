@@ -2,7 +2,6 @@ import Vue from 'vue'
 import VueResource from 'vue-resource'
 import App from './app'
 import { Global } from './libs/global'
-import 'video.js'
 
 Global.init()
 Vue.use(VueResource)

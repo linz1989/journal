@@ -68,6 +68,7 @@
                 <div @click="doRedirect()">{{ newJournalId ? '查看最新' : '去看看' }}</div>
             </div>
         </div>
+        <audio autoplay="autoplay" loop="loop" ref="bgAudio"></audio>
     </div>
 </template>
 <script>
@@ -100,6 +101,7 @@
                 loadError: false,
                 errorId: false,
                 newJournalId: '', // 最新的期刊ID
+                audioSrc: './audio/1.mp3', // 音频地址
                 swiperOption: {
                     direction: 'vertical',
                     observeParents: true,
@@ -139,7 +141,7 @@
                         } else {
                             pageHeaderCls.add('act')
                             indexPageHeaderCls.remove('act')
-                            thisEl.style.backgroundPositionY = '100%'
+                            thisEl.style.backgroundPositionY = swiper.isEnd ? '0%' : '100%'
                         }
 
                         if (swiperArr.length == 0) {
@@ -319,6 +321,13 @@
 
                 // console.log('goto slide index:' + global.currSlideIndex)
                 // global.swiper.slideTo(global.currSlideIndex, 0)
+
+                // 添加音乐
+                /* var bgAudio = _this.$refs.bgAudio
+                bgAudio.addEventListener('loadeddata', function () {
+                    bgAudio.play()
+                })
+                bgAudio.src = _this.audioSrc */
             },
             doHandlerData: function (res) {
                 var _this = this
@@ -345,7 +354,17 @@
                     title: '我的视频',
                     details: {
                         playUrl: 'http://vdev.xiaomodo.com/journal/601939365819588608_c3f5c837bd0f91da527464badc8a6c30.mp4',
-                        coverUrl: 'http://vjs.zencdn.net/v/oceans.png'
+                        coverUrl: './images/oceans.png'
+                    }
+                }) */
+
+               /* items.push({ // 活动文字测试
+                    itemKey: '08',
+                    title: '活动文字测试',
+                    details: {
+                        content: '合适的说法健身房第三部宣传买买买石豆仨搜索',
+                        startTime: '2016-05-01',
+                        endTime: '2016-05-06'
                     }
                 }) */
 
@@ -361,10 +380,11 @@
                             itemObj.techName = subItemData.techName
                             itemObj.techNo = subItemData.techNo
                             itemObj.clubId = _this.clubId
+                            itemObj.description = subItemData.description
                             itemObj.avatarUrl = subItemData.avatarUrl || _this.clubImgUrl
                             itemObj.serviceItems = subItemData.serviceItems
-                            if (itemObj.serviceItems && itemObj.serviceItems.length > 4) {
-                                itemObj.serviceItems = itemObj.serviceItems.slice(0, 4)
+                            if (itemObj.serviceItems && itemObj.serviceItems.length > 3) {
+                                itemObj.serviceItems = itemObj.serviceItems.slice(0, 3)
                             }
                             slideData.push(itemObj)
                         }
@@ -374,6 +394,7 @@
                             itemObj = {}
                             itemObj.category = 'service-item'
                             itemObj.title = itemData.title
+                            itemObj.clubId = _this.clubId
                             itemObj.leftService = subItemData
                             itemObj.leftService.styleObj = {}
                             if (subItemData.imageUrl) {
@@ -457,6 +478,18 @@
                             category: 'health',
                             title: itemData.title,
                             content: itemData.details.content
+                        })
+                    } else if (itemData.itemKey == '08') { // 活动文字
+                        subItemData = itemData.details
+                        var actTime = ''
+                        if (subItemData.startTime && subItemData.endTime) {
+                            actTime = subItemData.startTime.replace(/-/g, '.') + '-' + subItemData.endTime.replace(/-/g, '.')
+                        }
+                        slideData.push({
+                            category: 'actDesc',
+                            title: itemData.title,
+                            content: subItemData.content,
+                            actTime: actTime || ''
                         })
                     }
                 }

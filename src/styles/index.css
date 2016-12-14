@@ -1531,6 +1531,25 @@ video::-webkit-media-text-track-display {
     -webkit-transform: scale(0, 0);
             transform: scale(0, 0); } }
 
+@-webkit-keyframes scale-ani {
+  0% {
+    -webkit-transform: scale(0.7, 0.7); }
+  50% {
+    -webkit-transform: scale(1, 1); }
+  100% {
+    -webkit-transform: scale(0.7, 0.7); } }
+
+@keyframes scale-ani {
+  0% {
+    -webkit-transform: scale(0.7, 0.7);
+            transform: scale(0.7, 0.7); }
+  50% {
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1); }
+  100% {
+    -webkit-transform: scale(0.7, 0.7);
+            transform: scale(0.7, 0.7); } }
+
 body {
   position: relative;
   background: #1a0532 no-repeat;
@@ -1958,7 +1977,18 @@ div.common-slide {
     font-style: italic;
     background: -webkit-linear-gradient(top, #6acfe7 30%, #01c8ab);
     background: linear-gradient(to bottom, #6acfe7 30%, #01c8ab);
-    border-radius: 1rem; }
+    border-radius: 1rem;
+    opacity: 0;
+    -webkit-transform: translateX(10rem) skewX(45deg);
+            transform: translateX(10rem) skewX(45deg);
+    -webkit-transition: opacity 0.4s, -webkit-transform 0.7s;
+    transition: opacity 0.4s, -webkit-transform 0.7s;
+    transition: opacity 0.4s, transform 0.7s;
+    transition: opacity 0.4s, transform 0.7s, -webkit-transform 0.7s; }
+    div.common-slide div.page-end-title.act {
+      opacity: 1;
+      -webkit-transform: translateX(0) skewX(0deg);
+              transform: translateX(0) skewX(0deg); }
   div.common-slide div.bottom-btn {
     position: absolute;
     width: 8.944rem;
@@ -1983,8 +2013,10 @@ div.common-slide {
       opacity: 1;
       -webkit-transform: translateY(0);
               transform: translateY(0); }
-  div.common-slide div.like-btn, div.common-slide div.liked-btn, div.common-slide div.club-btn {
+  div.common-slide div.like-btn, div.common-slide div.liked-btn {
     background-image: url("../images/08.png"); }
+  div.common-slide div.club-btn {
+    background-image: url("../images/26.png"); }
   div.common-slide div.item-btn {
     position: relative;
     display: inline-block;
@@ -2054,6 +2086,7 @@ div.new-tech-slide div.tech-header {
   position: relative;
   width: 10.556rem;
   height: 12.111rem;
+  margin: 0 auto;
   border-radius: 0.9rem;
   border: 0.222rem solid #fff;
   background-size: 10.556rem 12.111rem;
@@ -2067,8 +2100,11 @@ div.new-tech-slide div.tech-header {
           transform-origin: center center;
   -webkit-transform: translateX(3rem) rotate(180deg);
           transform: translateX(3rem) rotate(180deg); }
-  div.new-tech-slide div.tech-header:before {
-    content: "";
+  div.new-tech-slide div.tech-header.act {
+    opacity: 1;
+    -webkit-transform: translateX(0) rotate(0deg);
+            transform: translateX(0) rotate(0deg); }
+  div.new-tech-slide div.tech-header > div {
     position: absolute;
     width: 2.2778rem;
     height: 2.8333rem;
@@ -2076,29 +2112,34 @@ div.new-tech-slide div.tech-header {
     left: -1.13rem;
     background: -webkit-linear-gradient(left top, #b33bfa, #6600a5);
     background: linear-gradient(to right bottom, #b33bfa, #6600a5);
-    border-radius: 50% 50% 0 100%/ 50% 50% 0 50%; }
-  div.new-tech-slide div.tech-header:after {
-    content: "点我聊聊";
-    position: absolute;
-    color: #fff;
-    font-size: 0.722rem;
-    left: -1rem;
-    top: -0.9rem;
-    width: 2rem;
-    text-align: center;
-    line-height: 1.3;
-    -webkit-transform: rotate(-45deg);
-            transform: rotate(-45deg); }
-  div.new-tech-slide div.tech-header.act {
-    opacity: 1;
-    -webkit-transform: translateX(0) rotate(0deg);
-            transform: translateX(0) rotate(0deg); }
+    border-radius: 50% 50% 0 100%/ 50% 50% 0 50%;
+    opacity: 0;
+    -webkit-transform-origin: 100% 100%;
+            transform-origin: 100% 100%;
+    -webkit-transition: opacity 0.4s 2.2s;
+    transition: opacity 0.4s 2.2s;
+    -webkit-animation: scale-ani 2s infinite ease-in-out;
+            animation: scale-ani 2s infinite ease-in-out; }
+    div.new-tech-slide div.tech-header > div:after {
+      content: "点我聊聊";
+      position: absolute;
+      color: #fff;
+      font-size: 0.722rem;
+      left: 0.04rem;
+      top: 0.35rem;
+      width: 2rem;
+      text-align: center;
+      line-height: 1.3;
+      -webkit-transform: rotate(-45deg);
+              transform: rotate(-45deg); }
+    div.new-tech-slide div.tech-header > div.act {
+      opacity: 1; }
 
 div.new-tech-slide div.tech-name {
-  line-height: 2;
+  margin-top: 0.22rem;
+  line-height: 1.8;
   font-size: 1.111rem;
-  padding-left: 0.3rem;
-  margin-top: 0.3rem;
+  text-align: center;
   color: #fff;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -2116,9 +2157,9 @@ div.new-tech-slide div.tech-name {
             transform: translateY(0); }
 
 div.new-tech-slide div.tech-desc {
-  line-height: 1.4;
+  line-height: 1.3;
   font-size: 0.889rem;
-  padding-left: 0.3rem;
+  text-align: center;
   color: #ccc;
   display: -webkit-box;
   overflow: hidden;
@@ -2139,51 +2180,32 @@ div.new-tech-slide div.tech-desc {
             transform: translateY(0); }
 
 div.new-tech-slide div.service-list {
-  position: absolute;
-  top: 1.389rem;
-  right: 0;
-  width: 5.6rem;
-  height: 12.111rem;
-  display: -webkit-box;
-  display: -moz-box;
-  -webkit-box-align: center;
-  -moz-box-align: center;
+  height: 1.222rem;
+  margin-top: 0.35rem;
   opacity: 0;
-  -webkit-transform: translateX(3rem);
-          transform: translateX(3rem);
+  text-align: center;
+  -webkit-transform: translateY(3rem);
+          transform: translateY(3rem);
   -webkit-transition: opacity 0.5s 2.3s, -webkit-transform 0.5s 2.3s ease-out;
   transition: opacity 0.5s 2.3s, -webkit-transform 0.5s 2.3s ease-out;
   transition: opacity 0.5s 2.3s, transform 0.5s 2.3s ease-out;
   transition: opacity 0.5s 2.3s, transform 0.5s 2.3s ease-out, -webkit-transform 0.5s 2.3s ease-out; }
-  div.new-tech-slide div.service-list > div {
-    display: inline-block;
-    width: 4.3889rem;
-    height: 1.8056rem;
-    line-height: 1.8056rem;
-    margin-bottom: 0.3rem;
-    color: #fff;
-    font-size: 0.8056rem;
-    padding-left: 0.75rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    background-size: 4.3889rem 1.8056rem;
-    background-image: url("../images/23.png");
-    background-repeat: no-repeat; }
-    div.new-tech-slide div.service-list > div:last-child {
-      margin-bottom: 0; }
+  div.new-tech-slide div.service-list > div.item-btn {
+    max-width: 5rem;
+    margin-left: 0.3rem; }
+    div.new-tech-slide div.service-list > div.item-btn:nth-of-type(1) {
+      margin-left: 0; }
+  div.new-tech-slide div.service-list > div:first-child:nth-last-child(1) {
+    max-width: 10rem; }
+  div.new-tech-slide div.service-list > div:first-child:nth-last-child(2), div.new-tech-slide div.service-list > div:first-child:nth-last-child(2) ~ div {
+    max-width: 7rem; }
   div.new-tech-slide div.service-list.act {
     opacity: 1;
-    -webkit-transform: translateX(0);
-            transform: translateX(0); }
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
 
 div.new-tech-slide div.tech-info {
-  padding: 1.389rem 1rem 0.55rem 1.222rem; }
-  div.new-tech-slide div.tech-info.no-item > div.tech-header {
-    margin: 0 auto; }
-  div.new-tech-slide div.tech-info.no-item > div.tech-name, div.new-tech-slide div.tech-info.no-item > div.tech-desc {
-    padding-left: 0;
-    text-align: center; }
+  padding: 1rem 1rem 0.55rem; }
 
 div.service-item-slide div.service {
   position: relative;
@@ -2285,6 +2307,11 @@ div.tech-list-slide div.tech {
       transition: opacity 0.4s 1.6s, -webkit-transform 0.6s 1.6s ease-out;
       transition: opacity 0.4s 1.6s, transform 0.6s 1.6s ease-out;
       transition: opacity 0.4s 1.6s, transform 0.6s 1.6s ease-out, -webkit-transform 0.6s 1.6s ease-out; }
+      div.tech-list-slide div.tech.t0 > div:nth-of-type(1) > div {
+        -webkit-transition: opacity 0.4s 2.2s, -webkit-transform 0.6s 2.2s ease-out;
+        transition: opacity 0.4s 2.2s, -webkit-transform 0.6s 2.2s ease-out;
+        transition: opacity 0.4s 2.2s, transform 0.6s 2.2s ease-out;
+        transition: opacity 0.4s 2.2s, transform 0.6s 2.2s ease-out, -webkit-transform 0.6s 2.2s ease-out; }
     div.tech-list-slide div.tech.t0 > div.item-btn {
       -webkit-transition: opacity 0.3s 2.2s, -webkit-transform 0.4s 2.2s ease-out;
       transition: opacity 0.3s 2.2s, -webkit-transform 0.4s 2.2s ease-out;
@@ -2300,6 +2327,11 @@ div.tech-list-slide div.tech {
       transition: opacity 0.4s 1.9s, -webkit-transform 0.6s 1.9s ease-out;
       transition: opacity 0.4s 1.9s, transform 0.6s 1.9s ease-out;
       transition: opacity 0.4s 1.9s, transform 0.6s 1.9s ease-out, -webkit-transform 0.6s 1.9s ease-out; }
+      div.tech-list-slide div.tech.t1 > div:nth-of-type(1) > div {
+        -webkit-transition: opacity 0.4s 2.5s, -webkit-transform 0.6s 2.5s ease-out;
+        transition: opacity 0.4s 2.5s, -webkit-transform 0.6s 2.5s ease-out;
+        transition: opacity 0.4s 2.5s, transform 0.6s 2.5s ease-out;
+        transition: opacity 0.4s 2.5s, transform 0.6s 2.5s ease-out, -webkit-transform 0.6s 2.5s ease-out; }
     div.tech-list-slide div.tech.t1 > div.item-btn {
       -webkit-transition: opacity 0.3s 2.5s, -webkit-transform 0.4s 2.5s ease-out;
       transition: opacity 0.3s 2.5s, -webkit-transform 0.4s 2.5s ease-out;
@@ -2315,6 +2347,11 @@ div.tech-list-slide div.tech {
       transition: opacity 0.4s 2.2s, -webkit-transform 0.6s 2.2s ease-out;
       transition: opacity 0.4s 2.2s, transform 0.6s 2.2s ease-out;
       transition: opacity 0.4s 2.2s, transform 0.6s 2.2s ease-out, -webkit-transform 0.6s 2.2s ease-out; }
+      div.tech-list-slide div.tech.t2 > div:nth-of-type(1) > div {
+        -webkit-transition: opacity 0.4s 2.8s, -webkit-transform 0.6s 2.8s ease-out;
+        transition: opacity 0.4s 2.8s, -webkit-transform 0.6s 2.8s ease-out;
+        transition: opacity 0.4s 2.8s, transform 0.6s 2.8s ease-out;
+        transition: opacity 0.4s 2.8s, transform 0.6s 2.8s ease-out, -webkit-transform 0.6s 2.8s ease-out; }
     div.tech-list-slide div.tech.t2 > div.item-btn {
       -webkit-transition: opacity 0.3s 2.8s, -webkit-transform 0.4s 2.8s ease-out;
       transition: opacity 0.3s 2.8s, -webkit-transform 0.4s 2.8s ease-out;
@@ -2344,8 +2381,7 @@ div.tech-list-slide div.tech {
       opacity: 1;
       -webkit-transform: scale(1, 1);
               transform: scale(1, 1); }
-    div.tech-list-slide div.tech > div:nth-of-type(1):before {
-      content: "";
+    div.tech-list-slide div.tech > div:nth-of-type(1) > div {
       position: absolute;
       width: 1.528rem;
       height: 1.889rem;
@@ -2353,19 +2389,28 @@ div.tech-list-slide div.tech {
       left: -1rem;
       background: -webkit-linear-gradient(left top, #b33bfa, #6600a5);
       background: linear-gradient(to right bottom, #b33bfa, #6600a5);
-      border-radius: 50% 50% 0 100% / 50% 50% 0 50%; }
-    div.tech-list-slide div.tech > div:nth-of-type(1):after {
-      content: "点我聊聊";
-      position: absolute;
-      color: #fff;
-      font-size: 0.722rem;
-      left: -1.2rem;
-      top: -1.1rem;
-      width: 2rem;
-      text-align: center;
-      line-height: 1.3;
-      -webkit-transform: rotate(-45deg) scale(0.65);
-              transform: rotate(-45deg) scale(0.65); }
+      border-radius: 50% 50% 0 100% / 50% 50% 0 50%;
+      opacity: 0;
+      -webkit-transform-origin: 100% 100%;
+              transform-origin: 100% 100%;
+      -webkit-transform: scale(0, 0);
+              transform: scale(0, 0); }
+      div.tech-list-slide div.tech > div:nth-of-type(1) > div:after {
+        content: "点我聊聊";
+        position: absolute;
+        color: #fff;
+        font-size: 0.722rem;
+        left: -0.2rem;
+        top: 0;
+        width: 2rem;
+        text-align: center;
+        line-height: 1.3;
+        -webkit-transform: rotate(-45deg) scale(0.65);
+                transform: rotate(-45deg) scale(0.65); }
+      div.tech-list-slide div.tech > div:nth-of-type(1) > div.act {
+        opacity: 1;
+        -webkit-transform: scale(1, 1);
+                transform: scale(1, 1); }
   div.tech-list-slide div.tech > div:nth-of-type(2) {
     line-height: 1.9;
     margin-top: -0.2rem;
@@ -2628,6 +2673,52 @@ div.health-slide div.info-wrap {
     -webkit-transform: rotate(0deg);
             transform: rotate(0deg); }
 
+div.actDesc-slide div.info-wrap {
+  height: 17.861rem;
+  padding: 0.8rem 0.722rem;
+  margin-top: 1.278rem;
+  color: #fff;
+  font-size: 0.889rem;
+  text-indent: 1.778rem;
+  border: 1px solid #fff;
+  box-shadow: 0 0 10px #902099, 0 0 10px #902099 inset;
+  overflow-y: auto;
+  opacity: 0;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transition: opacity 0.4s 1.3s, -webkit-transform 0.5s 1.3s ease-out;
+  transition: opacity 0.4s 1.3s, -webkit-transform 0.5s 1.3s ease-out;
+  transition: opacity 0.4s 1.3s, transform 0.5s 1.3s ease-out;
+  transition: opacity 0.4s 1.3s, transform 0.5s 1.3s ease-out, -webkit-transform 0.5s 1.3s ease-out; }
+  div.actDesc-slide div.info-wrap.act {
+    opacity: 1;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+
+div.actDesc-slide div.act-time {
+  height: 1.25rem;
+  line-height: 1.25rem;
+  width: 9.889rem;
+  text-align: center;
+  color: #fff;
+  font-size: 0.667rem;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  background: #902099;
+  margin: -0.625rem auto 0;
+  box-shadow: 0 0 10px #902099;
+  opacity: 0;
+  -webkit-transform: translateY(4rem);
+          transform: translateY(4rem);
+  -webkit-transition: opacity 0.3s 1.7s, -webkit-transform 0.4s 1.7s ease-out;
+  transition: opacity 0.3s 1.7s, -webkit-transform 0.4s 1.7s ease-out;
+  transition: opacity 0.3s 1.7s, transform 0.4s 1.7s ease-out;
+  transition: opacity 0.3s 1.7s, transform 0.4s 1.7s ease-out, -webkit-transform 0.4s 1.7s ease-out; }
+  div.actDesc-slide div.act-time.act {
+    opacity: 1;
+    -webkit-transform: translateY(0rem);
+            transform: translateY(0rem); }
+
 .scale-ani {
   opacity: 0;
   -webkit-transform: scaleY(0);
@@ -2718,14 +2809,27 @@ div.page-redirect {
   height: 11rem;
   width: 10.4167rem;
   margin: 1.778rem auto 0;
-  padding-top: 1.02795rem; }
+  padding-top: 1.02795rem;
+  opacity: 0;
+  -webkit-transform: scale(0, 0);
+          transform: scale(0, 0);
+  -webkit-transform-origin: 50% 50%;
+          transform-origin: 50% 50%;
+  -webkit-transition: opacity 0.4s 1s, -webkit-transform 0.6s 1s ease-out;
+  transition: opacity 0.4s 1s, -webkit-transform 0.6s 1s ease-out;
+  transition: opacity 0.4s 1s, transform 0.6s 1s ease-out;
+  transition: opacity 0.4s 1s, transform 0.6s 1s ease-out, -webkit-transform 0.6s 1s ease-out; }
+  .qr-code.act {
+    opacity: 1;
+    -webkit-transform: scale(1, 1);
+            transform: scale(1, 1); }
   .qr-code > canvas {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%; }
-  .qr-code > div {
+  .qr-code > div.code {
     position: relative;
     height: 8.944rem;
     width: 8.944rem;
@@ -2735,17 +2839,101 @@ div.page-redirect {
     background-repeat: no-repeat;
     border-radius: 0.6rem;
     padding-top: 0.8055rem; }
-    .qr-code > div > img {
+    .qr-code > div.code > img {
       display: block;
       width: 7.333rem;
       height: 7.333rem;
       margin: 0 auto; }
+  .qr-code > div.circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0;
+    -webkit-transform: translateY(5rem);
+            transform: translateY(5rem); }
+    .qr-code > div.circle.act {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+              transform: translateY(0); }
+    .qr-code > div.circle.left {
+      width: 2.5rem;
+      height: 2.5rem;
+      top: 1.944rem;
+      left: -3.222rem;
+      background: rgba(134, 90, 51, 0.8);
+      -webkit-transition: opacity 0.3s 2.1s, -webkit-transform 0.3s 2.1s ease-out;
+      transition: opacity 0.3s 2.1s, -webkit-transform 0.3s 2.1s ease-out;
+      transition: opacity 0.3s 2.1s, transform 0.3s 2.1s ease-out;
+      transition: opacity 0.3s 2.1s, transform 0.3s 2.1s ease-out, -webkit-transform 0.3s 2.1s ease-out; }
+    .qr-code > div.circle.bottom {
+      width: 1.778rem;
+      height: 1.778rem;
+      background: rgba(131, 100, 58, 0.8);
+      bottom: -1.833rem;
+      right: -2.222rem;
+      -webkit-transition: opacity 0.3s 2.5s, -webkit-transform 0.3s 2.5s ease-out;
+      transition: opacity 0.3s 2.5s, -webkit-transform 0.3s 2.5s ease-out;
+      transition: opacity 0.3s 2.5s, transform 0.3s 2.5s ease-out;
+      transition: opacity 0.3s 2.5s, transform 0.3s 2.5s ease-out, -webkit-transform 0.3s 2.5s ease-out; }
+    .qr-code > div.circle.right {
+      width: 3.444rem;
+      height: 3.444rem;
+      background: rgba(107, 37, 152, 0.5);
+      right: -3.833rem;
+      top: 1rem;
+      -webkit-transition: opacity 0.3s 2.8s, -webkit-transform 0.3s 2.8s ease-out;
+      transition: opacity 0.3s 2.8s, -webkit-transform 0.3s 2.8s ease-out;
+      transition: opacity 0.3s 2.8s, transform 0.3s 2.8s ease-out;
+      transition: opacity 0.3s 2.8s, transform 0.3s 2.8s ease-out, -webkit-transform 0.3s 2.8s ease-out; }
 
 .attention-tip {
-  margin-top: 1.5rem;
-  margin-left: 2.222rem;
   height: 3.111rem;
   width: 13.889rem;
+  padding-left: 3.667rem;
+  margin-top: 1.5rem;
+  margin-left: 2.222rem;
   background-size: 3.111rem 3.111rem;
   background-image: url("../images/25.png");
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  opacity: 0;
+  -webkit-transform: translateY(4rem);
+          transform: translateY(4rem);
+  -webkit-transition: opacity 0.4s 1.6s, -webkit-transform 0.5s 1.6s ease-out;
+  transition: opacity 0.4s 1.6s, -webkit-transform 0.5s 1.6s ease-out;
+  transition: opacity 0.4s 1.6s, transform 0.5s 1.6s ease-out;
+  transition: opacity 0.4s 1.6s, transform 0.5s 1.6s ease-out, -webkit-transform 0.5s 1.6s ease-out; }
+  .attention-tip.act {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+            transform: translateY(0); }
+  .attention-tip > div {
+    position: relative;
+    width: 9.3889rem;
+    height: 2.5556rem;
+    line-height: 2.9rem;
+    text-align: center;
+    font-size: 0.778rem;
+    color: #fff;
+    z-index: 0;
+    opacity: 0;
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
+    -webkit-transform-origin: 0 50%;
+            transform-origin: 0 50%;
+    -webkit-transition: opacity 0.4s 2.1s, -webkit-transform 0.5s 2.1s;
+    transition: opacity 0.4s 2.1s, -webkit-transform 0.5s 2.1s;
+    transition: opacity 0.4s 2.1s, transform 0.5s 2.1s;
+    transition: opacity 0.4s 2.1s, transform 0.5s 2.1s, -webkit-transform 0.5s 2.1s; }
+    .attention-tip > div.act {
+      opacity: 1;
+      -webkit-transform: scaleX(1);
+              transform: scaleX(1); }
+    .attention-tip > div > canvas {
+      position: absolute;
+      width: 9.3889rem;
+      height: 2.5556rem;
+      top: 0;
+      left: 0;
+      z-index: -1; }
+
+.vjs-poster {
+  background-size: cover; }

@@ -2,17 +2,17 @@
     <swiper-slide class="common-slide" :class="slideCls">
         <div class="wrap" :style="{ height : wrapHeight+'rem', 'margin-top' : -(wrapHeight/2+1.5)+'rem' }">
             <div v-if="!isOver" class="page-title ani" :style="{ 'margin-bottom' : pageTitleMarginBottom+'rem' }"><page-title :title="slideObj.title"></page-title></div>
-            <div v-else class="page-end-title">更多精彩去网上会所看看吧</div>
+            <div v-else class="page-end-title ani">更多精彩去网上会所看看吧</div>
             <template v-if="slideObj.category=='new-tech'"><!-- 闪亮新人 -->
-                <div class="info-wrap tech-info opacity-ani ani" :style="{'margin-top' : 1+marginRem*0.3+'rem'}" :class="{'no-item' : slideObj.serviceItems.length==0 }">
-                    <div class="tech-header ani" v-if="slideObj.avatarUrl" :style="{ 'background-image' : 'url('+slideObj.avatarUrl+')' }" @click="doClickChatBtn(slideObj.techId)"></div>
+                <div class="info-wrap tech-info opacity-ani ani" :style="{'margin-top' : 1+marginRem*0.3+'rem'}">
+                    <div class="tech-header ani" v-if="slideObj.avatarUrl" :style="{ 'background-image' : 'url('+slideObj.avatarUrl+')' }" @click="doClickChatBtn(slideObj.techId)"><div class="ani"></div></div>
                     <div class="tech-name ani">{{ slideObj.techName }}&nbsp;<span v-show="slideObj.techNo">[{{ slideObj.techNo }}号]</span></div>
                     <div class="tech-desc ani">{{ slideObj.description || '最好的服务都在我这里啦！'}}</div>
-                    <div class="service-list ani"><div v-for="service in slideObj.serviceItems">{{ service }}</div></div>
+                    <div v-if="slideObj.serviceItems.length>0" class="service-list ani"><div class="item-btn left" v-for="service in slideObj.serviceItems">{{ service }}</div></div>
                 </div>
             </template>
             <template v-if="slideObj.category=='service-item'"><!-- 最新项目 -->
-                <div class="info-wrap service left ani" v-if="slideObj.leftService" :class="{ single: !slideObj.rightService }">
+                <div class="info-wrap service left ani" v-if="slideObj.leftService" :class="{ single: !slideObj.rightService }" @click="doClickServiceItem(slideObj.leftService.id)">
                     <div class="service-img default-img-bg ani" :style="slideObj.leftService.styleObj"></div>
                     <div class="text-wrap ani">
                         <div>{{ slideObj.leftService.name }}</div>
@@ -20,7 +20,7 @@
                         <div>{{ slideObj.leftService.description }}</div>
                     </div>
                 </div>
-                <div class="info-wrap service right ani" v-if="slideObj.rightService">
+                <div class="info-wrap service right ani" v-if="slideObj.rightService" @click="doClickServiceItem(slideObj.rightService.id)">
                     <div class="service-img default-img-bg ani" :style="slideObj.rightService.styleObj"></div>
                     <div class="text-wrap ani">
                         <div>{{ slideObj.rightService.name }}</div>
@@ -31,10 +31,10 @@
             </template>
             <template v-if="slideObj.category=='tech-list'"><!-- 服务之星 -->
                 <div class="info-wrap tech ani" v-for="(tech,index) in slideObj.techs" :class="'t'+index">
-                    <div class="default-img-bg ani" :style="tech.imgStyle" @click="doClickChatBtn(tech.techId)"></div>
+                    <div class="default-img-bg ani" :style="tech.imgStyle" @click="doClickChatBtn(tech.techId)"><div class="ani"></div></div>
                     <div>{{ tech.techName }}<span v-show="tech.techNo">[{{ tech.techNo }}号]</span></div>
                     <div>{{ tech.description || '这个技师很懒，未写介绍...'}}</div>
-                    <div>客人印象:<span v-for="imp in tech.impressions">#{{ imp }}</span></div>
+                    <div>客人印象:<span v-for="imp in tech.impressions" v-show="imp && imp!='null'">#{{ imp }}</span></div>
                     <div class="item-btn right ani" v-if="tech.serviceItems.length>0">{{ tech.serviceItems[0] }}</div>
                 </div>
             </template>
@@ -82,13 +82,18 @@
             <template v-if="slideObj.category=='health'"><!-- 养身频道-->
                 <div class="info-wrap ani" v-html="slideObj.content"></div>
             </template>
+            <template v-if="slideObj.category=='actDesc'"><!--活动文字-->
+                <div class="info-wrap ani" v-html="slideObj.content"></div>
+                <div class="act-time ani" v-show="slideObj.actTime">{{ slideObj.actTime }}</div>
+            </template>
             <template v-if="slideObj.category=='end'">
-                <div class="qr-code">
+                <div class="qr-code ani">
                     <canvas ref="qrCodeBorder" width="375" height="396"></canvas>
-                    <div><img :src="qrCodeImgUrl"/></div>
+                    <div class="code"><img :src="qrCodeImgUrl"/></div>
+                    <div class="circle left ani"></div><div class="circle bottom ani"></div><div class="circle right ani"></div>
                 </div>
-                <div class="attention-tip">
-
+                <div class="attention-tip ani">
+                    <div class="ani"><canvas ref="attentionTipBg" width="338" height="92"></canvas>长按识别二维码关注</div>
                 </div>
             </template>
         </div>
@@ -109,7 +114,6 @@
     import CouponBg from './couponBg'
     import Counter from './counter'
     import { Global } from '../libs/global'
-    import videojs from 'video.js'
 
     module.exports = {
         components: {
@@ -209,6 +213,8 @@
                         // console.log('开始/恢复播放')
                     })
                 } else if (slideObj.category == 'end') {
+                    that.wrapHeight = 21
+
                     that.drawBgOfEndSlide()
                     that.getClubQrCodeImg()
                 }
@@ -236,6 +242,9 @@
             doTimeLimitActStatusChange: function (status) { // 限时抢活动状态的变化
                 // console.log('限时抢活动状态的变化....' + status)
                 this.timeLimitActStatus = status
+            },
+            doClickServiceItem: function (serviceItemId) { // 点击项目，跳转到项目详情页
+                location.href = this.clubUrl + '#serviceItem&id=' + serviceItemId
             },
             drawBgOfEndSlide: function () {
                 var that = this
@@ -270,6 +279,44 @@
                 ctx.lineTo(left, top + borderRadius)
                 ctx.arcTo(left, top, left + borderRadius, top, borderRadius)
                 ctx.stroke()
+
+                // 绘制关注背景
+                ctx = that.$refs.attentionTipBg.getContext('2d')
+                ctx.strokeStyle = '#2b4d61'
+                ctx.lineWidth = 4
+                ctx.lineCap = 'round'
+                allWidth = 338
+                allHeight = 92
+                var pointLeftY = 58
+                var pointLeftX = 10
+                var pointLen = 12
+                left = pointLeftX + pointLen
+                top = 26
+                borderRadius = 12
+                var lastTop = 3
+                right = allWidth - 10
+                bottom = allHeight - 4
+
+                var gradient = ctx.createLinearGradient(0, 0, 0, allHeight)
+                gradient.addColorStop(0, '#61f9e3')
+                gradient.addColorStop(1, '#03c8ab')
+                ctx.fillStyle = gradient
+
+                ctx.moveTo(pointLeftX, pointLeftY)
+                ctx.lineTo(left, pointLeftY - pointLen)
+                ctx.lineTo(left, pointLeftY - pointLen - 6)
+                ctx.arcTo(left, top, left + borderRadius, top, borderRadius)
+                ctx.lineTo(right - borderRadius, lastTop)
+                ctx.arcTo(right, lastTop, right, lastTop + borderRadius, borderRadius)
+                ctx.lineTo(right, bottom - borderRadius)
+                ctx.arcTo(right, bottom, right - borderRadius, bottom, borderRadius)
+                ctx.lineTo(left + borderRadius, bottom)
+                ctx.arcTo(left, bottom, left, bottom - borderRadius, borderRadius)
+                ctx.lineTo(left, pointLeftY + pointLen)
+                ctx.lineTo(pointLeftX, pointLeftY)
+
+                ctx.stroke()
+                ctx.fill()
             },
             getClubQrCodeImg: function () {
                 var that = this

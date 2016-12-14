@@ -119,11 +119,15 @@ gulp.task('pub-img',function(){
     exists( 'src/images', 'E:/workspace/spa-manager/WebRoot/journal/images', copy );
 });
 
+gulp.task('pub-mp3',function(){
+    exists( 'src/audio', 'E:/workspace/spa-manager/WebRoot/journal/audio', copy );
+});
+
 gulp.task('pub-img-1',function(){
     exists( 'src/images', 'dist/images', copy );
 });
 
 ////上线执行 gulp build
 gulp.task('pub', function (callback) {
-    runSequence('pub-dist','pub-img',callback);
+    runSequence('pub-dist','pub-img','pub-mp3',callback);
 });

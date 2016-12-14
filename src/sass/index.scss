@@ -62,6 +62,30 @@
   }
 }
 
+@-webkit-keyframes scale-ani{
+  0%{
+    -webkit-transform:scale(0.7,0.7);
+  }
+  50% {
+    -webkit-transform:scale(1,1);
+  }
+  100% {
+    -webkit-transform:scale(0.7,0.7);
+  }
+}
+
+@keyframes scale-ani{
+  0%{
+    transform:scale(0.7,0.7);
+  }
+  50% {
+    transform:scale(1,1);
+  }
+  100% {
+    transform:scale(0.7,0.7);
+  }
+}
+
 body{
   position: relative;
   background: #1a0532 no-repeat;
@@ -459,6 +483,13 @@ div.common-slide{
     font-style: italic;
     background: linear-gradient(to bottom, #6acfe7 30%, #01c8ab);
     border-radius: 1rem;
+    opacity: 0;
+    transform: translateX(10rem) skewX(45deg);
+    transition: opacity 0.4s, transform 0.7s;
+    &.act{
+      opacity: 1;
+      transform: translateX(0) skewX(0deg);
+    }
   }
   div.bottom-btn{
     position: absolute;
@@ -480,8 +511,11 @@ div.common-slide{
       transform: translateY(0);
     }
   }
-  div.like-btn,div.liked-btn,div.club-btn{
+  div.like-btn,div.liked-btn{
     background-image: url("../images/08.png");
+  }
+  div.club-btn{
+    background-image: url("../images/26.png");
   }
   div.item-btn{
     position: relative;
@@ -564,31 +598,10 @@ div.new-tech-slide{
     position: relative;
     width:10.556rem;
     height:12.111rem;
+    margin:0 auto;
     border-radius: 0.9rem;
     border: 0.222rem solid #fff;
     @include imgBgFix(10.556rem 12.111rem);
-    &:before{
-      content: "";
-      position: absolute;
-      width:2.2778rem;
-      height:2.8333rem;
-      top:-1.4rem;
-      left:-1.13rem;
-      background: linear-gradient(to right bottom, #b33bfa, #6600a5);
-      border-radius: 50% 50% 0 100%/ 50% 50% 0 50%;
-    }
-    &:after{
-      content: "点我聊聊";
-      position: absolute;
-      color:#fff;
-      font-size:0.722rem;
-      left:-1rem;
-      top:-0.9rem;
-      width:2rem;
-      text-align: center;
-      line-height: 1.3;
-      transform: rotate(-45deg);
-    }
     opacity: 0;
     transition: opacity 0.4s 1.4s, transform 0.5s 1.4s ease-out;
     transform-origin: center center;
@@ -597,12 +610,40 @@ div.new-tech-slide{
       opacity: 1;
       transform: translateX(0) rotate(0deg);
     }
+    >div{
+      position: absolute;
+      width:2.2778rem;
+      height:2.8333rem;
+      top:-1.4rem;
+      left:-1.13rem;
+      background: linear-gradient(to right bottom, #b33bfa, #6600a5);
+      border-radius: 50% 50% 0 100%/ 50% 50% 0 50%;
+      opacity:0;
+      transform-origin:100% 100%;
+      transition: opacity 0.4s 2.2s;
+      animation: scale-ani 2s infinite ease-in-out;
+      &:after{
+        content: "点我聊聊";
+        position: absolute;
+        color:#fff;
+        font-size:0.722rem;
+        left:0.04rem;
+        top:0.35rem;
+        width:2rem;
+        text-align: center;
+        line-height: 1.3;
+        transform: rotate(-45deg);
+      }
+      &.act{
+        opacity: 1;
+      }
+    }
   }
   div.tech-name{
-    line-height: 2;
+    margin-top:0.22rem;
+    line-height: 1.8;
     font-size:1.111rem;
-    padding-left:0.3rem;
-    margin-top:0.3rem;
+    text-align: center;
     color:#fff;
     @include sl();
     opacity:0;
@@ -614,9 +655,9 @@ div.new-tech-slide{
     }
   }
   div.tech-desc{
-    line-height: 1.4;
+    line-height: 1.3;
     font-size:0.889rem;
-    padding-left:0.3rem;
+    text-align: center;
     color:#ccc;
     @include slh(2);
     opacity:0;
@@ -628,46 +669,32 @@ div.new-tech-slide{
     }
   }
   div.service-list{
-    position: absolute;
-    top:1.389rem;
-    right:0;
-    width:5.6rem;
-    height:12.111rem;
-    @include sx();
-    >div{
-      display: inline-block;
-      width:4.3889rem;
-      height:1.8056rem;
-      line-height: 1.8056rem;
-      margin-bottom:0.3rem;
-      color:#fff;
-      font-size:0.8056rem;
-      padding-left:0.75rem;
-      @include sl();
-      @include img("../images/23.png",4.3889rem 1.8056rem);
-      &:last-child{
-        margin-bottom:0;
+    height:1.222rem;
+    margin-top:0.35rem;
+    opacity: 0;
+    text-align: center;
+    transform: translateY(3rem);
+    transition: opacity 0.5s 2.3s, transform 0.5s 2.3s ease-out;
+    >div.item-btn{
+      max-width: 5rem;
+      margin-left:0.3rem;
+      &:nth-of-type(1){
+        margin-left:0;
       }
     }
-    opacity: 0;
-    transform: translateX(3rem);
-    transition: opacity 0.5s 2.3s, transform 0.5s 2.3s ease-out;
+    >div:first-child:nth-last-child(1){
+      max-width: 10rem;
+    }
+    >div:first-child:nth-last-child(2),>div:first-child:nth-last-child(2)~div{
+      max-width: 7rem;
+    }
     &.act{
       opacity:1;
-      transform: translateX(0);
+      transform: translateY(0);
     }
   }
   div.tech-info{
-    padding:1.389rem 1rem 0.55rem 1.222rem;
-    &.no-item{
-      >div.tech-header{
-        margin:0 auto;
-      }
-      >div.tech-name,>div.tech-desc{
-        padding-left:0;
-        text-align: center;
-      }
-    }
+    padding:1rem 1rem 0.55rem;
   }
 }
 
@@ -762,6 +789,9 @@ div.tech-list-slide{
       >div{
         &:nth-of-type(1){
           transition: opacity 0.4s 1.6s, transform 0.6s 1.6s ease-out;
+          >div{
+            transition: opacity 0.4s 2.2s, transform 0.6s 2.2s ease-out;
+          }
         }
         &.item-btn{
           transition: opacity 0.3s 2.2s, transform 0.4s 2.2s ease-out;
@@ -773,6 +803,9 @@ div.tech-list-slide{
       >div{
         &:nth-of-type(1){
           transition: opacity 0.4s 1.9s, transform 0.6s 1.9s ease-out;
+          >div{
+            transition: opacity 0.4s 2.5s, transform 0.6s 2.5s ease-out;
+          }
         }
         &.item-btn{
           transition: opacity 0.3s 2.5s, transform 0.4s 2.5s ease-out;
@@ -784,6 +817,9 @@ div.tech-list-slide{
       >div{
         &:nth-of-type(1){
           transition: opacity 0.4s 2.2s, transform 0.6s 2.2s ease-out;
+          >div{
+            transition: opacity 0.4s 2.8s, transform 0.6s 2.8s ease-out;
+          }
         }
         &.item-btn{
           transition: opacity 0.3s 2.8s, transform 0.4s 2.8s ease-out;
@@ -812,8 +848,7 @@ div.tech-list-slide{
           opacity: 1;
           transform: scale(1,1);
         }
-        &:before{
-          content: "";
+        >div{
           position: absolute;
           width:1.528rem;
           height:1.889rem;
@@ -821,18 +856,25 @@ div.tech-list-slide{
           left:-1rem;
           background: linear-gradient(to right bottom, #b33bfa, #6600a5);
           border-radius: 50% 50% 0 100% / 50% 50% 0 50%;
-        }
-        &:after{
-          content: "点我聊聊";
-          position: absolute;
-          color:#fff;
-          font-size:0.722rem;
-          left:-1.2rem;
-          top:-1.1rem;
-          width:2rem;
-          text-align: center;
-          line-height: 1.3;
-          transform: rotate(-45deg) scale(0.65);
+          opacity: 0;
+          transform-origin: 100% 100%;
+          transform: scale(0,0);
+          &:after{
+            content: "点我聊聊";
+            position: absolute;
+            color:#fff;
+            font-size:0.722rem;
+            left:-0.2rem;
+            top:0;
+            width:2rem;
+            text-align: center;
+            line-height: 1.3;
+            transform: rotate(-45deg) scale(0.65);
+          }
+          &.act{
+            opacity: 1;
+            transform: scale(1,1);
+          }
         }
       }
       &:nth-of-type(2){
@@ -1140,6 +1182,47 @@ div.health-slide{
   }
 }
 
+div.actDesc-slide{
+  div.info-wrap{
+    height:17.861rem;
+    padding:0.8rem 0.722rem;
+    margin-top:1.278rem;
+    color:#fff;
+    font-size:0.889rem;
+    text-indent: 1.778rem;
+    border:1px solid #fff;
+    box-shadow: 0 0 10px #902099, 0 0 10px #902099 inset;
+    overflow-y: auto;
+    opacity: 0;
+    transform: rotate(90deg);
+    transition: opacity 0.4s 1.3s, transform 0.5s 1.3s ease-out;
+    &.act{
+      opacity: 1;
+      transform: rotate(0deg);
+    }
+  }
+  div.act-time{
+    height:1.25rem;
+    line-height: 1.25rem;
+    width:9.889rem;
+    text-align: center;
+    color:#fff;
+    font-size:0.667rem;
+    border:1px solid #fff;
+    border-radius: 4px;
+    background: #902099;
+    margin: -0.625rem auto 0;
+    box-shadow: 0 0 10px #902099;
+    opacity: 0;
+    transform: translateY(4rem);
+    transition: opacity 0.3s 1.7s, transform 0.4s 1.7s ease-out;
+    &.act{
+      opacity: 1;
+      transform: translateY(0rem);
+    }
+  }
+}
+
 .scale-ani{
   opacity: 0;
   transform: scaleY(0);
@@ -1231,6 +1314,14 @@ div.page-redirect{
   width:10.4167rem;
   margin:1.778rem auto 0;
   padding-top:1.02795rem;
+  opacity: 0;
+  transform: scale(0,0);
+  transform-origin: 50% 50%;
+  transition: opacity 0.4s 1s, transform 0.6s 1s ease-out;
+  &.act{
+    opacity: 1;
+    transform: scale(1,1);
+  }
   >canvas{
     position: absolute;
     top:0;
@@ -1238,7 +1329,7 @@ div.page-redirect{
     width:100%;
     height:100%;
   }
-  >div{
+  >div.code{
     position: relative;
     height:8.944rem;
     width:8.944rem;
@@ -1253,12 +1344,87 @@ div.page-redirect{
       margin: 0 auto;
     }
   }
+  >div.circle{
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translateY(5rem);
+    &.act{
+      opacity: 1;
+      transform: translateY(0);
+    }
+    &.left{
+      width:2.5rem;
+      height:2.5rem;
+      top:1.944rem;
+      left:-3.222rem;
+      background: rgba(134,90,51,0.8);
+      transition: opacity 0.3s 2.1s, transform 0.3s 2.1s ease-out;
+    }
+    &.bottom{
+      width:1.778rem;
+      height:1.778rem;
+      background: rgba(131,100,58,0.8);
+      bottom:-1.833rem;
+      right:-2.222rem;
+      transition: opacity 0.3s 2.5s, transform 0.3s 2.5s ease-out;
+    }
+    &.right{
+      width:3.444rem;
+      height:3.444rem;
+      background: rgba(107,37,152,0.5);
+      right:-3.833rem;
+      top:1rem;
+      transition: opacity 0.3s 2.8s, transform 0.3s 2.8s ease-out;
+    }
+  }
 }
 
 .attention-tip{
-  margin-top:1.5rem;
-  margin-left:2.222rem;
   height:3.111rem;
   width:13.889rem;
+  padding-left:3.667rem;
+  margin-top:1.5rem;
+  margin-left:2.222rem;
   @include img("../images/25.png",3.111rem 3.111rem);
+  opacity: 0;
+  transform: translateY(4rem);
+  transition: opacity 0.4s 1.6s, transform 0.5s 1.6s ease-out;
+  &.act{
+    opacity: 1;
+    transform: translateY(0);
+  }
+  >div{
+    position: relative;
+    width:9.3889rem;
+    height:2.5556rem;
+    line-height: 2.9rem;
+    text-align: center;
+    font-size:0.778rem;
+    color:#fff;
+    z-index:0;
+    opacity: 0;
+    transform: scaleX(0);
+    transform-origin: 0 50%;
+    transition: opacity 0.4s 2.1s, transform 0.5s 2.1s;
+    &.act{
+      opacity: 1;
+      transform: scaleX(1);
+    }
+    >canvas{
+      position: absolute;
+      width:9.3889rem;
+      height:2.5556rem;
+      top:0;
+      left:0;
+      z-index:-1;
+    }
+  }
+}
+
+.vjs-poster{
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  background-size:cover;
 }
