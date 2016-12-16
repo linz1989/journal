@@ -1,0 +1,116 @@
+@import 'common.scss';
+@import "share.scss";
+@import 'video.scss';
+@import "ani.scss";
+@import "tmp-first.scss";
+
+body{
+  position: relative;
+  background-size: 20rem 200%;
+  background-position-y: 0;
+  background-position-x: center;
+  background-repeat: no-repeat;
+  &.page_404{
+    background-color: #1a0532;
+  }
+}
+
+div.journal-page{
+  position: relative;
+  height:100%;
+}
+
+div.page-content{
+  height:100%;
+}
+
+.scale-ani{
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: 50% 50%;
+  transition: opacity 0.4s 1.3s, transform 0.5s 1.3s ease-out;
+  &.act{
+    opacity: 1;
+    transform: scaleY(1);
+  }
+}
+
+.scale-ani-all{
+  transform: scale(0,0);
+  &.act{
+    transform: scale(1,1);
+  }
+}
+
+.endAni{
+  transition-duration: 0.05s !important; // 如果设置0s，transitionend事件不会触发
+  transition-delay:0s !important;
+}
+
+div.page-error{
+  position: absolute;
+  text-align: center;
+  color:#fff;
+  font-size:2rem;
+  line-height: 2.2rem;
+  font-weight: bold;
+  top:40%;
+  left:0;
+  width:100%;
+  >span{
+    font-size:0.887rem
+  }
+}
+
+div.page-redirect{
+  position: relative;
+  width:100%;
+  height:100%;
+  background: #fff;
+  >div{
+    position: absolute;
+    top:40%;
+    left:0;
+    width:20rem;
+    transform: translateY(-50%);
+    >div{
+      margin:0 auto;
+      &:nth-of-type(1){
+        width:11.278rem;
+        height:12.556rem;
+        @include img('../images/22.jpg',11.278rem 12.556rem);
+      }
+      &:nth-of-type(2){
+        height:1.889rem;
+        width:7.778rem;
+        line-height: 1.889rem;
+        margin-top:1.8rem;
+        font-size:1rem;
+        color:#fff;
+        border-radius: 0.3rem;
+        background: #f66;
+        text-align: center;
+      }
+    }
+    &.club{
+      >div:nth-of-type(1){
+        width:10rem;
+        height:11.583rem;
+        @include img('../images/21.png',10rem 11.583rem);
+      }
+    }
+  }
+}
+
+.vjs-poster{
+  -webkit-background-size:cover;
+  -moz-background-size:cover;
+  -o-background-size:cover;
+  background-size:cover;
+}
+.vjs-current-time{
+  display: block !important;
+}
+.vjs-remaining-time{
+  display: none !important;
+}

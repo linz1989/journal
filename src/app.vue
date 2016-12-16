@@ -23,6 +23,8 @@
                 <div class="circle4"></div>
             </div>
         </div>
+        <div ref="musicIcon" class="music-icon" @click="doClickMusicIcon($event)"></div>
+        <audio autoplay="autoplay" loop="loop" id="bgAudio" ref="bgAudio" @loadeddata="doLoadedMusic()"></audio>
         <template v-show="!loading && !loadError">
             <header class="page-header" ref="indexPageHeader" @click="doGoToClub()">
                 <div v-if="clubImgUrl" class="logo" :style="{ 'background-image' : 'url('+clubImgUrl+')' }"></div>
@@ -68,7 +70,6 @@
                 <div @click="doRedirect()">{{ newJournalId ? '查看最新' : '去看看' }}</div>
             </div>
         </div>
-        <audio autoplay="autoplay" loop="loop" ref="bgAudio"></audio>
     </div>
 </template>
 <script>
@@ -323,11 +324,8 @@
                 // global.swiper.slideTo(global.currSlideIndex, 0)
 
                 // 添加音乐
-                /* var bgAudio = _this.$refs.bgAudio
-                bgAudio.addEventListener('loadeddata', function () {
-                    bgAudio.play()
-                })
-                bgAudio.src = _this.audioSrc */
+                var bgAudio = _this.$refs.bgAudio
+                bgAudio.src = _this.audioSrc
             },
             doHandlerData: function (res) {
                 var _this = this
@@ -362,7 +360,7 @@
                     itemKey: '08',
                     title: '活动文字测试',
                     details: {
-                        content: '合适的说法健身房第三部宣传买买买石豆仨搜索',
+                        content: '反对大\n城镇\n女孩\n琵琶\n琵琶\n',
                         startTime: '2016-05-01',
                         endTime: '2016-05-06'
                     }
@@ -477,18 +475,22 @@
                         slideData.push({
                             category: 'health',
                             title: itemData.title,
-                            content: itemData.details.content
+                            content: itemData.details ? (itemData.details.content || '') : ''
                         })
                     } else if (itemData.itemKey == '08') { // 活动文字
                         subItemData = itemData.details
                         var actTime = ''
                         if (subItemData.startTime && subItemData.endTime) {
                             actTime = subItemData.startTime.replace(/-/g, '.') + '-' + subItemData.endTime.replace(/-/g, '.')
+                        } else if (subItemData.startTime) {
+                            actTime = '从' + subItemData.startTime.replace(/-/g, '.') + '起'
+                        } else if (subItemData.endTime) {
+                            actTime = '截止至：' + subItemData.endTime.replace(/-/g, '.')
                         }
                         slideData.push({
                             category: 'actDesc',
                             title: itemData.title,
-                            content: subItemData.content,
+                            content: subItemData.content.replace(/\n/g, '<p>'),
                             actTime: actTime || ''
                         })
                     }
@@ -593,6 +595,29 @@
                 } else {
                     loc.href = loc.origin + '/spa-manager/spa2/?club=' + that.clubId
                 }
+            },
+            doLoadedMusic: function () {
+                var that = this
+                var bgAudio = that.$refs.bgAudio
+                var musicIcon = that.$refs.musicIcon
+                bgAudio.play()
+                musicIcon.style.display = 'block'
+                musicIcon.classList.add('act')
+            },
+            doClickMusicIcon: function (event) {
+                var that = this
+                var musicIcon = that.$refs.musicIcon
+                var bgAudio = that.$refs.bgAudio
+                if (musicIcon.getAttribute('paused')) {
+                    bgAudio.play()
+                    musicIcon.removeAttribute('paused')
+                    musicIcon.classList.add('act')
+                } else {
+                    bgAudio.pause()
+                    musicIcon.setAttribute('paused', '1')
+                    musicIcon.classList.remove('act')
+                }
+                event.stopPropagation()
             }
         }
     }

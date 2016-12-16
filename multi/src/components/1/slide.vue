@@ -1,6 +1,6 @@
 <template>
     <swiper-slide class="common-slide" :class="slideCls">
-        <div class="wrap" :style="{ height : wrapHeight+'rem', 'margin-top' : -(wrapHeight/2+1.8)+'rem' }">
+        <div class="wrap" :style="{ height : wrapHeight+'rem', 'margin-top' : -(wrapHeight/2+1.5)+'rem' }">
             <div v-if="!isOver" class="page-title ani" :style="{ 'margin-bottom' : pageTitleMarginBottom+'rem' }"><page-title :title="slideObj.title"></page-title></div>
             <div v-else class="page-end-title ani">更多精彩去网上会所看看吧</div>
             <template v-if="slideObj.category=='new-tech'"><!-- 闪亮新人 -->
@@ -113,7 +113,7 @@
     import WormButton from './wormButton'
     import CouponBg from './couponBg'
     import Counter from './counter'
-    import { Global } from '../libs/global'
+    import { Global } from '../../libs/global'
 
     module.exports = {
         components: {

@@ -1,0 +1,239 @@
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, a, img, ol, ul, li, label, canvas, footer, header, section, video {
+  border: 0;
+  font: inherit;
+  line-height: inherit;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  vertical-align: baseline;
+  box-sizing: border-box; }
+
+html {
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+  overflow: hidden;
+  background-color: #1a0532; }
+
+body {
+  position: relative;
+  margin: 0 auto;
+  padding: 0;
+  width: 20rem;
+  height: 100%;
+  max-width: 20rem;
+  color: #b0b0b0;
+  background-color: #fff;
+  font: 1rem/1.5rem "Microsoft Yahei",Arial;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased; }
+
+button {
+  outline: none; }
+
+ol, ul {
+  margin: 0;
+  padding: 0; }
+
+ol, ul, li {
+  list-style: none; }
+
+i {
+  font-style: normal; }
+
+a {
+  outline: none;
+  text-decoration: none; }
+
+.clear-fix:before, .clear-fix:after {
+  content: "";
+  display: block; }
+
+.clear-fix:after {
+  clear: both; }
+
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin-left: -20px;
+  margin-top: -20px; }
+
+.container1 > div, .container2 > div, .container3 > div {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  border-radius: 100%;
+  -webkit-animation: bouncedelay 1.2s infinite ease-in-out;
+  animation: bouncedelay 1.2s infinite ease-in-out;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both; }
+
+.spinner .spinner-container {
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+
+.container2 {
+  -webkit-transform: rotateZ(45deg);
+  transform: rotateZ(45deg); }
+
+.container3 {
+  -webkit-transform: rotateZ(90deg);
+  transform: rotateZ(90deg); }
+
+.circle1 {
+  top: 0;
+  left: 0; }
+
+.circle2 {
+  top: 0;
+  right: 0; }
+
+.circle3 {
+  right: 0;
+  bottom: 0; }
+
+.circle4 {
+  left: 0;
+  bottom: 0; }
+
+.container2 .circle1 {
+  -webkit-animation-delay: -1.1s;
+  animation-delay: -1.1s; }
+
+.container3 .circle1 {
+  -webkit-animation-delay: -1.0s;
+  animation-delay: -1.0s; }
+
+.container1 .circle2 {
+  -webkit-animation-delay: -0.9s;
+  animation-delay: -0.9s; }
+
+.container2 .circle2 {
+  -webkit-animation-delay: -0.8s;
+  animation-delay: -0.8s; }
+
+.container3 .circle2 {
+  -webkit-animation-delay: -0.7s;
+  animation-delay: -0.7s; }
+
+.container1 .circle3 {
+  -webkit-animation-delay: -0.6s;
+  animation-delay: -0.6s; }
+
+.container2 .circle3 {
+  -webkit-animation-delay: -0.5s;
+  animation-delay: -0.5s; }
+
+.container3 .circle3 {
+  -webkit-animation-delay: -0.4s;
+  animation-delay: -0.4s; }
+
+.container1 .circle4 {
+  -webkit-animation-delay: -0.3s;
+  animation-delay: -0.3s; }
+
+.container2 .circle4 {
+  -webkit-animation-delay: -0.2s;
+  animation-delay: -0.2s; }
+
+.container3 .circle4 {
+  -webkit-animation-delay: -0.1s;
+  animation-delay: -0.1s; }
+
+@-webkit-keyframes bouncedelay {
+  0%, 80%, 100% {
+    -webkit-transform: scale(0); }
+  40% {
+    -webkit-transform: scale(1); } }
+
+@keyframes bouncedelay {
+  0%, 80%, 100% {
+    transform: scale(0);
+    -webkit-transform: scale(0); }
+  40% {
+    transform: scale(1);
+    -webkit-transform: scale(1); } }
+
+div#app-tip {
+  display: none;
+  position: absolute;
+  z-index: 3;
+  top: 60%;
+  opacity: 0;
+  width: 100%;
+  text-align: center; }
+  div#app-tip.active {
+    display: block;
+    animation: tipShow 2500ms;
+    -moz-animation: tipShow 2500ms;
+    -webkit-animation: tipShow 2500ms;
+    -o-animation: tipShow 2500ms;
+    -ms-animation: tipShow 2500ms; }
+
+@keyframes tipShow {
+  0% {
+    top: 100%;
+    opacity: 1; }
+  10% {
+    top: 60%;
+    opacity: 1; }
+  90% {
+    top: 60%;
+    opacity: 1; }
+  100% {
+    top: 60%;
+    opacity: 0; } }
+
+@-webkit-keyframes tipShow {
+  0% {
+    top: 100%;
+    opacity: 1; }
+  10% {
+    top: 60%;
+    opacity: 1; }
+  90% {
+    top: 60%;
+    opacity: 1; }
+  100% {
+    top: 60%;
+    opacity: 0; } }
+  div#app-tip > div {
+    display: inline-block;
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+    padding: 0.3em;
+    color: #fff;
+    border-radius: 0.4rem;
+    background: rgba(50, 50, 50, 0.7) none repeat scroll 0 0; }
+
+div.pop-modal {
+  position: fixed;
+  width: 20rem;
+  height: 100%;
+  left: 50%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin-left: -10rem;
+  background: rgba(36, 3, 63, 0.5);
+  z-index: 101;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  -webkit-transform-origin: 50% 100%;
+  transform-origin: 50% 100%;
+  -webkit-transform: scale(1, 0);
+  transform: scale(1, 0);
+  opacity: 0; }
+  div.pop-modal.active {
+    opacity: 1;
+    -webkit-transform: scale(1, 1);
+    transform: scale(1, 1); }
+  div.pop-modal > div.center-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%; }

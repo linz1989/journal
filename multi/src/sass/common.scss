@@ -1,0 +1,118 @@
+@import "mixin.scss";
+@import 'reset.scss';
+@import "spinner.scss";
+
+div#app-tip{
+  display: none;
+  position: absolute;
+  z-index: 3;
+  top: 60%;
+  opacity: 0;
+  width: 100%;
+  text-align: center;
+  &.active{
+    display: block;
+    @include dhz(tipShow,2500ms);
+    @at-root {
+      @keyframes tipShow{
+        0%{
+          top:100%;
+          opacity:1;
+        }
+        10%{
+          top:60%;
+          opacity:1;
+        }
+        90%{
+          top:60%;
+          opacity:1;
+        }
+        100%{
+          top:60%;
+          opacity:0;
+        }
+      }
+      @-moz-keyframes tipShow{
+        0%{
+          top:100%;
+          opacity:1;
+        }
+        10%{
+          top:60%;
+          opacity:1;
+        }
+        90%{
+          top:60%;
+          opacity:1;
+        }
+        100%{
+          top:60%;
+          opacity:0;
+        }
+      }
+      @-webkit-keyframes tipShow{
+        0%{
+          top:100%;
+          opacity:1;
+        }
+        10%{
+          top:60%;
+          opacity:1;
+        }
+        90%{
+          top:60%;
+          opacity:1;
+        }
+        100%{
+          top:60%;
+          opacity:0;
+        }
+      }
+      @-o-keyframes tipShow{
+        0%{
+          top:100%;
+          opacity:1;
+        }
+        10%{
+          top:60%;
+          opacity:1;
+        }
+        90%{
+          top:60%;
+          opacity:1;
+        }
+        100%{
+          top:60%;
+          opacity:0;
+        }
+      }
+    }
+  }
+  >div{
+    display: inline-block;
+    margin-left:0.5rem;
+    margin-right:0.5rem;
+    padding: 0.3em;
+    color: #fff;
+    border-radius: 0.4rem;
+    background: rgba(50, 50, 50, 0.7) none repeat scroll 0 0;
+  }
+}
+
+div.pop-modal{
+  @include mask();
+  z-index:101;
+  @include transition(all 0.5s);
+  @include tOrigin(50% 100%);
+  @include scale(1,0);
+  opacity: 0;
+  &.active{
+    opacity: 1;
+    @include scale(1,1);
+  }
+  &>div.center-wrap{
+    position: absolute;
+    top:50%;
+    left:50%;
+  }
+}

@@ -659,7 +659,7 @@ div.new-tech-slide{
     font-size:0.889rem;
     text-align: center;
     color:#ccc;
-    @include slh(2);
+    @include sl();
     opacity:0;
     transform: translateY(2rem);
     transition: opacity 0.4s 1.9s, transform 0.4s 1.9s ease-out;
@@ -694,7 +694,7 @@ div.new-tech-slide{
     }
   }
   div.tech-info{
-    padding:1rem 1rem 0.55rem;
+    padding:0.8rem 1rem 0.4rem;
   }
 }
 
@@ -1184,9 +1184,9 @@ div.health-slide{
 
 div.actDesc-slide{
   div.info-wrap{
-    height:17.861rem;
+    height:17.5rem;
     padding:0.8rem 0.722rem;
-    margin-top:1.278rem;
+    margin-top:0.8rem;
     color:#fff;
     font-size:0.889rem;
     text-indent: 1.778rem;
@@ -1427,4 +1427,40 @@ div.page-redirect{
   -moz-background-size:cover;
   -o-background-size:cover;
   background-size:cover;
+}
+.vjs-current-time{
+  display: block !important;
+}
+.vjs-remaining-time{
+  display: none !important;
+}
+
+@-webkit-keyframes rotate-ani{
+  to {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-ani{
+ to {
+    transform: rotate(360deg);
+  }
+}
+
+.music-icon{
+  display: none;
+  position: fixed;
+  top:1.75rem;
+  right:0.583rem;
+  width:2.25rem;
+  height:2.25rem;
+  @include img("../images/music.png",2.25rem 2.25rem);
+  background-color: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  animation: rotate-ani 3s linear infinite;
+  animation-play-state: paused;
+  z-index:3;
+  &.act{
+    animation-play-state: running;
+  }
 }
