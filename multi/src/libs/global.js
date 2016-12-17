@@ -162,7 +162,7 @@ exports.Global = {
                     if (subItemData.description) {
                         itemObj.leftService.description = subItemData.description.replace(/<(.*)>/g, '').replace(/\s+/g, '')
                     }
-                    k++
+                   /* k++
                     if (k < itemData.details.length) { // 一个页面最多显示2个项目，如果多于两个，则另起一页显示
                         subItemData = itemData.details[k]
                         itemObj.rightService = subItemData
@@ -173,7 +173,7 @@ exports.Global = {
                         if (subItemData.description) {
                             itemObj.rightService.description = subItemData.description.replace(/<(.*)>/g, '').replace(/\s+/g, '')
                         }
-                    }
+                    } */
                     slideData.push(itemObj)
                 }
             } else if (itemData.itemKey == '03') { // 女神风采

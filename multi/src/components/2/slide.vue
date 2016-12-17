@@ -12,6 +12,16 @@
                     <div class="chat-btn"></div>
                 </div>
             </template>
+            <template v-if="slideObj.category=='service-item'"><!-- 最新项目 -->
+                <div class="service-item-wrap" v-if="slideObj.leftService">
+                    <div class="service-img" :style="slideObj.leftService.styleObj" @click="doClickServiceItem(slideObj.leftService.id)"></div>
+                    <div class="text-wrap">
+                        <div>{{ slideObj.leftService.name }}</div>
+                        <div><arrow></arrow><strong>{{ slideObj.leftService.price }}元</strong>/{{ slideObj.leftService.duration }}{{ slideObj.leftService.durationUnit }}</div>
+                    </div>
+                    <div>{{ slideObj.leftService.description }}</div>
+                </div>
+            </template>
         </div>
     </swiper-slide>
 </template>
@@ -19,11 +29,13 @@
 <script>
     import { swiper, swiperSlide } from 'vue-awesome-swiper'
     import { Global } from '../../libs/global'
+    import Arrow from './arrow'
 
     module.exports = {
         components: {
             'swiper': swiper,
-            'swiper-slide': swiperSlide
+            'swiper-slide': swiperSlide,
+            'arrow': Arrow
         },
         data: function () {
             return {
@@ -65,8 +77,6 @@
             that.$nextTick(function () {
                 // 调整页面 info-wrap与page-title的间距
                 var winHeightRem = global.winHeight / (16 * global.winScale)
-
-                console.log('winHeightRem：' + winHeightRem)
 
                 if (winHeightRem > 28.889) {
                     var marginRem = winHeightRem - 28.889
