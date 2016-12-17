@@ -1250,7 +1250,9 @@ body{
     display: none;
     position: fixed;
     top:1.75rem;
-    right:0.583rem;
+    //right:0.583rem;
+    left:50%;
+    margin-left:7.167rem;
     width:2.25rem;
     height:2.25rem;
     @include img("../images/music.png",2.25rem 2.25rem);

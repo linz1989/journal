@@ -1,0 +1,126 @@
+@import "./mixin.scss";
+
+body{
+  &.tmp_2{
+    background: linear-gradient(to bottom, #fc4d25, #d1101a);
+  }
+}
+
+.tmp-second-page{
+  height:100%;
+  position: relative;
+
+  header{
+    display: none;
+    position: absolute;
+    height: 3.333rem;
+    top:0.306rem;
+    left:50%;
+    width:20rem;
+    margin-left:-10rem;
+    >div{
+      &:nth-of-type(1){
+        width: 3.333rem;
+        height:3.333rem;
+        border-radius: 50%;
+        @include imgBgFix(3.333rem 3.333rem);
+        margin-left:0.444rem;
+        margin-right:0.722rem;
+        float: left;
+      }
+      &:nth-of-type(2){
+        color:#fff;
+        line-height: 3.333rem;
+        font-size:1.111rem;
+        width: 13rem;
+        float: left;
+        @include sl();
+      }
+    }
+    &.common{
+      height:1.5rem;
+      >div{
+        &:nth-of-type(1){
+          width:1.5rem;
+          height:1.5rem;
+          @include imgBgFix(1.5rem 1.5rem);
+          margin-left:0.667rem;
+          margin-right:0.472rem;
+        }
+        &:nth-of-type(2){
+          line-height: 1.5rem;
+          font-size:1rem;
+        }
+      }
+      &:after{
+        content: "";
+        position: absolute;
+        width:0.583rem;
+        height:0.833rem;
+        right:0.611rem;
+        top:0.3rem;
+        @include img("../images/2/9.png",0.583rem 0.833rem);
+      }
+    }
+    &.act{
+      display: block;
+    }
+  }
+
+  .statistic-data{
+    position: absolute;
+    width:4.611rem;
+    height:8.75rem;
+    top:4.111rem;
+    right:0.167rem;
+    padding-top:4.2rem;
+    @include img("../images/2/4.png",4.611rem 8.75rem);
+    >div{
+      width:3.583rem;
+      height:2.083rem;
+      line-height: 2.083rem;
+      padding-left:1.556rem;
+      margin:0.083rem auto 0;
+      font-size:0.778rem;
+      color:#faefcc;
+    }
+    &:before{
+      position: absolute;
+      content: "";
+      width:2.361rem;
+      height:2.833rem;
+      top:1.194rem;
+      left:50%;
+      margin-left:-1.1805rem;
+      @include img("../images/2/2.png",2.361rem 2.833rem);
+    }
+  }
+
+  .bottom-snow{
+    position: absolute;
+    width:20rem;
+    height:4.416rem;
+    left:0;
+    bottom:0;
+    @include img("../images/2/5.png",20rem 4.416rem);
+  }
+
+  .main-tree{
+    position: absolute;
+    width:20rem;
+    height:23rem;
+    left:0;
+    bottom:6.027rem;
+    @include img("../images/2/7.png",20rem 23rem);
+    &:after{
+      content: "";
+      position: absolute;
+      width:8.444rem;
+      height:9.388rem;
+      left:50%;
+      top:0;
+      margin-left:-4.36rem;
+      @include img("../images/2/6.png",8.444rem 9.388rem);
+    }
+  }
+}

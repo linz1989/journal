@@ -2,7 +2,7 @@
     @import './styles/index.css';
 </style>
 <template>
-    <div @transitionend="doHandlerTransitionEnd($event)" class="journal-page">
+    <div @transitionend="doHandlerTransitionEnd($event)" class="journal-page" @touchstart="doTouchPage()">
         <div v-show="loading && !loadError" class="spinner">
             <div class="spinner-container container1">
                 <div class="circle1"></div>
@@ -24,7 +24,7 @@
             </div>
         </div>
         <div ref="musicIcon" class="music-icon" @click="doClickMusicIcon($event)"></div>
-        <audio autoplay="autoplay" loop="loop" id="bgAudio" ref="bgAudio" @loadeddata="doLoadedMusic()"></audio>
+        <audio loop="loop" preload="auto" autoplay id="bgAudio" ref="bgAudio" :src='audioSrc' @loadeddata="doLoadedMusic()"></audio>
         <template v-show="!loading && !loadError">
             <header class="page-header" ref="indexPageHeader" @click="doGoToClub()">
                 <div v-if="clubImgUrl" class="logo" :style="{ 'background-image' : 'url('+clubImgUrl+')' }"></div>
@@ -103,6 +103,7 @@
                 errorId: false,
                 newJournalId: '', // 最新的期刊ID
                 audioSrc: './audio/1.mp3', // 音频地址
+                needTouchStartMusic: false, // 第一次触摸屏幕之后启动音乐
                 swiperOption: {
                     direction: 'vertical',
                     observeParents: true,
@@ -322,10 +323,6 @@
 
                 // console.log('goto slide index:' + global.currSlideIndex)
                 // global.swiper.slideTo(global.currSlideIndex, 0)
-
-                // 添加音乐
-                var bgAudio = _this.$refs.bgAudio
-                bgAudio.src = _this.audioSrc
             },
             doHandlerData: function (res) {
                 var _this = this
@@ -600,9 +597,16 @@
                 var that = this
                 var bgAudio = that.$refs.bgAudio
                 var musicIcon = that.$refs.musicIcon
-                bgAudio.play()
-                musicIcon.style.display = 'block'
-                musicIcon.classList.add('act')
+
+                setTimeout(function () {
+                    if (bgAudio.paused) {
+                        musicIcon.setAttribute('paused', '1') // 暂停状态
+                        that.needTouchStartMusic = true
+                    } else {
+                        musicIcon.style.display = 'block'
+                        musicIcon.classList.add('act')
+                    }
+                }, 200)
             },
             doClickMusicIcon: function (event) {
                 var that = this
@@ -618,6 +622,19 @@
                     musicIcon.classList.remove('act')
                 }
                 event.stopPropagation()
+            },
+            doTouchPage: function () {
+                var that = this
+                var bgAudio = that.$refs.bgAudio
+                var musicIcon = that.$refs.musicIcon
+                if (that.needTouchStartMusic) {
+                    that.needTouchStartMusic = false
+                    if (bgAudio.paused) {
+                        musicIcon.style.display = 'block'
+                        musicIcon.classList.add('act')
+                        that.doClickMusicIcon()
+                    }
+                }
             }
         }
     }

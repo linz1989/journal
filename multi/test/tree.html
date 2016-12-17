@@ -1,0 +1,51 @@
+<html>
+<head>
+    <style>
+        #tree{
+            width:740px;
+            height:830px;
+            border:1px solid #1a0532;
+        }
+    </style>
+    <script type="text/javascript">
+        function init(){
+            var treeCtx = document.querySelector('#tree').getContext('2d')
+            var allWidth = 740
+            var allHeight = 830
+            var centerX = allWidth / 2
+            var pieRadius = 150
+            var arcRadiusY = 25
+            var arcRadiusX = 15
+            var top = 10
+            var pi = Math.PI
+            var startEngle = 60
+            var oneDeg = pi / 180
+
+            treeCtx.strokeStyle = '#ccc'
+            treeCtx.moveTo(centerX - arcRadiusX, top + arcRadiusY)
+            treeCtx.lineTo(centerX, top)
+            treeCtx.lineTo(centerX + arcRadiusX, top + arcRadiusY)
+            treeCtx.stroke()
+
+            treeCtx.beginPath()
+            treeCtx.moveTo(centerX - arcRadiusX, top + arcRadiusY)
+            treeCtx.arcTo(centerX, top, centerX + arcRadiusX, top + arcRadiusY, arcRadiusY-5)
+
+            treeCtx.lineTo(centerX + pieRadius * Math.cos(startEngle * oneDeg), top + pieRadius * Math.sin(startEngle * oneDeg))
+            treeCtx.moveTo(centerX - arcRadiusX, top + arcRadiusY)
+            treeCtx.lineTo(centerX + pieRadius * Math.cos(startEngle * 2 * oneDeg), top + pieRadius * Math.sin(startEngle * 2 * oneDeg))
+
+            var deltDeg = 5
+            var deltRadius = 10
+            treeCtx.moveTo(centerX + (pieRadius + deltRadius) * Math.cos((startEngle + deltDeg) * oneDeg), top + (pieRadius + deltRadius) * Math.sin((startEngle + deltDeg) * oneDeg))
+            treeCtx.arc(centerX, top, pieRadius + deltRadius, (startEngle + deltDeg) * oneDeg, (startEngle*2 - deltDeg) * oneDeg)
+
+
+            treeCtx.stroke()
+        }
+    </script>
+</head>
+<body onload="init()">
+    <canvas id="tree" height="830" width="740"></canvas>
+</body>
+</html>
