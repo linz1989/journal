@@ -9,6 +9,32 @@ body{
 .tmp-second-page{
   height:100%;
   position: relative;
+  background: url("../images/2/5.png") no-repeat left 0 bottom 0;
+  background-size: 20rem 4.416rem;
+  &:before,&:after{
+    content: "";
+    position: absolute;
+    opacity: 0;
+  }
+  &:before{
+    width:2.361rem;
+    height:3.5rem;
+    left:0.361rem;
+    bottom:2.306rem;
+    @include img("../images/2/11.png", 2.361rem 3.5rem);
+  }
+  &:after{
+    width:3.306rem;
+    height:5.778rem;
+    bottom:2.944rem;
+    right:0;
+    @include img("../images/2/13.png",3.306rem 5.778rem);
+  }
+  &.common{
+    &:before,&:after{
+      opacity: 1;
+    }
+  }
 
   header{
     display: none;
@@ -105,6 +131,23 @@ body{
     @include img("../images/2/5.png",20rem 4.416rem);
   }
 
+  .left-tree,.right-tree{
+    position: absolute;
+    width:10.916rem;
+    height:11.638rem;
+    bottom:9rem;
+    opacity:0.5;
+    @include img("../images/2/10.png",10.916rem 11.638rem);
+  }
+
+  .left-tree{
+    left:-3.8rem;
+  }
+
+  .right-tree{
+    right:-3.8rem;
+  }
+
   .main-tree{
     position: absolute;
     width:20rem;
@@ -121,6 +164,174 @@ body{
       top:0;
       margin-left:-4.36rem;
       @include img("../images/2/6.png",8.444rem 9.388rem);
+    }
+  }
+
+  .santa{
+    position: absolute;
+    width:17.861rem;
+    height:18.528rem;
+    bottom:0;
+    left:50%;
+    margin-left:-8.9305rem;
+    @include img("../images/2/8.png",17.861rem 18.528rem);
+    padding-top:9.944rem;
+    >div{
+      text-align: center;
+      width:14.444rem;
+      margin: 0 auto;
+      @include sl();
+      line-height: 1.5;
+      &:nth-of-type(1){
+        color: #ffe90a;
+        font-size:1.889rem;
+      }
+      &:nth-of-type(2){
+        color:#fff;
+        font-size:1.111rem;
+      }
+    }
+    &:after{
+      content: "";
+      position: absolute;
+      width:2.416rem;
+      height:3.222rem;
+      left:2.5rem;
+      top:6.9rem;
+      @include img("../images/2/3.png",2.416rem 3.222rem);
+    }
+  }
+
+  .slide-arrow{
+    width:1.916rem;
+    height:1rem;
+    margin-left:-0.958rem;
+    @include img("../images/2/1.png",1.916rem 1rem);
+  }
+
+  .page-title{
+    width:14.333rem;
+    height:3.916rem;
+    margin:0 auto;
+    padding-top:0.4rem;
+    text-align: center;
+    color:#fff;
+    font-size:1.167rem;
+    @include img("../images/2/14.png",14.333rem 3.916rem);
+  }
+
+  .red-zebra-wrap{
+    position: relative;
+    width:18.333rem;
+    height:16.388rem;
+    margin-left:auto;
+    margin-right:auto;
+    padding-top: 9.166rem;
+    @include img("../images/2/18.png", 18.333rem 16.388rem);
+    &:before,&:after{
+      content: "";
+      position: absolute;
+      left:50%;
+      transform: translateX(-50%);
+    }
+    &:before{
+      width:19.861rem;
+      height:15.222rem;
+      top:0;
+      @include img("../images/2/15.png",19.861rem 15.222rem);
+    }
+    &:after{
+      width: 20rem;
+      height:4.027rem;
+      bottom:-1.1rem;
+      z-index:-1;
+      @include img("../images/2/17.png",20rem 4.027rem);
+    }
+  }
+
+  .new-tech-slide{
+    .tech-header{
+      position: absolute;
+      width:10.556rem;
+      height:10.556rem;
+      border-radius: 50%;
+      border:0.166rem solid #fff;
+      top: -1.944rem;
+      left: 50%;
+      margin-left: -5.278rem;
+      @include imgBgFix(10.556rem 10.556rem);
+      &:before,&:after{
+        content: "";
+        position: absolute;
+      }
+      &:before{
+        width: 3.138rem;
+        height: 4.75rem;
+        left:0.5rem;
+        top:-1rem;
+        @include img("../images/2/16.png",3.138rem 4.75rem);
+      }
+      &:after{
+        width: 7.611rem;
+        height: 1.694rem;
+        left:50%;
+        bottom:-0.5rem;
+        margin-left:-3.8055rem;
+        @include img("../images/2/19.png",7.611rem 1.694rem);
+      }
+    }
+
+    .tech-name{
+      text-align: center;
+      color: #c87c10;
+      font-size:1.111rem;
+    }
+
+    .tech-desc{
+      text-align: center;
+      font-size: 0.833rem;
+      color: #935710;
+    }
+
+    .service-list{
+      margin: 0.5rem auto 0;
+      text-align: center;
+      >div{
+        display: inline-block;
+        width:5.139rem;
+        height: 2.528rem;
+        @include img("../images/2/20.png",5.139rem 2.528rem);
+        color:#fff;
+        font-size:0.889rem;
+        line-height: 2.8rem;
+        padding-right:0.777rem;
+        padding-left:0.2rem;
+        @include sl();
+      }
+    }
+
+    .chat-btn{
+      position: absolute;
+      width: 1.278rem;
+      height: 3.472rem;
+      right: 1.45rem;
+      top: 5.833rem;
+      @include img("../images/2/21.png",1.278rem 3.472rem);
+      &:before{
+        content: "点我聊聊";
+        position: absolute;
+        width: 4.194rem;
+        height: 4.111rem;
+        color: #935710;
+        font-size: 0.722rem;
+        top:-2.7rem;
+        left: -2.05rem;
+        padding:1.4rem 1.2rem 0;
+        line-height: 1.1;
+        text-align: center;
+        box-sizing: border-box;
+        @include img("../images/2/22.png",4.194rem 4.111rem);
+      }
     }
   }
 }

@@ -152,20 +152,10 @@ body{
   }
 
   .slide-arrow{
-    display: none;
-    position: fixed;
     width:1.25rem;
     height:0.972rem;
-    left:50%;
-    bottom:0.5rem;
     margin-left:-0.625rem;
-    z-index:1;
     @include img("../images/20.png",1.25rem 0.972rem);
-    -webkit-animation: down-up-ani 1.5s infinite ease-in-out;
-    animation: down-up-ani 1.5s infinite ease-in-out;
-    &.act{
-      display: block;
-    }
   }
 
   div.index-slide{
@@ -313,15 +303,6 @@ body{
   }
 
   div.common-slide{
-    position: relative;
-    div.wrap{
-      position: absolute;
-      height:22rem;
-      width:100%;
-      left:0;
-      top:50%;
-      margin-top:-12.5rem;
-    }
     div.info-wrap{
       width:18.611rem;
       border-radius: 0.3rem;

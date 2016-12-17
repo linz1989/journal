@@ -115,3 +115,28 @@ div.page-redirect{
 .vjs-remaining-time{
   display: none !important;
 }
+
+.slide-arrow{
+  display: none;
+  position: fixed;
+  left:50%;
+  bottom:0.5rem;
+  z-index:1;
+  -webkit-animation: down-up-ani 1.5s infinite ease-in-out;
+  animation: down-up-ani 1.5s infinite ease-in-out;
+  &.act{
+    display: block;
+  }
+}
+
+.common-slide{
+  position: relative;
+  div.wrap{
+    position: absolute;
+    height:22rem;
+    width:100%;
+    left:0;
+    top:50%;
+    margin-top:-12.5rem;
+  }
+}

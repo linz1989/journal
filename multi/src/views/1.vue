@@ -20,6 +20,7 @@
                 <div class="info"><div class="title">{{ data.clubName }}</div></div>
                 <div class="right-arrow"></div>
             </header>
+
             <swiper :options='swiperOption' class="page-content">
                 <swiper-slide class="index-slide">
                     <div class="center-circle ani">
@@ -37,6 +38,7 @@
                 </swiper-slide>
                 <slide v-for="(item,index) in data.slideData" :slide-obj="item" :is-over="index==data.slideData.length-1"></slide>
             </swiper>
+
             <div class="slide-arrow" ref="slideArrow"></div>
             <share :share-url="shareUrl"></share>
         </template>

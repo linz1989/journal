@@ -1,0 +1,98 @@
+<html>
+<head>
+    <style>
+        #zebra{
+            width:632px;
+            height:570px;
+            border:1px solid #1a0532;
+            border-radius: 30px;
+        }
+    </style>
+    <script type="text/javascript">
+        function init(){
+            var ctx = document.querySelector('#zebra').getContext('2d')
+            var allWidth = 632
+            var allHeight = 570
+            var deltX = [29, 34]
+            var deltY = 30 // 23
+            var skewX = 12
+            var currLen = 0
+            var fillStyleArr =['#d4d4d4', '#c0120b']
+            var currStyle = 0
+
+            // 绘制上边框
+            while (currLen + skewX < allWidth) {
+                ctx.beginPath()
+                ctx.fillStyle = fillStyleArr[currStyle]
+                ctx.moveTo(currLen, 0)
+                ctx.lineTo(currLen + skewX, deltY)
+                ctx.lineTo(currLen + skewX + deltX[currStyle], deltY)
+                ctx.lineTo(currLen + deltX[currStyle], 0)
+                ctx.lineTo(currLen, 0)
+                ctx.closePath()
+                ctx.fill()
+
+                currLen = currLen + deltX[currStyle]
+                currStyle = 1 - currStyle
+            }
+
+            // 绘制底部边框
+            currLen = 0
+            currStyle = 0
+            while (currLen + skewX < allWidth) {
+                ctx.beginPath()
+                ctx.fillStyle = fillStyleArr[currStyle]
+                ctx.moveTo(currLen, allHeight - deltY)
+                ctx.lineTo(currLen + skewX, allHeight)
+                ctx.lineTo(currLen + skewX + deltX[currStyle], allHeight)
+                ctx.lineTo(currLen + deltX[currStyle], allHeight - deltY)
+                ctx.lineTo(currLen, allHeight - deltY)
+                ctx.closePath()
+                ctx.fill()
+
+                currLen = currLen + deltX[currStyle]
+                currStyle = 1 - currStyle
+            }
+
+            // 绘制右边框
+            currLen = 0
+            currStyle = 0
+            while (currLen + skewX < allHeight) {
+                ctx.beginPath()
+                ctx.fillStyle = fillStyleArr[currStyle]
+                ctx.moveTo(allWidth, currLen)
+                ctx.lineTo(allWidth - deltY, currLen + skewX)
+                ctx.lineTo(allWidth - deltY, currLen + skewX + deltX[currStyle])
+                ctx.lineTo(allWidth, currLen + deltX[currStyle])
+                ctx.lineTo(allWidth, currLen)
+                ctx.closePath()
+                ctx.fill()
+
+                currLen = currLen + deltX[currStyle]
+                currStyle = 1 - currStyle
+            }
+
+            // 绘制左侧边框
+            currLen = 0
+            currStyle = 1
+            while (currLen + skewX < allHeight) {
+                ctx.beginPath()
+                ctx.fillStyle = fillStyleArr[currStyle]
+                ctx.moveTo(deltY, currLen)
+                ctx.lineTo(0, currLen + skewX)
+                ctx.lineTo(0, currLen + skewX + deltX[currStyle])
+                ctx.lineTo(deltY, currLen + deltX[currStyle])
+                ctx.lineTo(deltY, currLen)
+                ctx.closePath()
+                ctx.fill()
+
+                currLen = currLen + deltX[currStyle]
+                currStyle = 1 - currStyle
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+    <canvas id="zebra" height="570" width="632"></canvas>
+</body>
+</html>

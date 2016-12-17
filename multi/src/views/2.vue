@@ -11,27 +11,52 @@
                 <div v-if="data.clubImgUrl" :style="{ 'background-image' : 'url('+data.clubImgUrl+')' }"></div>
                 <div>{{ data.clubName }}</div>
             </header>
-            <!--统计数据：点赞数 浏览数-->
-            <div class="statistic-data"><div>1045</div><div>1111</div></div>
-            <!--底部的雪-->
-            <div class="bottom-snow"></div>
-            <!--中间的圣诞树-->
-            <div class="main-tree"></div>
+
+            <swiper :options='swiperOption' class="page-content">
+                <swiper-slide>
+                    <!--统计数据：点赞数 浏览数-->
+                    <div class="statistic-data"><div>104</div><div>111</div></div>
+                    <!--左侧的圣诞树-->
+                    <div class="left-tree"></div>
+                    <!--右侧的圣诞树-->
+                    <div class="right-tree"></div>
+                    <!--中间的圣诞树-->
+                    <div class="main-tree"></div>
+                    <!--圣诞老人-->
+                    <div class="santa">
+                        <div>限时优惠大抢购</div>
+                        <div>副标题副标题副标题副标题副标题</div>
+                    </div>
+                </swiper-slide>
+                <slide v-for="(item,index) in data.slideData" :slide-obj="item" :is-over="index==data.slideData.length-1"></slide>
+            </swiper>
+            <div class="slide-arrow act" ref="slideArrow"></div>
         </template>
     </div>
 </template>
 <script>
     import { Global } from '../libs/global'
+    import Slide from '../components/2/slide'
 
     var pageHeader = null
     var indexPageHeader = null
 
     module.exports = {
+        components: {
+            'slide': Slide
+        },
         data: function () {
             return {
                 global: Global,
                 data: {
                     slideData: []
+                },
+                swiperOption: {
+                    direction: 'vertical',
+                    observeParents: true,
+                    onInit: function () {
+                        console.log('swiper init')
+                    }
                 },
                 shareUrl: location.href, // 分享的url
                 audioSrc: './audio/1.mp3' // 音频地址
