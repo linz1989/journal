@@ -223,6 +223,9 @@ exports.Global = {
                     if (itemObj.type == 'timeLimit' || itemObj.type == 'oneYuan' || itemObj.type == 'plumFlower') {
                         itemObj.imgStyle = subItemData.actImgUrl ? { 'background-image': 'url(' + subItemData.actImgUrl + ')' } : {}
                     }
+                    if (subItemData.endDate) {
+                        subItemData.endDate = subItemData.endDate + 40 * 24 * 60 * 60 * 1000
+                    }
                     slideData.push(itemObj)
                 }
             } else if (itemData.itemKey == '05') { // 视频

@@ -4,7 +4,7 @@
             <div v-if="!isOver" class="page-title" :style="{ 'margin-bottom' : pageTitleMarginBottom+'rem' }">{{ slideObj.title }}</div>
             <div v-else class="page-end-title ani">更多精彩去网上会所看看吧</div>
             <template v-if="slideObj.category=='new-tech'"><!-- 闪亮新人 -->
-                <div class="red-zebra-wrap tech-info" :style="{'margin-top' : 0.7+marginRem+'rem'}">
+                <div class="red-zebra-wrap tech-info decorate-bottom-snow" :style="{'margin-top' : 0.7+marginRem+'rem'}">
                     <div class="tech-header" v-if="slideObj.avatarUrl" :style="{ 'background-image' : 'url('+slideObj.avatarUrl+')' }" @click="doClickChatBtn(slideObj.techId)"></div>
                     <div class="tech-name">{{ slideObj.techName }}&nbsp;<span v-show="slideObj.techNo">[{{ slideObj.techNo }}号]</span></div>
                     <div class="tech-desc">{{ slideObj.description || '最好的服务都在我这里啦！'}}</div>
@@ -33,10 +33,34 @@
                 </div>
             </template>
             <template v-if="slideObj.category=='video'"><!-- 视频 -->
-                <div class="video-wrap">
+                <div class="video-wrap decorate-bottom-snow decorate-top-snow">
                     <video ref="techVideo" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="metadata" width="100%" height="100%" :poster="slideObj.poster" data-setup="{}">
                         <source :src="slideObj.video" type="video/mp4" />
                     </video>
+                </div>
+            </template>
+            <template v-if="slideObj.category=='act' && slideObj.type=='timeLimit'"><!-- 活动 -抢项目-->
+                <div class="act-wrap time-limit-wrap" :style="{ 'margin-top' : (pageTitleMarginBottom>0.9 ? 0.9 : pageTitleMarginBottom) +'rem' }">
+                    <div class="default-img-bg" :style="slideObj.imgStyle"></div>
+                    <div class="text-wrap">
+                        <div>{{ slideObj.data.actName }}</div>
+                        <div><strong>{{ slideObj.data.actAmount }}</strong><span>元</span><span v-show="slideObj.data.actCredit">（或<b>{{ slideObj.data.actCredit }}</b>积分）</span></div>
+                        <div>原价：{{ slideObj.data.actPrice }}元</div>
+                        <counter :remain-count="slideObj.data.remainCount" :start="slideObj.data.startDate" :end="slideObj.data.endDate" v-show="timeLimitActStatus != 'over'" @status-change="doTimeLimitActStatusChange"></counter>
+                    </div>
+                    <div class="grab-btn" @click="doClickBtnOfTimeLimitAct()">马上抢</div>
+                </div>
+            </template>
+            <template v-if="slideObj.category=='act' && slideObj.type=='coupon'"><!-- 活动 -优惠券-->
+                <div class="act-wrap coupon-wrap">
+                    <div class="coupon">
+                        <coupon-bg :coupon-type="slideObj.data.couponType"></coupon-bg>
+                        <div>{{ slideObj.data.actName }}</div>
+                        <div>￥{{ slideObj.data.actValue }}</div>
+                        <div>{{ slideObj.data.consumeMoneyDescription }}</div>
+                        <div>有效时间：{{ slideObj.data.couponPeriod }}</div>
+                    </div>
+                    <div class="grab-btn" @click="doClickBtnOfCouponAct()">马上抢</div>
                 </div>
             </template>
         </div>
@@ -47,12 +71,16 @@
     import { swiper, swiperSlide } from 'vue-awesome-swiper'
     import { Global } from '../../libs/global'
     import Arrow from './arrow'
+    import Counter from '../counter'
+    import CouponBg from './couponBg'
 
     module.exports = {
         components: {
             'swiper': swiper,
             'swiper-slide': swiperSlide,
-            'arrow': Arrow
+            'arrow': Arrow,
+            'counter': Counter,
+            'coupon-bg': CouponBg
         },
         data: function () {
             return {

@@ -214,7 +214,7 @@ body.tmp_2 {
     background-size: 18.333rem 16.388rem;
     background-image: url("../images/2/18.png");
     background-repeat: no-repeat; }
-    .tmp-second-page .red-zebra-wrap:before, .tmp-second-page .red-zebra-wrap:after {
+    .tmp-second-page .red-zebra-wrap:before {
       content: "";
       position: absolute;
       left: 50%;
@@ -227,14 +227,27 @@ body.tmp_2 {
       background-size: 19.861rem 15.222rem;
       background-image: url("../images/2/15.png");
       background-repeat: no-repeat; }
-    .tmp-second-page .red-zebra-wrap:after {
-      width: 20rem;
-      height: 4.027rem;
-      bottom: -1.1rem;
-      z-index: -1;
-      background-size: 20rem 4.027rem;
-      background-image: url("../images/2/17.png");
-      background-repeat: no-repeat; }
+  .tmp-second-page .decorate-bottom-snow:after, .tmp-second-page .decorate-top-snow:before {
+    content: "";
+    position: absolute;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+            transform: translateX(-50%);
+    width: 20rem; }
+  .tmp-second-page .decorate-bottom-snow:after {
+    height: 4.027rem;
+    bottom: -1.1rem;
+    z-index: -1;
+    background-size: 20rem 4.027rem;
+    background-image: url("../images/2/17.png");
+    background-repeat: no-repeat; }
+  .tmp-second-page .decorate-top-snow:before {
+    height: 3.5rem;
+    top: -2.2rem;
+    z-index: 1;
+    background-size: 20rem 3.5rem;
+    background-image: url("../images/2/25.png");
+    background-repeat: no-repeat; }
   .tmp-second-page .new-tech-slide .tech-header {
     position: absolute;
     width: 10.556rem;
@@ -474,15 +487,134 @@ body.tmp_2 {
       color: #bd7c2d;
       font-size: 0.667rem; }
   .tmp-second-page .video-wrap {
+    position: relative;
     height: 15.139rem;
     width: 19.056rem;
-    margin: 2.222rem auto 0; }
+    margin: 2.222rem auto 0;
+    border: 0.278rem solid #fff;
+    border-radius: 0.4rem; }
     .tmp-second-page .video-wrap > div {
-      width: 18.556rem;
-      height: 14rem;
-      margin: 0.527rem auto;
-      border: 1px solid #594363;
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      border: 1px solid #fff;
       background: #000; }
     .tmp-second-page .video-wrap video {
       width: 100%;
       height: 100%; }
+    .tmp-second-page .video-wrap:after {
+      bottom: -1.8rem; }
+  .tmp-second-page .act-wrap {
+    width: 17.833rem;
+    height: 18.028rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 1rem;
+    background: rgba(203, 23, 31, 0.8); }
+    .tmp-second-page .act-wrap .grab-btn {
+      width: 15.889rem;
+      height: 2.278rem;
+      line-height: 2.278rem;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      font-size: 1rem;
+      color: #fff;
+      font-weight: bold;
+      letter-spacing: 1px;
+      background-size: 15.889rem 2.278rem;
+      background-image: url("../images/2/26.png");
+      background-repeat: no-repeat; }
+  .tmp-second-page .time-limit-wrap {
+    padding-top: 0.556rem; }
+    .tmp-second-page .time-limit-wrap > div:nth-of-type(1) {
+      width: 6.333rem;
+      height: 6.333rem;
+      margin: 0 auto;
+      background-size: 6.333rem 6.333rem;
+      background-repeat: no-repeat;
+      border-radius: 0.4rem;
+      border: 0.083rem solid #fff; }
+    .tmp-second-page .time-limit-wrap > div.text-wrap {
+      margin-top: 0.944rem; }
+      .tmp-second-page .time-limit-wrap > div.text-wrap > div {
+        text-align: center; }
+        .tmp-second-page .time-limit-wrap > div.text-wrap > div:nth-of-type(1) {
+          color: #fff;
+          font-size: 1.111rem; }
+        .tmp-second-page .time-limit-wrap > div.text-wrap > div:nth-of-type(2) {
+          margin-top: 0.3rem;
+          color: #fff;
+          font-size: 1.083rem; }
+          .tmp-second-page .time-limit-wrap > div.text-wrap > div:nth-of-type(2) strong {
+            margin: 0 0.1rem;
+            font-size: 1.5rem;
+            font-weight: normal; }
+          .tmp-second-page .time-limit-wrap > div.text-wrap > div:nth-of-type(2) b {
+            font-size: 1.278rem;
+            color: #ffe301;
+            font-weight: normal;
+            margin: 0 0.1rem; }
+        .tmp-second-page .time-limit-wrap > div.text-wrap > div:nth-of-type(3) {
+          line-height: 2.0;
+          color: #fff;
+          font-size: 0.833rem;
+          text-decoration: line-through; }
+        .tmp-second-page .time-limit-wrap > div.text-wrap > div:nth-of-type(4) {
+          font-size: 0.772rem;
+          color: #fff; }
+          .tmp-second-page .time-limit-wrap > div.text-wrap > div:nth-of-type(4) b {
+            font-weight: normal;
+            color: #ffe301;
+            margin: 0 0.15rem; }
+          .tmp-second-page .time-limit-wrap > div.text-wrap > div:nth-of-type(4) span {
+            color: #ccc;
+            margin-left: 0.5rem; }
+    .tmp-second-page .time-limit-wrap > div.grab-btn {
+      margin-top: 0.6rem; }
+  .tmp-second-page .coupon-wrap {
+    padding-top: 3.361rem; }
+    .tmp-second-page .coupon-wrap .coupon {
+      position: relative;
+      width: 14.944rem;
+      height: 9.694rem;
+      margin-left: auto;
+      margin-right: auto;
+      z-index: 0; }
+      .tmp-second-page .coupon-wrap .coupon canvas {
+        position: absolute;
+        width: 14.944rem;
+        height: 9.694rem;
+        top: 0;
+        left: 0;
+        z-index: -1; }
+      .tmp-second-page .coupon-wrap .coupon > div {
+        margin-left: 1.194rem;
+        color: #ee6904;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; }
+        .tmp-second-page .coupon-wrap .coupon > div:nth-of-type(1) {
+          height: 2.389rem;
+          line-height: 2.5rem;
+          width: 9.167rem;
+          margin-left: 1.167rem;
+          color: #fff;
+          font-size: 1.056rem; }
+        .tmp-second-page .coupon-wrap .coupon > div:nth-of-type(2) {
+          margin-top: 0.611rem;
+          line-height: 1;
+          font-size: 3.5rem;
+          margin-left: 0.55rem;
+          font-weight: bold; }
+        .tmp-second-page .coupon-wrap .coupon > div:nth-of-type(3) {
+          display: inline-block;
+          height: 1.167rem;
+          font-size: 0.778rem;
+          background-color: #ffd69b;
+          line-height: 1.167rem; }
+        .tmp-second-page .coupon-wrap .coupon > div:nth-of-type(4) {
+          font-size: 0.667rem;
+          line-height: 1.1; }
+    .tmp-second-page .coupon-wrap .grab-btn {
+      margin-top: 1.472rem; }

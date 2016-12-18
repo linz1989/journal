@@ -112,7 +112,7 @@
     import PageTitle from './pageTitle'
     import WormButton from './wormButton'
     import CouponBg from './couponBg'
-    import Counter from './counter'
+    import Counter from '../counter'
     import { Global } from '../../libs/global'
 
     module.exports = {
