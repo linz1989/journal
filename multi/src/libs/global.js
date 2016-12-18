@@ -108,7 +108,7 @@ exports.Global = {
         var itemObj
         var k
 
-        /* items.push({ // 视频测试
+        items.push({ // 视频测试
             itemKey: '05',
             title: '我的视频',
             details: {
@@ -117,7 +117,7 @@ exports.Global = {
             }
         })
 
-        items.push({ // 活动文字测试
+        /* items.push({ // 活动文字测试
             itemKey: '08',
             title: '活动文字测试',
             details: {

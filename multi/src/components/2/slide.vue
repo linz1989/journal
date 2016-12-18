@@ -13,13 +13,30 @@
                 </div>
             </template>
             <template v-if="slideObj.category=='service-item'"><!-- 最新项目 -->
-                <div class="service-item-wrap" v-if="slideObj.leftService">
+                <div class="service-item-wrap" v-if="slideObj.leftService" :style="{'margin-top' : 0.5+marginRem+'rem'}">
                     <div class="service-img" :style="slideObj.leftService.styleObj" @click="doClickServiceItem(slideObj.leftService.id)"></div>
                     <div class="text-wrap">
                         <div>{{ slideObj.leftService.name }}</div>
-                        <div><arrow></arrow><strong>{{ slideObj.leftService.price }}元</strong>/{{ slideObj.leftService.duration }}{{ slideObj.leftService.durationUnit }}</div>
+                        <div><arrow></arrow><strong>{{ slideObj.leftService.price }}</strong>元/{{ slideObj.leftService.duration }}{{ slideObj.leftService.durationUnit }}</div>
+                        <div>加钟：30元/10分钟</div>
                     </div>
-                    <div>{{ slideObj.leftService.description }}</div>
+                    <div class="service-desc">{{ slideObj.leftService.description }}</div>
+                </div>
+            </template>
+            <template v-if="slideObj.category=='tech-list'"><!-- 服务之星 -->
+                <div class="tech-info-wrap" v-for="(tech,index) in slideObj.techs" :class="'t'+index">
+                    <div class="default-img-bg" :style="tech.imgStyle" @click="doClickChatBtn(tech.techId)"><div class=""></div></div>
+                    <div>{{ tech.techName }}<span v-show="tech.techNo">[{{ tech.techNo }}号]</span></div>
+                    <div>{{ tech.description || '这个技师很懒，未写介绍...'}}</div>
+                    <div>客人印象:<span v-for="imp in tech.impressions" v-show="imp && imp!='null'">#{{ imp }}</span></div>
+                    <div v-if="tech.serviceItems.length>0">{{ tech.serviceItems[0] }}</div>
+                </div>
+            </template>
+            <template v-if="slideObj.category=='video'"><!-- 视频 -->
+                <div class="video-wrap">
+                    <video ref="techVideo" class="video-js vjs-default-skin vjs-big-play-centered" controls preload="metadata" width="100%" height="100%" :poster="slideObj.poster" data-setup="{}">
+                        <source :src="slideObj.video" type="video/mp4" />
+                    </video>
                 </div>
             </template>
         </div>
@@ -85,9 +102,33 @@
                     }
                     that.marginRem = marginRem
                     that.wrapHeight = that.wrapHeight + marginRem
-                    console.log('marginRem：' + marginRem)
+                    // console.log('marginRem：' + marginRem)
                     if (slideObj.category == 'tech-list' || (slideObj.category == 'act' && (slideObj.type == 'coupon' || slideObj.type == 'timeLimit'))) {
                         that.pageTitleMarginBottom = marginRem * 0.7
+                    }
+                }
+
+                if (slideObj.category == 'video') {
+                    var techVideoEle = that.$refs.techVideo
+                    var player = videojs(techVideoEle)
+
+                    var music = document.querySelector('#bgAudio')
+                    var musicIcon = document.querySelector('.music-icon')
+                    if (music) {
+                        player.on('play', function () { // console.log('开始/恢复播放,暂停音乐')
+                            if (musicIcon.getAttribute('paused') != 1) {
+                                music.pause()
+                                musicIcon.classList.remove('act')
+                            }
+                        })
+                        player.on('ended', function () { // console.log('播放结束')
+                            music.play()
+                            musicIcon.classList.add('act')
+                        })
+                        player.on('pause', function () { // console.log('播放暂停')
+                            music.play()
+                            musicIcon.classList.add('act')
+                        })
                     }
                 }
             })

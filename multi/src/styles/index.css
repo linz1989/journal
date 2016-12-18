@@ -3107,9 +3107,14 @@ body.tmp_2 {
   .tmp-second-page .new-tech-slide .tech-desc {
     text-align: center;
     font-size: 0.833rem;
-    color: #935710; }
+    color: #935710;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
   .tmp-second-page .new-tech-slide .service-list {
-    margin: 0.5rem auto 0;
+    margin: 0.35rem auto 0;
     text-align: center; }
     .tmp-second-page .new-tech-slide .service-list > div {
       display: inline-block;
@@ -3135,22 +3140,27 @@ body.tmp_2 {
     background-size: 1.278rem 3.472rem;
     background-image: url("../images/2/21.png");
     background-repeat: no-repeat; }
-    .tmp-second-page .new-tech-slide .chat-btn:before {
-      content: "点我聊聊";
+    .tmp-second-page .new-tech-slide .chat-btn:before, .tmp-second-page .new-tech-slide .chat-btn:after {
       position: absolute;
       width: 4.194rem;
       height: 4.111rem;
-      color: #935710;
-      font-size: 0.722rem;
       top: -2.7rem;
       left: -2.05rem;
-      padding: 1.4rem 1.2rem 0;
-      line-height: 1.1;
-      text-align: center;
-      box-sizing: border-box;
+      box-sizing: border-box; }
+    .tmp-second-page .new-tech-slide .chat-btn:before {
+      content: "";
       background-size: 4.194rem 4.111rem;
       background-image: url("../images/2/22.png");
       background-repeat: no-repeat; }
+    .tmp-second-page .new-tech-slide .chat-btn:after {
+      content: "点我聊聊";
+      color: #935710;
+      font-size: 0.722rem;
+      padding: 1.4rem 1.2rem 0;
+      -webkit-transform: translate(-0.1rem, 0.1rem) rotate(-15deg);
+              transform: translate(-0.1rem, 0.1rem) rotate(-15deg);
+      line-height: 1.1;
+      text-align: center; }
   .tmp-second-page .service-item-wrap {
     width: 18.639rem;
     margin-left: auto;
@@ -3167,30 +3177,149 @@ body.tmp_2 {
       background-clip: padding-box;
       float: left; }
     .tmp-second-page .service-item-wrap .text-wrap {
+      position: relative;
       width: 6.805rem;
       margin-left: 0.416rem;
       padding-top: 1.611rem;
       float: left; }
-      .tmp-second-page .service-item-wrap .text-wrap > div:nth-of-type(1) {
-        position: relative;
-        color: #c87c10;
-        font-size: 1.111rem; }
-        .tmp-second-page .service-item-wrap .text-wrap > div:nth-of-type(1):before {
-          content: "";
+      .tmp-second-page .service-item-wrap .text-wrap:before {
+        content: "";
+        position: absolute;
+        width: 1.167rem;
+        height: 1.083rem;
+        top: 0.6111rem;
+        left: 0.5rem;
+        background-size: 1.167rem 1.083rem;
+        background-image: url("../images/2/23.png");
+        background-repeat: no-repeat; }
+      .tmp-second-page .service-item-wrap .text-wrap > div {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap; }
+        .tmp-second-page .service-item-wrap .text-wrap > div:nth-of-type(1) {
+          padding-left: 0.5rem;
+          color: #c87c10;
+          font-size: 1.111rem; }
+        .tmp-second-page .service-item-wrap .text-wrap > div:nth-of-type(2) {
+          position: relative;
+          width: 6.833rem;
+          height: 1.528rem;
+          margin-top: 0.5rem;
+          z-index: 0;
+          color: #fff;
+          font-size: 0.778rem;
+          padding-left: 0.67rem; }
+          .tmp-second-page .service-item-wrap .text-wrap > div:nth-of-type(2) > strong {
+            font-weight: normal;
+            font-size: 1.333rem; }
+          .tmp-second-page .service-item-wrap .text-wrap > div:nth-of-type(2) > canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6.833rem;
+            height: 1.528rem;
+            z-index: -1; }
+        .tmp-second-page .service-item-wrap .text-wrap > div:nth-of-type(3) {
+          padding-left: 0.5rem;
+          margin-top: 0.65rem;
+          font-size: 0.778rem;
+          color: #f76f54; }
+    .tmp-second-page .service-item-wrap .service-desc {
+      clear: both;
+      padding-top: 0.7rem;
+      font-size: 0.833rem;
+      color: #935710;
+      word-wrap: break-word;
+      line-height: 1.5;
+      display: -webkit-box;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: block-axis;
+      word-break: break-all; }
+  .tmp-second-page .tech-info-wrap {
+    position: relative;
+    height: 5.5rem;
+    width: 18.638rem;
+    background: #fdecd2;
+    border-radius: 0.4rem;
+    padding: 0.333rem 0.333rem 0.333rem 5.139rem;
+    margin: 0.611rem auto 0; }
+    .tmp-second-page .tech-info-wrap > div:nth-of-type(1) {
+      position: absolute;
+      width: 4.361rem;
+      height: 4.833rem;
+      top: 0.333rem;
+      left: 0.3889rem;
+      background-size: 4.361rem 4.833rem;
+      background-repeat: no-repeat;
+      border: 0.083rem solid #ffc24c;
+      border-radius: 0.5rem; }
+      .tmp-second-page .tech-info-wrap > div:nth-of-type(1) > div {
+        position: absolute;
+        width: 2.9358rem;
+        height: 2.8777rem;
+        top: -1.3rem;
+        left: -1.5rem;
+        background-size: 2.9358rem 2.8777rem;
+        background-image: url("../images/2/22.png");
+        background-repeat: no-repeat; }
+        .tmp-second-page .tech-info-wrap > div:nth-of-type(1) > div:before {
           position: absolute;
-          width: 1.167rem;
-          height: 1.083rem;
-          top: -1.1rem;
-          left: 0;
-          background-size: 1.167rem 1.083rem;
-          background-image: url("../images/2/23.png");
-          background-repeat: no-repeat; }
-      .tmp-second-page .service-item-wrap .text-wrap > div:nth-of-type(2) {
-        position: relative; }
-        .tmp-second-page .service-item-wrap .text-wrap > div:nth-of-type(2) > canvas {
-          position: absolute;
-          top: 0;
-          width: 0; }
+          content: "点我聊聊";
+          top: 0.75rem;
+          left: 0.75rem;
+          width: 1.5rem;
+          height: 1.8rem;
+          line-height: 0.7rem;
+          color: #b46c17;
+          font-size: 0.5rem;
+          -webkit-transform: scale(0.9) rotate(-20deg);
+                  transform: scale(0.9) rotate(-20deg); }
+    .tmp-second-page .tech-info-wrap > div:nth-of-type(2) {
+      font-size: 0.889rem;
+      color: #0e8545;
+      max-width: 9.056rem;
+      line-height: 2.5;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; }
+    .tmp-second-page .tech-info-wrap > div:nth-of-type(3) {
+      line-height: 1.5;
+      font-size: 0.722rem;
+      color: #bd7c2b; }
+    .tmp-second-page .tech-info-wrap > div:nth-of-type(4) {
+      font-size: 0.667rem;
+      color: #bd7c2b; }
+      .tmp-second-page .tech-info-wrap > div:nth-of-type(4) > span {
+        color: #f34023;
+        margin-left: 0.3rem; }
+    .tmp-second-page .tech-info-wrap > div:nth-of-type(5) {
+      position: absolute;
+      width: 5.083rem;
+      height: 2.472rem;
+      top: -0.444rem;
+      right: -0.3056rem;
+      padding-top: 1rem;
+      text-align: center;
+      background-size: 5.083rem 2.472rem;
+      background-image: url("../images/2/24.png");
+      background-repeat: no-repeat;
+      color: #bd7c2d;
+      font-size: 0.667rem; }
+  .tmp-second-page .video-wrap {
+    height: 15.139rem;
+    width: 19.056rem;
+    margin: 2.222rem auto 0; }
+    .tmp-second-page .video-wrap > div {
+      width: 18.556rem;
+      height: 14rem;
+      margin: 0.527rem auto;
+      border: 1px solid #594363;
+      background: #000; }
+    .tmp-second-page .video-wrap video {
+      width: 100%;
+      height: 100%; }
 
 body {
   position: relative;

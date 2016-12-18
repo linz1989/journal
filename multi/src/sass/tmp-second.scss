@@ -291,10 +291,13 @@ body{
       text-align: center;
       font-size: 0.833rem;
       color: #935710;
+      margin-left: 1rem;
+      margin-right:1rem;
+      @include sl();
     }
 
     .service-list{
-      margin: 0.5rem auto 0;
+      margin: 0.35rem auto 0;
       text-align: center;
       >div{
         display: inline-block;
@@ -317,20 +320,26 @@ body{
       right: 1.45rem;
       top: 5.833rem;
       @include img("../images/2/21.png",1.278rem 3.472rem);
-      &:before{
-        content: "点我聊聊";
+      &:before,&:after{
         position: absolute;
         width: 4.194rem;
         height: 4.111rem;
-        color: #935710;
-        font-size: 0.722rem;
         top:-2.7rem;
         left: -2.05rem;
+        box-sizing: border-box;
+      }
+      &:before{
+        content: "";
+        @include img("../images/2/22.png",4.194rem 4.111rem);
+      }
+      &:after{
+        content: "点我聊聊";
+        color: #935710;
+        font-size: 0.722rem;
         padding:1.4rem 1.2rem 0;
+        transform: translate(-0.1rem,0.1rem) rotate(-15deg);
         line-height: 1.1;
         text-align: center;
-        box-sizing: border-box;
-        @include img("../images/2/22.png",4.194rem 4.111rem);
       }
     }
   }
@@ -351,30 +360,40 @@ body{
       float: left;
     }
     .text-wrap{
+      position: relative;
       width: 6.805rem;
       margin-left:0.416rem;
       padding-top:1.611rem;
       float: left;
+      &:before{
+        content: "";
+        position: absolute;
+        width: 1.167rem;
+        height: 1.083rem;
+        top: 0.6111rem;
+        left:0.5rem;
+        @include img("../images/2/23.png",1.167rem 1.083rem);
+      }
       >div{
+        @include sl();
         &:nth-of-type(1){
-          position: relative;
+          padding-left:0.5rem;
           color: #c87c10;
           font-size: 1.111rem;
-          &:before{
-            content: "";
-            position: absolute;
-            width: 1.167rem;
-            height: 1.083rem;
-            top: -1.1rem;
-            left:0;
-            @include img("../images/2/23.png",1.167rem 1.083rem);
-          }
         }
         &:nth-of-type(2){
           position: relative;
           width: 6.833rem;
           height: 1.528rem;
+          margin-top:0.5rem;
           z-index:0;
+          color: #fff;
+          font-size:0.778rem;
+          padding-left:0.67rem;
+          >strong{
+            font-weight: normal;
+            font-size: 1.333rem;
+          }
           >canvas{
             position: absolute;
             top:0;
@@ -384,7 +403,115 @@ body{
             z-index: -1;
           }
         }
+        &:nth-of-type(3){
+          padding-left:0.5rem;
+          margin-top:0.65rem;
+          font-size: 0.778rem;
+          color: #f76f54;
+        }
       }
+    }
+
+    .service-desc{
+      clear: both;
+      padding-top:0.7rem;
+      font-size: 0.833rem;
+      color: #935710;
+      word-wrap: break-word;
+      line-height: 1.5;
+      // text-indent: 1.666rem;
+      @include slh(4);
+    }
+  }
+
+  .tech-info-wrap{
+    position: relative;
+    height: 5.5rem;
+    width:18.638rem;
+    background: #fdecd2;
+    border-radius: 0.4rem;
+    padding:0.333rem 0.333rem 0.333rem 5.139rem;
+    margin:0.611rem auto 0;
+    >div{
+      &:nth-of-type(1){
+        position: absolute;
+        width: 4.361rem;
+        height: 4.833rem;
+        top: 0.333rem;
+        left: 0.3889rem;
+        @include imgBgFix(4.361rem 4.833rem);
+        border: 0.083rem solid #ffc24c;
+        border-radius: 0.5rem;
+        >div{
+          position: absolute;
+          width: 2.9358rem;
+          height: 2.8777rem;
+          top: -1.3rem;
+          left: -1.5rem;
+          @include img("../images/2/22.png",2.9358rem 2.8777rem);
+          &:before{
+            position: absolute;
+            content: "点我聊聊";
+            top:0.75rem;
+            left:0.75rem;
+            width:1.5rem;
+            height:1.8rem;
+            line-height: 0.7rem;
+            color: #b46c17;
+            font-size: 0.5rem;
+            transform: scale(0.9) rotate(-20deg);
+          }
+        }
+      }
+      &:nth-of-type(2){
+        font-size: 0.889rem;
+        color: #0e8545;
+        max-width: 9.056rem;
+        line-height: 2.5;
+        @include sl();
+      }
+      &:nth-of-type(3){
+        line-height: 1.5;
+        font-size: 0.722rem;
+        color: #bd7c2b;
+      }
+      &:nth-of-type(4){
+        font-size: 0.667rem;
+        color: #bd7c2b;
+        >span{
+          color: #f34023;
+          margin-left: 0.3rem;
+        }
+      }
+      &:nth-of-type(5){
+        position: absolute;
+        width: 5.083rem;
+        height: 2.472rem;
+        top: -0.444rem;
+        right: -0.3056rem;
+        padding-top:1rem;
+        text-align: center;
+        @include img("../images/2/24.png",5.083rem 2.472rem);
+        color: #bd7c2d;
+        font-size: 0.667rem;
+      }
+    }
+  }
+
+  .video-wrap{
+    height:15.139rem;
+    width:19.056rem;
+    margin:2.222rem auto 0;
+    >div{
+      width:18.556rem;
+      height:14rem;
+      margin:0.527rem auto;
+      border:1px solid #594363;
+      background: #000;
+    }
+    video{
+      width:100%;
+      height:100%;
     }
   }
 }
