@@ -540,12 +540,16 @@ body{
   }
 
   .act-wrap{
+    position: relative;
     width: 17.833rem;
     height:18.028rem;
     margin-left:auto;
     margin-right: auto;
     border-radius: 1rem;
     background: rgba(203,23,31,0.8);
+    &:before{
+      top: -2rem;
+    }
 
     .grab-btn{
       width: 15.889rem;
@@ -562,8 +566,8 @@ body{
     }
   }
 
-  .time-limit-wrap{
-    padding-top: 0.556rem;
+  .time-limit-wrap,.one-yuan-wrap{
+    padding-top: 1.5rem;
     >div:nth-of-type(1){
       width: 6.333rem;
       height: 6.333rem;
@@ -572,6 +576,9 @@ body{
       border-radius: 0.4rem;
       border: 0.083rem solid #fff;
     }
+  }
+
+  .time-limit-wrap{
     >div.text-wrap{
       margin-top:0.944rem;
       >div{
@@ -619,6 +626,42 @@ body{
     }
     >div.grab-btn{
       margin-top: 0.6rem;
+    }
+  }
+
+  .one-yuan-wrap{
+    >div.text-wrap{
+      >div{
+        text-align: center;
+        &:nth-of-type(1){
+          font-size: 1.111rem;
+          margin-top: 1.389rem;
+          color: #fff;
+        }
+        &:nth-of-type(2){
+          width:12.278rem;
+          height:0.333rem;
+          border-radius: 0.5rem;
+          background-color: #fff;
+          margin:0.8rem auto 0.5rem;
+          >div{
+            height:100%;
+            border-radius: 0.5rem;
+            background-color: #ffc450;
+            transition: width 1s 10s ease-out;
+          }
+        }
+        &:nth-of-type(3){
+          color: #fff;
+          font-size: 0.833rem;
+          >span{
+            color: #ffe301;
+          }
+        }
+      }
+    }
+    >div.grab-btn{
+      margin-top: 0.8rem;
     }
   }
 
@@ -673,6 +716,41 @@ body{
     }
     .grab-btn{
       margin-top: 1.472rem;
+    }
+  }
+
+  .health-wrap{
+    width: 18.472rem;
+    height: 18.389rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.389rem 1.944rem;
+    font-size: 0.889rem;
+    color: #72251b;
+    line-height: 1.3rem;
+    @include img("../images/2/27.png", 18.472rem 18.389rem);
+  }
+
+  .actDesc-slide{
+    .red-zebra-wrap{
+      padding:1.667rem 1.388rem;
+      font-size: 0.778rem;
+      color: #72251b;
+      line-height: 1.3rem;
+    }
+    .act-time{
+      position: absolute;
+      width: 9.888rem;
+      height: 1.278rem;
+      left:50%;
+      bottom: -2rem;
+      margin-left: -4.944rem;
+      line-height: 1.278rem;
+      text-align: center;
+      color: #fff;
+      font-size: 0.778rem;
+      background: #119b53;
+      border-radius: 0.4rem;
     }
   }
 }

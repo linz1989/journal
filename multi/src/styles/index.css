@@ -3339,12 +3339,15 @@ body.tmp_2 {
     .tmp-second-page .video-wrap:after {
       bottom: -1.8rem; }
   .tmp-second-page .act-wrap {
+    position: relative;
     width: 17.833rem;
     height: 18.028rem;
     margin-left: auto;
     margin-right: auto;
     border-radius: 1rem;
     background: rgba(203, 23, 31, 0.8); }
+    .tmp-second-page .act-wrap:before {
+      top: -2rem; }
     .tmp-second-page .act-wrap .grab-btn {
       width: 15.889rem;
       height: 2.278rem;
@@ -3359,9 +3362,9 @@ body.tmp_2 {
       background-size: 15.889rem 2.278rem;
       background-image: url("../images/2/26.png");
       background-repeat: no-repeat; }
-  .tmp-second-page .time-limit-wrap {
-    padding-top: 0.556rem; }
-    .tmp-second-page .time-limit-wrap > div:nth-of-type(1) {
+  .tmp-second-page .time-limit-wrap, .tmp-second-page .one-yuan-wrap {
+    padding-top: 1.5rem; }
+    .tmp-second-page .time-limit-wrap > div:nth-of-type(1), .tmp-second-page .one-yuan-wrap > div:nth-of-type(1) {
       width: 6.333rem;
       height: 6.333rem;
       margin: 0 auto;
@@ -3369,43 +3372,68 @@ body.tmp_2 {
       background-repeat: no-repeat;
       border-radius: 0.4rem;
       border: 0.083rem solid #fff; }
-    .tmp-second-page .time-limit-wrap > div.text-wrap {
-      margin-top: 0.944rem; }
-      .tmp-second-page .time-limit-wrap > div.text-wrap > div {
-        text-align: center; }
-        .tmp-second-page .time-limit-wrap > div.text-wrap > div:nth-of-type(1) {
-          color: #fff;
-          font-size: 1.111rem; }
-        .tmp-second-page .time-limit-wrap > div.text-wrap > div:nth-of-type(2) {
-          margin-top: 0.3rem;
-          color: #fff;
-          font-size: 1.083rem; }
-          .tmp-second-page .time-limit-wrap > div.text-wrap > div:nth-of-type(2) strong {
-            margin: 0 0.1rem;
-            font-size: 1.5rem;
-            font-weight: normal; }
-          .tmp-second-page .time-limit-wrap > div.text-wrap > div:nth-of-type(2) b {
-            font-size: 1.278rem;
-            color: #ffe301;
-            font-weight: normal;
-            margin: 0 0.1rem; }
-        .tmp-second-page .time-limit-wrap > div.text-wrap > div:nth-of-type(3) {
-          line-height: 2.0;
-          color: #fff;
-          font-size: 0.833rem;
-          text-decoration: line-through; }
-        .tmp-second-page .time-limit-wrap > div.text-wrap > div:nth-of-type(4) {
-          font-size: 0.772rem;
-          color: #fff; }
-          .tmp-second-page .time-limit-wrap > div.text-wrap > div:nth-of-type(4) b {
-            font-weight: normal;
-            color: #ffe301;
-            margin: 0 0.15rem; }
-          .tmp-second-page .time-limit-wrap > div.text-wrap > div:nth-of-type(4) span {
-            color: #ccc;
-            margin-left: 0.5rem; }
-    .tmp-second-page .time-limit-wrap > div.grab-btn {
-      margin-top: 0.6rem; }
+  .tmp-second-page .time-limit-wrap > div.text-wrap {
+    margin-top: 0.944rem; }
+    .tmp-second-page .time-limit-wrap > div.text-wrap > div {
+      text-align: center; }
+      .tmp-second-page .time-limit-wrap > div.text-wrap > div:nth-of-type(1) {
+        color: #fff;
+        font-size: 1.111rem; }
+      .tmp-second-page .time-limit-wrap > div.text-wrap > div:nth-of-type(2) {
+        margin-top: 0.3rem;
+        color: #fff;
+        font-size: 1.083rem; }
+        .tmp-second-page .time-limit-wrap > div.text-wrap > div:nth-of-type(2) strong {
+          margin: 0 0.1rem;
+          font-size: 1.5rem;
+          font-weight: normal; }
+        .tmp-second-page .time-limit-wrap > div.text-wrap > div:nth-of-type(2) b {
+          font-size: 1.278rem;
+          color: #ffe301;
+          font-weight: normal;
+          margin: 0 0.1rem; }
+      .tmp-second-page .time-limit-wrap > div.text-wrap > div:nth-of-type(3) {
+        line-height: 2.0;
+        color: #fff;
+        font-size: 0.833rem;
+        text-decoration: line-through; }
+      .tmp-second-page .time-limit-wrap > div.text-wrap > div:nth-of-type(4) {
+        font-size: 0.772rem;
+        color: #fff; }
+        .tmp-second-page .time-limit-wrap > div.text-wrap > div:nth-of-type(4) b {
+          font-weight: normal;
+          color: #ffe301;
+          margin: 0 0.15rem; }
+        .tmp-second-page .time-limit-wrap > div.text-wrap > div:nth-of-type(4) span {
+          color: #ccc;
+          margin-left: 0.5rem; }
+  .tmp-second-page .time-limit-wrap > div.grab-btn {
+    margin-top: 0.6rem; }
+  .tmp-second-page .one-yuan-wrap > div.text-wrap > div {
+    text-align: center; }
+    .tmp-second-page .one-yuan-wrap > div.text-wrap > div:nth-of-type(1) {
+      font-size: 1.111rem;
+      margin-top: 1.389rem;
+      color: #fff; }
+    .tmp-second-page .one-yuan-wrap > div.text-wrap > div:nth-of-type(2) {
+      width: 12.278rem;
+      height: 0.333rem;
+      border-radius: 0.5rem;
+      background-color: #fff;
+      margin: 0.8rem auto 0.5rem; }
+      .tmp-second-page .one-yuan-wrap > div.text-wrap > div:nth-of-type(2) > div {
+        height: 100%;
+        border-radius: 0.5rem;
+        background-color: #ffc450;
+        -webkit-transition: width 1s 10s ease-out;
+        transition: width 1s 10s ease-out; }
+    .tmp-second-page .one-yuan-wrap > div.text-wrap > div:nth-of-type(3) {
+      color: #fff;
+      font-size: 0.833rem; }
+      .tmp-second-page .one-yuan-wrap > div.text-wrap > div:nth-of-type(3) > span {
+        color: #ffe301; }
+  .tmp-second-page .one-yuan-wrap > div.grab-btn {
+    margin-top: 0.8rem; }
   .tmp-second-page .coupon-wrap {
     padding-top: 3.361rem; }
     .tmp-second-page .coupon-wrap .coupon {
@@ -3452,6 +3480,36 @@ body.tmp_2 {
           line-height: 1.1; }
     .tmp-second-page .coupon-wrap .grab-btn {
       margin-top: 1.472rem; }
+  .tmp-second-page .health-wrap {
+    width: 18.472rem;
+    height: 18.389rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 1.389rem 1.944rem;
+    font-size: 0.889rem;
+    color: #72251b;
+    line-height: 1.3rem;
+    background-size: 18.472rem 18.389rem;
+    background-image: url("../images/2/27.png");
+    background-repeat: no-repeat; }
+  .tmp-second-page .actDesc-slide .red-zebra-wrap {
+    padding: 1.667rem 1.388rem;
+    font-size: 0.778rem;
+    color: #72251b;
+    line-height: 1.3rem; }
+  .tmp-second-page .actDesc-slide .act-time {
+    position: absolute;
+    width: 9.888rem;
+    height: 1.278rem;
+    left: 50%;
+    bottom: -2rem;
+    margin-left: -4.944rem;
+    line-height: 1.278rem;
+    text-align: center;
+    color: #fff;
+    font-size: 0.778rem;
+    background: #119b53;
+    border-radius: 0.4rem; }
 
 body {
   position: relative;

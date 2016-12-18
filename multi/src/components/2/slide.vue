@@ -40,7 +40,7 @@
                 </div>
             </template>
             <template v-if="slideObj.category=='act' && slideObj.type=='timeLimit'"><!-- 活动 -抢项目-->
-                <div class="act-wrap time-limit-wrap" :style="{ 'margin-top' : (pageTitleMarginBottom>0.9 ? 0.9 : pageTitleMarginBottom) +'rem' }">
+                <div class="act-wrap time-limit-wrap decorate-top-snow" :style="{ 'margin-top' : (pageTitleMarginBottom>0.9 ? 0.9 : pageTitleMarginBottom) +'rem' }">
                     <div class="default-img-bg" :style="slideObj.imgStyle"></div>
                     <div class="text-wrap">
                         <div>{{ slideObj.data.actName }}</div>
@@ -52,7 +52,7 @@
                 </div>
             </template>
             <template v-if="slideObj.category=='act' && slideObj.type=='coupon'"><!-- 活动 -优惠券-->
-                <div class="act-wrap coupon-wrap">
+                <div class="act-wrap coupon-wrap decorate-top-snow" :style="{ 'margin-top' : (pageTitleMarginBottom>0.9 ? 0.9 : pageTitleMarginBottom) +'rem' }">
                     <div class="coupon">
                         <coupon-bg :coupon-type="slideObj.data.couponType"></coupon-bg>
                         <div>{{ slideObj.data.actName }}</div>
@@ -62,6 +62,24 @@
                     </div>
                     <div class="grab-btn" @click="doClickBtnOfCouponAct()">马上抢</div>
                 </div>
+            </template>
+            <template v-if="slideObj.category=='act' && (slideObj.type=='oneYuan' || slideObj.type=='plumFlower')"><!-- 活动 -一元抢-->
+                <div class="act-wrap one-yuan-wrap decorate-top-snow" :style="{ 'margin-top' : (pageTitleMarginBottom>0.9 ? 0.9 : pageTitleMarginBottom) +'rem' }">
+                    <div class="default-img-bg" :style="slideObj.imgStyle"></div>
+                    <div class="text-wrap">
+                        <div>{{ slideObj.data.actName }}</div>
+                        <div><div class="ani one-yuan-count" :progress="slideObj.data.actPaidAmount/slideObj.data.actPrice*100"></div></div>
+                        <div>已抢：<span>{{ slideObj.data.actPaidAmount }}/{{ slideObj.data.actPrice }}</span></div>
+                    </div>
+                    <div class="grab-btn" @click="doClickBtnOfOneYuanAct()">马上抢</div>
+                </div>
+            </template>
+            <template v-if="slideObj.category=='health'"><!-- 养身频道-->
+                <div class="health-wrap" v-html="slideObj.content" ref="healthContent" @touchmove="doTouchMoveContent($event)"></div>
+            </template>
+            <template v-if="slideObj.category=='actDesc'"><!--活动文字-->
+                <div class="red-zebra-wrap" v-html="slideObj.content" ref="actDescContent" @touchmove="doTouchMoveContent($event)" :style="{'margin-top' : 0.7+marginRem+'rem'}"></div>
+                <div class="act-time" v-show="slideObj.actTime">{{ slideObj.actTime }}</div>
             </template>
         </div>
     </swiper-slide>
@@ -131,7 +149,7 @@
                     that.marginRem = marginRem
                     that.wrapHeight = that.wrapHeight + marginRem
                     // console.log('marginRem：' + marginRem)
-                    if (slideObj.category == 'tech-list' || (slideObj.category == 'act' && (slideObj.type == 'coupon' || slideObj.type == 'timeLimit'))) {
+                    if (slideObj.category == 'tech-list' || (slideObj.category == 'act')) {
                         that.pageTitleMarginBottom = marginRem * 0.7
                     }
                 }

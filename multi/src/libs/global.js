@@ -117,7 +117,27 @@ exports.Global = {
             }
         })
 
-        /* items.push({ // 活动文字测试
+        items.push({ // 养身频道
+            itemKey: '07',
+            title: '养身频道',
+            details: {
+                content: '养身频道养身频道养身频道养身频道养身频道养身频道养身频道'
+            }
+        })
+
+        /* items.push({
+            itemKey: '06',
+            title: '优惠活动',
+            details: [{
+                actId: '747733920899952640',
+                actImgUrl: 'http://sdcm210:8489/s/group00/M00/00/58/oIYBAFdyTRaAFBPjAAExHdyXhCY850.png?st=Oi8KvSJP3ztTGe38N_F-BA&e=1482199394',
+                actName: 'dd2',
+                actPaidAmount: 3,
+                actPrice: 200,
+                actType: 'plumFlower'}]
+        }) */
+
+        items.push({ // 活动文字测试
             itemKey: '08',
             title: '活动文字测试',
             details: {
@@ -125,7 +145,7 @@ exports.Global = {
                 startTime: '2016-05-01',
                 endTime: '2016-05-06'
             }
-        }) */
+        })
 
         for (var i = 0; i < items.length; i++) {
             itemData = items[i]
@@ -222,9 +242,6 @@ exports.Global = {
                     itemObj.clubId = res.clubId
                     if (itemObj.type == 'timeLimit' || itemObj.type == 'oneYuan' || itemObj.type == 'plumFlower') {
                         itemObj.imgStyle = subItemData.actImgUrl ? { 'background-image': 'url(' + subItemData.actImgUrl + ')' } : {}
-                    }
-                    if (subItemData.endDate) {
-                        subItemData.endDate = subItemData.endDate + 40 * 24 * 60 * 60 * 1000
                     }
                     slideData.push(itemObj)
                 }
