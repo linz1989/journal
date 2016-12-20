@@ -1,0 +1,66 @@
+<html>
+<head>
+    <style>
+        body{
+            background-color: #6acfe7;
+        }
+        #like-button{
+            width:340px;
+            height:104px;
+            border: 1px solid #ccc;
+        }
+    </style>
+    <script type="text/javascript">
+        function init(){
+            var ctx = document.querySelector('#like-button').getContext('2d')
+            drawRoundRect({ctx: ctx, top: 0, left: 0, width: 340, height: 104, radius: 52, fillStyle: '#fff'})
+            var delt = 6
+            drawRoundRect({ctx: ctx, top: delt, left: delt, width: 340 - 2 * delt, height: 104 - 2 * delt, radius: 47, strokeStyle: '#ddd'})
+            delt = 14
+            drawRoundRect({ctx: ctx, top: delt, left: delt, width: 340 - 2 * delt, height: 104 - 2 * delt, radius: 41, fillStyle: '#fe3918'})
+            delt = 20
+            drawRoundRect({ctx: ctx, top: delt, left: delt, width: 340 - 2 * delt, height: 104 - 2 * delt, radius: 32, fillStyle: '#ff724c '})
+            drawRoundRect({ctx: ctx, top: delt, left: delt, width: 340 - 2 * delt, height: 104 - 2 * delt- 4, radius: 32, fillStyle: '#e12f19 '})
+        }
+
+        function drawRoundRect(option){
+            var ctx = option.ctx
+            var top = option.top
+            var left = option.left
+            var radius = option.radius
+            var rectW = option.width
+            var rectH = option.height
+            var right = left + rectW
+            var bottom = top + rectH
+
+            ctx.beginPath()
+            if (option.strokeStyle) {
+                ctx.strokeStyle = option.strokeStyle
+            }
+            if (option.fillStyle) {
+                ctx.fillStyle = option.fillStyle
+            }
+            ctx.moveTo(left, top + radius)
+            ctx.arcTo(left, top, left + radius, top, radius)
+            ctx.lineTo(right - radius, top)
+            ctx.arcTo(right, top, right, top + radius, radius)
+
+            ctx.arcTo(right, bottom, right - radius, bottom, radius)
+            ctx.lineTo(left + radius, bottom)
+            ctx.arcTo(left, bottom, left, bottom - radius, radius)
+            ctx.lineTo(left, top + radius)
+            ctx.closePath()
+
+            if (option.strokeStyle) {
+                ctx.stroke()
+            }
+            if (option.fillStyle) {
+                ctx.fill()
+            }
+        }
+    </script>
+</head>
+<body onload="init()">
+    <canvas id="like-button" width="340" height="104"></canvas>
+</body>
+</html>

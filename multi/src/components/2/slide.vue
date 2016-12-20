@@ -1,8 +1,26 @@
 <template>
     <swiper-slide class="common-slide" :class="slideCls">
-        <div class="wrap" :style="{ height : wrapHeight+'rem', 'margin-top' : -(wrapHeight/2+1.5)+'rem' }">
+        <div v-if="isIndex">
+            <!--左侧的圣诞树-->
+            <div class="left-tree ani"></div>
+            <!--右侧的圣诞树-->
+            <div class="right-tree ani"></div>
+            <!--中间的圣诞树-->
+            <div class="main-tree ani" ref="mainTree"></div>
+            <!--统计数据：点赞数 浏览数-->
+            <div class="statistic-data ani">
+                <div>{{ global.journalData.likeCount }}</div>
+                <div>{{ global.journalData.viewCount }}</div>
+            </div>
+            <!--圣诞老人-->
+            <div class="santa ani" ref="santaMan">
+                <div>{{ global.journalData.title }}</div>
+                <div>{{ global.journalData.subTitle }}</div>
+            </div>
+        </div>
+        <div v-else class="wrap" :style="{ height : wrapHeight+'rem', 'margin-top' : -(wrapHeight/2+1.5)+'rem' }">
             <div v-if="!isOver" class="page-title" :style="{ 'margin-bottom' : pageTitleMarginBottom+'rem' }">{{ slideObj.title }}</div>
-            <div v-else class="page-end-title ani">更多精彩去网上会所看看吧</div>
+            <last-title v-else class="page-end-title"></last-title>
             <template v-if="slideObj.category=='new-tech'"><!-- 闪亮新人 -->
                 <div class="red-zebra-wrap tech-info decorate-bottom-snow" :style="{'margin-top' : 0.7+marginRem+'rem'}">
                     <div class="tech-header" v-if="slideObj.avatarUrl" :style="{ 'background-image' : 'url('+slideObj.avatarUrl+')' }" @click="doClickChatBtn(slideObj.techId)"></div>
@@ -18,13 +36,13 @@
                     <div class="text-wrap">
                         <div>{{ slideObj.leftService.name }}</div>
                         <div><arrow></arrow><strong>{{ slideObj.leftService.price }}</strong>元/{{ slideObj.leftService.duration }}{{ slideObj.leftService.durationUnit }}</div>
-                        <div>加钟：30元/10分钟</div>
+                       <!-- <div>加钟：30元/10分钟</div>-->
                     </div>
                     <div class="service-desc">{{ slideObj.leftService.description }}</div>
                 </div>
             </template>
             <template v-if="slideObj.category=='tech-list'"><!-- 服务之星 -->
-                <div class="tech-info-wrap" v-for="(tech,index) in slideObj.techs" :class="'t'+index">
+                <div class="tech-info-wrap" v-for="(tech,index) in slideObj.techs" :class="'t'+index+(tech.serviceItems.length>0 ? '' : ' no-item')">
                     <div class="default-img-bg" :style="tech.imgStyle" @click="doClickChatBtn(tech.techId)"><div class=""></div></div>
                     <div>{{ tech.techName }}<span v-show="tech.techNo">[{{ tech.techNo }}号]</span></div>
                     <div>{{ tech.description || '这个技师很懒，未写介绍...'}}</div>
@@ -68,7 +86,7 @@
                     <div class="default-img-bg" :style="slideObj.imgStyle"></div>
                     <div class="text-wrap">
                         <div>{{ slideObj.data.actName }}</div>
-                        <div><div class="ani one-yuan-count" :progress="slideObj.data.actPaidAmount/slideObj.data.actPrice*100"></div></div>
+                        <div><div class="one-yuan-count" :progress="slideObj.data.actPaidAmount/slideObj.data.actPrice*100"></div></div>
                         <div>已抢：<span>{{ slideObj.data.actPaidAmount }}/{{ slideObj.data.actPrice }}</span></div>
                     </div>
                     <div class="grab-btn" @click="doClickBtnOfOneYuanAct()">马上抢</div>
@@ -78,10 +96,21 @@
                 <div class="health-wrap" v-html="slideObj.content" ref="healthContent" @touchmove="doTouchMoveContent($event)"></div>
             </template>
             <template v-if="slideObj.category=='actDesc'"><!--活动文字-->
-                <div class="red-zebra-wrap" v-html="slideObj.content" ref="actDescContent" @touchmove="doTouchMoveContent($event)" :style="{'margin-top' : 0.7+marginRem+'rem'}"></div>
+                <div class="red-zebra-wrap decorate-bottom-snow" v-html="slideObj.content" ref="actDescContent" @touchmove="doTouchMoveContent($event)" :style="{'margin-top' : 0.7+marginRem+'rem'}"></div>
                 <div class="act-time" v-show="slideObj.actTime">{{ slideObj.actTime }}</div>
             </template>
+            <template v-if="slideObj.category=='end'">
+                <div class="qr-code"><img :src="qrCodeImgUrl"/></div>
+                <div class="attention-tip">长按识别二维码关注</div>
+            </template>
         </div>
+        <like-button v-if="!isIndex" :category="isOver ? 'club' : global.likeStatus" :class="{ 'over': isOver }" :club-id="slideObj.clubId"></like-button>
+        <like-button category="share" v-if="isOver"></like-button>
+        <template v-if="slideObj.category=='tech-pics'"><!-- 技师相册 -->
+            <swiper :options="picSwiperOption" class="pic-wrap" v-if="slideObj.pics.length>0">
+                <swiper-slide v-for="pic in slideObj.pics"><div class="swiper-zoom-container"><img :src="pic"/></div></swiper-slide>
+            </swiper>
+        </template>
     </swiper-slide>
 </template>
 
@@ -91,6 +120,8 @@
     import Arrow from './arrow'
     import Counter from '../counter'
     import CouponBg from './couponBg'
+    import LastTitle from './lastTitle'
+    import LikeButton from './likeButton'
 
     module.exports = {
         components: {
@@ -98,7 +129,9 @@
             'swiper-slide': swiperSlide,
             'arrow': Arrow,
             'counter': Counter,
-            'coupon-bg': CouponBg
+            'coupon-bg': CouponBg,
+            'last-title': LastTitle,
+            'like-button': LikeButton
         },
         data: function () {
             return {
@@ -109,13 +142,42 @@
                 needScrollWrap: false,
                 wrapHeight: 22,
                 marginRem: 0,
-                pageTitleMarginBottom: 0
+                pageTitleMarginBottom: 0,
+                picSwiperOption: {
+                    effect: 'coverflow',
+                    slidesPerView: 2,
+                    centeredSlides: true,
+                    observeParents: true,
+                    loop: true,
+                    zoom: true,
+                    zoomMax: 2,
+                    coverflow: {
+                        rotate: 30,
+                        stretch: 15,
+                        depth: 60,
+                        modifier: 2,
+                        slideShadows: false
+                    },
+                    onInit: function (swiper) {
+                        setTimeout(function () {
+                            swiper.reLoop()
+                            swiper.slideNext(null, 1)
+                            setTimeout(function () {
+                                swiper.slidePrev(null, 1)
+                            }, 500)
+                        }, 500)
+                    }
+                }
             }
         },
         computed: {
             slideCls: function () {
                 var thisData = this.slideObj
-                return thisData.category + '-slide' + (thisData.type ? ' ' + thisData.type : '')
+                if (this.isIndex) {
+                    return ''
+                } else {
+                    return 'common-slide ' + thisData.category + '-slide' + (thisData.type ? ' ' + thisData.type : '')
+                }
             }
         },
         props: {
@@ -124,6 +186,10 @@
                 required: true
             },
             isOver: {
+                type: Boolean,
+                default: false
+            },
+            isIndex: {
                 type: Boolean,
                 default: false
             }
@@ -148,9 +214,11 @@
                     }
                     that.marginRem = marginRem
                     that.wrapHeight = that.wrapHeight + marginRem
-                    // console.log('marginRem：' + marginRem)
-                    if (slideObj.category == 'tech-list' || (slideObj.category == 'act')) {
-                        that.pageTitleMarginBottom = marginRem * 0.7
+                    if (slideObj.category == 'act') {
+                        that.pageTitleMarginBottom = marginRem * 0.5
+                    }
+                    if (slideObj.category == 'tech-list') {
+                        that.pageTitleMarginBottom = marginRem * 0.1
                     }
                 }
 
@@ -176,6 +244,24 @@
                             musicIcon.classList.add('act')
                         })
                     }
+                } else if (slideObj.category == 'end') {
+                    that.wrapHeight = 21
+                    that.getClubQrCodeImg()
+                } else if (slideObj.category == 'actDesc') {
+                    var actDescContent = that.$refs.actDescContent
+                    if (actDescContent.scrollHeight > actDescContent.offsetHeight) {
+                        that.needScrollWrap = true // 滑动的时候需要滑动内容
+                    }
+                } else if (slideObj.category == 'health') {
+                    var healthContent = that.$refs.healthContent
+                    if (healthContent.scrollHeight > healthContent.offsetHeight) {
+                        that.needScrollWrap = true
+                    }
+                }
+
+                if (that.isIndex) {
+                    that.$refs.mainTree.style.backgroundImage = 'url(./images/2/7.png)'
+                    that.$refs.santaMan.style.backgroundImage = 'url(./images/2/8.png)'
                 }
             })
         },

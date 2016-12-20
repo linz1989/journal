@@ -16,7 +16,7 @@ exports.Global = {
     pageQuery: {},
     pageName: '',
     tip: null,  // tip show元素
-    loading: false,
+    loading: true,
     baseWidth: null,                           // 页面加载时窗口初始宽度，用于计算页面 scale
     winWidth: null,                             // 页面内容容器的当前宽度--固定20rem
     winHeight: null,                            // 页面的高度

@@ -1,12 +1,16 @@
 @charset "UTF-8";
 body.tmp_2 {
-  background: -webkit-linear-gradient(top, #fc4d25, #d1101a);
-  background: linear-gradient(to bottom, #fc4d25, #d1101a); }
+  background: -webkit-linear-gradient(top, #fb4b25 60%, #d1101a 100%);
+  background: linear-gradient(to bottom, #fb4b25 60%, #d1101a 100%); }
+  body.tmp_2.common {
+    background: url("../images/2/snow-bg.jpg") no-repeat, #d91b1c;
+    background-size: 20rem 24.611rem, cover; }
 
 .tmp-second-page {
   height: 100%;
   position: relative;
-  background: url("../images/2/5.png") no-repeat left 0 bottom 0;
+  background-repeat: no-repeat;
+  background-position: left 0 bottom 0;
   background-size: 20rem 4.416rem; }
   .tmp-second-page:before, .tmp-second-page:after {
     content: "";
@@ -23,7 +27,7 @@ body.tmp_2 {
   .tmp-second-page:after {
     width: 3.306rem;
     height: 5.778rem;
-    bottom: 2.944rem;
+    bottom: 2rem;
     right: 0;
     background-size: 3.306rem 5.778rem;
     background-image: url("../images/2/13.png");
@@ -31,13 +35,21 @@ body.tmp_2 {
   .tmp-second-page.common:before, .tmp-second-page.common:after {
     opacity: 1; }
   .tmp-second-page header {
-    display: none;
     position: absolute;
     height: 3.333rem;
     top: 0.306rem;
     left: 50%;
     width: 20rem;
-    margin-left: -10rem; }
+    margin-left: -10rem;
+    z-index: 10;
+    display: none;
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+            transform: translateY(-100%);
+    -webkit-transition: opacity 0.3s 2s, -webkit-transform 0.3s 2s ease-out;
+    transition: opacity 0.3s 2s, -webkit-transform 0.3s 2s ease-out;
+    transition: opacity 0.3s 2s, transform 0.3s 2s ease-out;
+    transition: opacity 0.3s 2s, transform 0.3s 2s ease-out, -webkit-transform 0.3s 2s ease-out; }
     .tmp-second-page header > div:nth-of-type(1) {
       width: 3.333rem;
       height: 3.333rem;
@@ -80,21 +92,39 @@ body.tmp_2 {
         background-repeat: no-repeat; }
     .tmp-second-page header.act {
       display: block; }
+    .tmp-second-page header.show {
+      opacity: 1;
+      -webkit-transform: translateY(0);
+              transform: translateY(0); }
+  .tmp-second-page .center-circle {
+    position: absolute;
+    width: 21.333rem;
+    height: 21.333rem;
+    top: -3.8rem;
+    left: 50%;
+    margin-left: -10.6665rem;
+    opacity: 0;
+    -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%; }
+    .tmp-second-page .center-circle.act {
+      -webkit-animation: opacity-scale-ani 0.3s ease-out forwards;
+              animation: opacity-scale-ani 0.3s ease-out forwards; }
   .tmp-second-page .statistic-data {
     position: absolute;
     width: 4.611rem;
     height: 8.75rem;
     top: 4.111rem;
     right: 0.167rem;
-    padding-top: 4.2rem;
+    padding-top: 4.255rem;
     background-size: 4.611rem 8.75rem;
     background-image: url("../images/2/4.png");
-    background-repeat: no-repeat; }
+    background-repeat: no-repeat;
+    opacity: 0; }
     .tmp-second-page .statistic-data > div {
       width: 3.583rem;
       height: 2.083rem;
       line-height: 2.083rem;
-      padding-left: 1.556rem;
+      padding-left: 1.563rem;
       margin: 0.083rem auto 0;
       font-size: 0.778rem;
       color: #faefcc; }
@@ -109,28 +139,29 @@ body.tmp_2 {
       background-size: 2.361rem 2.833rem;
       background-image: url("../images/2/2.png");
       background-repeat: no-repeat; }
-  .tmp-second-page .bottom-snow {
-    position: absolute;
-    width: 20rem;
-    height: 4.416rem;
-    left: 0;
-    bottom: 0;
-    background-size: 20rem 4.416rem;
-    background-image: url("../images/2/5.png");
-    background-repeat: no-repeat; }
+    .tmp-second-page .statistic-data.act {
+      -webkit-animation: right-show-ani 0.4s 2.1s ease-out forwards;
+              animation: right-show-ani 0.4s 2.1s ease-out forwards; }
   .tmp-second-page .left-tree, .tmp-second-page .right-tree {
     position: absolute;
     width: 10.916rem;
     height: 11.638rem;
     bottom: 9rem;
-    opacity: 0.5;
     background-size: 10.916rem 11.638rem;
     background-image: url("../images/2/10.png");
     background-repeat: no-repeat; }
   .tmp-second-page .left-tree {
-    left: -3.8rem; }
+    left: -3.8rem;
+    opacity: 0; }
+    .tmp-second-page .left-tree.act {
+      -webkit-animation: left-show-ani 0.4s 0.8s ease-out forwards;
+              animation: left-show-ani 0.4s 0.8s ease-out forwards; }
   .tmp-second-page .right-tree {
-    right: -3.8rem; }
+    right: -3.8rem;
+    opacity: 0; }
+    .tmp-second-page .right-tree.act {
+      -webkit-animation: right-show-ani 0.4s 1.2s ease-out forwards;
+              animation: right-show-ani 0.4s 1.2s ease-out forwards; }
   .tmp-second-page .main-tree {
     position: absolute;
     width: 20rem;
@@ -138,8 +169,10 @@ body.tmp_2 {
     left: 0;
     bottom: 6.027rem;
     background-size: 20rem 23rem;
-    background-image: url("../images/2/7.png");
-    background-repeat: no-repeat; }
+    background-repeat: no-repeat;
+    -webkit-transform-origin: 50% 100%;
+            transform-origin: 50% 100%;
+    opacity: 0; }
     .tmp-second-page .main-tree:after {
       content: "";
       position: absolute;
@@ -151,6 +184,9 @@ body.tmp_2 {
       background-size: 8.444rem 9.388rem;
       background-image: url("../images/2/6.png");
       background-repeat: no-repeat; }
+    .tmp-second-page .main-tree.act {
+      -webkit-animation: opacity-scale-ani 0.5s 0.3s ease-out forwards;
+              animation: opacity-scale-ani 0.5s 0.3s ease-out forwards; }
   .tmp-second-page .santa {
     position: absolute;
     width: 17.861rem;
@@ -159,9 +195,9 @@ body.tmp_2 {
     left: 50%;
     margin-left: -8.9305rem;
     background-size: 17.861rem 18.528rem;
-    background-image: url("../images/2/8.png");
     background-repeat: no-repeat;
-    padding-top: 9.944rem; }
+    padding-top: 9.944rem;
+    opacity: 0; }
     .tmp-second-page .santa > div {
       text-align: center;
       width: 14.444rem;
@@ -186,6 +222,9 @@ body.tmp_2 {
       background-size: 2.416rem 3.222rem;
       background-image: url("../images/2/3.png");
       background-repeat: no-repeat; }
+    .tmp-second-page .santa.act {
+      -webkit-animation: bottom-show-ani 0.5s 1.6s ease-out forwards;
+              animation: bottom-show-ani 0.5s 1.6s ease-out forwards; }
   .tmp-second-page .slide-arrow {
     width: 1.916rem;
     height: 1rem;
@@ -358,6 +397,7 @@ body.tmp_2 {
     .tmp-second-page .service-item-wrap .text-wrap {
       position: relative;
       width: 6.805rem;
+      margin-top: 1.5rem;
       margin-left: 0.416rem;
       padding-top: 1.611rem;
       float: left; }
@@ -446,23 +486,24 @@ body.tmp_2 {
         .tmp-second-page .tech-info-wrap > div:nth-of-type(1) > div:before {
           position: absolute;
           content: "点我聊聊";
-          top: 0.75rem;
-          left: 0.75rem;
-          width: 1.5rem;
+          top: 0.78rem;
+          left: 0.90rem;
+          width: 1.4rem;
           height: 1.8rem;
           line-height: 0.7rem;
           color: #b46c17;
           font-size: 0.5rem;
           -webkit-transform: scale(0.9) rotate(-20deg);
                   transform: scale(0.9) rotate(-20deg); }
+    .tmp-second-page .tech-info-wrap > div:nth-of-type(2), .tmp-second-page .tech-info-wrap > div:nth-of-type(3) {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; }
     .tmp-second-page .tech-info-wrap > div:nth-of-type(2) {
       font-size: 0.889rem;
       color: #0e8545;
       max-width: 9.056rem;
-      line-height: 2.5;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap; }
+      line-height: 2.4; }
     .tmp-second-page .tech-info-wrap > div:nth-of-type(3) {
       line-height: 1.5;
       font-size: 0.722rem;
@@ -486,6 +527,8 @@ body.tmp_2 {
       background-repeat: no-repeat;
       color: #bd7c2d;
       font-size: 0.667rem; }
+    .tmp-second-page .tech-info-wrap.no-item > div:nth-of-type(2) {
+      max-width: 12.5rem; }
   .tmp-second-page .video-wrap {
     position: relative;
     height: 15.139rem;
@@ -506,12 +549,13 @@ body.tmp_2 {
       bottom: -1.8rem; }
   .tmp-second-page .act-wrap {
     position: relative;
-    width: 17.833rem;
+    width: 17.806rem;
     height: 18.028rem;
     margin-left: auto;
     margin-right: auto;
-    border-radius: 1rem;
-    background: rgba(203, 23, 31, 0.8); }
+    background-size: 17.806rem 18.028rem;
+    background-image: url("../images/2/35.png");
+    background-repeat: no-repeat; }
     .tmp-second-page .act-wrap:before {
       top: -2rem; }
     .tmp-second-page .act-wrap .grab-btn {
@@ -664,15 +708,117 @@ body.tmp_2 {
     color: #72251b;
     line-height: 1.3rem; }
   .tmp-second-page .actDesc-slide .act-time {
-    position: absolute;
+    position: relative;
     width: 9.888rem;
     height: 1.278rem;
-    left: 50%;
-    bottom: -2rem;
-    margin-left: -4.944rem;
+    margin: -1.2rem auto 0;
     line-height: 1.278rem;
     text-align: center;
     color: #fff;
     font-size: 0.778rem;
     background: #119b53;
-    border-radius: 0.4rem; }
+    border-radius: 0.4rem;
+    z-index: 3; }
+  .tmp-second-page .page-end-title {
+    display: block;
+    width: 16.3889rem;
+    height: 3.056rem;
+    margin: 0 auto; }
+  .tmp-second-page .qr-code {
+    width: 15.833rem;
+    height: 14.722rem;
+    margin: 0.7rem auto 0;
+    padding-top: 2.1rem;
+    text-align: center;
+    background-size: 15.833rem 14.722rem;
+    background-image: url("../images/2/30.png");
+    background-repeat: no-repeat; }
+    .tmp-second-page .qr-code > img {
+      width: 10rem;
+      height: 10rem; }
+  .tmp-second-page .attention-tip {
+    height: 2.139rem;
+    width: 14rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2.611rem;
+    line-height: 2.139rem;
+    color: #fff;
+    font-size: 1.056rem;
+    font-weight: bold;
+    background-size: 2.111rem 2.139rem;
+    background-image: url("../images/2/29.png");
+    background-repeat: no-repeat; }
+  .tmp-second-page .bottom-btn {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    font-weight: bold;
+    color: #fff;
+    font-size: 1rem;
+    -webkit-filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
+            filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5)); }
+    .tmp-second-page .bottom-btn > canvas {
+      position: absolute;
+      width: inherit;
+      height: inherit;
+      top: 0;
+      left: 0;
+      z-index: -1; }
+    .tmp-second-page .bottom-btn:before, .tmp-second-page .bottom-btn:after {
+      content: "";
+      position: absolute; }
+  .tmp-second-page .like-btn, .tmp-second-page .liked-btn {
+    width: 9.444rem;
+    height: 2.889rem;
+    margin-left: -4.722rem;
+    line-height: 2.8rem;
+    padding-left: 4.444rem; }
+    .tmp-second-page .like-btn:after, .tmp-second-page .liked-btn:after {
+      width: 1.306rem;
+      height: 1.25rem;
+      top: 0.75rem;
+      left: 2.806rem;
+      background-size: 1.306rem 1.25rem;
+      background-image: url("../images/2/31.png");
+      background-repeat: no-repeat; }
+    .tmp-second-page .like-btn:before, .tmp-second-page .liked-btn:before {
+      width: 2.694rem;
+      height: 3.889rem;
+      left: -1.944rem;
+      top: -1.111rem;
+      z-index: -2;
+      background-size: 2.694rem 3.889rem;
+      background-image: url("../images/2/33.png");
+      background-repeat: no-repeat; }
+  .tmp-second-page .club-btn, .tmp-second-page .share-btn {
+    width: 6.833rem;
+    height: 2.111rem;
+    line-height: 1.89rem;
+    padding-left: 2.972rem; }
+  .tmp-second-page .club-btn {
+    margin-left: -7.389rem; }
+    .tmp-second-page .club-btn:after {
+      width: 1.306rem;
+      height: 1.25rem;
+      top: 0.333rem;
+      left: 1.25rem;
+      background-size: 1.306rem 1.25rem;
+      background-image: url("../images/2/34.png");
+      background-repeat: no-repeat; }
+  .tmp-second-page .share-btn {
+    margin-left: 0.556rem; }
+    .tmp-second-page .share-btn:after {
+      width: 1.333rem;
+      height: 1.388rem;
+      top: 0.3rem;
+      left: 1.2rem;
+      background-size: 1.333rem 1.388rem;
+      background-image: url("../images/2/32.png");
+      background-repeat: no-repeat; }
+  .tmp-second-page div.share-pop > div.center {
+    background: #fc4d25; }
+  .tmp-second-page .snow {
+    position: absolute;
+    top: 0;
+    left: 0; }

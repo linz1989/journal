@@ -2,14 +2,20 @@
 
 body{
   &.tmp_2{
-    background: linear-gradient(to bottom, #fc4d25, #d1101a);
+    background:linear-gradient(to bottom,#fb4b25 60%, #d1101a 100%);
+    &.common{
+      background: url("../images/2/snow-bg.jpg") no-repeat, #d91b1c;
+      background-size: 20rem 24.611rem, cover;
+    }
   }
 }
 
 .tmp-second-page{
   height:100%;
   position: relative;
-  background: url("../images/2/5.png") no-repeat left 0 bottom 0;
+  //background: url("../images/2/5.png") no-repeat left 0 bottom 0;
+  background-repeat: no-repeat;
+  background-position: left 0 bottom 0;
   background-size: 20rem 4.416rem;
   &:before,&:after{
     content: "";
@@ -26,7 +32,7 @@ body{
   &:after{
     width:3.306rem;
     height:5.778rem;
-    bottom:2.944rem;
+    bottom:2rem;
     right:0;
     @include img("../images/2/13.png",3.306rem 5.778rem);
   }
@@ -37,13 +43,17 @@ body{
   }
 
   header{
-    display: none;
     position: absolute;
     height: 3.333rem;
     top:0.306rem;
     left:50%;
     width:20rem;
     margin-left:-10rem;
+    z-index: 10;
+    display: none;
+    opacity: 0;
+    transform: translateY(-100%);
+    transition: opacity 0.3s 2s, transform 0.3s 2s ease-out;
     >div{
       &:nth-of-type(1){
         width: 3.333rem;
@@ -91,6 +101,24 @@ body{
     &.act{
       display: block;
     }
+    &.show{
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .center-circle{
+    position: absolute;
+    width: 21.333rem;
+    height: 21.333rem;
+    top: -3.8rem;
+    left: 50%;
+    margin-left: -10.6665rem;
+    opacity: 0;
+    transform-origin: 50% 50%;
+    &.act{
+      animation: opacity-scale-ani 0.3s ease-out forwards;
+    }
   }
 
   .statistic-data{
@@ -99,13 +127,14 @@ body{
     height:8.75rem;
     top:4.111rem;
     right:0.167rem;
-    padding-top:4.2rem;
+    padding-top:4.255rem;
     @include img("../images/2/4.png",4.611rem 8.75rem);
+    opacity: 0;
     >div{
       width:3.583rem;
       height:2.083rem;
       line-height: 2.083rem;
-      padding-left:1.556rem;
+      padding-left:1.563rem;
       margin:0.083rem auto 0;
       font-size:0.778rem;
       color:#faefcc;
@@ -120,15 +149,9 @@ body{
       margin-left:-1.1805rem;
       @include img("../images/2/2.png",2.361rem 2.833rem);
     }
-  }
-
-  .bottom-snow{
-    position: absolute;
-    width:20rem;
-    height:4.416rem;
-    left:0;
-    bottom:0;
-    @include img("../images/2/5.png",20rem 4.416rem);
+    &.act{
+      animation: right-show-ani 0.4s 2.1s ease-out forwards;
+    }
   }
 
   .left-tree,.right-tree{
@@ -136,16 +159,23 @@ body{
     width:10.916rem;
     height:11.638rem;
     bottom:9rem;
-    opacity:0.5;
     @include img("../images/2/10.png",10.916rem 11.638rem);
   }
 
   .left-tree{
     left:-3.8rem;
+    opacity: 0;
+    &.act{
+      animation: left-show-ani 0.4s 0.8s ease-out forwards;
+    }
   }
 
   .right-tree{
     right:-3.8rem;
+    opacity: 0;
+    &.act{
+      animation: right-show-ani 0.4s 1.2s ease-out forwards;
+    }
   }
 
   .main-tree{
@@ -154,7 +184,10 @@ body{
     height:23rem;
     left:0;
     bottom:6.027rem;
-    @include img("../images/2/7.png",20rem 23rem);
+    //@include img("../images/2/7.png",20rem 23rem);
+    @include imgBgFix(20rem 23rem);
+    transform-origin: 50% 100%;
+    opacity: 0;
     &:after{
       content: "";
       position: absolute;
@@ -165,6 +198,9 @@ body{
       margin-left:-4.36rem;
       @include img("../images/2/6.png",8.444rem 9.388rem);
     }
+    &.act{
+      animation: opacity-scale-ani 0.5s 0.3s ease-out forwards;
+    }
   }
 
   .santa{
@@ -174,8 +210,10 @@ body{
     bottom:0;
     left:50%;
     margin-left:-8.9305rem;
-    @include img("../images/2/8.png",17.861rem 18.528rem);
+    @include imgBgFix(17.861rem 18.528rem);
+    //@include img("../images/2/8.png",17.861rem 18.528rem);
     padding-top:9.944rem;
+    opacity: 0;
     >div{
       text-align: center;
       width:14.444rem;
@@ -199,6 +237,9 @@ body{
       left:2.5rem;
       top:6.9rem;
       @include img("../images/2/3.png",2.416rem 3.222rem);
+    }
+    &.act{
+      animation: bottom-show-ani 0.5s 1.6s ease-out forwards;
     }
   }
 
@@ -380,6 +421,7 @@ body{
     .text-wrap{
       position: relative;
       width: 6.805rem;
+      margin-top: 1.5rem;
       margin-left:0.416rem;
       padding-top:1.611rem;
       float: left;
@@ -470,9 +512,9 @@ body{
           &:before{
             position: absolute;
             content: "点我聊聊";
-            top:0.75rem;
-            left:0.75rem;
-            width:1.5rem;
+            top:0.78rem;
+            left:0.90rem;
+            width:1.4rem;
             height:1.8rem;
             line-height: 0.7rem;
             color: #b46c17;
@@ -481,12 +523,14 @@ body{
           }
         }
       }
+      &:nth-of-type(2),&:nth-of-type(3){
+        @include sl();
+      }
       &:nth-of-type(2){
         font-size: 0.889rem;
         color: #0e8545;
         max-width: 9.056rem;
-        line-height: 2.5;
-        @include sl();
+        line-height: 2.4;
       }
       &:nth-of-type(3){
         line-height: 1.5;
@@ -512,6 +556,11 @@ body{
         @include img("../images/2/24.png",5.083rem 2.472rem);
         color: #bd7c2d;
         font-size: 0.667rem;
+      }
+    }
+    &.no-item{
+      >div:nth-of-type(2){
+        max-width: 12.5rem;
       }
     }
   }
@@ -541,12 +590,11 @@ body{
 
   .act-wrap{
     position: relative;
-    width: 17.833rem;
+    width: 17.806rem;
     height:18.028rem;
     margin-left:auto;
     margin-right: auto;
-    border-radius: 1rem;
-    background: rgba(203,23,31,0.8);
+    @include img("../images/2/35.png",17.806rem 18.028rem);
     &:before{
       top: -2rem;
     }
@@ -739,18 +787,133 @@ body{
       line-height: 1.3rem;
     }
     .act-time{
-      position: absolute;
+      position: relative;
       width: 9.888rem;
       height: 1.278rem;
-      left:50%;
-      bottom: -2rem;
-      margin-left: -4.944rem;
+      margin:-1.2rem auto 0;
       line-height: 1.278rem;
       text-align: center;
       color: #fff;
       font-size: 0.778rem;
       background: #119b53;
       border-radius: 0.4rem;
+      z-index: 3;
     }
+  }
+
+  .page-end-title{
+    display: block;
+    width: 16.3889rem;
+    height: 3.056rem;
+    margin: 0 auto;
+  }
+
+  .qr-code{
+    width: 15.833rem;
+    height: 14.722rem;
+    margin: 0.7rem auto 0;
+    padding-top: 2.1rem;
+    text-align: center;
+    @include img("../images/2/30.png", 15.833rem 14.722rem);
+    >img{
+      width: 10rem;
+      height: 10rem;
+    }
+  }
+
+  .attention-tip{
+    height: 2.139rem;
+    width: 14rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 2.611rem;
+    line-height: 2.139rem;
+    color: #fff;
+    font-size: 1.056rem;
+    font-weight: bold;
+    @include img("../images/2/29.png", 2.111rem 2.139rem);
+  }
+
+  .bottom-btn{
+    position: absolute;
+    bottom:2rem;
+    left:50%;
+    font-weight: bold;
+    color: #fff;
+    font-size: 1rem;
+    filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.5));
+    >canvas{
+      position: absolute;
+      width: inherit;
+      height: inherit;
+      top:0;
+      left:0;
+      z-index: -1;
+    }
+    &:before,&:after{
+      content: "";
+      position: absolute;
+    }
+  }
+
+  .like-btn,.liked-btn{
+    width: 9.444rem;
+    height: 2.889rem;
+    margin-left: -4.722rem;
+    line-height: 2.8rem;
+    padding-left: 4.444rem;
+    &:after{
+      width: 1.306rem;
+      height: 1.25rem;
+      top: 0.75rem;
+      left: 2.806rem;
+      @include img("../images/2/31.png",1.306rem 1.25rem);
+    }
+    &:before{
+      width: 2.694rem;
+      height: 3.889rem;
+      left: -1.944rem;
+      top: -1.111rem;
+      z-index: -2;
+      @include img("../images/2/33.png", 2.694rem 3.889rem);
+    }
+  }
+
+  .club-btn,.share-btn{
+    width: 6.833rem;
+    height: 2.111rem;
+    line-height: 1.89rem;
+    padding-left: 2.972rem;
+  }
+
+  .club-btn{
+    margin-left: -7.389rem;
+    &:after{
+      width: 1.306rem;
+      height: 1.25rem;
+      top: 0.333rem;
+      left: 1.25rem;
+      @include img("../images/2/34.png",1.306rem 1.25rem);
+    }
+  }
+  .share-btn{
+    margin-left: 0.556rem;
+    &:after{
+      width: 1.333rem;
+      height: 1.388rem;
+      top: 0.3rem;
+      left: 1.2rem;
+      @include img("../images/2/32.png",1.333rem 1.388rem);
+    }
+  }
+
+  div.share-pop>div.center{
+    background: #fc4d25;
+  }
+
+  .snow{
+    position: absolute;
+    top:0;
+    left:0;
   }
 }

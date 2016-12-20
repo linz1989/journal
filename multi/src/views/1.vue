@@ -1,9 +1,9 @@
 <!--模板样式一-->
 <template>
-    <div @transitionend="doHandlerTransitionEnd($event)" class="tmp-first-page">
+    <div @transitionend="doHandlerTransitionEnd($event)" class="tmp-first-page" @touchstart="doTouchPage()">
         <div class="stars" ref="stars"><div></div><div></div><div></div><div></div><div></div><div></div></div>
         <div ref="musicIcon" class="music-icon" @click="doClickMusicIcon()"></div>
-        <audio loop="loop" id="bgAudio" ref="bgAudio" @loadeddata="doLoadedMusic()"></audio>
+        <audio loop="loop" preload="auto" autoplay id="bgAudio" ref="bgAudio" :src='audioSrc' @loadeddata="doLoadedMusic()"></audio>
         <template v-show="!global.loading">
             <header class="page-header" ref="indexPageHeader" @click="doGoToClub()">
                 <div v-if="data.clubImgUrl" class="logo" :style="{ 'background-image' : 'url('+data.clubImgUrl+')' }"></div>
@@ -46,7 +46,7 @@
 </template>
 <script>
     import { Global } from '../libs/global'
-    import Share from '../components/1/share'
+    import Share from '../components/share'
     import Slide from '../components/1/slide'
 
     // 额外的变量定义
@@ -70,6 +70,7 @@
                 },
                 shareUrl: location.href, // 分享的url
                 audioSrc: './audio/1.mp3', // 音频地址
+                needTouchStartMusic: false, // 第一次触摸屏幕之后启动音乐
                 swiperOption: {
                     direction: 'vertical',
                     observeParents: true,
@@ -87,7 +88,7 @@
                         }
                     },
                     onSlideChangeStart: function (swiper) {
-                        // console.log('swiper change start...' + swiper.activeIndex + '---' + swiper.previousIndex)
+                        console.log('swiper change start...' + swiper.activeIndex + '---' + swiper.previousIndex)
                         var activeIndex = swiper.activeIndex
                         var previousIndex = swiper.previousIndex
                         var thisEl = document.body
@@ -126,7 +127,7 @@
                         }
                     },
                     onSlideChangeEnd: function (swiper) {
-                        // console.log('swiper change end...' + swiper.activeIndex + '---' + swiper.previousIndex)
+                        console.log('swiper change end...' + swiper.activeIndex + '---' + swiper.previousIndex)
                         var activeIndex = swiper.activeIndex
                         var previousIndex = swiper.previousIndex
                         var slideArrowCls = slideArrow.classList
@@ -348,32 +349,46 @@
                 loc.href = loc.origin + (/spa-manager/.test(loc.pathname) ? '/spa-manager' : '') + '/spa2/?club=' + this.data.clubId
             },
             doLoadedMusic: function () {
-                // var that = this
-                var refs = this.$refs
-                var bgAudio = refs.bgAudio
-                var musicIcon = refs.musicIcon
-                bgAudio.play()
-                musicIcon.style.display = 'block'
-                musicIcon.classList.add('act')
+                var that = this
+                var bgAudio = that.$refs.bgAudio
+                var musicIcon = that.$refs.musicIcon
+
                 setTimeout(function () {
-                    // alert('bgAudio.paused：' + bgAudio.paused)
                     if (bgAudio.paused) {
-                        // need play...
+                        musicIcon.setAttribute('paused', '1') // 暂停状态
+                        that.needTouchStartMusic = true
+                    } else {
+                        musicIcon.style.display = 'block'
+                        musicIcon.classList.add('act')
                     }
                 }, 200)
             },
             doClickMusicIcon: function () {
-                var refs = this.$refs
-                var musicIcon = refs.musicIcon
-                var bgAudio = refs.bgAudio
+                var that = this
+                var musicIcon = that.$refs.musicIcon
+                var bgAudio = that.$refs.bgAudio
                 if (musicIcon.getAttribute('paused')) {
                     bgAudio.play()
-                    musicIcon.classList.add('act')
                     musicIcon.removeAttribute('paused')
+                    musicIcon.classList.add('act')
                 } else {
                     bgAudio.pause()
-                    musicIcon.classList.remove('act')
                     musicIcon.setAttribute('paused', '1')
+                    musicIcon.classList.remove('act')
+                }
+                event.stopPropagation()
+            },
+            doTouchPage: function () {
+                var that = this
+                var bgAudio = that.$refs.bgAudio
+                var musicIcon = that.$refs.musicIcon
+                if (that.needTouchStartMusic) {
+                    that.needTouchStartMusic = false
+                    if (bgAudio.paused) {
+                        musicIcon.style.display = 'block'
+                        musicIcon.classList.add('act')
+                        that.doClickMusicIcon()
+                    }
                 }
             }
         }

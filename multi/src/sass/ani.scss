@@ -61,16 +61,16 @@
 }
 
 @-webkit-keyframes scale-ani{
-  0%{
-    -webkit-transform:scale(0.7,0.7);
-  }
-  50% {
-    -webkit-transform:scale(1,1);
-  }
-  100% {
-    -webkit-transform:scale(0.7,0.7);
-  }
-}
+   0%{
+     -webkit-transform:scale(0.7,0.7);
+   }
+   50% {
+     -webkit-transform:scale(1,1);
+   }
+   100% {
+     -webkit-transform:scale(0.7,0.7);
+   }
+ }
 
 @keyframes scale-ani{
   0%{
@@ -93,5 +93,116 @@
 @keyframes rotate-ani{
   to {
     transform: rotate(360deg);
+  }
+}
+
+// ==================================
+@-webkit-keyframes opacity-scale-ani{
+  0%{
+    opacity: 0;
+    -webkit-transform:scale(0,0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform:scale(1,1);
+  }
+}
+
+@keyframes opacity-scale-ani{
+  0%{
+    opacity: 0;
+    transform:scale(0,0);
+  }
+  100% {
+    opacity: 1;
+    transform:scale(1,1);
+  }
+}
+
+@-webkit-keyframes left-show-ani{
+  0%{
+    opacity: 0;
+    -webkit-transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0rem);
+  }
+}
+
+@keyframes left-show-ani{
+  0%{
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0rem);
+  }
+}
+
+@-webkit-keyframes right-show-ani{
+  0%{
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateX(0rem);
+  }
+}
+
+@keyframes right-show-ani{
+  0%{
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0rem);
+  }
+}
+
+@-webkit-keyframes top-show-ani{
+  0%{
+    opacity: 0;
+    -webkit-transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+
+@keyframes top-show-ani{
+  0%{
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@-webkit-keyframes bottom-show-ani{
+  0%{
+    opacity: 0;
+    -webkit-transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0);
+  }
+}
+
+@keyframes bottom-show-ani{
+  0%{
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
