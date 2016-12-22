@@ -10,8 +10,8 @@
 </template>
 
 <script>
-    import {Global} from '../libs/global'
-    import {eventHub} from '../libs/hub'
+    import { Global } from '../libs/global'
+    import { eventHub } from '../libs/hub'
 
     module.exports = {
         data: function () {

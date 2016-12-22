@@ -36,7 +36,7 @@ gulp.task('cls', function () {
 //启动server
 gulp.task('connect', function () {
     connect.server({
-        port: 8081
+        port: 8091
     });
 });
 
