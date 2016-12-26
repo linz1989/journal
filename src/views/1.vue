@@ -1,4 +1,7 @@
 <!--模板样式一-->
+<style>
+    @import "../styles/tmp-first.css";
+</style>
 <template>
     <div @transitionend="doHandlerTransitionEnd($event)" class="tmp-first-page" @touchstart="doTouchPage()">
         <div class="stars" ref="stars"><div></div><div></div><div></div><div></div><div></div><div></div></div>

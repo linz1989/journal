@@ -2,209 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7723a4c4-511e-4374-9032-f610ab1696e7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/music.png" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/app.bac90206802151eb5e4756aafbcba5cf.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/images/01.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/images/01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/images/02.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/images/03.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/images/07.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/images/08.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/images/09.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/images/10.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/images/11.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/images/12.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/images/13.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/images/14.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/images/15.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/images/16.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/images/17.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/images/18.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/images/19.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/images/20.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/images/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/images/like.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/images/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/images/star.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/images/view.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/static/img/02.d71340a.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/static/img/09.86f73eb.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/static/img/18.a55bb57.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/static/img/logo.71176bd.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/static/js/app.64f070a55279f1556763.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/static/js/manifest.0f5240c6c92af92599d3.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/demo/static/js/vendor.29f8a70cee4a63f0b0da.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/.babelrc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/.editorconfig" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/.eslintignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/.eslintrc.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/build/build.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/build/check-versions.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/build/dev-client.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/build/dev-server.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/build/utils.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/build/webpack.base.conf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/build/webpack.dev.conf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/build/webpack.prod.conf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/config/dev.env.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/config/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/config/prod.env.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/gulpfile.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/app.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/audio/0.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/audio/1.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/audio/2.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/components/1/counter.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/components/1/couponBg.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/components/1/pageTitle.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/components/1/share.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/components/1/slide.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/components/1/wormButton.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/components/2/arrow.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/components/2/centerCircle.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/components/2/couponBg.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/components/2/lastTitle.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/components/2/likeButton.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/components/2/slide.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/components/2/snow.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/components/counter.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/components/share.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/data.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/01.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/01.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/02.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/03.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/07.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/08.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/09.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/14.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/10.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/11.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/12.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/13.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/14.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/15.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/16.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/17.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/18.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/19.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/20.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/21.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/22.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/23.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/24.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/25.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/26.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/27.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/29.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/30.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/31.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/32.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/33.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/34.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/35.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/6.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/6_03.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/7.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/7_02.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/8.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/9.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/falling-snow1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/falling-snow2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/2/snow-bg.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/20.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/21.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/22.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/23.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/24.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/25.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/26.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/like.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/music.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/oceans.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/star.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/tip.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/images/view.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/libs/global.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/libs/hub.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/libs/video.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/main.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/sass/ani.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/sass/common.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/sass/index.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/sass/mixin.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/sass/reset.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/sass/share.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/sass/spinner.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/sass/tmp-first.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/sass/tmp-second.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/sass/video.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/styles/ani.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/styles/common.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/styles/index.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/styles/mixin.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/styles/reset.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/styles/share.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/styles/spinner.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/styles/tmp-first.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/styles/tmp-second.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/styles/video.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/views/1.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/views/2.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/views/301.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/src/views/404.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/static/.gitkeep" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/test/arrow.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/test/circle.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/test/coupon-bg.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/test/like-button.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/test/share-button.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/test/snow.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/test/title.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/test/tree.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/multi/test/zebra.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/couponBg.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/pageTitle.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/slide.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/components/wormButton.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/images/1.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/images/2.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/images/3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/images/4.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/images/5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test3.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gulpfile.js" afterPath="$PROJECT_DIR$/gulpfile.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app.vue" afterPath="$PROJECT_DIR$/src/app.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/audio/1.mp3" afterPath="$PROJECT_DIR$/src/audio/1.mp3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/share.vue" afterPath="$PROJECT_DIR$/src/components/share.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/2/slide.vue" afterPath="$PROJECT_DIR$/src/components/2/slide.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/libs/global.js" afterPath="$PROJECT_DIR$/src/libs/global.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main.js" afterPath="$PROJECT_DIR$/src/main.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sass/index.scss" afterPath="$PROJECT_DIR$/src/sass/index.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sass/reset.scss" afterPath="$PROJECT_DIR$/src/sass/reset.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/common.css" afterPath="$PROJECT_DIR$/src/styles/common.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/sass/tmp-second.scss" afterPath="$PROJECT_DIR$/src/sass/tmp-second.scss" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/index.css" afterPath="$PROJECT_DIR$/src/styles/index.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/reset.css" afterPath="$PROJECT_DIR$/src/styles/reset.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/styles/tmp-second.css" afterPath="$PROJECT_DIR$/src/styles/tmp-second.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/1.vue" afterPath="$PROJECT_DIR$/src/views/1.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/2.vue" afterPath="$PROJECT_DIR$/src/views/2.vue" />
     </list>
     <ignored path="journal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -226,7 +32,18 @@
     <favorites_list name="journal" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="2.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/views/2.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="350">
+              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -275,19 +92,21 @@
         <option value="$PROJECT_DIR$/src/libs/video.js" />
         <option value="$PROJECT_DIR$/.eslintignore" />
         <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/test3.html" />
         <option value="$PROJECT_DIR$/config/index.js" />
         <option value="$PROJECT_DIR$/src/components/slide.vue" />
-        <option value="$PROJECT_DIR$/src/sass/index.scss" />
         <option value="$PROJECT_DIR$/src/app.vue" />
         <option value="E:/workspace/spa-manager-trunk/WebRoot/spa2/SDRAW/js/page/home.js" />
-        <option value="$PROJECT_DIR$/src/views/2.vue" />
-        <option value="$PROJECT_DIR$/src/components/2/slide.vue" />
-        <option value="$PROJECT_DIR$/src/sass/tmp-second.scss" />
         <option value="$PROJECT_DIR$/src/sass/reset.scss" />
         <option value="$PROJECT_DIR$/src/main.js" />
         <option value="$PROJECT_DIR$/src/libs/global.js" />
+        <option value="$PROJECT_DIR$/gulpfile.js" />
+        <option value="$PROJECT_DIR$/src/sass/tmp-second.scss" />
+        <option value="$PROJECT_DIR$/src/components/2/lastTitle.vue" />
+        <option value="$PROJECT_DIR$/src/components/2/slide.vue" />
+        <option value="$PROJECT_DIR$/src/views/1.vue" />
+        <option value="$PROJECT_DIR$/src/views/2.vue" />
+        <option value="$PROJECT_DIR$/src/sass/index.scss" />
       </list>
     </option>
   </component>
@@ -339,6 +158,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -489,7 +309,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -707,12 +526,16 @@
       <workItem from="1482139923738" duration="1418000" />
       <workItem from="1482369863907" duration="3000" />
       <workItem from="1482369889530" duration="2898000" />
-      <workItem from="1482373044543" duration="8113000" />
+      <workItem from="1482373044543" duration="28731000" />
+      <workItem from="1482454629896" duration="5172000" />
+      <workItem from="1482475012546" duration="1844000" />
+      <workItem from="1482716134287" duration="2139000" />
+      <workItem from="1482725868469" duration="2819000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="457076000" />
+    <option name="totallyTimeSpent" value="489668000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -725,26 +548,26 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12236287" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15559071" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3478735" sideWeight="0.5021097" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34133044" sideWeight="0.4978903" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2780807" sideWeight="0.4978903" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293348" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -763,28 +586,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/dist/data.json" />
-    <entry file="file://$PROJECT_DIR$/.editorconfig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sass/spinner.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2375">
-          <caret line="95" column="25" selection-start-line="95" selection-start-column="25" selection-end-line="95" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/node_modules/video.js/dist/examples/simple-embed/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="19" column="52" selection-start-line="19" selection-start-column="52" selection-end-line="19" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/node_modules/extract-text-webpack-plugin/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="220">
@@ -882,13 +683,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/libs/video.js" />
     <entry file="file://$PROJECT_DIR$/src/audio/北京欢迎你.mp3" />
-    <entry file="file://$PROJECT_DIR$/gulpfile.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="128" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build/webpack.base.conf.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-828">
@@ -977,29 +771,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/1/slide.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="102" column="63" selection-start-line="102" selection-start-column="63" selection-end-line="102" selection-end-column="76" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sass/tmp-first.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
           <caret line="1053" column="3" selection-start-line="1053" selection-start-column="3" selection-end-line="1053" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/2.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-175">
-          <caret line="158" column="13" selection-start-line="158" selection-start-column="13" selection-end-line="158" selection-end-column="13" />
-          <folding>
-            <element signature="e#1465#1504#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1014,19 +789,86 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sass/index.scss">
+    <entry file="file://$PROJECT_DIR$/src/sass/reset.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="32" column="8" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
+        <state relative-caret-position="117">
+          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="875">
+          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sass/share.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="800">
+          <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="797">
+          <caret line="56" column="49" selection-start-line="56" selection-start-column="49" selection-end-line="56" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/vue-awesome-swiper/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="179">
+          <caret line="184" column="12" selection-start-line="184" selection-start-column="12" selection-end-line="184" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/我的资料库/Documents/Tencent Files/527634676/FileRecv/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gulpfile.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="122" column="60" selection-start-line="122" selection-start-column="60" selection-end-line="122" selection-end-column="60" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/1/slide.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="269">
+          <caret line="158" column="35" selection-start-line="158" selection-start-column="35" selection-end-line="158" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/libs/global.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1120">
+          <caret line="188" column="49" selection-start-line="188" selection-start-column="49" selection-end-line="188" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/2/lastTitle.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="3" column="8" selection-start-line="3" selection-start-column="8" selection-end-line="3" selection-end-column="8" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/2/slide.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="25" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+        <state relative-caret-position="401">
+          <caret line="239" column="41" selection-start-line="239" selection-start-column="41" selection-end-line="239" selection-end-column="41" />
           <folding>
+            <element signature="n#div#0;n#swiper-slide#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="n#template#0;n#div#1;n#swiper-slide#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#template#1;n#div#1;n#swiper-slide#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#template#2;n#div#1;n#swiper-slide#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#template#3;n#div#1;n#swiper-slide#0;n#template#0;n#!!top" expanded="false" />
@@ -1037,67 +879,45 @@
             <element signature="n#template#7;n#div#1;n#swiper-slide#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#template#8;n#div#1;n#swiper-slide#0;n#template#0;n#!!top" expanded="false" />
             <element signature="n#template#9;n#div#1;n#swiper-slide#0;n#template#0;n#!!top" expanded="false" />
-            <element signature="e#8393#8449#0" expanded="false" />
+            <element signature="n#template#0;n#swiper-slide#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="e#8447#8503#0" expanded="true" />
+            <element signature="e#17949#18613#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sass/tmp-second.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+        <state relative-caret-position="2228">
+          <caret line="670" column="7" selection-start-line="670" selection-start-column="7" selection-end-line="670" selection-end-column="7" />
           <folding>
-            <element signature="e#7772#8736#0" expanded="false" />
-            <element signature="e#8752#9020#0" expanded="false" />
-            <element signature="e#9036#9375#0" expanded="false" />
-            <element signature="e#9394#9967#0" expanded="false" />
-            <element signature="e#9982#10960#0" expanded="false" />
-            <element signature="e#14004#14061#0" expanded="false" />
-            <element signature="e#14070#16084#0" expanded="false" />
-            <element signature="e#16098#16168#0" expanded="false" />
-            <element signature="e#16177#16499#0" expanded="false" />
+            <element signature="e#13954#15117#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sass/reset.scss">
+    <entry file="file://$PROJECT_DIR$/src/views/1.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="117">
-          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="81" column="12" selection-start-line="81" selection-start-column="12" selection-end-line="81" selection-end-column="12" />
+        <state relative-caret-position="25">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="3" selection-end-column="8" />
           <folding>
-            <element signature="e#0#21#0" expanded="false" />
+            <element signature="e#2767#2806#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/libs/global.js">
+    <entry file="file://$PROJECT_DIR$/src/sass/index.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="77" column="59" selection-start-line="77" selection-start-column="59" selection-end-line="77" selection-end-column="59" />
+        <state relative-caret-position="-3725">
+          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app.vue">
+    <entry file="file://$PROJECT_DIR$/src/views/2.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="875">
-          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sass/share.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="800">
-          <caret line="32" column="26" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
+        <state relative-caret-position="350">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding />
         </state>
       </provider>

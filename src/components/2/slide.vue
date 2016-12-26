@@ -28,7 +28,7 @@
                         <div class="tech-name ani">{{ slideObj.techName }}&nbsp;<span v-show="slideObj.techNo">[{{ slideObj.techNo }}号]</span></div>
                         <div class="tech-desc ani">{{ slideObj.description || '最好的服务都在我这里啦！'}}</div>
                         <div v-if="slideObj.serviceItems.length>0" class="service-list ani"><div v-for="service in slideObj.serviceItems">{{ service }}</div></div>
-                        <div class="chat-btn ani"><div class="ani">点我聊聊</div></div>
+                        <div class="chat-btn ani"><div class="ani" @click="doClickChatBtn(slideObj.techId)">点我聊聊</div></div>
                     </div>
                 </div>
             </template>
@@ -111,7 +111,7 @@
         <like-button class='ani' v-if="!isIndex" :category="isOver ? 'club' : global.likeStatus" :class="{ 'over': isOver }" :club-id="slideObj.clubId"></like-button>
         <like-button class='ani' category="share" v-if="isOver"></like-button>
         <template v-if="slideObj.category=='tech-pics'"><!-- 技师相册 -->
-            <swiper :options="picSwiperOption" class="pic-wrap scale-ani ani" v-if="slideObj.pics.length>0">
+            <swiper :options="picSwiperOption" class="pic-wrap scale-ani ani" v-if="slideObj.pics.length>0 && picsReady">
                 <swiper-slide v-for="pic in slideObj.pics"><div class="swiper-zoom-container"><img :src="pic"/></div></swiper-slide>
             </swiper>
         </template>
@@ -143,10 +143,12 @@
                 qrCodeImgUrl: '', // 关注公众号二维码图片地址
                 getCodeImgMaxCount: 2,
                 needScrollWrap: false,
+                picsReady: false,
 
                 wrapHeight: 22, // 间距的调整 整个wrap的高度
                 wrapMarginTop: 0, // wrap的负marginTop
                 pageTitleMarginBottom: 0, // pageTitle的marginBottom距离
+                timeLimitActStatus: 'over',
 
                 picSwiperOption: {
                     effect: 'coverflow',
@@ -169,8 +171,8 @@
                             swiper.slideNext(null, 1)
                             setTimeout(function () {
                                 swiper.slidePrev(null, 1)
-                            }, 800)
-                        }, 1200)
+                            }, 500)
+                        }, 900)
                     }
                 }
             }
@@ -233,6 +235,10 @@
                 if (category == 'end') {
                     that.wrapHeight = 21
                     that.wrapMarginTop = -that.wrapHeight / 2
+
+                    that.$el.querySelector('.page-end-title').onclick = function () {
+                        that.doGoToClub()
+                    }
                 } else if (category == 'new-tech') {
                     pageTitleMarginBottom = 1 + deltY * ratio
                 } else if (category == 'tech-list') {
@@ -272,29 +278,54 @@
                     }
                 } else if (category == 'end') {
                     that.getClubQrCodeImg()
-                } else if (category == 'actDesc') {
-                    var actDescContent = that.$refs.actDescContent
-                    setTimeout(function () {
-                        if (actDescContent.scrollHeight > actDescContent.offsetHeight) {
-                            that.needScrollWrap = true // 滑动的时候需要滑动内容
-                        }
-                    }, 1500)
-                } else if (category == 'health') {
-                    var healthContent = that.$refs.healthContent
-                    setTimeout(function () {
-                        if (healthContent.scrollHeight > healthContent.offsetHeight) {
-                            that.needScrollWrap = true
-                        }
-                    }, 1500)
+                } else if (category == 'actDesc' || category == 'health') {
+                    var content = category == 'actDesc' ? that.$refs.actDescContent : that.$refs.healthContent
+                    if (!global.loading) {
+                        that.doSetScrollStatus(content)
+                    } else {
+                        var waitLoading = setInterval(function () {
+                            if (!global.loading) {
+                                clearInterval(waitLoading)
+                                that.doSetScrollStatus(content)
+                            }
+                        }, 300)
+                    }
                 }
 
                 if (that.isIndex) {
                     that.$refs.mainTree.style.backgroundImage = 'url(./images/2/7.png)'
                     that.$refs.santaMan.style.backgroundImage = 'url(./images/2/8.png)'
                 }
+
+                if (category == 'tech-pics') { // 延迟4s构建相册
+                    if (!global.loading) {
+                        that.doBuildPicsSwiper()
+                    } else {
+                        var waitReady = setInterval(function () {
+                            if (!global.loading) {
+                                clearInterval(waitReady)
+                                that.doBuildPicsSwiper()
+                            }
+                        }, 300)
+                    }
+                }
             })
         },
         methods: {
+            doBuildPicsSwiper: function () {
+                var that = this
+                setTimeout(function () {
+                    that.picsReady = true
+                }, 2000)
+            },
+            doSetScrollStatus: function (content) {
+                var that = this
+                setTimeout(function () {
+                    if (content.scrollHeight > content.offsetHeight) {
+                        that.needScrollWrap = true // 滑动的时候需要滑动内容
+                    }
+                }, 1000)
+            },
             doClickChatBtn: function (techId) { // 点击点我聊聊按钮
                 location.href = this.clubUrl + '#chat&techId=' + techId
             },
@@ -312,6 +343,9 @@
             },
             doClickBtnOfCouponAct: function () { // 跳转到会所活动页面
                 location.href = this.clubUrl + '#promotions'
+            },
+            doGoToClub: function () {
+                location.href = this.clubUrl + '#home'
             },
             doTimeLimitActStatusChange: function (status) { // 限时抢活动状态的变化
                 this.timeLimitActStatus = status

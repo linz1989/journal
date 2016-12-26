@@ -1,4 +1,7 @@
 <!--模板样式二-->
+<style>
+    @import "../styles/tmp-second.css";
+</style>
 <template>
     <div class="tmp-second-page" :class="{ common: isCommonSlide }" @transitionend="doHandlerTransitionEnd($event)" @touchstart="doTouchPage()" v-show="!global.loading">
         <!--头部会所logo和名称-->
@@ -11,7 +14,11 @@
             <div>{{ data.clubName }}</div>
         </header>
         <div ref="musicIcon" class="music-icon" @click="doClickMusicIcon($event)"></div>
-        <audio loop="loop" preload="auto" autoplay id="bgAudio" ref="bgAudio" :src='audioSrc' @loadeddata="doLoadedMusic()"></audio>
+        <audio loop="loop" id="bgAudio" preload="metadata" ref="bgAudio" @loadeddata="doLoadedMusic()">
+            <source src="./audio/2.mp3" type="audio/mpeg"/>
+            <source src="./audio/2.m4a" type="audio/mpeg"/>
+            <source src="./audio/2.ogg" type="audio/ogg"/>
+        </audio>
         <center-circle v-show="!isCommonSlide"></center-circle>
         <snow></snow>
         <swiper :options='swiperOption' class="page-content">
@@ -142,11 +149,11 @@
                     }
                 },
                 shareUrl: location.href, // 分享的url
-                audioSrc: './audio/2.mp3', // 音频地址
-                needTouchStartMusic: false, // 第一次触摸屏幕之后启动音乐
+                needTouchStartMusic: true, // 第一次触摸屏幕之后启动音乐
                 bgImgLoadStatus: false,
                 dataLoadStatus: false,
-                isCommonSlide: false
+                isCommonSlide: false,
+                hasLoadMusic: false
             }
         },
         mounted: function () {
@@ -225,15 +232,14 @@
                     }
                 })
 
-                // 添加音乐
-                that.$refs.bgAudio.src = that.audioSrc
+                // 下载音乐
+                that.$refs.bgAudio.load()
+
                 setTimeout(function () {
-                    doc.querySelector('.center-circle').classList.add('act')
                     for (var k = 0; k < homePageAniEles.length; k++) {
                         homePageAniEles[k].classList.add('act')
                     }
                 }, 400)
-                // alert(global.winHeight + '--' + global.winWidth)
             },
             goToClub: function () {
                 var loc = location
@@ -265,7 +271,7 @@
 
                 setTimeout(function () {
                     that.loadedImg(3)
-                }, 4000)
+                }, 2000)
             },
             loadedImg: function (count) {
                 var that = this
@@ -285,14 +291,17 @@
             },
             doLoadedMusic: function () {
                 var that = this
+                that.hasLoadMusic = true
                 var bgAudio = that.$refs.bgAudio
                 var musicIcon = that.$refs.musicIcon
+                bgAudio.play()
 
                 setTimeout(function () {
                     if (bgAudio.paused) {
                         musicIcon.setAttribute('paused', '1') // 暂停状态
                         that.needTouchStartMusic = true
                     } else {
+                        that.needTouchStartMusic = false
                         musicIcon.style.display = 'block'
                         musicIcon.classList.add('act')
                     }
@@ -306,6 +315,7 @@
                     bgAudio.play()
                     musicIcon.removeAttribute('paused')
                     musicIcon.classList.add('act')
+                    musicIcon.style.display = 'block'
                 } else {
                     bgAudio.pause()
                     musicIcon.setAttribute('paused', '1')
@@ -321,7 +331,9 @@
                 var musicIcon = that.$refs.musicIcon
                 if (that.needTouchStartMusic) {
                     that.needTouchStartMusic = false
-                    if (bgAudio.paused) {
+                    if (!that.hasLoadMusic) {
+                        bgAudio.load()
+                    } else {
                         musicIcon.style.display = 'block'
                         musicIcon.classList.add('act')
                         that.doClickMusicIcon()

@@ -129,12 +129,19 @@ exports.Global = {
             itemKey: '06',
             title: '优惠活动',
             details: [{
-                actId: '747733920899952640',
-                actImgUrl: 'http://sdcm210:8489/s/group00/M00/00/58/oIYBAFdyTRaAFBPjAAExHdyXhCY850.png?st=Oi8KvSJP3ztTGe38N_F-BA&e=1482199394',
-                actName: 'dd2',
-                actPaidAmount: 3,
-                actPrice: 200,
-                actType: 'plumFlower'}]
+                actAmount: 158,
+                actCredit: 0,
+                actId: '809645267476312064',
+                actImgUrl: 'http://sdcm162.stonebean.com:8489/s/group00/M00/04/48/ooYBAFeMhZ-AOLA0AAA1r61sXVk238.jpg?st=NKy7jqqU1TFcIiwGVSgVTA&e=1482487114',
+                actName: '足浴＋推背 销量：10998',
+                actPrice: '198',
+                actType: 'timeLimit',
+                endDate: 1483196400000,
+                endTime: '',
+                remainCount: 20,
+                startDate: 1481817600000,
+                startTime: ''
+            }]
         }) */
 
         /* items.push({ // 活动文字测试
@@ -160,6 +167,16 @@ exports.Global = {
                     couponPeriod: '领取后当天生效，至长期有效！',
                     couponType: '现金券'
                 }
+            ]
+        }) */
+
+        /* items.push({
+            itemKey: '03',
+            title: '诡异的相册',
+            details: [
+                'http://sdcm210:8489/s/group00/M00/00/79/oIYBAFg4Ha6APBMgAAHF65tmdTs364.jpg?st=5vxKyynkAfBQWgOPBaVnsQ&e=1482481199',
+                'http://sdcm210:8489/s/group00/M00/00/79/oIYBAFg4JfCAO9TGAALO19GxovE822.jpg?st=Cn3cnoRxcxmfUhkIcrNCKw&e=1482481199',
+                'http://sdcm210:8489/s/group00/M00/00/79/oIYBAFg4JXOAA6EtAAHOFsAnvTY506.jpg?st=i2RHUCDKeSxMv0jxCOHY9g&e=1482481199'
             ]
         }) */
 

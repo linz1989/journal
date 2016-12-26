@@ -102,18 +102,7 @@ body.tmp_2 {
     height: 21.333rem;
     top: -3.8rem;
     left: 50%;
-    margin-left: -10.6665rem;
-    opacity: 0;
-    -webkit-transform: scale(0, 0);
-            transform: scale(0, 0);
-    -webkit-transition: opacity 0.3s, -webkit-transform 0.4s ease-out;
-    transition: opacity 0.3s, -webkit-transform 0.4s ease-out;
-    transition: opacity 0.3s, transform 0.4s ease-out;
-    transition: opacity 0.3s, transform 0.4s ease-out, -webkit-transform 0.4s ease-out; }
-    .tmp-second-page .center-circle.act {
-      opacity: 1;
-      -webkit-transform: scale(1, 1);
-              transform: scale(1, 1); }
+    margin-left: -10.6665rem; }
   .tmp-second-page .statistic-data {
     position: absolute;
     width: 4.611rem;
@@ -125,12 +114,12 @@ body.tmp_2 {
     background-image: url("../images/2/4.png");
     background-repeat: no-repeat;
     opacity: 0;
-    -webkit-transform: translateX(6rem);
-            transform: translateX(6rem);
-    -webkit-transition: opacity 0.3s 2s, -webkit-transform 0.4s 2s ease-out;
-    transition: opacity 0.3s 2s, -webkit-transform 0.4s 2s ease-out;
-    transition: opacity 0.3s 2s, transform 0.4s 2s ease-out;
-    transition: opacity 0.3s 2s, transform 0.4s 2s ease-out, -webkit-transform 0.4s 2s ease-out; }
+    -webkit-transform: translateX(4rem);
+            transform: translateX(4rem);
+    -webkit-transition: opacity 0.3s 2.6s, -webkit-transform 0.4s 2.6s ease-out;
+    transition: opacity 0.3s 2.6s, -webkit-transform 0.4s 2.6s ease-out;
+    transition: opacity 0.3s 2.6s, transform 0.4s 2.6s ease-out;
+    transition: opacity 0.3s 2.6s, transform 0.4s 2.6s ease-out, -webkit-transform 0.4s 2.6s ease-out; }
     .tmp-second-page .statistic-data > div {
       width: 3.583rem;
       height: 2.083rem;
@@ -171,18 +160,18 @@ body.tmp_2 {
     left: -3.8rem;
     -webkit-transform: translateX(-4rem);
             transform: translateX(-4rem);
-    -webkit-transition: opacity 0.3s 0.5s, -webkit-transform 0.4s 0.5s;
-    transition: opacity 0.3s 0.5s, -webkit-transform 0.4s 0.5s;
-    transition: opacity 0.3s 0.5s, transform 0.4s 0.5s;
-    transition: opacity 0.3s 0.5s, transform 0.4s 0.5s, -webkit-transform 0.4s 0.5s; }
+    -webkit-transition: opacity 0.3s 0.6s, -webkit-transform 0.4s 0.6s ease-out;
+    transition: opacity 0.3s 0.6s, -webkit-transform 0.4s 0.6s ease-out;
+    transition: opacity 0.3s 0.6s, transform 0.4s 0.6s ease-out;
+    transition: opacity 0.3s 0.6s, transform 0.4s 0.6s ease-out, -webkit-transform 0.4s 0.6s ease-out; }
   .tmp-second-page .right-tree {
     right: -3.8rem;
     -webkit-transform: translateX(4rem);
             transform: translateX(4rem);
-    -webkit-transition: opacity 0.3s 0.7s, -webkit-transform 0.4s 0.7s;
-    transition: opacity 0.3s 0.7s, -webkit-transform 0.4s 0.7s;
-    transition: opacity 0.3s 0.7s, transform 0.4s 0.7s;
-    transition: opacity 0.3s 0.7s, transform 0.4s 0.7s, -webkit-transform 0.4s 0.7s; }
+    -webkit-transition: opacity 0.3s 1s, -webkit-transform 0.4s 1s ease-out;
+    transition: opacity 0.3s 1s, -webkit-transform 0.4s 1s ease-out;
+    transition: opacity 0.3s 1s, transform 0.4s 1s ease-out;
+    transition: opacity 0.3s 1s, transform 0.4s 1s ease-out, -webkit-transform 0.4s 1s ease-out; }
   .tmp-second-page .main-tree {
     position: absolute;
     width: 20rem;
@@ -192,14 +181,14 @@ body.tmp_2 {
     background-size: 20rem 23rem;
     background-repeat: no-repeat;
     opacity: 0;
-    -webkit-transform: scale(0, 0);
-            transform: scale(0, 0);
+    -webkit-transform: scale(0.4, 0.4);
+            transform: scale(0.4, 0.4);
     -webkit-transform-origin: 50% 100%;
             transform-origin: 50% 100%;
-    -webkit-transition: opacity 0.3s 0.1s, -webkit-transform 0.4s 0.1s ease-out;
-    transition: opacity 0.3s 0.1s, -webkit-transform 0.4s 0.1s ease-out;
-    transition: opacity 0.3s 0.1s, transform 0.4s 0.1s ease-out;
-    transition: opacity 0.3s 0.1s, transform 0.4s 0.1s ease-out, -webkit-transform 0.4s 0.1s ease-out; }
+    -webkit-transition: opacity 0.4s, -webkit-transform 0.6s ease-out;
+    transition: opacity 0.4s, -webkit-transform 0.6s ease-out;
+    transition: opacity 0.4s, transform 0.6s ease-out;
+    transition: opacity 0.4s, transform 0.6s ease-out, -webkit-transform 0.6s ease-out; }
     .tmp-second-page .main-tree:after {
       content: "";
       position: absolute;
@@ -228,10 +217,10 @@ body.tmp_2 {
     opacity: 0;
     -webkit-transform: translateY(8rem);
             transform: translateY(8rem);
-    -webkit-transition: opacity 0.3s 1.1s, -webkit-transform 0.4s 1.1s ease-out;
-    transition: opacity 0.3s 1.1s, -webkit-transform 0.4s 1.1s ease-out;
-    transition: opacity 0.3s 1.1s, transform 0.4s 1.1s ease-out;
-    transition: opacity 0.3s 1.1s, transform 0.4s 1.1s ease-out, -webkit-transform 0.4s 1.1s ease-out; }
+    -webkit-transition: opacity 0.3s 1.5s, -webkit-transform 0.5s 1.5s ease-out;
+    transition: opacity 0.3s 1.5s, -webkit-transform 0.5s 1.5s ease-out;
+    transition: opacity 0.3s 1.5s, transform 0.5s 1.5s ease-out;
+    transition: opacity 0.3s 1.5s, transform 0.5s 1.5s ease-out, -webkit-transform 0.5s 1.5s ease-out; }
     .tmp-second-page .santa > div {
       text-align: center;
       width: 14.444rem;
@@ -259,10 +248,10 @@ body.tmp_2 {
       opacity: 0;
       -webkit-transform: translateX(-5rem);
               transform: translateX(-5rem);
-      -webkit-transition: opacity 0.3s 1.4s, -webkit-transform 0.6s 1.4s ease-out;
-      transition: opacity 0.3s 1.4s, -webkit-transform 0.6s 1.4s ease-out;
-      transition: opacity 0.3s 1.4s, transform 0.6s 1.4s ease-out;
-      transition: opacity 0.3s 1.4s, transform 0.6s 1.4s ease-out, -webkit-transform 0.6s 1.4s ease-out; }
+      -webkit-transition: opacity 0.3s 2s, -webkit-transform 0.6s 2s ease-out;
+      transition: opacity 0.3s 2s, -webkit-transform 0.6s 2s ease-out;
+      transition: opacity 0.3s 2s, transform 0.6s 2s ease-out;
+      transition: opacity 0.3s 2s, transform 0.6s 2s ease-out, -webkit-transform 0.6s 2s ease-out; }
     .tmp-second-page .santa.act {
       opacity: 1;
       -webkit-transform: translateY(0);
@@ -292,10 +281,10 @@ body.tmp_2 {
     opacity: 0;
     -webkit-transform: scale(0, 0);
             transform: scale(0, 0);
-    -webkit-transition: opacity 0.3s, -webkit-transform 0.4s ease-out;
-    transition: opacity 0.3s, -webkit-transform 0.4s ease-out;
-    transition: opacity 0.3s, transform 0.4s ease-out;
-    transition: opacity 0.3s, transform 0.4s ease-out, -webkit-transform 0.4s ease-out; }
+    -webkit-transition: opacity 0.4s, -webkit-transform 0.5s ease-out;
+    transition: opacity 0.4s, -webkit-transform 0.5s ease-out;
+    transition: opacity 0.4s, transform 0.5s ease-out;
+    transition: opacity 0.4s, transform 0.5s ease-out, -webkit-transform 0.5s ease-out; }
     .tmp-second-page .page-title.act {
       opacity: 1;
       -webkit-transform: scale(1, 1);
@@ -315,10 +304,10 @@ body.tmp_2 {
             transform-origin: 50% 50%;
     -webkit-transform: rotate(90deg);
             transform: rotate(90deg);
-    -webkit-transition: opacity 0.3s 0.4s, -webkit-transform 0.4s 0.4s ease-out;
-    transition: opacity 0.3s 0.4s, -webkit-transform 0.4s 0.4s ease-out;
-    transition: opacity 0.3s 0.4s, transform 0.4s 0.4s ease-out;
-    transition: opacity 0.3s 0.4s, transform 0.4s 0.4s ease-out, -webkit-transform 0.4s 0.4s ease-out; }
+    -webkit-transition: opacity 0.3s 0.5s, -webkit-transform 0.4s 0.5s ease-out;
+    transition: opacity 0.3s 0.5s, -webkit-transform 0.4s 0.5s ease-out;
+    transition: opacity 0.3s 0.5s, transform 0.4s 0.5s ease-out;
+    transition: opacity 0.3s 0.5s, transform 0.4s 0.5s ease-out, -webkit-transform 0.4s 0.5s ease-out; }
     .tmp-second-page .red-zebra-wrap:before {
       content: "";
       position: absolute;
@@ -332,8 +321,8 @@ body.tmp_2 {
       background-size: 19.861rem 15.222rem;
       background-image: url("../images/2/15.png");
       background-repeat: no-repeat;
-      -webkit-transition: opacity 0.3s 0.8s;
-      transition: opacity 0.3s 0.8s;
+      -webkit-transition: opacity 0.4s 0.9s;
+      transition: opacity 0.4s 0.9s;
       z-index: -1; }
     .tmp-second-page .red-zebra-wrap.act {
       opacity: 1;
@@ -385,10 +374,10 @@ body.tmp_2 {
             transform: scale(0.4, 0.4);
     background-size: 10.556rem 10.556rem;
     background-repeat: no-repeat;
-    -webkit-transition: opacity 0.3s 0.8s, -webkit-transform 0.4s 0.8s ease-out;
-    transition: opacity 0.3s 0.8s, -webkit-transform 0.4s 0.8s ease-out;
-    transition: opacity 0.3s 0.8s, transform 0.4s 0.8s ease-out;
-    transition: opacity 0.3s 0.8s, transform 0.4s 0.8s ease-out, -webkit-transform 0.4s 0.8s ease-out; }
+    -webkit-transition: opacity 0.4s 0.9s, -webkit-transform 0.4s 0.9s ease-out;
+    transition: opacity 0.4s 0.9s, -webkit-transform 0.4s 0.9s ease-out;
+    transition: opacity 0.4s 0.9s, transform 0.4s 0.9s ease-out;
+    transition: opacity 0.4s 0.9s, transform 0.4s 0.9s ease-out, -webkit-transform 0.4s 0.9s ease-out; }
     .tmp-second-page .new-tech-slide .tech-header:before, .tmp-second-page .new-tech-slide .tech-header:after {
       content: "";
       position: absolute;
@@ -414,17 +403,23 @@ body.tmp_2 {
       opacity: 1;
       -webkit-transform: scale(1, 1);
               transform: scale(1, 1); }
+  .tmp-second-page .new-tech-slide .tech-name, .tmp-second-page .new-tech-slide .tech-desc {
+    opacity: 0;
+    margin-left: 1.2rem;
+    margin-right: 1.2rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; }
   .tmp-second-page .new-tech-slide .tech-name {
     text-align: center;
     color: #c87c10;
     font-size: 1.111rem;
-    opacity: 0;
     -webkit-transform: translateY(-3rem);
             transform: translateY(-3rem);
-    -webkit-transition: opacity 0.3s 1.2s, -webkit-transform 0.4s 1.2s;
-    transition: opacity 0.3s 1.2s, -webkit-transform 0.4s 1.2s;
-    transition: opacity 0.3s 1.2s, transform 0.4s 1.2s;
-    transition: opacity 0.3s 1.2s, transform 0.4s 1.2s, -webkit-transform 0.4s 1.2s; }
+    -webkit-transition: opacity 0.3s 1.3s, -webkit-transform 0.4s 1.3s;
+    transition: opacity 0.3s 1.3s, -webkit-transform 0.4s 1.3s;
+    transition: opacity 0.3s 1.3s, transform 0.4s 1.3s;
+    transition: opacity 0.3s 1.3s, transform 0.4s 1.3s, -webkit-transform 0.4s 1.3s; }
     .tmp-second-page .new-tech-slide .tech-name.act {
       opacity: 1;
       -webkit-transform: translateY(0);
@@ -433,18 +428,12 @@ body.tmp_2 {
     text-align: center;
     font-size: 0.833rem;
     color: #935710;
-    margin-left: 1rem;
-    margin-right: 1rem;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    opacity: 0;
     -webkit-transform: translateY(3rem);
             transform: translateY(3rem);
-    -webkit-transition: opacity 0.3s 1.5s, -webkit-transform 0.4s 1.5s;
-    transition: opacity 0.3s 1.5s, -webkit-transform 0.4s 1.5s;
-    transition: opacity 0.3s 1.5s, transform 0.4s 1.5s;
-    transition: opacity 0.3s 1.5s, transform 0.4s 1.5s, -webkit-transform 0.4s 1.5s; }
+    -webkit-transition: opacity 0.3s 1.7s, -webkit-transform 0.4s 1.7s;
+    transition: opacity 0.3s 1.7s, -webkit-transform 0.4s 1.7s;
+    transition: opacity 0.3s 1.7s, transform 0.4s 1.7s;
+    transition: opacity 0.3s 1.7s, transform 0.4s 1.7s, -webkit-transform 0.4s 1.7s; }
     .tmp-second-page .new-tech-slide .tech-desc.act {
       opacity: 1;
       -webkit-transform: translateY(0);
@@ -455,10 +444,10 @@ body.tmp_2 {
     opacity: 0;
     -webkit-transform: translateY(3rem);
             transform: translateY(3rem);
-    -webkit-transition: opacity 0.3s 1.8s, -webkit-transform 0.4s 1.8s;
-    transition: opacity 0.3s 1.8s, -webkit-transform 0.4s 1.8s;
-    transition: opacity 0.3s 1.8s, transform 0.4s 1.8s;
-    transition: opacity 0.3s 1.8s, transform 0.4s 1.8s, -webkit-transform 0.4s 1.8s; }
+    -webkit-transition: opacity 0.3s 2.1s, -webkit-transform 0.4s 2.1s;
+    transition: opacity 0.3s 2.1s, -webkit-transform 0.4s 2.1s;
+    transition: opacity 0.3s 2.1s, transform 0.4s 2.1s;
+    transition: opacity 0.3s 2.1s, transform 0.4s 2.1s, -webkit-transform 0.4s 2.1s; }
     .tmp-second-page .new-tech-slide .service-list > div {
       display: inline-block;
       width: 5.139rem;
@@ -490,10 +479,10 @@ body.tmp_2 {
     opacity: 0;
     -webkit-transform: translateX(4rem);
             transform: translateX(4rem);
-    -webkit-transition: opacity 0.3s 2.2s, -webkit-transform 0.5s 2.2s ease-out;
-    transition: opacity 0.3s 2.2s, -webkit-transform 0.5s 2.2s ease-out;
-    transition: opacity 0.3s 2.2s, transform 0.5s 2.2s ease-out;
-    transition: opacity 0.3s 2.2s, transform 0.5s 2.2s ease-out, -webkit-transform 0.5s 2.2s ease-out; }
+    -webkit-transition: opacity 0.4s 2.5s, -webkit-transform 0.5s 2.5s ease-out;
+    transition: opacity 0.4s 2.5s, -webkit-transform 0.5s 2.5s ease-out;
+    transition: opacity 0.4s 2.5s, transform 0.5s 2.5s ease-out;
+    transition: opacity 0.4s 2.5s, transform 0.5s 2.5s ease-out, -webkit-transform 0.5s 2.5s ease-out; }
     .tmp-second-page .new-tech-slide .chat-btn.act {
       opacity: 1;
       -webkit-transform: translateX(0);
@@ -517,8 +506,8 @@ body.tmp_2 {
       opacity: 0;
       -webkit-transform-origin: 50% 50%;
               transform-origin: 50% 50%;
-      -webkit-transition: opacity 0.4s 2.5s;
-      transition: opacity 0.4s 2.5s;
+      -webkit-transition: opacity 0.4s 3s;
+      transition: opacity 0.4s 3s;
       -webkit-animation: scale-ani 2s infinite ease-in-out;
               animation: scale-ani 2s infinite ease-in-out; }
       .tmp-second-page .new-tech-slide .chat-btn > div.act {
@@ -537,10 +526,10 @@ body.tmp_2 {
     opacity: 0;
     -webkit-transform: translateX(-10rem);
             transform: translateX(-10rem);
-    -webkit-transition: opacity 0.3s 0.4s, -webkit-transform 0.5s 0.4s ease-out;
-    transition: opacity 0.3s 0.4s, -webkit-transform 0.5s 0.4s ease-out;
-    transition: opacity 0.3s 0.4s, transform 0.5s 0.4s ease-out;
-    transition: opacity 0.3s 0.4s, transform 0.5s 0.4s ease-out, -webkit-transform 0.5s 0.4s ease-out; }
+    -webkit-transition: opacity 0.3s 0.5s, -webkit-transform 0.5s 0.5s ease-out;
+    transition: opacity 0.3s 0.5s, -webkit-transform 0.5s 0.5s ease-out;
+    transition: opacity 0.3s 0.5s, transform 0.5s 0.5s ease-out;
+    transition: opacity 0.3s 0.5s, transform 0.5s 0.5s ease-out, -webkit-transform 0.5s 0.5s ease-out; }
     .tmp-second-page .service-item-wrap.act {
       opacity: 1;
       -webkit-transform: translateX(0rem);
@@ -556,10 +545,10 @@ body.tmp_2 {
       opacity: 0;
       -webkit-transform: rotate(-90deg);
               transform: rotate(-90deg);
-      -webkit-transition: opacity 0.3s 0.9s, -webkit-transform 0.4s 0.9s ease-out;
-      transition: opacity 0.3s 0.9s, -webkit-transform 0.4s 0.9s ease-out;
-      transition: opacity 0.3s 0.9s, transform 0.4s 0.9s ease-out;
-      transition: opacity 0.3s 0.9s, transform 0.4s 0.9s ease-out, -webkit-transform 0.4s 0.9s ease-out; }
+      -webkit-transition: opacity 0.3s 1s, -webkit-transform 0.5s 1s ease-out;
+      transition: opacity 0.3s 1s, -webkit-transform 0.5s 1s ease-out;
+      transition: opacity 0.3s 1s, transform 0.5s 1s ease-out;
+      transition: opacity 0.3s 1s, transform 0.5s 1s ease-out, -webkit-transform 0.5s 1s ease-out; }
       .tmp-second-page .service-item-wrap .service-img.act {
         opacity: 1;
         -webkit-transform: rotate(0deg);
@@ -574,10 +563,10 @@ body.tmp_2 {
       opacity: 0;
       -webkit-transform: translateX(8rem);
               transform: translateX(8rem);
-      -webkit-transition: opacity 0.3s 1.2s, -webkit-transform 0.4s 1.2s ease-out;
-      transition: opacity 0.3s 1.2s, -webkit-transform 0.4s 1.2s ease-out;
-      transition: opacity 0.3s 1.2s, transform 0.4s 1.2s ease-out;
-      transition: opacity 0.3s 1.2s, transform 0.4s 1.2s ease-out, -webkit-transform 0.4s 1.2s ease-out; }
+      -webkit-transition: opacity 0.3s 1.5s, -webkit-transform 0.4s 1.5s ease-out;
+      transition: opacity 0.3s 1.5s, -webkit-transform 0.4s 1.5s ease-out;
+      transition: opacity 0.3s 1.5s, transform 0.4s 1.5s ease-out;
+      transition: opacity 0.3s 1.5s, transform 0.4s 1.5s ease-out, -webkit-transform 0.4s 1.5s ease-out; }
       .tmp-second-page .service-item-wrap .text-wrap.act {
         opacity: 1;
         -webkit-transform: translateX(0rem);
@@ -640,10 +629,10 @@ body.tmp_2 {
       opacity: 0;
       -webkit-transform: translateY(3rem);
               transform: translateY(3rem);
-      -webkit-transition: opacity 0.3s 1.6s, -webkit-transform 0.4s 1.6s ease-out;
-      transition: opacity 0.3s 1.6s, -webkit-transform 0.4s 1.6s ease-out;
-      transition: opacity 0.3s 1.6s, transform 0.4s 1.6s ease-out;
-      transition: opacity 0.3s 1.6s, transform 0.4s 1.6s ease-out, -webkit-transform 0.4s 1.6s ease-out; }
+      -webkit-transition: opacity 0.3s 1.9s, -webkit-transform 0.4s 1.9s ease-out;
+      transition: opacity 0.3s 1.9s, -webkit-transform 0.4s 1.9s ease-out;
+      transition: opacity 0.3s 1.9s, transform 0.4s 1.9s ease-out;
+      transition: opacity 0.3s 1.9s, transform 0.4s 1.9s ease-out, -webkit-transform 0.4s 1.9s ease-out; }
       .tmp-second-page .service-item-wrap .service-desc.act {
         opacity: 1;
         -webkit-transform: translateY(0rem);
@@ -737,61 +726,64 @@ body.tmp_2 {
       height: 2.472rem;
       top: -0.444rem;
       right: -0.3056rem;
-      padding-top: 1rem;
+      padding: 1rem 0.7rem 0 0.5rem;
       text-align: center;
       background-size: 5.083rem 2.472rem;
       background-image: url("../images/2/24.png");
       background-repeat: no-repeat;
       color: #bd7c2d;
-      font-size: 0.667rem; }
+      font-size: 0.667rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap; }
     .tmp-second-page .tech-info-wrap.no-item > div:nth-of-type(2) {
       max-width: 12.5rem; }
     .tmp-second-page .tech-info-wrap.t0 {
       margin-top: 0;
-      -webkit-transition: opacity 0.4s 0.4s, -webkit-transform 0.4s 0.4s ease-out;
-      transition: opacity 0.4s 0.4s, -webkit-transform 0.4s 0.4s ease-out;
-      transition: opacity 0.4s 0.4s, transform 0.4s 0.4s ease-out;
-      transition: opacity 0.4s 0.4s, transform 0.4s 0.4s ease-out, -webkit-transform 0.4s 0.4s ease-out; }
+      -webkit-transition: opacity 0.4s 0.5s, -webkit-transform 0.5s 0.5s ease-out;
+      transition: opacity 0.4s 0.5s, -webkit-transform 0.5s 0.5s ease-out;
+      transition: opacity 0.4s 0.5s, transform 0.5s 0.5s ease-out;
+      transition: opacity 0.4s 0.5s, transform 0.5s 0.5s ease-out, -webkit-transform 0.5s 0.5s ease-out; }
       .tmp-second-page .tech-info-wrap.t0 > div:nth-of-type(1) {
-        -webkit-transition: opacity 0.3s 0.8s, -webkit-transform 0.4s 0.8s ease-out;
-        transition: opacity 0.3s 0.8s, -webkit-transform 0.4s 0.8s ease-out;
-        transition: opacity 0.3s 0.8s, transform 0.4s 0.8s ease-out;
-        transition: opacity 0.3s 0.8s, transform 0.4s 0.8s ease-out, -webkit-transform 0.4s 0.8s ease-out; }
+        -webkit-transition: opacity 0.4s 1s, -webkit-transform 0.5s 1s ease-out;
+        transition: opacity 0.4s 1s, -webkit-transform 0.5s 1s ease-out;
+        transition: opacity 0.4s 1s, transform 0.5s 1s ease-out;
+        transition: opacity 0.4s 1s, transform 0.5s 1s ease-out, -webkit-transform 0.5s 1s ease-out; }
         .tmp-second-page .tech-info-wrap.t0 > div:nth-of-type(1) > div {
-          -webkit-transition: opacity 0.3s 1.2s, -webkit-transform 0.4s 1.2s ease-out;
-          transition: opacity 0.3s 1.2s, -webkit-transform 0.4s 1.2s ease-out;
-          transition: opacity 0.3s 1.2s, transform 0.4s 1.2s ease-out;
-          transition: opacity 0.3s 1.2s, transform 0.4s 1.2s ease-out, -webkit-transform 0.4s 1.2s ease-out; }
+          -webkit-transition: opacity 0.4s 1.5s, -webkit-transform 0.5s 1.5s ease-out;
+          transition: opacity 0.4s 1.5s, -webkit-transform 0.5s 1.5s ease-out;
+          transition: opacity 0.4s 1.5s, transform 0.5s 1.5s ease-out;
+          transition: opacity 0.4s 1.5s, transform 0.5s 1.5s ease-out, -webkit-transform 0.5s 1.5s ease-out; }
     .tmp-second-page .tech-info-wrap.t1 {
-      -webkit-transition: opacity 0.4s 0.6s, -webkit-transform 0.4s 0.6s ease-out;
-      transition: opacity 0.4s 0.6s, -webkit-transform 0.4s 0.6s ease-out;
-      transition: opacity 0.4s 0.6s, transform 0.4s 0.6s ease-out;
-      transition: opacity 0.4s 0.6s, transform 0.4s 0.6s ease-out, -webkit-transform 0.4s 0.6s ease-out; }
+      -webkit-transition: opacity 0.4s 0.8s, -webkit-transform 0.5s 0.8s ease-out;
+      transition: opacity 0.4s 0.8s, -webkit-transform 0.5s 0.8s ease-out;
+      transition: opacity 0.4s 0.8s, transform 0.5s 0.8s ease-out;
+      transition: opacity 0.4s 0.8s, transform 0.5s 0.8s ease-out, -webkit-transform 0.5s 0.8s ease-out; }
       .tmp-second-page .tech-info-wrap.t1 > div:nth-of-type(1) {
-        -webkit-transition: opacity 0.3s 1.0s, -webkit-transform 0.4s 1.0s ease-out;
-        transition: opacity 0.3s 1.0s, -webkit-transform 0.4s 1.0s ease-out;
-        transition: opacity 0.3s 1.0s, transform 0.4s 1.0s ease-out;
-        transition: opacity 0.3s 1.0s, transform 0.4s 1.0s ease-out, -webkit-transform 0.4s 1.0s ease-out; }
+        -webkit-transition: opacity 0.4s 1.3s, -webkit-transform 0.5s 1.3s ease-out;
+        transition: opacity 0.4s 1.3s, -webkit-transform 0.5s 1.3s ease-out;
+        transition: opacity 0.4s 1.3s, transform 0.5s 1.3s ease-out;
+        transition: opacity 0.4s 1.3s, transform 0.5s 1.3s ease-out, -webkit-transform 0.5s 1.3s ease-out; }
         .tmp-second-page .tech-info-wrap.t1 > div:nth-of-type(1) > div {
-          -webkit-transition: opacity 0.3s 1.4s, -webkit-transform 0.4s 1.4s ease-out;
-          transition: opacity 0.3s 1.4s, -webkit-transform 0.4s 1.4s ease-out;
-          transition: opacity 0.3s 1.4s, transform 0.4s 1.4s ease-out;
-          transition: opacity 0.3s 1.4s, transform 0.4s 1.4s ease-out, -webkit-transform 0.4s 1.4s ease-out; }
+          -webkit-transition: opacity 0.4s 1.8s, -webkit-transform 0.5s 1.8s ease-out;
+          transition: opacity 0.4s 1.8s, -webkit-transform 0.5s 1.8s ease-out;
+          transition: opacity 0.4s 1.8s, transform 0.5s 1.8s ease-out;
+          transition: opacity 0.4s 1.8s, transform 0.5s 1.8s ease-out, -webkit-transform 0.5s 1.8s ease-out; }
     .tmp-second-page .tech-info-wrap.t2 {
-      -webkit-transition: opacity 0.4s 0.8s, -webkit-transform 0.4s 0.8s ease-out;
-      transition: opacity 0.4s 0.8s, -webkit-transform 0.4s 0.8s ease-out;
-      transition: opacity 0.4s 0.8s, transform 0.4s 0.8s ease-out;
-      transition: opacity 0.4s 0.8s, transform 0.4s 0.8s ease-out, -webkit-transform 0.4s 0.8s ease-out; }
+      -webkit-transition: opacity 0.4s 1.1s, -webkit-transform 0.5s 1.1s ease-out;
+      transition: opacity 0.4s 1.1s, -webkit-transform 0.5s 1.1s ease-out;
+      transition: opacity 0.4s 1.1s, transform 0.5s 1.1s ease-out;
+      transition: opacity 0.4s 1.1s, transform 0.5s 1.1s ease-out, -webkit-transform 0.5s 1.1s ease-out; }
       .tmp-second-page .tech-info-wrap.t2 > div:nth-of-type(1) {
-        -webkit-transition: opacity 0.3s 1.2s, -webkit-transform 0.4s 1.2s ease-out;
-        transition: opacity 0.3s 1.2s, -webkit-transform 0.4s 1.2s ease-out;
-        transition: opacity 0.3s 1.2s, transform 0.4s 1.2s ease-out;
-        transition: opacity 0.3s 1.2s, transform 0.4s 1.2s ease-out, -webkit-transform 0.4s 1.2s ease-out; }
+        -webkit-transition: opacity 0.4s 1.6s, -webkit-transform 0.5s 1.6s ease-out;
+        transition: opacity 0.4s 1.6s, -webkit-transform 0.5s 1.6s ease-out;
+        transition: opacity 0.4s 1.6s, transform 0.5s 1.6s ease-out;
+        transition: opacity 0.4s 1.6s, transform 0.5s 1.6s ease-out, -webkit-transform 0.5s 1.6s ease-out; }
         .tmp-second-page .tech-info-wrap.t2 > div:nth-of-type(1) > div {
-          -webkit-transition: opacity 0.3s 1.6s, -webkit-transform 0.4s 1.6s ease-out;
-          transition: opacity 0.3s 1.6s, -webkit-transform 0.4s 1.6s ease-out;
-          transition: opacity 0.3s 1.6s, transform 0.4s 1.6s ease-out;
-          transition: opacity 0.3s 1.6s, transform 0.4s 1.6s ease-out, -webkit-transform 0.4s 1.6s ease-out; }
+          -webkit-transition: opacity 0.4s 2.1s, -webkit-transform 0.5s 2.1s ease-out;
+          transition: opacity 0.4s 2.1s, -webkit-transform 0.5s 2.1s ease-out;
+          transition: opacity 0.4s 2.1s, transform 0.5s 2.1s ease-out;
+          transition: opacity 0.4s 2.1s, transform 0.5s 2.1s ease-out, -webkit-transform 0.5s 2.1s ease-out; }
   .tmp-second-page .video-wrap {
     position: relative;
     height: 15.139rem;
@@ -799,10 +791,10 @@ body.tmp_2 {
     margin: 0 auto;
     border: 0.278rem solid #fff;
     border-radius: 0.4rem;
-    -webkit-transition: opacity 0.3s 0.4s, -webkit-transform 0.5s 0.4s !important;
-    transition: opacity 0.3s 0.4s, -webkit-transform 0.5s 0.4s !important;
-    transition: opacity 0.3s 0.4s, transform 0.5s 0.4s !important;
-    transition: opacity 0.3s 0.4s, transform 0.5s 0.4s, -webkit-transform 0.5s 0.4s !important; }
+    -webkit-transition: opacity 0.4s 0.5s, -webkit-transform 0.6s 0.5s !important;
+    transition: opacity 0.4s 0.5s, -webkit-transform 0.6s 0.5s !important;
+    transition: opacity 0.4s 0.5s, transform 0.6s 0.5s !important;
+    transition: opacity 0.4s 0.5s, transform 0.6s 0.5s, -webkit-transform 0.6s 0.5s !important; }
     .tmp-second-page .video-wrap > div {
       width: 100%;
       height: 100%;
@@ -814,11 +806,11 @@ body.tmp_2 {
       height: 100%; }
     .tmp-second-page .video-wrap:after {
       bottom: -1.8rem;
-      -webkit-transition: opacity 0.4s 1.3s;
-      transition: opacity 0.4s 1.3s; }
+      -webkit-transition: opacity 0.5s 1.5s;
+      transition: opacity 0.5s 1.5s; }
     .tmp-second-page .video-wrap:before {
-      -webkit-transition: opacity 0.4s 0.9s;
-      transition: opacity 0.4s 0.9s;
+      -webkit-transition: opacity 0.5s 1s;
+      transition: opacity 0.5s 1s;
       z-index: 1; }
     .tmp-second-page .video-wrap.act:before, .tmp-second-page .video-wrap.act:after {
       opacity: 1; }
@@ -834,16 +826,16 @@ body.tmp_2 {
     opacity: 0;
     -webkit-transform: scale(0.5, 0.5);
             transform: scale(0.5, 0.5);
-    -webkit-transition: opacity 0.3s 0.4s, -webkit-transform 0.5s 0.4s ease-out;
-    transition: opacity 0.3s 0.4s, -webkit-transform 0.5s 0.4s ease-out;
-    transition: opacity 0.3s 0.4s, transform 0.5s 0.4s ease-out;
-    transition: opacity 0.3s 0.4s, transform 0.5s 0.4s ease-out, -webkit-transform 0.5s 0.4s ease-out;
+    -webkit-transition: opacity 0.4s 0.5s, -webkit-transform 0.5s 0.5s ease-out;
+    transition: opacity 0.4s 0.5s, -webkit-transform 0.5s 0.5s ease-out;
+    transition: opacity 0.4s 0.5s, transform 0.5s 0.5s ease-out;
+    transition: opacity 0.4s 0.5s, transform 0.5s 0.5s ease-out, -webkit-transform 0.5s 0.5s ease-out;
     -webkit-transform-origin: 50% 50%;
             transform-origin: 50% 50%; }
     .tmp-second-page .act-wrap:before {
       top: -2rem;
-      -webkit-transition: opacity 0.3s 0.9s;
-      transition: opacity 0.3s 0.9s; }
+      -webkit-transition: opacity 0.4s 1s;
+      transition: opacity 0.4s 1s; }
     .tmp-second-page .act-wrap .grab-btn {
       width: 15.889rem;
       height: 2.278rem;
@@ -884,19 +876,19 @@ body.tmp_2 {
       opacity: 0;
       -webkit-transform: scale(0, 0);
               transform: scale(0, 0);
-      -webkit-transition: opacity 0.4s 1.2s, -webkit-transform 0.5s 1.2s ease-out;
-      transition: opacity 0.4s 1.2s, -webkit-transform 0.5s 1.2s ease-out;
-      transition: opacity 0.4s 1.2s, transform 0.5s 1.2s ease-out;
-      transition: opacity 0.4s 1.2s, transform 0.5s 1.2s ease-out, -webkit-transform 0.5s 1.2s ease-out; }
+      -webkit-transition: opacity 0.4s 1.4s, -webkit-transform 0.5s 1.4s ease-out;
+      transition: opacity 0.4s 1.4s, -webkit-transform 0.5s 1.4s ease-out;
+      transition: opacity 0.4s 1.4s, transform 0.5s 1.4s ease-out;
+      transition: opacity 0.4s 1.4s, transform 0.5s 1.4s ease-out, -webkit-transform 0.5s 1.4s ease-out; }
       .tmp-second-page .time-limit-wrap > div:nth-of-type(1).act, .tmp-second-page .one-yuan-wrap > div:nth-of-type(1).act {
         opacity: 1;
         -webkit-transform: scale(1, 1);
                 transform: scale(1, 1); }
     .tmp-second-page .time-limit-wrap .grab-btn, .tmp-second-page .one-yuan-wrap .grab-btn {
-      -webkit-transition: opacity 0.3s 1.7s, -webkit-transform 0.4s 1.7s ease-out;
-      transition: opacity 0.3s 1.7s, -webkit-transform 0.4s 1.7s ease-out;
-      transition: opacity 0.3s 1.7s, transform 0.4s 1.7s ease-out;
-      transition: opacity 0.3s 1.7s, transform 0.4s 1.7s ease-out, -webkit-transform 0.4s 1.7s ease-out; }
+      -webkit-transition: opacity 0.4s 1.9s, -webkit-transform 0.5s 1.9s ease-out;
+      transition: opacity 0.4s 1.9s, -webkit-transform 0.5s 1.9s ease-out;
+      transition: opacity 0.4s 1.9s, transform 0.5s 1.9s ease-out;
+      transition: opacity 0.4s 1.9s, transform 0.5s 1.9s ease-out, -webkit-transform 0.5s 1.9s ease-out; }
   .tmp-second-page .time-limit-wrap > div.text-wrap {
     margin-top: 0.4rem; }
     .tmp-second-page .time-limit-wrap > div.text-wrap > div {
@@ -950,8 +942,8 @@ body.tmp_2 {
         height: 100%;
         border-radius: 0.5rem;
         background-color: #ffc450;
-        -webkit-transition: width 1s 10s ease-out;
-        transition: width 1s 10s ease-out; }
+        -webkit-transition: width 1s 5s ease-out;
+        transition: width 1s 5s ease-out; }
     .tmp-second-page .one-yuan-wrap > div.text-wrap > div:nth-of-type(3) {
       color: #fff;
       font-size: 0.833rem; }
@@ -973,10 +965,10 @@ body.tmp_2 {
               transform: scaleY(0);
       -webkit-transform-origin: 50% 0;
               transform-origin: 50% 0;
-      -webkit-transition: opacity 0.4s 1.2s, -webkit-transform 0.5s 1.2s ease-out;
-      transition: opacity 0.4s 1.2s, -webkit-transform 0.5s 1.2s ease-out;
-      transition: opacity 0.4s 1.2s, transform 0.5s 1.2s ease-out;
-      transition: opacity 0.4s 1.2s, transform 0.5s 1.2s ease-out, -webkit-transform 0.5s 1.2s ease-out; }
+      -webkit-transition: opacity 0.4s 1.4s, -webkit-transform 0.5s 1.4s ease-out;
+      transition: opacity 0.4s 1.4s, -webkit-transform 0.5s 1.4s ease-out;
+      transition: opacity 0.4s 1.4s, transform 0.5s 1.4s ease-out;
+      transition: opacity 0.4s 1.4s, transform 0.5s 1.4s ease-out, -webkit-transform 0.5s 1.4s ease-out; }
       .tmp-second-page .coupon-wrap .coupon.act {
         opacity: 1;
         -webkit-transform: scaleY(1);
@@ -1023,10 +1015,10 @@ body.tmp_2 {
               transform: rotate(90deg);
       -webkit-transform-origin: 50% 50%;
               transform-origin: 50% 50%;
-      -webkit-transition: opacity 0.4s 1.6s, -webkit-transform 0.5s 1.6s ease-out;
-      transition: opacity 0.4s 1.6s, -webkit-transform 0.5s 1.6s ease-out;
-      transition: opacity 0.4s 1.6s, transform 0.5s 1.6s ease-out;
-      transition: opacity 0.4s 1.6s, transform 0.5s 1.6s ease-out, -webkit-transform 0.5s 1.6s ease-out; }
+      -webkit-transition: opacity 0.4s 1.9s, -webkit-transform 0.5s 1.9s ease-out;
+      transition: opacity 0.4s 1.9s, -webkit-transform 0.5s 1.9s ease-out;
+      transition: opacity 0.4s 1.9s, transform 0.5s 1.9s ease-out;
+      transition: opacity 0.4s 1.9s, transform 0.5s 1.9s ease-out, -webkit-transform 0.5s 1.9s ease-out; }
       .tmp-second-page .coupon-wrap .grab-btn.act {
         opacity: 1;
         -webkit-transform: rotate(0deg);
@@ -1046,10 +1038,10 @@ body.tmp_2 {
     opacity: 0;
     -webkit-transform: translateX(100%) rotate(90deg);
             transform: translateX(100%) rotate(90deg);
-    -webkit-transition: opacity 0.4s 0.4s, -webkit-transform 0.5s 0.4s ease-out;
-    transition: opacity 0.4s 0.4s, -webkit-transform 0.5s 0.4s ease-out;
-    transition: opacity 0.4s 0.4s, transform 0.5s 0.4s ease-out;
-    transition: opacity 0.4s 0.4s, transform 0.5s 0.4s ease-out, -webkit-transform 0.5s 0.4s ease-out; }
+    -webkit-transition: opacity 0.5s 0.5s, -webkit-transform 0.6s 0.5s ease-out;
+    transition: opacity 0.5s 0.5s, -webkit-transform 0.6s 0.5s ease-out;
+    transition: opacity 0.5s 0.5s, transform 0.6s 0.5s ease-out;
+    transition: opacity 0.5s 0.5s, transform 0.6s 0.5s ease-out, -webkit-transform 0.6s 0.5s ease-out; }
     .tmp-second-page .health-wrap.act {
       opacity: 1;
       -webkit-transform: translateX(0) rotate(0deg);
@@ -1060,7 +1052,7 @@ body.tmp_2 {
       overflow: auto; }
   .tmp-second-page .actDesc-slide .red-zebra-wrap {
     padding: 1.667rem 1.388rem;
-    font-size: 0.778rem;
+    font-size: 0.889rem;
     color: #72251b;
     line-height: 1.3rem; }
     .tmp-second-page .actDesc-slide .red-zebra-wrap > div {
@@ -1082,10 +1074,10 @@ body.tmp_2 {
     opacity: 0;
     -webkit-transform: translateY(4rem);
             transform: translateY(4rem);
-    -webkit-transition: opacity 0.3s 1.3s, -webkit-transform 0.4s 1.3s;
-    transition: opacity 0.3s 1.3s, -webkit-transform 0.4s 1.3s;
-    transition: opacity 0.3s 1.3s, transform 0.4s 1.3s;
-    transition: opacity 0.3s 1.3s, transform 0.4s 1.3s, -webkit-transform 0.4s 1.3s; }
+    -webkit-transition: opacity 0.4s 1.5s, -webkit-transform 0.5s 1.5s;
+    transition: opacity 0.4s 1.5s, -webkit-transform 0.5s 1.5s;
+    transition: opacity 0.4s 1.5s, transform 0.5s 1.5s;
+    transition: opacity 0.4s 1.5s, transform 0.5s 1.5s, -webkit-transform 0.5s 1.5s; }
     .tmp-second-page .actDesc-slide .act-time.act {
       opacity: 1;
       -webkit-transform: translateY(0);
@@ -1098,10 +1090,10 @@ body.tmp_2 {
     opacity: 0;
     -webkit-transform: translateX(100%);
             transform: translateX(100%);
-    -webkit-transition: opacity 0.4s 0.4s, -webkit-transform 0.5s 0.4s ease-out;
-    transition: opacity 0.4s 0.4s, -webkit-transform 0.5s 0.4s ease-out;
-    transition: opacity 0.4s 0.4s, transform 0.5s 0.4s ease-out;
-    transition: opacity 0.4s 0.4s, transform 0.5s 0.4s ease-out, -webkit-transform 0.5s 0.4s ease-out; }
+    -webkit-transition: opacity 0.4s 0.5s, -webkit-transform 0.5s 0.5s ease-out;
+    transition: opacity 0.4s 0.5s, -webkit-transform 0.5s 0.5s ease-out;
+    transition: opacity 0.4s 0.5s, transform 0.5s 0.5s ease-out;
+    transition: opacity 0.4s 0.5s, transform 0.5s 0.5s ease-out, -webkit-transform 0.5s 0.5s ease-out; }
     .tmp-second-page .page-end-title.act {
       opacity: 1;
       -webkit-transform: translateX(0);
@@ -1118,10 +1110,10 @@ body.tmp_2 {
     opacity: 0;
     -webkit-transform: scale(0, 0);
             transform: scale(0, 0);
-    -webkit-transition: opacity 0.4s 0.9s, -webkit-transform 0.5s 0.9s ease-out;
-    transition: opacity 0.4s 0.9s, -webkit-transform 0.5s 0.9s ease-out;
-    transition: opacity 0.4s 0.9s, transform 0.5s 0.9s ease-out;
-    transition: opacity 0.4s 0.9s, transform 0.5s 0.9s ease-out, -webkit-transform 0.5s 0.9s ease-out; }
+    -webkit-transition: opacity 0.5s 1s, -webkit-transform 0.6s 1s ease-out;
+    transition: opacity 0.5s 1s, -webkit-transform 0.6s 1s ease-out;
+    transition: opacity 0.5s 1s, transform 0.6s 1s ease-out;
+    transition: opacity 0.5s 1s, transform 0.6s 1s ease-out, -webkit-transform 0.6s 1s ease-out; }
     .tmp-second-page .qr-code.act {
       opacity: 1;
       -webkit-transform: scale(1, 1);
@@ -1145,10 +1137,10 @@ body.tmp_2 {
     opacity: 0;
     -webkit-transform: translateY(-4rem);
             transform: translateY(-4rem);
-    -webkit-transition: opacity 0.4s 1.4s, -webkit-transform 0.5s 1.4s ease-out;
-    transition: opacity 0.4s 1.4s, -webkit-transform 0.5s 1.4s ease-out;
-    transition: opacity 0.4s 1.4s, transform 0.5s 1.4s ease-out;
-    transition: opacity 0.4s 1.4s, transform 0.5s 1.4s ease-out, -webkit-transform 0.5s 1.4s ease-out; }
+    -webkit-transition: opacity 0.4s 1.6s, -webkit-transform 0.5s 1.6s ease-out;
+    transition: opacity 0.4s 1.6s, -webkit-transform 0.5s 1.6s ease-out;
+    transition: opacity 0.4s 1.6s, transform 0.5s 1.6s ease-out;
+    transition: opacity 0.4s 1.6s, transform 0.5s 1.6s ease-out, -webkit-transform 0.5s 1.6s ease-out; }
     .tmp-second-page .attention-tip.act {
       opacity: 1;
       -webkit-transform: translateY(0);
@@ -1165,10 +1157,10 @@ body.tmp_2 {
     opacity: 0;
     -webkit-transform: translateY(5rem);
             transform: translateY(5rem);
-    -webkit-transition: opacity 0.5s 2.2s, -webkit-transform 0.5s 2.2s;
-    transition: opacity 0.5s 2.2s, -webkit-transform 0.5s 2.2s;
-    transition: opacity 0.5s 2.2s, transform 0.5s 2.2s;
-    transition: opacity 0.5s 2.2s, transform 0.5s 2.2s, -webkit-transform 0.5s 2.2s; }
+    -webkit-transition: opacity 0.5s 2.4s, -webkit-transform 0.5s 2.4s;
+    transition: opacity 0.5s 2.4s, -webkit-transform 0.5s 2.4s;
+    transition: opacity 0.5s 2.4s, transform 0.5s 2.4s;
+    transition: opacity 0.5s 2.4s, transform 0.5s 2.4s, -webkit-transform 0.5s 2.4s; }
     .tmp-second-page .bottom-btn.act {
       opacity: 1;
       -webkit-transform: translateY(0rem);

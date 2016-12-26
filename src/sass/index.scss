@@ -2,8 +2,6 @@
 @import "share.scss";
 @import 'video.scss';
 @import "ani.scss";
-@import "tmp-first.scss";
-@import "tmp-second.scss";
 
 body{
   position: relative;
@@ -46,6 +44,10 @@ div.page-content{
 .endAni{
   transition-duration: 0.05s !important; // 如果设置0s，transitionend事件不会触发
   transition-delay:0s !important;
+  &:before,&:after{
+    transition-duration: 0.05s !important;
+    transition-delay:0s !important;
+  }
 }
 
 div.page-error{
@@ -162,10 +164,9 @@ div.tech-pics-slide{
 
 .music-icon{
   display: none;
-  position: fixed;
+  position: absolute;
   top:1.75rem;
-  left:50%;
-  margin-left:7.167rem;
+  right: 0.583rem;
   width:2.25rem;
   height:2.25rem;
   @include img("../images/music.png",2.25rem 2.25rem);
